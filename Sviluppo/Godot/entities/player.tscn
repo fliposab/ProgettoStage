@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bavgupsqvucrs"]
+
+[ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
+[ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
+[ext_resource type="Script" uid="uid://baxpf5pqqy5bg" path="res://code/state_machine/statemachine.gd" id="2_e4p34"]
+[ext_resource type="Script" uid="uid://cm21dif6ji0gp" path="res://code/state_machine/states/player_jump_state.gd" id="4_rfe5m"]
+[ext_resource type="PackedScene" uid="uid://c0wgwsfgnt3ax" path="res://entities/camera_raycast.tscn" id="5_qly61"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0kkn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_merdl"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_merdl")
+speed = 100.0
+jump = 15.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b0kkn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_merdl")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_e4p34")
+initial_state = NodePath("Ground")
+
+[node name="Ground" type="Node" parent="StateMachine"]
+script = ExtResource("2_b0kkn")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("4_rfe5m")
+
+[node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]

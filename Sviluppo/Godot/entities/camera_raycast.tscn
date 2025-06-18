@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0wgwsfgnt3ax"]
+
+[ext_resource type="Script" uid="uid://b8ppim80pih60" path="res://code/camera_raycast.gd" id="1_x7wl3"]
+[ext_resource type="PackedScene" uid="uid://ja7dtj635wmt" path="res://entities/camera_target.tscn" id="2_hpeqk"]
+
+[node name="CameraRaycast" type="RayCast3D"]
+target_position = Vector3(0, -3, 0)
+script = ExtResource("1_x7wl3")
+
+[node name="CameraTarget" parent="." instance=ExtResource("2_hpeqk")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraTarget"]
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
