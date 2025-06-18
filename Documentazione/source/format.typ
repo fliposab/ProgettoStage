@@ -107,3 +107,7 @@
   counter(page).update(1)
   contenuto
 }
+
+#let gloss(body) = {
+  [#text(blue, size:12pt, font: "Noto Sans")[#underline[#body]\*]]
+}
