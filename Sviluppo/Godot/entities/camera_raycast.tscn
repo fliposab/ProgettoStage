@@ -4,12 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://ja7dtj635wmt" path="res://entities/camera_target.tscn" id="2_hpeqk"]
 
 [node name="CameraRaycast" type="RayCast3D"]
-target_position = Vector3(0, -3, 0)
+target_position = Vector3(0, -4, 0)
 script = ExtResource("1_x7wl3")
+offset = Vector3(0, 2.2, 0)
 
 [node name="CameraTarget" parent="." instance=ExtResource("2_hpeqk")]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraTarget"]
-spring_length = 3.0
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
+collision_mask = 2
+spring_length = 8.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraTarget/SpringArm3D"]
+fov = 50.0

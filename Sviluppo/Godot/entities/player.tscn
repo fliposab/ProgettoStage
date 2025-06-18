@@ -1,25 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=10 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
 [ext_resource type="Script" uid="uid://baxpf5pqqy5bg" path="res://code/state_machine/statemachine.gd" id="2_e4p34"]
+[ext_resource type="Script" uid="uid://cpeg5vpa2ovm6" path="res://code/player/player_collectibles.gd" id="2_qsoyl"]
 [ext_resource type="Script" uid="uid://cm21dif6ji0gp" path="res://code/state_machine/states/player_jump_state.gd" id="4_rfe5m"]
 [ext_resource type="PackedScene" uid="uid://c0wgwsfgnt3ax" path="res://entities/camera_raycast.tscn" id="5_qly61"]
+[ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b0kkn"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6nm46"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_merdl"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
+radius = 0.2
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+floor_max_angle = 0.523599
 script = ExtResource("1_merdl")
-speed = 100.0
-jump = 15.0
+speed = 250.0
+jump = 12.0
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+mesh = SubResource("CapsuleMesh_6nm46")
+skeleton = NodePath("../..")
+
+[node name="Misc" type="Node" parent="."]
+
+[node name="Collectibles" type="Node" parent="Misc"]
+script = ExtResource("2_qsoyl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_b0kkn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_merdl")
+shape = SubResource("CapsuleShape3D_qly61")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_e4p34")
@@ -28,7 +41,24 @@ initial_state = NodePath("Ground")
 [node name="Ground" type="Node" parent="StateMachine"]
 script = ExtResource("2_b0kkn")
 
-[node name="Jump" type="Node" parent="StateMachine"]
+[node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_rfe5m")
 
 [node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+speed = Vector2(1, 2)
+
+[node name="PlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" parent="PlayerUI" instance=ExtResource("7_6nm46")]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 133.0
+offset_bottom = 65.0
+
+[connection signal="changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="change_text_count"]
