@@ -95,6 +95,7 @@ Gli strumenti utilizzati per lo sviluppo del software sono i seguenti:
 - *GIMP*: software di modifica delle immagini utilizzato per la modifica occasionale di texture e delle immagini del videogioco.
 - *Git*: sistema di controllo versione utilizzato per gestire il codice sorgente e le modifiche apportate.
 - *Typst*: linguaggio di markup utilizzato per la composizione tipografica della documentazione.
+- *Notion*: strumento di collaborazione e gestione dei progetti utilizzato per la pianificazione delle attività.
 - *GitHub*: piattaforma di hosting per il codice sorgente e la gestione del progetto, utilizzata per la collaborazione tra i membri del team di sviluppo.
 - *Visual Studio Code*: editor di testo utilizzato per la scrittura del codice sorgente e della documentazione.
 - *GitHub Actions*: strumento di integrazione continua utilizzato per automatizzare i processi di build, test e distribuzione del software, garantendo che il codice sia sempre in uno stato funzionante e pronto per la consegna.
