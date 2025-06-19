@@ -1,0 +1,93 @@
+name: Compile Typst docs
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+            - name: Setup Typst
+              uses: typst-community/setup-typst@v4
+
+            - name: Cache fonts
+              id: cache-fonts
+              uses: actions/cache@v4
+              with:
+                  path: ~/.local/share/fonts
+                  key: fonts-${{ runner.os }}-noto-jetbrains
+                  restore-keys: |
+                      fonts-${{ runner.os }}-
+
+            - name: Install fonts
+              if: steps.cache-fonts.outputs.cache-hit != 'true'
+              run: |
+                  mkdir -p ~/.local/share/fonts
+                  wget https://noto-website-2.storage.googleapis.com/pkgs/NotoSans-unhinted.zip -O /tmp/NotoSans-unhinted.zip
+                  unzip /tmp/NotoSans-unhinted.zip -d ~/.local/share/fonts
+                  wget https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip -O /tmp/JetBrainsMono.zip
+                  unzip /tmp/JetBrainsMono.zip -d ~/.local/share/fonts
+                  fc-cache -f -v
+
+            - name: Clean old PDFs
+              run: |
+                  find . -name "*.pdf" ! -name "*_ext.pdf" ! -name "*_firmato.pdf" -not -path "./diari-di-bordo/*" -not -path "./2\ -\ RTB/presentazioni/*" -not -path "./3\ -\ PB/presentazioni/*" -delete
+
+            - name: Compile Typst documents
+              run: |
+                  find . -path ./template -prune -o -name "*.typ" -print0 | while IFS= read -r -d '' file; do
+                    output="${file%.typ}.pdf"
+                    echo "Compilando: $file -> $output"
+                    typst compile --root . "$file" "$output" --font-path ~/.local/share/fonts
+                  done
+
+            - name: Remove PDF files with same name as _ext or _firmato
+              run: |
+                  find . -name "*_ext.pdf" -o -name "*_firmato.pdf" | while read -r file; do
+                      base=$(basename "$file" "_ext.pdf")
+                      base=${base%_firmato.pdf}
+                      if [ -n "$base" ]; then
+                        echo "Eliminazione di: ${base}.pdf"
+                        find . -name "${base}.pdf" -exec rm {} \;
+                      else
+                        echo "Base non valida per il file: $file"
+                      fi
+                  done
+
+            - name: Move PDFs to parent
+              run: |
+                  find . -name "*.pdf" ! -name "*_ext.pdf" ! -name "*_firmato.pdf" -exec sh -c 'mv "$0" "$(dirname "$0")/../"' {} \;
+
+            - name: List all PDF files
+              run: find . -name "*.pdf" ! -name "*_ext.pdf" ! -name "*_firmato.pdf"
+
+            - name: Upload PDF artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Documentazione-ProgettoStage
+                  path: "./Documentazione/*.pdf"
+
+            - name: Commit and push PDFs and README
+              run: |
+                  git config --global user.name 'github-actions[bot]'
+                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+                  git pull
+                  git add .
+                  git commit -m 'Add compiled PDF files and update README.md [skip ci]'
+                  git push
+              env:
+                  GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+        
+    
