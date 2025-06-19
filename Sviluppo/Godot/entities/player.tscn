@@ -32,6 +32,8 @@ skeleton = NodePath("../..")
 [node name="Collectibles" type="Node" parent="Misc"]
 script = ExtResource("2_qsoyl")
 
+[node name="PlayerSaveHandler" type="Node" parent="Misc"]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qly61")
 

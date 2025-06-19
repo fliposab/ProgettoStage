@@ -3,7 +3,6 @@
 
 #show: doc => documento(titolo: "Norme di progetto",
 doc)
-// spaciugo per aggiungere l'indice delle immagini
 #set page(numbering: "I")
 #counter(page).update(3)
 #show heading: i-figured.reset-counters.with(level: 0)
@@ -98,25 +97,72 @@ Gli strumenti utilizzati per lo sviluppo del software sono i seguenti:
 - *Notion*: strumento di collaborazione e gestione dei progetti utilizzato per la pianificazione delle attività.
 - *GitHub*: piattaforma di hosting per il codice sorgente e la gestione del progetto, utilizzata per la collaborazione tra i membri del team di sviluppo.
 - *Visual Studio Code*: editor di testo utilizzato per la scrittura del codice sorgente e della documentazione.
-- *GitHub Actions*: strumento di integrazione continua utilizzato per automatizzare i processi di build, test e distribuzione del software, garantendo che il codice sia sempre in uno stato funzionante e pronto per la consegna.
-= Sviluppo
 
 = Processi di supporto
+
 == Documentazione
 === Scopo e descrizione
 Il processo di documentazione ha lo scopo di garantire che tutta la documentazione necessaria per il progetto sia creata e mantenuta aggiornata.\
-=== Analisi dei requisiti
-=== Progettazione
-=== Codifica e testing
+In questa sezione verranno descritte le decisioni prese e rispettate, in modo da garantire la coerenza tra i vari documenti.
+=== Attività
+Il processo di documentazione comprende le seguenti attività:
+- *Realizzazione*: creazione o modifica di un determinato documento, in base alle esigenze del progetto, si divide in:
+  - *individuazione compito*: identificazione della sezione del documento da modificare o creare.
+  - *redazione*: modifica del documento;
+- *Revisione*: revisione delle modifiche applicate al documento, e decisione se approvarle o modificarle ulteriormente, comprende le seguenti attività:
+  - *revisione interna*: 
+- *Aggiornamento*: comprende le seguenti attività:
+  - *push*: i documenti vengono caricati nell #gloss[repository] di #gloss[GitHub];
+  - *compilazione*: modifica dei documenti in base alle esigenze del progetto, in modo da garantire la coerenza tra i vari documenti.
 
-= Processi di supporto
-== Documentazione
-=== Scopo e descrizione
-=== Composizione tipografica
-=== Struttura dei documentazione
+=== Struttura dei documenti
+
+==== Intestazione
+- *Titolo*:
+- *Autore*:
+
+==== Indice
+
+==== Corpo del documento
+
 === Documenti del progetto
+
 === Elenchi puntati
-=== Immagini use case
-=== Formato delle date
+
+=== Diagrammi UML
+
+=== Formato date
+
+=== Composizione tipografica
+
 === Strumenti
+
 == Gestione della configurazione
+
+== Gestione della qualità
+=== Scopo e descrizione
+Il processo di gestione della qualità ha lo scopo di garantire che il prodotto software soddisfi
+
+=== Attività
+
+== Verifica
+
+== validazione
+
+= Processi organizzativi
+
+== Miglioramento
+
+= Metriche e standard per la qualità
+
+== Funzionalità
+== Prestazioni
+== Affidabilità
+== Sicurezza
+== Usabilità
+== Manutenibilità
+== Portabilità
+
+/* da mettere?
+= Metriche di qualità
+*/
