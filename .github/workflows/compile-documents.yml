@@ -3,7 +3,7 @@ name: Compile Typst files
 on:
   push:
     paths:
-      - '**.typ'   # Triggers only if .typ files change
+      - '**.typ'   # Triggers only if .typ files change test
       - '.github/workflows/typst.yml'
 
 jobs:
@@ -12,11 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Typst
+      - name: Install Typstg
         run: |
           curl -L https://github.com/typst/typst/releases/latest/download/typst-x86_64-linux.tar.xz | tar -xJ
           sudo mv typst /usr/local/bin/
 
       - name: Compile Typst files
         run: |
-          find . -name '*.typ' -exec typst compile {} \;
+          find . -name '*.typ' -exec typst compile {} \;   
