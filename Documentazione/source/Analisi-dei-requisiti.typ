@@ -3,7 +3,6 @@
 
 #show: doc => documento(titolo: "Analisi dei requisiti",
 doc)
-// spaciugo per aggiungere l'indice delle immagini
 #set page(numbering: "I")
 #counter(page).update(3)
 #show heading: i-figured.reset-counters.with(level: 0)
@@ -204,6 +203,7 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 *Scenario principale*:
 - Il giocatore seleziona l'opzione "Modifica risoluzione" dal menu delle opzioni.
 - Il gioco visualizza un elenco di risoluzioni disponibili e il giocatore può selezionare quella desiderata.
+
 == UC? - Modifica modalità finestra/schermo intero
 *Attori principali*:
 - Giocatore
@@ -230,6 +230,7 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il giocatore seleziona l'opzione "Modifica lingua" dal menu delle opzioni.
 - Il gioco visualizza un elenco di lingue disponibili e il giocatore può selezionare quella desiderata.
 - Il gioco cambia la lingua in base alla selezione del giocatore.
+
 // Azioni nel menu principale
 == UC? - Nuova partita
 *Attori principali*:

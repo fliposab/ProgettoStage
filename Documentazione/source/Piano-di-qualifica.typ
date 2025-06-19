@@ -3,7 +3,6 @@
 
 #show: doc => documento(titolo: "Piano di qualifica",
 doc)
-// spaciugo per aggiungere l'indice delle immagini
 #set page(numbering: "I")
 #counter(page).update(3)
 #show heading: i-figured.reset-counters.with(level: 0)

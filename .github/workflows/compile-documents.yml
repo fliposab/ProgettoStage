@@ -54,7 +54,7 @@ jobs:
 
             - name: Remove PDF files with same name as _ext or _firmato
               run: |
-                  find . -name "*_ext.pdf" -name "format.pdf" -name "format_glossario.pdf" -o -name "*_firmato.pdf" | while read -r file; do
+                  find . -name "*_ext.pdf" -o -name "*_firmato.pdf" | while read -r file; do
                       base=$(basename "$file" "_ext.pdf")
                       base=${base%_firmato.pdf}
                       if [ -n "$base" ]; then
