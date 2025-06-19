@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://by03k0i31uo5u"]
+
+[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/OptionsMenu/options_check_button.tscn" id="1_31bm3"]
+[ext_resource type="Script" uid="uid://c12detlhvagwq" path="res://code/ui/shadows_quality_button.gd" id="2_phuwc"]
+
+[node name="ShadowsQuality" instance=ExtResource("1_31bm3")]
+script = ExtResource("2_phuwc")
+
+[node name="Label" parent="." index="0"]
+text = "SHADOWS_QUALITY"
+
+[node name="OptionButton" parent="." index="1"]
+item_count = 4
+popup/item_0/text = "HIGH"
+popup/item_1/text = "MEDIUM"
+popup/item_2/text = "LOW"
+popup/item_2/id = 2
+popup/item_3/text = "VERY_LOW"
+popup/item_3/id = 3

@@ -25,7 +25,7 @@ background_mode = 2
 sky = SubResource("Sky_x25rp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6mel"]
-size = Vector3(11.0823, 1, 9.01392)
+size = Vector3(47.6853, 1, 40.2517)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_x25rp")

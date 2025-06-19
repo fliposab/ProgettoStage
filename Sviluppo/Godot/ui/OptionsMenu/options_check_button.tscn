@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yhnrvh21spol"]
 
-[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/OptionsMenu/options_button.gd" id="1_dso41"]
+[ext_resource type="Script" uid="uid://c27wuqapu3ehc" path="res://code/ui/windows_mode_button.gd" id="1_dso41"]
 
 [node name="CheckButton" type="HBoxContainer"]
 script = ExtResource("1_dso41")
@@ -24,3 +24,4 @@ popup/item_1/text = "FULLSCREEN"
 popup/item_1/id = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_item_selected"]

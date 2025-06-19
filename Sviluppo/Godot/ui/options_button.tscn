@@ -9,9 +9,10 @@ theme_override_font_sizes/font_size = 24
 text = "OPTIONS"
 script = ExtResource("1_74j72")
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_dvroa")]
+[node name="OptionsMenu" parent="." node_paths=PackedStringArray("option_button") instance=ExtResource("2_dvroa")]
 visible = false
 top_level = true
 layout_mode = 1
+option_button = NodePath("..")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5u4jb1yv0618"]
+
+[ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_6m20y"]
+[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/OptionsMenu/options_check_button.tscn" id="2_lp3yf"]
+[ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/OptionsMenu/window_resolution_button.tscn" id="3_5m1ck"]
+[ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/OptionsMenu/resolution_scale_button.tscn" id="4_bpfoh"]
+[ext_resource type="PackedScene" uid="uid://c4dyj3jfhscxw" path="res://ui/OptionsMenu/anti_aliasing_button.tscn" id="5_2bx5m"]
+[ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/OptionsMenu/language_button.tscn" id="6_qyd7g"]
+[ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/OptionsMenu/shadows_quality_button.tscn" id="7_h6lk4"]
+
+[node name="ButtonsContainer" type="VBoxContainer"]
+custom_minimum_size = Vector2(700, 0)
+size_flags_vertical = 6
+mouse_filter = 0
+script = ExtResource("1_6m20y")
+
+[node name="WindowMode" parent="." instance=ExtResource("2_lp3yf")]
+layout_mode = 2
+
+[node name="WindowResolution" parent="." instance=ExtResource("3_5m1ck")]
+layout_mode = 2
+
+[node name="OptionButton" parent="WindowResolution" index="1"]
+focus_neighbor_bottom = NodePath("../../ResolutionScale/OptionButton")
+focus_next = NodePath("../../ResolutionScale/OptionButton")
+
+[node name="ResolutionScale" parent="." instance=ExtResource("4_bpfoh")]
+layout_mode = 2
+
+[node name="OptionButton" parent="ResolutionScale" index="2"]
+focus_neighbor_top = NodePath("../../WindowResolution/OptionButton")
+focus_neighbor_bottom = NodePath("../../AntiAliasing/OptionButton")
+focus_next = NodePath("../../AntiAliasing/OptionButton")
+focus_previous = NodePath("../../WindowResolution/OptionButton")
+
+[node name="AntiAliasing" parent="." instance=ExtResource("5_2bx5m")]
+layout_mode = 2
+
+[node name="OptionButton" parent="AntiAliasing" index="1"]
+focus_neighbor_top = NodePath("../../ResolutionScale/OptionButton")
+focus_previous = NodePath("../../ResolutionScale/OptionButton")
+
+[node name="Language" parent="." instance=ExtResource("6_qyd7g")]
+layout_mode = 2
+
+[node name="ShadowsQuality" parent="." instance=ExtResource("7_h6lk4")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "DESCRIPTION"
+fit_content = true
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="focus_entered" from="WindowResolution" to="WindowResolution" method="_on_focus_entered"]
+
+[editable path="WindowResolution"]
+[editable path="ResolutionScale"]
+[editable path="AntiAliasing"]

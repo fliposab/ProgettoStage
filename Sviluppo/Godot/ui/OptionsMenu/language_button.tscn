@@ -10,7 +10,7 @@ custom_minimum_size = Vector2(970, 0)
 layout_mode = 2
 text = "LANGUAGE"
 
-[node name="Window" type="OptionButton" parent="."]
+[node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
 flat = true

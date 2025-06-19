@@ -13,7 +13,14 @@ config_version=5
 config/name="ProgettoStage"
 run/main_scene="uid://cn25tfoqwa3b7"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSaves="*res://code/saves/global_saves.gd"
+PlayerSaves="*res://code/saves/player_saves.gd"
+OptionsSaves="*res://code/saves/options_saves.gd"
 
 [dotnet]
 
@@ -26,6 +33,12 @@ folder_colors={
 "res://entities/": "red",
 "res://models/": "orange",
 "res://ui/": "green"
+}
+
+[importer_defaults]
+
+animation_library={
+&"gltf/embedded_image_handling": 0
 }
 
 [input]
@@ -78,5 +91,7 @@ rotate_camera_down={
 
 [rendering]
 
+lights_and_shadows/directional_shadow/size=8192
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
 anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/screen_space_aa=1

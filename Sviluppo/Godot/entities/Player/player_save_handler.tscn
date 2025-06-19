@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://coafh0oo0yh4f"]
+
+[ext_resource type="Script" uid="uid://dqq2vf17erpxd" path="res://code/saves/saves_handler.gd" id="1_bbifp"]
+
+[node name="PlayerSaveHandler" type="Node"]
+script = ExtResource("1_bbifp")

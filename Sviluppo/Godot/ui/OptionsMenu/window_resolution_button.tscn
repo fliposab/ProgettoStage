@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yo158tiy48r4"]
 
-[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/OptionsMenu/options_button.gd" id="1_esgsi"]
+[ext_resource type="Script" uid="uid://cyl82kfv2sbu" path="res://code/ui/window_resolution.gd" id="1_esgsi"]
 
 [node name="WindowResolution" type="HBoxContainer"]
 script = ExtResource("1_esgsi")
@@ -11,7 +11,7 @@ layout_mode = 2
 text = "WINDOW_RESOLUTION"
 vertical_alignment = 1
 
-[node name="Window" type="OptionButton" parent="."]
+[node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
 flat = true

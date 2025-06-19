@@ -3,16 +3,21 @@ class_name CameraRaycast
 
 @export var tilt_limit = deg_to_rad(75)
 @export var speed : Vector2 = Vector2(1.0, 1.0)
-@export var offset : Vector3 = Vector3(0.0, 0.8, 0.0)
+@export var offset : Vector3 = Vector3(0.0, 0.65, 0.0)
 
 @onready var _camera_pivot : CameraTarget = $CameraTarget
 @onready var _camera : Camera3D = $CameraTarget/SpringArm3D/Camera3D
 @onready var _spring_arm : SpringArm3D = $CameraTarget/SpringArm3D
 
 func _physics_process(delta: float) -> void:
-	if abs(owner.velocity.x) >= 0.1 or abs(owner.velocity.z) >= 0.1:
-		_camera_pivot.global_rotation.y = lerp(_camera_pivot.global_rotation.y, owner.model.global_rotation.y, 0.01)
-		_spring_arm.global_rotation.x = lerp(_spring_arm.global_rotation.x, deg_to_rad(-15.0), 0.01)
+	if (abs(owner.velocity.x) >= 0.1 or abs(owner.velocity.z) >= 0.1)\
+	and !(Input.is_action_pressed("rotate_camera_down") or\
+	Input.is_action_pressed("rotate_camera_up") or\
+	Input.is_action_pressed("rotate_camera_right") or\
+	Input.is_action_pressed("rotate_camera_left")):
+		_camera_pivot.global_rotation.y = lerp_angle(_camera_pivot.global_rotation.y, owner.model.global_rotation.y, 0.01)
+		_spring_arm.global_rotation.x = lerp_angle(_spring_arm.global_rotation.x, deg_to_rad(-15.0), 0.01)
+		_camera_pivot.rotation.x = clampf(_camera_pivot.rotation.x, -tilt_limit, tilt_limit)
 		#Problema, telecamera a zig zag quando si muove contro
 	else:
 		calculate_position()
