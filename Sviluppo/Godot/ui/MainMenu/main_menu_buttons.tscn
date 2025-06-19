@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://lqipji8qy3t8"]
+
+[ext_resource type="Script" uid="uid://b5k44yo3pyuwd" path="res://code/ui/main_menu_buttons.gd" id="1_0daph"]
+[ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="1_tadr4"]
+[ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_shefl"]
+
+[node name="MainMenuButtons" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 25
+script = ExtResource("1_0daph")
+
+[node name="NewGame" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "NEW_GAME"
+
+[node name="LoadGame" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "LOAD_GAME"
+
+[node name="Options" parent="." instance=ExtResource("2_shefl")]
+layout_mode = 2
+
+[node name="Quit" parent="." instance=ExtResource("1_tadr4")]
+layout_mode = 2
+
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj5dtedl1pkls"]
+
+[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/OptionsMenu/options_button.gd" id="1_85gg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81kbp"]
+content_margin_right = 10.0
+
+[node name="HBoxContainer" type="HBoxContainer"]
+script = ExtResource("1_85gg6")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+text = "RESOLUTION_SCALE"
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_81kbp")
+text = "1.0"
+horizontal_alignment = 2
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

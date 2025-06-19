@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=11 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cm21dif6ji0gp" path="res://code/state_machine/states/player_jump_state.gd" id="4_rfe5m"]
 [ext_resource type="PackedScene" uid="uid://c0wgwsfgnt3ax" path="res://entities/camera_raycast.tscn" id="5_qly61"]
 [ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
+[ext_resource type="PackedScene" uid="uid://bu4ctaknncujn" path="res://entities/respawn_point.tscn" id="7_i623q"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6nm46"]
 
@@ -46,6 +47,8 @@ script = ExtResource("4_rfe5m")
 
 [node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]
 speed = Vector2(1, 2)
+
+[node name="RespawnPoint" parent="." instance=ExtResource("7_i623q")]
 
 [node name="PlayerUI" type="Control" parent="."]
 layout_mode = 3

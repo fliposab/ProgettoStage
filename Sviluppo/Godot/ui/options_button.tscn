@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvbuclv3w6omw"]
+
+[ext_resource type="Script" uid="uid://klrbnrm4uy3p" path="res://ui/open_options_button.gd" id="1_74j72"]
+[ext_resource type="PackedScene" uid="uid://w6eib3vcwsmx" path="res://ui/OptionsMenu/options_menu.tscn" id="2_dvroa"]
+
+[node name="Options" type="Button"]
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+script = ExtResource("1_74j72")
+
+[node name="OptionsMenu" parent="." instance=ExtResource("2_dvroa")]
+visible = false
+top_level = true
+layout_mode = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

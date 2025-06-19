@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://bu4ctaknncujn"]
 
-[ext_resource type="Script" uid="uid://c4ec07jduryjw" path="res://code/player/last_check_point.gd" id="1_evj2i"]
+[ext_resource type="Script" uid="uid://c4ec07jduryjw" path="res://code/player/respawn_point.gd" id="1_w0dqx"]
 
 [node name="LastCheckPoint" type="Marker3D"]
 top_level = true
-script = ExtResource("1_evj2i")
+script = ExtResource("1_w0dqx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.3

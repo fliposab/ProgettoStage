@@ -4,11 +4,12 @@ class_name Player
 @export var speed : float = 1.0
 @export var jump : float = 1.0
 
-@onready var camera : Camera3D = $CameraRaycast/CameraTarget/SpringArm3D/Camera3D
+@onready var _camera : Camera3D = $CameraRaycast/CameraTarget/SpringArm3D/Camera3D
 @onready var _state_machine : StateMachine = $StateMachine
 @onready var _spring_arm : SpringArm3D = $CameraRaycast/CameraTarget/SpringArm3D
 @onready var _collectibles : PlayerCollectibles = $Misc/Collectibles
-@onready var _model : Node3D = $Model
+@onready var model : Node3D = $Model
+@onready var _respawn_point : RespawnPoint = $RespawnPoint
 
 func _physics_process(delta: float) -> void:
 	check_if_on_floor(delta)
@@ -30,4 +31,10 @@ func add_collectibles(value: int)->void:
 	_collectibles.add(value)
 
 func rotate_model_direction()->void:
-	_model.rotation.y = atan2(velocity.x,velocity.z)
+	model.rotation.y = atan2(-velocity.x,-velocity.z)
+
+func set_respawn_point():
+	_respawn_point.set_respawn_position()
+
+func return_to_respawn_point():
+	global_position = _respawn_point.global_position

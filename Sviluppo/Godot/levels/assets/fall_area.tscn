@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtnoyauwy2ndr"]
+[gd_scene load_steps=4 format=3 uid="uid://dtnoyauwy2ndr"]
 
 [ext_resource type="Script" uid="uid://bflug2w1mqqqo" path="res://code/level/assets/fall_area.gd" id="1_10wuw"]
+[ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="2_uyk4g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyk4g"]
 
@@ -10,5 +11,11 @@ script = ExtResource("1_10wuw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_uyk4g")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="Fade" parent="." instance=ExtResource("2_uyk4g")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
