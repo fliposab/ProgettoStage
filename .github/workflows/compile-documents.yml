@@ -85,7 +85,7 @@ jobs:
                   git config --global user.email 'github-actions[bot]@users.noreply.github.com'
                   git pull
                   git add .
-                  git commit -m 'Add compiled PDF files and update README.md [skip ci]'
+                  git commit -m 'Add compiled PDF'
                   git push
 
         
