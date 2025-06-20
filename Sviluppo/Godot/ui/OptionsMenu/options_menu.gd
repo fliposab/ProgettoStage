@@ -5,13 +5,14 @@ class_name OptionsMenu
 
 @onready var saves_handler : SavesHandler = $OptionSavesHandler
 @onready var buttons_container : OptionsButtons = $VBoxContainer/ButtonsContainer
+@onready var save_button : Button = $HBoxContainer/Save
 
 func _ready():
 	check_settings()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action("ui_cancel"):
-		hide_menu()
+	if event.is_action("ui_cancel") and visible:
+		save_button.grab_focus()
 
 func hide_menu():
 	hide()
@@ -20,6 +21,8 @@ func hide_menu():
 func save_settings():
 	saves_handler.save_data()
 	hide_menu()
+	await get_tree().process_frame
+	owner.exit_options.emit()
 	
 func check_settings():
 	for i in buttons_container.get_child_count():

@@ -16,8 +16,9 @@ func _ready():
 	can_pause = true
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and can_pause == true and on_top:
+	if event.is_action_pressed("ui_cancel") and can_pause and on_top:
 		can_pause = true
+		on_top = true
 		toggle_pause()
 
 func toggle_pause():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=14 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -8,10 +8,11 @@
 [ext_resource type="Script" uid="uid://cm21dif6ji0gp" path="res://code/state_machine/states/player_jump_state.gd" id="4_rfe5m"]
 [ext_resource type="Script" uid="uid://cf5rxg6jfeljl" path="res://code/saves/player_saves_handler.gd" id="4_tjdhl"]
 [ext_resource type="PackedScene" uid="uid://c0wgwsfgnt3ax" path="res://entities/camera_raycast.tscn" id="5_qly61"]
+[ext_resource type="Script" uid="uid://ddd3gv5leyy4b" path="res://code/player/player_movement.gd" id="5_x08pd"]
 [ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
 [ext_resource type="PackedScene" uid="uid://bu4ctaknncujn" path="res://entities/respawn_point.tscn" id="7_i623q"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_6nm46"]
+[sub_resource type="PrismMesh" id="PrismMesh_x08pd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
 radius = 0.2
@@ -20,13 +21,13 @@ radius = 0.2
 collision_layer = 2
 floor_max_angle = 0.523599
 script = ExtResource("1_merdl")
-speed = 250.0
-jump = 12.0
+speed = 400.0
+jump = 14.0
 
 [node name="Model" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
-mesh = SubResource("CapsuleMesh_6nm46")
+mesh = SubResource("PrismMesh_x08pd")
 skeleton = NodePath("../..")
 
 [node name="Misc" type="Node" parent="."]
@@ -39,6 +40,9 @@ script = ExtResource("4_tjdhl")
 red_training_data_count = 0
 blue_training_data_count = 0
 green_training_data_count = 0
+
+[node name="Movement" type="Node" parent="Misc"]
+script = ExtResource("5_x08pd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qly61")

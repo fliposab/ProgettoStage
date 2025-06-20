@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
-[ext_resource type="Script" uid="uid://crrbj2i6lakw0" path="res://code/level/assets/player_spawn.gd" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="2_o6mel"]
 [ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data.tscn" id="3_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_o6mel"]
@@ -46,10 +46,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gmgay")
 
-[node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059023, 0.928288)
-script = ExtResource("3_gmgay")
-
 [node name="TrainingData" parent="." instance=ExtResource("3_w7r7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.25, -1.02449)
 
@@ -64,6 +60,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.32982, 0)
 
 [node name="CollisionShape3D" parent="FallArea" index="0"]
 shape = SubResource("BoxShape3D_o6mel")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_o6mel")]
+transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 0.059023, 0.928288)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
 

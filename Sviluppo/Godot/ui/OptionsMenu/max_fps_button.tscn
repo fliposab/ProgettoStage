@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqlcgvv5xki45"]
+
+[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/OptionsMenu/options_check_button.tscn" id="1_7l5r8"]
+[ext_resource type="Script" uid="uid://df0tvuuokhakh" path="res://ui/OptionsMenu/max_fps_button.gd" id="2_oax2e"]
+
+[node name="MaxFPS" instance=ExtResource("1_7l5r8")]
+script = ExtResource("2_oax2e")
+
+[node name="Label" parent="." index="0"]
+text = "MAX_FPS"
+
+[node name="OptionButton" parent="." index="1"]
+item_count = 3
+popup/item_0/text = "60"
+popup/item_1/text = "40"
+popup/item_2/text = "30"
+popup/item_2/id = 2

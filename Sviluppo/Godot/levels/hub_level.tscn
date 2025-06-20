@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://e56iswhuuhdc"]
+
+[ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_ftq5n"]
+[ext_resource type="PackedScene" uid="uid://da0kvplr5p4ut" path="res://models/base_level_main_platform.glb" id="2_c4aiy"]
+[ext_resource type="PackedScene" uid="uid://c11n7aiqbnp6m" path="res://levels/assets/level_tube.tscn" id="3_c4aiy"]
+[ext_resource type="PackedScene" uid="uid://d3hcjtpjsrxuy" path="res://models/connector.glb" id="4_j0rvb"]
+[ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_nrj8t"]
+[ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="5_6wf1f"]
+[ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="6_11ood"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl636"]
+sky_top_color = Color(0.514567, 0.52664, 0.590199, 1)
+sky_horizon_color = Color(0.21276, 0.240925, 0.274192, 1)
+sky_curve = 1.37844
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.239216, 0.239216, 0.239216, 1)
+ground_curve = 0.787932
+
+[sub_resource type="Sky" id="Sky_c4aiy"]
+sky_material = SubResource("ProceduralSkyMaterial_xl636")
+
+[sub_resource type="Environment" id="Environment_nrj8t"]
+background_mode = 2
+sky = SubResource("Sky_c4aiy")
+ssr_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.1
+adjustment_saturation = 1.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nrj8t"]
+size = Vector3(103.066, 1, 127.845)
+
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_ftq5n")
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="base_level_main_platform" parent="Models" instance=ExtResource("2_c4aiy")]
+
+[node name="LevelTube" parent="Models" instance=ExtResource("3_c4aiy")]
+
+[node name="connector" parent="Models" instance=ExtResource("4_j0rvb")]
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.257741, -0.915132, 0.310006, 0.17442, 0.359642, 0.916644, -0.950341, -0.182186, 0.252311, 0, 10.879, 0)
+light_energy = 5.0
+shadow_normal_bias = 8.0
+omni_range = 29.1487
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.183342, -0.982863, -0.0191274, 0.251472, 0.0280817, 0.967457, -0.950341, -0.182186, 0.252311, 0, 5.88263, 7.91173)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("5_6wf1f")]
+transform = Transform3D(-0.31853, 0, 0.947913, 0, 1, 0, -0.947913, 0, -0.31853, 10.3847, 0.922163, -2.6131)
+gizmo_extents = 0.6
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nrj8t")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_11ood")]
+
+[node name="FallArea" parent="." instance=ExtResource("4_nrj8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9163, 0)
+
+[node name="CollisionShape3D" parent="FallArea" index="0"]
+shape = SubResource("BoxShape3D_nrj8t")
+
+[editable path="FallArea"]

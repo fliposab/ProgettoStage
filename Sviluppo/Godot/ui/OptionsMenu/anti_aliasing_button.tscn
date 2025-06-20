@@ -28,3 +28,5 @@ popup/item_3/text = "NONE"
 popup/item_3/id = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="OptionButton" to="." method="pass_description"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_item_selected"]

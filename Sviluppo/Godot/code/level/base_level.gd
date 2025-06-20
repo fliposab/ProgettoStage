@@ -7,3 +7,6 @@ class_name Level
 
 func _ready():
 	pass
+
+func _on_player_spawn_player_spawned(player: Player) -> void:
+	pass

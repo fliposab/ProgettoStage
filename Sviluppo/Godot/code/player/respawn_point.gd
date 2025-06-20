@@ -11,4 +11,5 @@ func _on_timer_timeout() -> void:
 
 func set_respawn_position() -> void:
 	global_position = owner.global_position
+	global_rotation = owner.model.global_rotation
 	waiting_on_floor = false

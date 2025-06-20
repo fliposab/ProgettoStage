@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://w6eib3vcwsmx"]
+[gd_scene load_steps=14 format=3 uid="uid://w6eib3vcwsmx"]
 
 [ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_81kbp"]
 [ext_resource type="Script" uid="uid://n4f6oxbbrpxg" path="res://ui/OptionsMenu/options_menu.gd" id="1_w2tto"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/OptionsMenu/window_resolution_button.tscn" id="3_1vgp6"]
 [ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/OptionsMenu/resolution_scale_button.tscn" id="4_w2tto"]
 [ext_resource type="PackedScene" uid="uid://c4dyj3jfhscxw" path="res://ui/OptionsMenu/anti_aliasing_button.tscn" id="5_ct80g"]
+[ext_resource type="PackedScene" uid="uid://bqlcgvv5xki45" path="res://ui/OptionsMenu/max_fps_button.tscn" id="6_8akq8"]
 [ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/OptionsMenu/language_button.tscn" id="6_weaq7"]
 [ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/OptionsMenu/shadows_quality_button.tscn" id="8_ct80g"]
 [ext_resource type="Script" uid="uid://cc3uhbyr0vy4u" path="res://code/saves/option_saves_handler.gd" id="9_weaq7"]
@@ -16,6 +17,8 @@ colors = PackedColorArray(0.114897, 0.114897, 0.114897, 1, 0.230315, 0.230315, 0
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4lmn8"]
 gradient = SubResource("Gradient_gl0q7")
 fill_from = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8akq8"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -69,41 +72,47 @@ script = ExtResource("1_81kbp")
 
 [node name="WindowMode" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("2_to3ov")]
 layout_mode = 2
+description = "WINDOW_MODE_DESCRIPTION"
 
 [node name="WindowResolution" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("3_1vgp6")]
 layout_mode = 2
+description = "WINDOW_RESOLUTION_DESCRIPTION"
 
 [node name="OptionButton" parent="VBoxContainer/ButtonsContainer/WindowResolution" index="1"]
-focus_neighbor_bottom = NodePath("../../ResolutionScale/OptionButton")
-focus_next = NodePath("../../ResolutionScale/OptionButton")
+focus_neighbor_bottom = NodePath("../../ResolutionScale/Button")
 
 [node name="ResolutionScale" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("4_w2tto")]
 layout_mode = 2
 
-[node name="OptionButton" parent="VBoxContainer/ButtonsContainer/ResolutionScale" index="2"]
+[node name="Button" parent="VBoxContainer/ButtonsContainer/ResolutionScale" index="1"]
 focus_neighbor_top = NodePath("../../WindowResolution/OptionButton")
-focus_neighbor_bottom = NodePath("../../AntiAliasing/OptionButton")
-focus_next = NodePath("../../AntiAliasing/OptionButton")
-focus_previous = NodePath("../../WindowResolution/OptionButton")
+focus_neighbor_bottom = NodePath("../../MaxFPS/OptionButton")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8akq8")
+
+[node name="MaxFPS" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("6_8akq8")]
+layout_mode = 2
+description = "MAX_FPS_DESCRIPTION"
+
+[node name="OptionButton" parent="VBoxContainer/ButtonsContainer/MaxFPS" index="1"]
+focus_neighbor_top = NodePath("../../ResolutionScale/Button")
 
 [node name="AntiAliasing" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("5_ct80g")]
 layout_mode = 2
-
-[node name="OptionButton" parent="VBoxContainer/ButtonsContainer/AntiAliasing" index="1"]
-focus_neighbor_top = NodePath("../../ResolutionScale/OptionButton")
-focus_previous = NodePath("../../ResolutionScale/OptionButton")
-
-[node name="Language" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("6_weaq7")]
-layout_mode = 2
+description = "ANTI_ALIASING_DESCRIPTION"
 
 [node name="ShadowsQuality" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("8_ct80g")]
 layout_mode = 2
+description = "SHADOWS_QUALITY_DESCRIPTION"
+
+[node name="Language" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("6_weaq7")]
+layout_mode = 2
+description = "LANGUAGE_DESCRIPTION"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ButtonsContainer"]
+[node name="Description" type="RichTextLabel" parent="VBoxContainer/ButtonsContainer"]
 layout_mode = 2
 bbcode_enabled = true
 text = "DESCRIPTION"
@@ -123,21 +132,22 @@ grow_vertical = 0
 
 [node name="Save" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "SAVE"
-
-[node name="Cancel" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "CANCEL"
+text = "SAVE_AND_RETURN"
 
 [node name="OptionSavesHandler" type="Node" parent="."]
 script = ExtResource("9_weaq7")
 
 [connection signal="visibility_changed" from="VBoxContainer/ButtonsContainer" to="VBoxContainer/ButtonsContainer" method="_on_visibility_changed"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/WindowMode" to="OptionSavesHandler" method="change_var"]
 [connection signal="focus_entered" from="VBoxContainer/ButtonsContainer/WindowResolution" to="VBoxContainer/ButtonsContainer/WindowResolution" method="_on_focus_entered"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/WindowResolution" to="OptionSavesHandler" method="change_var"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/ResolutionScale" to="OptionSavesHandler" method="change_var"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/MaxFPS" to="OptionSavesHandler" method="change_var"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/AntiAliasing" to="OptionSavesHandler" method="change_var"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/ShadowsQuality" to="OptionSavesHandler" method="change_var"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/Language" to="OptionSavesHandler" method="change_var"]
 [connection signal="pressed" from="HBoxContainer/Save" to="." method="save_settings"]
-[connection signal="pressed" from="HBoxContainer/Cancel" to="." method="hide_menu"]
 
 [editable path="VBoxContainer/ButtonsContainer/WindowResolution"]
 [editable path="VBoxContainer/ButtonsContainer/ResolutionScale"]
-[editable path="VBoxContainer/ButtonsContainer/AntiAliasing"]
+[editable path="VBoxContainer/ButtonsContainer/MaxFPS"]

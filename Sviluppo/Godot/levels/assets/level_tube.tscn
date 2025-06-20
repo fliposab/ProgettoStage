@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c11n7aiqbnp6m"]
+
+[ext_resource type="PackedScene" uid="uid://cdfu70p61kxyh" path="res://models/level_tube.glb" id="1_elhwc"]
+
+[node name="LevelTube" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1268, 0)
+
+[node name="level_tube" parent="." instance=ExtResource("1_elhwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.290553, -14.9189)

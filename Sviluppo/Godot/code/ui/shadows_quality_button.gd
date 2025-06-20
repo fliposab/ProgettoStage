@@ -14,3 +14,4 @@ func _on_item_selected(index: int) -> void:
 
 func check_selected_item(saves_handler: SavesHandler):
 	_on_item_selected(saves_handler.shadows_quality-1)
+	set_selected_item(saves_handler.shadows_quality-1)

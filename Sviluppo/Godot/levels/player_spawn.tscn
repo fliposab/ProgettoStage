@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://j7kh7pmknn8s"]
+
+[ext_resource type="Script" uid="uid://crrbj2i6lakw0" path="res://code/level/assets/player_spawn.gd" id="1_j6jwq"]
+
+[node name="PlayerSpawn" type="Marker3D"]
+transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0, 0, 0)
+script = ExtResource("1_j6jwq")

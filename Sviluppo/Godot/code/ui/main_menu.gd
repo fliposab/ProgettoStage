@@ -2,6 +2,7 @@ extends Control
 class_name MainMenu
 
 @onready var fade : Control = $Fade
+
 func _on_main_menu_buttons_load_game() -> void:
 	pass # Replace with function body.
 
@@ -14,6 +15,5 @@ func _on_main_menu_buttons_new_game() -> void:
 	queue_free()
 
 func hide_transition()->void:
-	
 	for i in get_child_count()-1:
 		get_child(i).hide()

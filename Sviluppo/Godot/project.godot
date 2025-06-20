@@ -13,6 +13,7 @@ config_version=5
 config/name="ProgettoStage"
 run/main_scene="uid://cn25tfoqwa3b7"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 run/low_processor_mode=true
 config/icon="res://icon.svg"
 
@@ -21,6 +22,11 @@ config/icon="res://icon.svg"
 GlobalSaves="*res://code/saves/global_saves.gd"
 PlayerSaves="*res://code/saves/player_saves.gd"
 OptionsSaves="*res://code/saves/options_saves.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
 
 [dotnet]
 

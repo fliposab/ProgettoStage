@@ -14,3 +14,8 @@ func _on_item_selected(index: int) -> void:
 		3:
 			get_viewport().screen_space_aa = 0
 			get_viewport().msaa_3d = 0
+	pass_value.emit("anti_aliasing",index+1)
+
+func check_selected_item(saves_handler: SavesHandler):
+	_on_item_selected(saves_handler.anti_aliasing-1)
+	set_selected_item(saves_handler.anti_aliasing-1)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyumfgemisawb"]
+
+[ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_p5284"]
+[ext_resource type="Script" uid="uid://crrbj2i6lakw0" path="res://code/level/assets/player_spawn.gd" id="2_46036"]
+[ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_6w4ab"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
+sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
+sky_horizon_color = Color(0.839186, 0.601855, 0.300063, 1)
+sky_curve = 0.0477961
+ground_bottom_color = Color(0.581033, 0.581033, 0.581033, 1)
+ground_horizon_color = Color(0.959916, 0.52495, 0.147801, 1)
+
+[sub_resource type="Sky" id="Sky_x25rp"]
+sky_material = SubResource("ProceduralSkyMaterial_46lwt")
+
+[sub_resource type="Environment" id="Environment_gmgay"]
+background_mode = 2
+sky = SubResource("Sky_x25rp")
+
+[node name="TestLevel" type="Node3D"]
+script = ExtResource("1_p5284")
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.257741, -0.915132, 0.310006, 0.667674, 0.400607, 0.627476, -0.698413, 0.0452566, 0.714262, 0, 2.06607, 2.43376)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gmgay")
+
+[node name="PlayerSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059023, 0.928288)
+script = ExtResource("2_46036")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_6w4ab")]
