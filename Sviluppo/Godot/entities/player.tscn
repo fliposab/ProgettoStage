@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
 [ext_resource type="PackedScene" uid="uid://bu4ctaknncujn" path="res://entities/respawn_point.tscn" id="7_i623q"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_x08pd"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x08pd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
 radius = 0.2
@@ -27,7 +27,7 @@ jump = 14.0
 [node name="Model" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
-mesh = SubResource("PrismMesh_x08pd")
+mesh = SubResource("CapsuleMesh_x08pd")
 skeleton = NodePath("../..")
 
 [node name="Misc" type="Node" parent="."]

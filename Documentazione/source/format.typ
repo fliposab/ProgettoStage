@@ -111,3 +111,12 @@
 #let gloss(body) = {
   [#text(blue, size:12pt, font: "Noto Sans")[#underline[#body]\*]]
 }
+
+
+#let pseudoheading(body) = {
+  set text(size: 14pt, font: "Noto Sans")
+  set text(weight: "bold")
+  set align(center)
+  set par(justify: false)
+  smallcaps(body)
+}
