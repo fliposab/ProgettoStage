@@ -15,8 +15,6 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
-              with:
-                  ssh-key: ${{ secrets.DEPLOY_KEY }}
 
             - name: Setup Typst
               uses: typst-community/setup-typst@v4
@@ -46,7 +44,10 @@ jobs:
 
             - name: Compile Typst documents
               run: |
-                  find . -path ./template -prune -o -name "*.typ" -print0 | while IFS= read -r -d '' file; do
+                  find . -path ./template -prune \
+                    -o -name "format.typ" -prune \
+                    -o -name "format_glossario.typ" -prune \
+                    -o -name "*.typ" -print0 | while IFS= read -r -d '' file; do
                     output="${file%.typ}.pdf"
                     echo "Compilando: $file -> $output"
                     typst compile --root . "$file" "$output" --font-path ~/.local/share/fonts
@@ -86,8 +87,6 @@ jobs:
                   git add .
                   git commit -m 'Add compiled PDF files and update README.md [skip ci]'
                   git push
-              env:
-                  GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
         
     
