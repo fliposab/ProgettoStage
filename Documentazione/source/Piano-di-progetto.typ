@@ -22,7 +22,7 @@ Il seguente documento ha come scopo quello di definire le attività svolte duran
 - gestione dei rischi;
 
 == Glossario
-Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni.\
+Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
 Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure consultando il rispettivo documento all'interno della stessa cartella.
 
 == Riferimenti
@@ -30,6 +30,8 @@ Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure co
 - Norme di progetto:\
 link
 === Riferimenti informativi
+- Piano di lavoro:\
+#link("")
 
 = Analisi dei rischi
 Questa sezione del documento ha lo scopo di identificare i rischi associati al progetto, il loro impatto e definire le strategie per la loro gestione.\

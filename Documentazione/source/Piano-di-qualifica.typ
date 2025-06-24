@@ -18,6 +18,8 @@ doc)
 Il presente documento ha lo scopo di definire le metriche di qualità che verranno utilizzate per valutare il prodotto software, e le modalità di verifica e validazione del prodotto.\
 
 == Glossario
+Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
+Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure consultando il rispettivo documento all'interno della stessa cartella.
 
 == Riferimenti
 === Riferimenti normativi
@@ -28,9 +30,11 @@ Il presente documento ha lo scopo di definire le metriche di qualità che verran
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T08.pdf")\
 \
 - Slide T09 - Verifica e validazione:\
+#link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T09.pdf")\
+\
 - Glossario:\
-link
-
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")
+\
 = Metriche di qualità
 == Introduzione
 Le metriche di qualità sono utilizzate per valutare la qualità del prodotto software, e per identificare eventuali problemi o aree di miglioramento.\
