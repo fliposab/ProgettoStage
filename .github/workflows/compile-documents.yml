@@ -47,6 +47,7 @@ jobs:
                   find . -path ./template -prune \
                     -o -name "format.typ" -prune \
                     -o -name "format_glossario.typ" -prune \
+                    -o -name "format_piano-di-lavoro.typ" -prune \
                     -o -name "*.typ" -print0 | while IFS= read -r -d '' file; do
                     output="${file%.typ}.pdf"
                     echo "Compilando: $file -> $output"
