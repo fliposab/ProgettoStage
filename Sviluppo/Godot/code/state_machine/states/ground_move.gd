@@ -1,14 +1,13 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
-	player.play("idle")
-	player.set_respawn_point()
+	player.play("run")
 
 func physics_update(delta: float)->void:
-	player.velocity.x = lerp(player.velocity.x, 0.0, 0.1)
-	player.velocity.z = lerp(player.velocity.z, 0.0, 0.1)
-	if player.is_moving():
-		finished.emit("GroundMove")
+	player.get_move_input(delta, 0.1)
+	player.rotate_model_direction()
+	if !player.is_moving():
+		finished.emit("Idle")
 		return
 	if Input.is_action_just_pressed("jump"):
 		finished.emit("Air", {jump = true})

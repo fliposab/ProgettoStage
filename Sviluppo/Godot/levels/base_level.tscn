@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cyumfgemisawb"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_p5284"]
-[ext_resource type="Script" uid="uid://crrbj2i6lakw0" path="res://code/level/assets/player_spawn.gd" id="2_46036"]
+[ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="3_63c5o"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_6w4ab"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
@@ -32,8 +32,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gmgay")
 
-[node name="PlayerSpawn" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059023, 0.928288)
-script = ExtResource("2_46036")
-
 [node name="PauseMenu" parent="." instance=ExtResource("5_6w4ab")]
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_63c5o")]

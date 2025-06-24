@@ -40,3 +40,6 @@ func calculate_position() -> void:
 	_camera_pivot.global_position.y = lerp(_camera_pivot.global_position.y, focus_point.y, 0.05)
 	_camera_pivot.global_position.x = focus_point.x
 	_camera_pivot.global_position.z = focus_point.z
+
+func respawn(point: Vector3)->void:
+	_camera_pivot.global_position.y =  point.y

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch4ji7uvie5tn"]
+
+[ext_resource type="Script" uid="uid://o5b0v00urg4y" path="res://code/level/level_transition.gd" id="1_ilqlw"]
+[ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="2_1ruqe"]
+
+[node name="LevelTransition" type="Node"]
+process_mode = 3
+script = ExtResource("1_ilqlw")
+
+[node name="Fade" parent="." instance=ExtResource("2_1ruqe")]

@@ -39,6 +39,15 @@ shape = SubResource("BoxShape3D_srpys")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_46lwt")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 5.73, 0, 0, 0, 20, -14.7703, 0.151725, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_srpys")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_46lwt")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.257741, -0.915132, 0.310006, 0.667674, 0.400607, 0.627476, -0.698413, 0.0452566, 0.714262, 0, 2.06607, 2.43376)
 shadow_enabled = true
@@ -47,13 +56,13 @@ shadow_enabled = true
 environment = SubResource("Environment_gmgay")
 
 [node name="TrainingData" parent="." instance=ExtResource("3_w7r7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.25, -1.02449)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.416492, -1.02449)
 
 [node name="TrainingData2" parent="." instance=ExtResource("3_w7r7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.25, 0.42283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.416492, 0.42283)
 
 [node name="TrainingData3" parent="." instance=ExtResource("3_w7r7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.25, 1.6471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97299, 0.416492, 1.6471)
 
 [node name="FallArea" parent="." instance=ExtResource("4_w7r7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.32982, 0)

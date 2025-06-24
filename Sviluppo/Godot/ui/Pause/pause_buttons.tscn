@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://om0xmc0ae5vd"]
+[gd_scene load_steps=6 format=3 uid="uid://om0xmc0ae5vd"]
 
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_stvng"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_yrbp4"]
+[ext_resource type="PackedScene" uid="uid://d20j4g3etcakh" path="res://ui/Pause/back_to_hub_level.tscn" id="3_4auwg"]
 [ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="3_mv45p"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="3_nc40a"]
 
@@ -21,6 +22,9 @@ text = "RESUME"
 [node name="Options" parent="." instance=ExtResource("2_yrbp4")]
 layout_mode = 2
 
+[node name="HubLevel" parent="." instance=ExtResource("3_4auwg")]
+layout_mode = 2
+
 [node name="MainMenu" parent="." instance=ExtResource("3_mv45p")]
 layout_mode = 2
 
@@ -30,3 +34,4 @@ layout_mode = 2
 [connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]
 [connection signal="exit_options" from="Options" to="." method="_on_options_exit_options"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HubLevel" to="." method="_on_hub_level_pressed"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c53auo3nnhq7r"]
+
+[ext_resource type="Script" uid="uid://c236mii3r0vie" path="res://code/player/collect_area.gd" id="1_7i8ja"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q0i8f"]
+radius = 1.22164
+
+[node name="CollectArea" type="Area3D"]
+collision_mask = 4
+script = ExtResource("1_7i8ja")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414176, 0)
+shape = SubResource("SphereShape3D_q0i8f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

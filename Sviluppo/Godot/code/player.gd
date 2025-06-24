@@ -6,6 +6,7 @@ class_name Player
 
 @onready var _camera : Camera3D = $CameraRaycast/CameraTarget/SpringArm3D/Camera3D
 @onready var _state_machine : StateMachine = $StateMachine
+@onready var _camera_raycast : CameraRaycast = $CameraRaycast
 @onready var _spring_arm : SpringArm3D = $CameraRaycast/CameraTarget/SpringArm3D
 @onready var _collectibles : PlayerCollectibles = $Misc/Collectibles
 @onready var model : Node3D = $Model
@@ -36,6 +37,7 @@ func set_respawn_point():
 
 func return_to_respawn_point():
 	global_position = _respawn_point.global_position
+	_camera_raycast.respawn(global_position)
 
 func get_spring_arm():
 	return _spring_arm
@@ -45,3 +47,7 @@ func play(animation: String):
 	
 func queue(animation: String):
 	_model_player.queue(animation)
+
+func is_moving() -> bool:
+	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	return input != Vector2.ZERO

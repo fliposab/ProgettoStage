@@ -64,13 +64,15 @@ grow_vertical = 2
 script = ExtResource("1_1vo0p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../ColorRect")
+root_node = NodePath("../CanvasLayer/ColorRect")
 libraries = {
 &"": SubResource("AnimationLibrary_i5htw")
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
