@@ -1,6 +1,7 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
+	player.play("idle")
 	player.set_respawn_point()
 
 func physics_update(delta: float)->void:

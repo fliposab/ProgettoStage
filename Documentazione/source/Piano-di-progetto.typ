@@ -28,10 +28,11 @@ Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure co
 == Riferimenti
 === Riferimenti normativi
 - Norme di progetto:\
-link
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Norme-di-progetto.pdf")\
+\
 === Riferimenti informativi
 - Piano di lavoro:\
-#link("")
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Piano-di-lavoro.pdf")\
 
 = Analisi dei rischi
 Questa sezione del documento ha lo scopo di identificare i rischi associati al progetto, il loro impatto e definire le strategie per la loro gestione.\

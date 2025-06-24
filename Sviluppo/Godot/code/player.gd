@@ -9,6 +9,7 @@ class_name Player
 @onready var _spring_arm : SpringArm3D = $CameraRaycast/CameraTarget/SpringArm3D
 @onready var _collectibles : PlayerCollectibles = $Misc/Collectibles
 @onready var model : Node3D = $Model
+@onready var _model_player : AnimationPlayer = $Model/AnimationPlayer
 @onready var _respawn_point : RespawnPoint = $RespawnPoint
 @onready var _movement_node : PlayerMovement = $Misc/Movement
 
@@ -38,3 +39,9 @@ func return_to_respawn_point():
 
 func get_spring_arm():
 	return _spring_arm
+
+func play(animation: String):
+	_model_player.play(animation)
+	
+func queue(animation: String):
+	_model_player.queue(animation)
