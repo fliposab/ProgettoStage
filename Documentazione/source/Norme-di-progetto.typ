@@ -145,7 +145,7 @@ del sistema.
 Inoltre vanno definite le responsabilità che verranno applicate in fase di codifica assicurandosi
 di mantenere un livello di #gloss[efficienza] e #gloss[efficacia] il più alto possibile. L’approccio utilizzato in questa attività sarà sia #gloss[top-down], per scomporre il problema in sotto-problemi, sia #gloss[bottom-up], per ragionare sui singoli sotto-problemi e integrarli in una soluzione complessiva.\
 
-L'architettura prevista a fine attività sarà a #gloss[monolite], dove tutti i componenti sono integrati e compilati in una singola applicazione.\
+L'architettura prevista a fine attività sarà a monolite, dove tutti i componenti sono integrati e compilati in una singola applicazione.\
 
 ==== Codifica
 Obiettivo della fase di codifica è applicare le decisioni prese durante la fase di progettazione.
@@ -168,7 +168,7 @@ Eventuali problemi riscontrati vengono risolti tempestivamente, aggiornando la d
 Durante lo sviluppo, sono state imposte le seguenti regole per garantire omogeneità  e correttezza. Le regole sono suddivise in base all'argomento:\
 
 - *Codifica*:\
-Tutti i file script del gioco sono salvati come file _#gloss[.gd]_, e sono scritti con il linguaggio di programmazione #gloss[GDScript]. I nomi delle classi sono salvate con una nomenclatura #gloss[CamelCase], mentre i nomi dei files e delle variabili usano #gloss[snake_case].\
+Tutti i file script del gioco sono salvati come file _#gloss[.gd]_, e sono scritti con il linguaggio di programmazione #gloss[GDScript]. I nomi delle classi sono salvate con una nomenclatura #gloss[PascalCase], mentre i nomi dei files e delle variabili usano #gloss[snake_case].\
 Per maggiori dettagli sulla nomenclatura, si seguono le convenzioni della documentazione ufficiale:\
 #link("https://docs.godotengine.org/it/4.x/tutorials/scripting/gdscript/gdscript_styleguide.html")\
 
@@ -176,7 +176,7 @@ Per maggiori dettagli sulla nomenclatura, si seguono le convenzioni della docume
 Tutti i modelli sono esportati nel formato _#gloss[.glb]_. I #gloss[materiali] vengono esportati senza immagini, dato che verranno rimpiazzati dal materiale presente nel gioco. Nel caso il modello presenti animazioni, vengono esportate insieme al modello.\
 
 - *Animazione*:\
-Le animazioni sono incluse nel modello durante l'esportazione. Per semplificare l'attività, viene usato un #gloss[rig] insieme a #gloss[Inverse Kinematics]. Le animazioni sono già separate prima dell'esportazione e possono essere trovate nella sezione #gloss[NLA] e selezionate individualmente premendo la linea con il mouse e modificarle usando la scorciatoia Shift+TAB.\
+Le animazioni sono incluse nel modello durante l'esportazione. Per semplificare l'attività, viene usato un #gloss[rig] che dispone di #gloss[Inverse Kinematics]. Le animazioni sono già separate prima dell'esportazione e possono essere trovate nella sezione #gloss[NLA] e selezionate individualmente premendo la linea con il mouse e modificarle usando la scorciatoia Shift+TAB.\
 \
 - *Textures*:\
 Le textures sono salvate come semplici immagini di tipo _#gloss[.png]_. Entrambe le dimensioni della texture (larghezza e altezza)  devono essere una potenza di 2. Risoluzioni esempio: 
