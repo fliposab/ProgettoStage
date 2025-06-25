@@ -1,6 +1,12 @@
 # ProgettoStage
 Progetto di tirocinio a tema di Game Design
 
+## Istruzioni
+Scaricare il codice attraverso il tasto apposito in alto a destra della repo oppure clonare la repo:
+```
+git clone https://github.com/fliposab/ProgettoStage
+```
+
 ## Cartelle
 
 ### Documentazione
