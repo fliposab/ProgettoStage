@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ylfvr742n2e8"]
+
+[ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data_blue.tscn" id="1_yaaju"]
+[ext_resource type="Material" uid="uid://cikcpgmq4xipv" path="res://models/materials/red.tres" id="2_ehibg"]
+[ext_resource type="Material" uid="uid://p7ott0vsuaeo" path="res://models/materials/red_unshaded.tres" id="3_g2n7r"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gmws4"]
+material = ExtResource("2_ehibg")
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mvc60"]
+material = ExtResource("3_g2n7r")
+flip_faces = true
+top_radius = 0.55
+bottom_radius = 0.55
+height = 0.15
+
+[node name="TrainingData" instance=ExtResource("1_yaaju")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Model" parent="." index="0"]
+transform = Transform3D(-0.587806, 0, -0.809042, 0, 1, 0, 0.809042, 0, -0.587806, 0, 0, 0)
+
+[node name="Coin" parent="Model" index="0"]
+mesh = SubResource("CylinderMesh_gmws4")
+
+[node name="Border" parent="Model" index="1"]
+mesh = SubResource("CylinderMesh_mvc60")

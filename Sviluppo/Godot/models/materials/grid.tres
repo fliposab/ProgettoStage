@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2m1vacvcpcig"]
+
+[ext_resource type="Texture2D" uid="uid://dwyscssirvlg8" path="res://models/materials/grid_singular.png" id="1_x4d1h"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 0.3
+albedo_texture = ExtResource("1_x4d1h")

@@ -24,11 +24,6 @@ PlayerSaves="*res://code/saves/player_saves.gd"
 OptionsSaves="*res://code/saves/options_saves.gd"
 LevelsTransition="*res://levels/assets/level_transition.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-settings/stdout/print_gpu_profile=true
-
 [dotnet]
 
 project/assembly_name="ProgettoStage"
@@ -105,5 +100,6 @@ interact={
 
 lights_and_shadows/directional_shadow/size=8192
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+textures/default_filters/anisotropic_filtering_level=0
 anti_aliasing/quality/msaa_3d=3
 anti_aliasing/quality/screen_space_aa=1

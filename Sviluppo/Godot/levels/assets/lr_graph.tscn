@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgmf8sblij3yd"]
+
+[ext_resource type="Script" uid="uid://0vgvrcg4m15m" path="res://code/level/linear_regression/lr_graph.gd" id="1_x2yja"]
+[ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="2_c38jn"]
+[ext_resource type="PackedScene" uid="uid://ca3dp2ys5bjlc" path="res://models/grid_plane.glb" id="3_t03m7"]
+[ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="3_w72ej"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2yja"]
+material = ExtResource("3_w72ej")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t03m7"]
+size = Vector3(2, 0.5, 50)
+
+[node name="LRGraph" type="Node3D"]
+script = ExtResource("1_x2yja")
+
+[node name="Points" type="Node3D" parent="."]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
+
+[node name="GraphPoint" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.241968, 0, -1.82565)
+
+[node name="GraphPoint2" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.28385, 0, 2.30904)
+
+[node name="GraphPoint7" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.28385, 0, 2.30904)
+
+[node name="GraphPoint8" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.942208, 0, 1.49769)
+
+[node name="GraphPoint9" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.03994, 0, 0.3364)
+
+[node name="GraphPoint10" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.49356, 0, 5.7759)
+
+[node name="GraphPoint11" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 11.0067, 0, 9.71245)
+
+[node name="GraphPoint12" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.668877, 0, 1.342)
+
+[node name="GraphPoint13" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.26303, 0, -1.88233)
+
+[node name="GraphPoint14" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.97191, 0, -2.61372)
+
+[node name="GraphPoint3" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.55295, 0, -5.58024)
+
+[node name="GraphPoint4" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.85717, 0, -1.51611)
+
+[node name="GraphPoint5" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.537287, 0, -0.64579)
+
+[node name="GraphPoint6" parent="Points" instance=ExtResource("2_c38jn")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.22, 0, -4.67674)
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="Line" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.583874, 0, -0.811472, 0, 0.999997, 0, 0.811582, 0, -0.583795, 0, -0.2, 0.492378)
+collision_mask = 3
+
+[node name="Line" type="MeshInstance3D" parent="Line"]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 50, -1.19209e-07, 0, 1.19209e-07)
+mesh = SubResource("BoxMesh_x2yja")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Line"]
+shape = SubResource("BoxShape3D_t03m7")
+
+[node name="debugsphere1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 2, 0, 1.93123)
+visible = false
+mesh = SubResource("BoxMesh_x2yja")
+skeleton = NodePath("")
+
+[node name="debugsphere2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -2, 0, -0.946475)
+visible = false
+mesh = SubResource("BoxMesh_x2yja")
+skeleton = NodePath("")
+
+[node name="grid_plane" parent="." instance=ExtResource("3_t03m7")]

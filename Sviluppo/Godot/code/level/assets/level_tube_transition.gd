@@ -1,7 +1,7 @@
 extends Node3D
 class_name LevelTubeTransition
 
-var load_level_path : String = "res://levels/linear_regression_level.tscn"
+@export var load_level_path : String = "res://levels/linear_regression_level.tscn"
 @onready var fade: FadeTransition = $Fade
 @onready var level_title : Control = $LevelTitle
 

@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://8gkv5w2oc67f"]
+[gd_scene load_steps=13 format=3 uid="uid://8gkv5w2oc67f"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_5abim"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="2_jj01n"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="3_qdyga"]
+[ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="4_jj01n"]
+[ext_resource type="PackedScene" uid="uid://bup16yxx4voly" path="res://levels/assets/collect_line.tscn" id="4_qijag"]
+[ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="5_qdyga"]
+[ext_resource type="PackedScene" uid="uid://brt0lqmi4hy08" path="res://models/level1_start_mesh.glb" id="6_qb8xj"]
+[ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="7_24tvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
 sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
@@ -17,10 +22,10 @@ sky_material = SubResource("ProceduralSkyMaterial_46lwt")
 [sub_resource type="Environment" id="Environment_gmgay"]
 background_mode = 2
 sky = SubResource("Sky_x25rp")
+ssao_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ij4u3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_mkhby"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qb8xj"]
+size = Vector3(32.5427, 1, 83.1189)
 
 [node name="LRLevel" type="Node3D"]
 process_mode = 1
@@ -28,24 +33,62 @@ script = ExtResource("1_5abim")
 
 [node name="Models" type="Node3D" parent="."]
 
+[node name="level1_start_mesh" parent="Models" instance=ExtResource("6_qb8xj")]
+
 [node name="Entities" type="Node3D" parent="."]
 
+[node name="LRGraph" parent="Entities" instance=ExtResource("4_jj01n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.4574)
+
+[node name="GraphPoint" parent="Entities/LRGraph/Points" index="0"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.01578, 0, -4.04562)
+
+[node name="GraphPoint12" parent="Entities/LRGraph/Points" index="7"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 6.2272, 0, 1.01137)
+
+[node name="GraphPoint13" parent="Entities/LRGraph/Points" index="8"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 8.12832, 0, -1.36276)
+
+[node name="GraphPoint14" parent="Entities/LRGraph/Points" index="9"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 9.26019, 0, -1.90522)
+
+[node name="GraphPoint3" parent="Entities/LRGraph/Points" index="10"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 8.44434, 0, -6.38321)
+
+[node name="Line" parent="Entities/LRGraph" index="2"]
+transform = Transform3D(-0.178119, 0, -0.983659, 0, 0.999997, 0, 0.983793, 0, -0.178095, 0, -0.2, -0.519358)
+
+[node name="debugsphere1" parent="Entities/LRGraph" index="3"]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 2, 0, -0.157251)
+
+[node name="debugsphere2" parent="Entities/LRGraph" index="4"]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -2, 0, -0.881464)
+
+[node name="CollectLine" parent="Entities" instance=ExtResource("4_qijag")]
+transform = Transform3D(0.384827, 0, -0.922989, 0, 1, 0, 0.922989, 0, 0.384827, 1.63161, 0.708748, 10.3697)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.257741, -0.915132, 0.310006, 0.667674, 0.400607, 0.627476, -0.698413, 0.0452566, 0.714262, 0, 2.06607, 2.43376)
+transform = Transform3D(0.253225, -0.950358, 0.180823, 0.0507807, 0.199715, 0.978537, -0.966074, -0.238608, 0.0988326, 0, 2.06607, 2.43376)
 shadow_enabled = true
+shadow_opacity = 0.2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gmgay")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_qdyga")]
-transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0, 1.01263, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_ij4u3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_mkhby")
+transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 7.98785, 1.01263, -4.04038)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_jj01n")]
+
+[node name="FallArea" parent="." instance=ExtResource("5_qdyga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.068, 0)
+
+[node name="CollisionShape3D" parent="FallArea" index="0"]
+shape = SubResource("BoxShape3D_qb8xj")
+
+[node name="LevelTube" parent="." instance=ExtResource("7_24tvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28347, 0.359945, 4.19403)
+load_level_path = "res://levels/hub_level.tscn"
+
+[editable path="Entities/LRGraph"]
+[editable path="FallArea"]
