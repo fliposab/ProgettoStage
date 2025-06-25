@@ -12,7 +12,7 @@
   set text(size: 11pt)
 	set text(lang: "it")
   set par(justify: true, linebreaks: "optimized",first-line-indent:0em)
-  show link : set text(font:"Jetbrains Mono");
+  show link : set text(font:"Jetbrains Mono", size: 12pt);
 /*
   grid(
     columns: (1fr, 1fr),

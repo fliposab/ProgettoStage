@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://duy7mh2rh6fkj"]
+
+[ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_qhoex"]
+[ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_86gxt"]
+[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="3_g5bqd"]
+[ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="4_rcwxg"]
+
+[node name="PauseButtons" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 25
+script = ExtResource("1_qhoex")
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME"
+
+[node name="Options" parent="." instance=ExtResource("2_86gxt")]
+layout_mode = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("3_g5bqd")]
+layout_mode = 2
+
+[node name="Quit" parent="." instance=ExtResource("4_rcwxg")]
+layout_mode = 2
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]
+[connection signal="exit_options" from="Options" to="." method="_on_options_exit_options"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]

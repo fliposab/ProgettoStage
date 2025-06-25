@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqvqxok6afg0t"]
+
+[ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="1_y4n6d"]
+[ext_resource type="PackedScene" uid="uid://duy7mh2rh6fkj" path="res://ui/Pause/pause_buttons_hub_level.tscn" id="2_4nlxs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euhrg"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4n6d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -59.0
+offset_right = 1.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "[b]PAUSE"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_euhrg")
+
+[node name="PauseButtons" parent="VBoxContainer" instance=ExtResource("2_4nlxs")]
+layout_mode = 2
