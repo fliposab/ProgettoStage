@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn25tfoqwa3b7"]
+[gd_scene load_steps=13 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="2_o6mel"]
 [ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data.tscn" id="3_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_o6mel"]
+[ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="6_e7anx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srpys"]
 
@@ -74,5 +75,8 @@ shape = SubResource("BoxShape3D_o6mel")
 transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 0.059023, 0.928288)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
+
+[node name="LevelTube" parent="." instance=ExtResource("6_e7anx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54788, 0, 8.47163)
 
 [editable path="FallArea"]

@@ -1,7 +1,7 @@
 extends Node3D
 class_name LevelTubeTransition
 
-@export var load_level : PackedScene
+var load_level_path : String = "res://levels/linear_regression_level.tscn"
 @onready var fade: FadeTransition = $Fade
 @onready var level_title : Control = $LevelTitle
 
@@ -21,4 +21,4 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and is_inside:
-		LevelsTransition.switch_level(load_level.instantiate())
+		LevelsTransition.switch_level(load_level_path)

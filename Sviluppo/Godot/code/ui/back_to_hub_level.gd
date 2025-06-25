@@ -1,6 +1,6 @@
 extends Button
 
-@export var hub_level : PackedScene = preload("res://levels/hub_level.tscn")
+var hub_level_path : String = "res://levels/hub_level.tscn"
 
 func _on_pressed() -> void:
-	LevelsTransition.switch_level(hub_level.instantiate())
+	LevelsTransition.switch_level(hub_level_path)

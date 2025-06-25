@@ -37,8 +37,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gmgay")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_jj01n")]
-
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_qdyga")]
 transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0, 1.01263, 0)
 
@@ -49,3 +47,5 @@ shape = SubResource("BoxShape3D_ij4u3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_mkhby")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_jj01n")]

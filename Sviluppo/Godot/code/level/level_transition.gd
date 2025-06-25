@@ -10,12 +10,13 @@ func _ready():
 			current_level = get_tree().get_root().get_child(i)
 			break
 
-func switch_level(new_level: Level):
+func switch_level(new_level_path: String):
 	fade_transition.play_fade()
 	get_tree().paused = false
 	await get_tree().create_timer(1.1).timeout
 	get_tree().get_root().remove_child(current_level)
 	current_level.call_deferred("free")
+	var new_level = load(new_level_path).instantiate()
 	get_tree().get_root().add_child(new_level)
 	current_level = new_level
 	fade_transition.play_fade(true)

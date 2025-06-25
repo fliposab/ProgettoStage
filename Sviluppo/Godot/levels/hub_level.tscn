@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://e56iswhuuhdc"]
+[gd_scene load_steps=26 format=4 uid="uid://e56iswhuuhdc"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_ftq5n"]
 [ext_resource type="PackedScene" uid="uid://da0kvplr5p4ut" path="res://models/base_level_main_platform.glb" id="2_c4aiy"]
@@ -8,8 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_nrj8t"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="5_6wf1f"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="5_11ood"]
-[ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="6_11ood"]
 [ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="6_q222i"]
+[ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="10_1jqj6"]
+[ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="11_aald4"]
+[ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="12_8s55e"]
+[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="13_eac86"]
+[ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="14_uj6qf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0itir"]
 _surfaces = [{
@@ -171,6 +175,13 @@ adjustment_saturation = 1.4
 [sub_resource type="BoxShape3D" id="BoxShape3D_nrj8t"]
 size = Vector3(103.066, 1, 127.845)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euhrg"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
 [node name="HubLevel" type="Node3D"]
 script = ExtResource("1_ftq5n")
 
@@ -238,7 +249,81 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9163, 0)
 [node name="CollisionShape3D" parent="FallArea" index="0"]
 shape = SubResource("BoxShape3D_nrj8t")
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_11ood")]
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_1jqj6")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.5
+offset_top = -59.0
+offset_right = 1.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 80
+bbcode_enabled = true
+text = "[b]PAUSE"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_euhrg")
+
+[node name="PauseButtons" type="VBoxContainer" parent="PauseMenu/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 25
+script = ExtResource("11_aald4")
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer/PauseButtons"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 24
+text = "RESUME"
+
+[node name="Options" parent="PauseMenu/VBoxContainer/PauseButtons" instance=ExtResource("12_8s55e")]
+layout_mode = 2
+
+[node name="MainMenu" parent="PauseMenu/VBoxContainer/PauseButtons" instance=ExtResource("13_eac86")]
+layout_mode = 2
+
+[node name="Quit" parent="PauseMenu/VBoxContainer/PauseButtons" instance=ExtResource("14_uj6qf")]
+layout_mode = 2
+
+[connection signal="resume_game" from="PauseMenu/VBoxContainer/PauseButtons" to="PauseMenu" method="_on_resume_game"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/PauseButtons/Resume" to="PauseMenu/VBoxContainer/PauseButtons" method="_on_resume_button_pressed"]
+[connection signal="exit_options" from="PauseMenu/VBoxContainer/PauseButtons/Options" to="PauseMenu/VBoxContainer/PauseButtons" method="_on_options_exit_options"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/PauseButtons/Options" to="PauseMenu/VBoxContainer/PauseButtons" method="_on_options_pressed"]
 
 [editable path="Models/LevelTube3"]
 [editable path="Models/LevelTube3/LevelTube"]

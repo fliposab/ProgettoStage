@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://defqrxrye37cr"]
+[gd_scene load_steps=6 format=3 uid="uid://defqrxrye37cr"]
 
 [ext_resource type="PackedScene" uid="uid://c11n7aiqbnp6m" path="res://levels/assets/level_tube.tscn" id="1_18hex"]
 [ext_resource type="Script" uid="uid://cg1uve0raquw3" path="res://code/level/assets/level_tube_transition.gd" id="1_tawta"]
-[ext_resource type="PackedScene" uid="uid://8gkv5w2oc67f" path="res://levels/linear_regression_level.tscn" id="2_oyj72"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="3_ky2u7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tawta"]
@@ -16,7 +15,6 @@ thickness = 5
 
 [node name="LevelTube" type="Node3D"]
 script = ExtResource("1_tawta")
-load_level = ExtResource("2_oyj72")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2
