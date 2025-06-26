@@ -37,8 +37,8 @@ link
 - Slide T05 del corso di Ingegneria del Software:\
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")\
 \
-- Analisi e descrizione delle funzionalità: Use case e relativi diagrammi(UML):\
-#link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")\
+- Diagrammi UML - Use case:\
+#link("https://www.uml-diagrams.org/use-case-diagrams.html")\
 \
 - Documentazione "Godot Engine":\ 
 #link("https://docs.godotengine.org/en/stable/")\
@@ -53,6 +53,7 @@ Nelle seguenti sezioni sono riportati i casi d'uso del #gloss[videogioco], che d
 == Attori
 Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
 #figure(image("imgs/giocatore.png", width: auto), caption: "Attore principale")
+
 // Azioni nel livello
 == UC1 - Movimento
 #figure(image("imgs/uc-movimento.png", width: auto), caption: "UC1 - Movimento")
@@ -67,6 +68,21 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:\
 - Il giocatore preme il tasto o muove la levetta nel #gloss[controller]
 - Il personaggio si muove nella direzione desiderata
+
+== UC1.1 - Movimento con oggetto
+*Attori principali*:\ 
+- Giocatore
+*Descrizione*:\ 
+- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del controller.
+*Precondizioni*:\ 
+- Il giocatore deve essere in un livello del gioco.
+- Il giocatore ha un oggetto con sé.
+*Postcondizioni*:\
+- Il personaggio si muove nella direzione desiderata
+- Il personaggio sposta con sé lì'oggetto.
+*Scenario principale*:\
+- Il giocatore preme il tasto o muove la levetta nel #gloss[controller].
+- Il personaggio si muove nella direzione desiderata insieme all'oggetto.
 
 == UC2 - Salto
 *Attori principali*:
@@ -91,8 +107,32 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Postcondizioni*:
 - La telecamera si muove attorno al personaggio, cambiando l'angolo di visualizzazione.
 *Scenario principale*:
-- Il giocatore muove il mouse o il controller per ruotare la telecamera.
 - La telecamera si muove attorno al personaggio.
+
+== UC3.1 - Rotazione telecamera manuale
+*Attori principali*: 
+- Giocatore\
+*Descrizione*:
+- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del controller.\
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.\
+*Postcondizioni*:
+- La telecamera si muove attorno al personaggio, cambiando l'angolo di visualizzazione.
+*Scenario principale*:
+- Il giocatore preme le frecce direzionali o lo #gloss[stick analogico] destro del controller.
+- La telecamera si muove attorno al personaggio.
+
+== UC3.2 - Rotazione telecamera automatica
+*Attori principali*: 
+- Giocatore\
+*Descrizione*:
+- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del controller.\
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.\
+*Postcondizioni*:
+- La telecamera si muove attorno al personaggio, cambiando l'angolo di visualizzazione.
+*Scenario principale*:
+- La telecamera si muove automaticamente dietro il personaggio.\
 
 == UC4 - Raccolta collezionabile
 *Attori principali*: 
@@ -108,23 +148,82 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il collezionabile viene automaticamente raccolto.
 
 == UC5 - Interazione con un oggetto
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore può interagire con un oggeto premendo il tasto apposito.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco e deve esserci un oggetto con cui può interagire davanti.
+*Postcondizioni*:
+- Il giocatore interagisce con l'oggetto.
+*Scenario principale*:
+- Il giocatore si avvicina all'oggetto con cui può interagire.
+- Il giocatore interagisce con l'oggetto.
+
 == UC5.1 - Prendere un oggetto
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore può prendere un oggetto e poi muoversi con esso.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco
+- Deve esserci un oggetto che il giocatore può raccogliere davanti a esso.
+*Postcondizioni*:
+- Il giocatore interagisce con l'oggetto.
+*Scenario principale*:
+- Il giocatore si avvicina all'oggetto con cui può interagire.
+- Il giocatore interagisce con l'oggetto.
+
 == UC5.2 - Rilasciare un oggetto
-== UC? - Caricamento livello
-== UC? - Salva partita
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore può lasciare un oggetto.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.
+- Il giocatore sta portando un oggetto.
+*Postcondizioni*:
+- Il giocatore lascia l'oggetto.
+- L'oggetto rimane nella posizione lasciato.
+*Scenario principale*:
+- Il giocatore preme lo stesso tasto con cui ha raccolto l'oggetto
+- Il giocatore lascia l'oggetto.
+
+== UC6 - Interazione con NPC
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore si avvicina a un #gloss[NPC] e riceve un messaggio.
+*Precondizioni*:
+- Il giocatore deve essere vicino ad un NPC.
+*Postcondizioni*:
+- L'NPC mostra il messaggio.
+*Scenario principale*:
+- Il giocatore si avvicina ad un NPC.
+- L'NPC mostra il messaggio automaticamente.
+
+== UC7 - Transizione scena
+== UC8 - Inserimento punto nel grafico LR
+== UC9 
+== Interazione con macchina LR
+== UC11 - Disinterazione con macchina LR
+== UC12 - Inserimento dell’oggetto nello spazio dedicato
+== UC12.1 - spazio errato
+== UC12.2 - spazio giusto
+== UC13 - Salvataggio
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
-Il giocatore può salvare la partita in qualsiasi momento durante il gioco.
+Il gioco salva in automatico in momenti specifici.
 *Precondizioni*: 
 Il giocatore deve essere in un livello del gioco.
 *Postcondizioni*: 
 La partita viene salvata e il giocatore può riprendere da quel punto in un secondo momento.
 *Scenario principale*:
-- Il giocatore seleziona l'opzione "Salva partita" dal menu di pausa.
-- Il gioco salva lo stato attuale, inclusi i progressi e il numero dei collezionabili raccolti.
-== UC? - Pausa
-//#figure(image("imgs/uc-pausa.png", width: auto), caption: "UC? - Pausa")
+- Il giocatore passa in una zona di transizione.
+- Il gioco salva i dati.
+
+== UC14 - Pausa
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -137,8 +236,7 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il giocatore preme il tasto di pausa o il comando del controller.
 - Il gioco si interrompe e viene visualizzato il menu di pausa.
 
-// Azioni nel menu di pausa
-== UC? - Riprendi gioco
+== UC15 -  Riprendi
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -151,8 +249,7 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il giocatore seleziona l'opzione "Riprendi gioco" dal menu di pausa.
 - Il gioco riprende dalla posizione in cui era stato interrotto.
 
-
-== UC? - Opzioni
+== UC16 - Opzioni
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -164,7 +261,23 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 *Scenario principale*:
 - Il giocatore seleziona l'opzione "Opzioni" dal menu di pausa.
 - Il gioco visualizza le opzioni disponibili per la modifica delle impostazioni.
-== UC? - Torna al menu principale
+
+== UC17 - Torna alla hub
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può ritornare al livello "hub" da qualsiasi altro livello.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu di pausa deve essere visualizzato.
+- Il giocatore non deve essere già nel livello hub.
+*Postcondizioni*:
+- Il giocatore torna al livello hub.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Torna alla hub" dal menu di pausa.
+- Lo schermo diventa nero per una breve durata di tempo.
+- Il giocatore torna al livello hub.
+
+== UC18 - Torna al menu principale
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -177,76 +290,20 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il giocatore seleziona l'opzione "Torna al menu principale" dal menu di pausa.
 - Il gioco torna al menu principale.
 
-// Opzioni
-== UC? - Modifica volume
+== UC19 - Chiudi il gioco
 *Attori principali*:
 - Giocatore
 *Descrizione*:
-- Il giocatore può modificare il volume del gioco dal menu delle opzioni.
+- Il giocatore può chiudere il gioco premendo il tasto.
 *Precondizioni*:
-- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+- Il gioco deve essere in pausa o nel menu principale.
 *Postcondizioni*:
-- Il volume del gioco viene modificato in base alle preferenze del giocatore.
+- Il gioco viene chiuso.
 *Scenario principale*:
-- Il giocatore seleziona l'opzione "Modifica volume" dal menu delle opzioni.
-- Il gioco visualizza un cursore per regolare il volume.
+- Il giocatore seleziona l'opzione "Esci dal gioco" dal menu di pausa o dal menu principale.
+- Il gioco viene chiuso.
 
-== UC? - Modifica risoluzione
-*Attori principali*:
-- Giocatore
-*Descrizione*:
-- Il giocatore può modificare la risoluzione del gioco dal menu delle opzioni.
-*Precondizioni*:
-- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
-*Postcondizioni*:
-- La risoluzione del gioco viene modificata in base alle preferenze del giocatore.
-*Scenario principale*:
-- Il giocatore seleziona l'opzione "Modifica risoluzione" dal menu delle opzioni.
-- Il gioco visualizza un elenco di risoluzioni disponibili e il giocatore può selezionare quella desiderata.
-
-== UC? - Modifica modalità finestra/schermo intero
-*Attori principali*:
-- Giocatore
-*Descrizione*:
-- Il giocatore può modificare la modalità di visualizzazione del gioco (finestra o schermo intero) dal menu delle opzioni.
-*Precondizioni*:
-- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
-*Postcondizioni*:
-- La modalità di visualizzazione del gioco viene modificata in base alle preferenze del giocatore.
-*Scenario principale*:
-- Il giocatore seleziona l'opzione "Modifica modalità finestra/schermo intero" dal menu delle opzioni. 
-- Il gioco cambia la modalità di visualizzazione in base alla selezione del giocatore.
-
-== UC? - Modifica lingua
-*Attori principali*:
-- Giocatore
-*Descrizione*:
-- Il giocatore può modificare la lingua del gioco dal menu delle opzioni.
-*Precondizioni*:
-- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
-*Postcondizioni*:
-- La lingua del gioco viene modificata in base alle preferenze del giocatore.
-*Scenario principale*:
-- Il giocatore seleziona l'opzione "Modifica lingua" dal menu delle opzioni.
-- Il gioco visualizza un elenco di lingue disponibili e il giocatore può selezionare quella desiderata.
-- Il gioco cambia la lingua in base alla selezione del giocatore.
-
-// Azioni nel menu principale
-== UC? - Nuova partita
-*Attori principali*:
-- Giocatore
-*Descrizione*:
-- Il giocatore può avviare il gioco dal menu principale.
-*Precondizioni*:
-- Il gioco deve essere avviato e il menu principale deve essere visualizzato.
-- Il gioco non ha dati di salvataggio esistenti
-*Postcondizioni*:
-- Il gioco inizia e il giocatore viene portato al livello base.
-*Scenario principale*:
-- Il giocatore seleziona l'opzione "Nuova partita" dal menu principale.
-- Il gioco inizia e il giocatore viene portato al livello base.
-
-== UC? - Carica partita
+== UC20 - Carica partita
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -260,18 +317,128 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il giocatore seleziona l'opzione "Carica partita" dal menu principale.
 - Il gioco carica lo stato della partita salvata e il giocatore viene portato al livello in cui si trovava.
 
-== UC? - Esci dal gioco
+== UC21 - Nuova partita
 *Attori principali*:
 - Giocatore
 *Descrizione*:
-- Il giocatore può uscire dal gioco dal menu principale o dal menu d pausa.
+- Il giocatore può avviare il gioco dal menu principale.
 *Precondizioni*:
-- Il gioco deve essere avviato e il menu principale o il menu di pausa devono essere visualizzati.
+- Il gioco deve essere avviato e il menu principale deve essere visualizzato.
+- Il gioco non ha dati di salvataggio esistenti
 *Postcondizioni*:
-- Il gioco viene chiuso.
+- Il gioco inizia e il giocatore viene portato al livello base.
 *Scenario principale*:
-- Il giocatore seleziona l'opzione "Esci dal gioco" dal menu principale o dal menu di pausa.
-- Il gioco viene chiuso.
+- Il giocatore seleziona l'opzione "Nuova partita" dal menu principale.
+- Il gioco inizia e il giocatore viene portato al livello base.
+
+== UC22 - Modifica modalità finestra
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la modalità di visualizzazione del gioco (finestra o schermo intero) dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La modalità di visualizzazione del gioco viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Modifica modalità finestra/schermo intero" dal menu delle opzioni. 
+- Il gioco cambia la modalità di visualizzazione in base alla selezione del giocatore.
+
+== UC23 - Modifica risoluzione finestra
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la risoluzione del gioco dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La risoluzione del gioco viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Modifica risoluzione" dal menu delle opzioni.
+- Il gioco visualizza un elenco di risoluzioni disponibili e il giocatore può selezionare quella desiderata.
+
+== UC24 - Modifica scala di risoluzione
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la scala di risoluzione dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La scala di risoluzione viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Scala di risoluzione" dal menu delle opzioni.
+- Il giocatore scorre la barra sul valore desiderato.
+- Il gioco cambia la scala di risoluzione in base alla selezione del giocatore.
+
+== UC25 - Modifica anti-aliasing
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la qualità delle ombre dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La qualità delle ombre viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Qualità ombre" dal menu delle opzioni.
+- Il giocatore visualizza un elenco di opzioni disponibili e il giocatore può selezionare quella desiderata.
+- Il gioco cambia la qualità delle ombre in base alla selezione del giocatore.
+
+== UC26 - Modifica qualità ombre
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la qualità delle ombre dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La qualità delle ombre viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Qualità ombre" dal menu delle opzioni.
+- Il giocatore visualizza un elenco di opzioni disponibili e il giocatore può selezionare quella desiderata.
+- Il gioco cambia la qualità delle ombre in base alla selezione del giocatore.
+
+== UC27 - Cambia lingua
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare la lingua del gioco dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- La lingua del gioco viene modificata in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Modifica lingua" dal menu delle opzioni.
+- Il giocatore visualizza un elenco di lingue disponibili e il giocatore può selezionare quella desiderata.
+- Il gioco cambia la lingua in base alla selezione del giocatore.
+
+== UC28 - Modifica volume
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può modificare il volume del gioco dal menu delle opzioni.
+*Precondizioni*:
+- Il gioco deve essere in pausa e il menu delle opzioni deve essere visualizzato.
+*Postcondizioni*:
+- Il volume del gioco viene modificato in base alle preferenze del giocatore.
+*Scenario principale*:
+- Il giocatore seleziona l'opzione "Modifica volume" dal menu delle opzioni.
+- Il giocatore visualizza un cursore per regolare il volume.
+
+== UC28 - Salva ed esci dalle opzioni
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore può salvare le opzioni scelte.
+*Precondizioni*:
+- Il giocatore deve essere nel menu di opzioni.
+*Postcondizioni*
+- Il gioco salva ed applica le opzioni.
+*Scenario principale*:
+- Il gioco salva le opzioni.
+- Il gioco applica le opzioni.
+- Il menu di opzioni viene chiuso.
 
 = Requisiti
 == Requisiti funzionali
