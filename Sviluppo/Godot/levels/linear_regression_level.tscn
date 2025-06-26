@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.771901, 2.42282)
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="CollectLine" parent="Entities" instance=ExtResource("4_qijag")]
-transform = Transform3D(0.400669, 0, -0.916223, 0, 1, 0, 0.916223, 0, 0.400669, -1.35203, 0.708748, 10.3697)
+transform = Transform3D(0.751126, 0, -0.660159, 0, 1, 0, 0.660159, 0, 0.751126, -6.57898, 0.708748, 11.6156)
 
 [node name="CannonLR" parent="Entities" node_paths=PackedStringArray("graph") instance=ExtResource("9_kb1fh")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.0578, 0.790867, 2.24473)
@@ -50,6 +50,12 @@ graph = NodePath("../LRGraph")
 
 [node name="LRGraph" parent="Entities" instance=ExtResource("4_jj01n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.6557)
+
+[node name="GraphPoint2" parent="Entities/LRGraph/Points" index="0"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.17585, 0, 5.94103)
+
+[node name="GraphPoint3" parent="Entities/LRGraph/Points" index="1"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.39626, 0, -6.29395)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.253225, -0.950358, 0.180823, 0.0507807, 0.199715, 0.978537, -0.966074, -0.238608, 0.0988326, 0, 2.06607, 2.43376)
@@ -74,4 +80,5 @@ shape = SubResource("BoxShape3D_qb8xj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28347, 0.359945, 4.19403)
 load_level_path = "res://levels/hub_level.tscn"
 
+[editable path="Entities/LRGraph"]
 [editable path="FallArea"]

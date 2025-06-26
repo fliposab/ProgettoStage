@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn25tfoqwa3b7"]
+[gd_scene load_steps=16 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="2_o6mel"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="6_e7anx"]
 [ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="7_ur00s"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
+[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image1.tscn" id="9_ly3hx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srpys"]
 
@@ -96,5 +97,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8082, 1.41267, 24.3378)
 [node name="CannonLR" parent="." node_paths=PackedStringArray("graph") instance=ExtResource("8_wndkh")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20.3032, 2.8677, 6.10808)
 graph = NodePath("../LRGraph")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("9_ly3hx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7228, 3.66673, -4.5754)
 
 [editable path="FallArea"]

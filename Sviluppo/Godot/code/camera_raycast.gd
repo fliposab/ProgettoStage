@@ -12,7 +12,8 @@ class_name CameraRaycast
 func _ready()->void:
 	await get_tree().process_frame
 	_camera_pivot.global_rotation.y = owner.model.global_rotation.y
-	
+
+#da aggiustare
 func _physics_process(delta: float) -> void:
 	calculate_position()
 	if (abs(owner.velocity.x) >= 0.1 or abs(owner.velocity.z) >= 0.1)\

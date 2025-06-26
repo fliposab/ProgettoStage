@@ -56,7 +56,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 
 // Azioni nel livello
 == UC1 - Movimento
-#figure(image("imgs/uc-movimento.png", width: auto), caption: "UC1 - Movimento")
+#figure(image("imgs/uc-movimento.png", width: auto), caption: "Movimento")
 *Attori principali*:\ 
 - Giocatore
 *Descrizione*:\ 
@@ -85,6 +85,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il personaggio si muove nella direzione desiderata insieme all'oggetto.
 
 == UC2 - Salto
+#figure(image("imgs/uc-salto.png", width: auto), caption: "Salto")
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -98,6 +99,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il personaggio salta.
 
 == UC3 - Rotazione telecamera
+#figure(image("imgs/uc-rotazione_telecamera.png", width: auto), caption: "Rotazione telecamera")
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
@@ -135,6 +137,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - La telecamera si muove automaticamente dietro il personaggio.\
 
 == UC4 - Raccolta collezionabile
+#figure(image("imgs/uc-raccolta_collezionabile.png", width: auto), caption: "Raccolta collezionabile")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
