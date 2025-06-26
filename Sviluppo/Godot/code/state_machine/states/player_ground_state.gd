@@ -1,6 +1,8 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
+	if _msg.has("reset_camera"):
+		player.reset_camera()
 	player.play("idle")
 	player.set_respawn_point()
 

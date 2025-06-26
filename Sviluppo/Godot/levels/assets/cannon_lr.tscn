@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmt038lejs3fo"]
+
+[ext_resource type="PackedScene" uid="uid://xrba7x0hpxe" path="res://models/cannon_lr.glb" id="1_ptx6a"]
+[ext_resource type="Script" uid="uid://bur1k14aqy6v1" path="res://code/level/assets/cannon_lr.gd" id="1_un71f"]
+[ext_resource type="Script" uid="uid://bbpi7ecf7ovl4" path="res://code/level/assets/cannon_camera.gd" id="3_2jd2h"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_lgueu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptx6a"]
+size = Vector3(4.29004, 1.21973, 3.47241)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ptx6a"]
+height = 8.35498
+radius = 0.39209
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_un71f"]
+size = Vector3(2.81152, 2.94238, 1.86719)
+
+[node name="CannonLR" type="Node3D"]
+script = ExtResource("1_un71f")
+
+[node name="cannon_lr" parent="." instance=ExtResource("1_ptx6a")]
+
+[node name="cannon" parent="cannon_lr" index="1"]
+process_mode = 4
+script = ExtResource("3_2jd2h")
+
+[node name="Camera3D" type="Camera3D" parent="cannon_lr/cannon" index="0"]
+transform = Transform3D(1.20833, 0, 0, 0, 1.20833, 0, 0, 0, 1.20833, -0.0985848, -0.0175924, -3.64227)
+
+[node name="RayCast3D" type="RayCast3D" parent="cannon_lr/cannon/Camera3D"]
+target_position = Vector3(0, 0, -40)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327148, 0)
+shape = SubResource("BoxShape3D_ptx6a")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28016, -1.13653)
+shape = SubResource("CylinderShape3D_ptx6a")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19136, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.289713)
+shape = SubResource("BoxShape3D_un71f")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -107.5
+offset_top = -53.0
+offset_right = 107.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_lgueu")
+text = "USE_CANNON"
+
+[connection signal="add_point" from="cannon_lr/cannon" to="." method="_on_cannon_add_point"]
+[connection signal="exit" from="cannon_lr/cannon" to="." method="_on_cannon_exit"]
+[connection signal="reset_graph" from="cannon_lr/cannon" to="." method="_on_cannon_reset_graph"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="cannon_lr"]

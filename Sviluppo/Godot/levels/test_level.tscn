@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn25tfoqwa3b7"]
+[gd_scene load_steps=15 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="2_o6mel"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_o6mel"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="6_e7anx"]
+[ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="7_ur00s"]
+[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_srpys"]
 
@@ -26,7 +28,7 @@ background_mode = 2
 sky = SubResource("Sky_x25rp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6mel"]
-size = Vector3(47.6853, 1, 40.2517)
+size = Vector3(146.697, 1, 488.913)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_x25rp")
@@ -47,6 +49,15 @@ transform = Transform3D(20, 0, 0, 0, 5.73, 0, 0, 0, 20, -14.7703, 0.151725, 0)
 shape = SubResource("BoxShape3D_srpys")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_46lwt")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 5.73, 0, 0, 0, 20, -14.7703, 0.151725, 49.1155)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_srpys")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 mesh = SubResource("BoxMesh_46lwt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -77,6 +88,13 @@ transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
 
 [node name="LevelTube" parent="." instance=ExtResource("6_e7anx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54788, 0, 8.47163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5863, 0, 8.47163)
+
+[node name="LRGraph" parent="." instance=ExtResource("7_ur00s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8082, 1.41267, 24.3378)
+
+[node name="CannonLR" parent="." node_paths=PackedStringArray("graph") instance=ExtResource("8_wndkh")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20.3032, 2.8677, 6.10808)
+graph = NodePath("../LRGraph")
 
 [editable path="FallArea"]

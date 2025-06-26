@@ -35,3 +35,6 @@ func _transition_to_next_state(target_state_path: String, data: Dictionary = {})
 	state.exit()
 	state = get_node(target_state_path)
 	state.enter(previous_state_path, data)
+
+func transition_to(state: String, msg := {})->void:
+	_transition_to_next_state(state, msg)

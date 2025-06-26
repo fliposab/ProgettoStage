@@ -2,16 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c11n7aiqbnp6m" path="res://levels/assets/level_tube.tscn" id="1_18hex"]
 [ext_resource type="Script" uid="uid://cg1uve0raquw3" path="res://code/level/assets/level_tube_transition.gd" id="1_tawta"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_kfkwb"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="3_ky2u7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tawta"]
 size = Vector3(3.63647, 3.63477, 4.2041)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_ky2u7"]
-color = Color(1, 1, 1, 1)
-grow_begin = 50.0
-grow_end = 50.0
-thickness = 5
 
 [node name="LevelTube" type="Node3D"]
 script = ExtResource("1_tawta")
@@ -25,9 +20,8 @@ shape = SubResource("BoxShape3D_tawta")
 
 [node name="LevelTube" parent="." instance=ExtResource("1_18hex")]
 
-[node name="LevelTitle" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 process_mode = 1
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelTitle"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -48,16 +42,13 @@ offset_right = 160.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="LevelTitle/VBoxContainer"]
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_kfkwb")
 text = "LINEAR_REGRESSION"
 
-[node name="HSeparator" type="HSeparator" parent="LevelTitle/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_ky2u7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelTitle"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 
 [node name="Fade" parent="." instance=ExtResource("3_ky2u7")]
 

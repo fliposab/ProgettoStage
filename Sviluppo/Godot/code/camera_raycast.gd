@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		_spring_arm.global_rotation.x = lerp_angle(_spring_arm.global_rotation.x, deg_to_rad(-15.0), 0.01)
 		_camera_pivot.rotation.x = clampf(_camera_pivot.rotation.x, -tilt_limit, tilt_limit)
 	else:
-		_camera_pivot.rotation.y -= (Input.get_action_strength("rotate_camera_left")\
+		_camera_pivot.rotation.y += (Input.get_action_strength("rotate_camera_left")\
 		- Input.get_action_strength("rotate_camera_right")) * delta * speed.y
 		_camera_pivot.rotation.x = clampf(_camera_pivot.rotation.x, -tilt_limit, tilt_limit)
 		_camera_pivot.rotation.x -= -(Input.get_action_strength("rotate_camera_down")\
@@ -43,3 +43,7 @@ func calculate_position() -> void:
 
 func respawn(point: Vector3)->void:
 	_camera_pivot.global_position.y =  point.y
+
+func reset()->void:
+	_camera_pivot.global_rotation.y = owner.model.global_rotation.y
+	_camera_pivot.global_rotation.x =  deg_to_rad(-15.0)

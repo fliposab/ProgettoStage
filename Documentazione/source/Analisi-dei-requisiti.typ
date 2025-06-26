@@ -174,7 +174,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
 
-== UC5.2 - Rilasciare un oggetto
+== UC5.2 - Lasciare un oggetto
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -203,9 +203,10 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - L'NPC mostra il messaggio automaticamente.
 
 == UC7 - Transizione scena
-== UC8 - Inserimento punto nel grafico LR
-== UC9 
-== Interazione con macchina LR
+== UC8 - Interazione con macchina LR
+== UC9 - Inserimento punto nel grafico LR
+== UC10 - Reset punti aggiunti nel grafico LR
+
 == UC11 - Disinterazione con macchina LR
 == UC12 - Inserimento dell’oggetto nello spazio dedicato
 == UC12.1 - spazio errato

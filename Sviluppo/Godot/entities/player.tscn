@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=18 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
 [ext_resource type="PackedScene" uid="uid://bu4ctaknncujn" path="res://entities/respawn_point.tscn" id="7_i623q"]
 [ext_resource type="Script" uid="uid://bwysmcgwjxr43" path="res://code/state_machine/states/ground_move.gd" id="10_q0i8f"]
+[ext_resource type="Script" uid="uid://blhi14wa3153j" path="res://code/state_machine/states/interact_state.gd" id="12_oprnr"]
 [ext_resource type="PackedScene" uid="uid://c53auo3nnhq7r" path="res://entities/Player/collect_area.tscn" id="15_0i614"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
@@ -87,6 +88,9 @@ script = ExtResource("10_q0i8f")
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_rfe5m")
+
+[node name="Interact" type="Node" parent="StateMachine"]
+script = ExtResource("12_oprnr")
 
 [node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56907, 0)

@@ -51,3 +51,9 @@ func queue(animation: String):
 func is_moving() -> bool:
 	var input = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	return input != Vector2.ZERO
+
+func reset_camera() -> void:
+	_camera_raycast.reset()
+
+func change_state(state: String, msg := {})->void:
+	_state_machine.transition_to(state, msg)

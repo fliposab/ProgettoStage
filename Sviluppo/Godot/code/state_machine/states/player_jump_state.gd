@@ -11,7 +11,6 @@ func enter(previous_state_path, _msg:={})->void :
 		falling = true
 		player.play("fall_still")
 		
-		
 
 func physics_update(delta: float)->void:
 	if player.velocity.y < 0.0 and !falling:

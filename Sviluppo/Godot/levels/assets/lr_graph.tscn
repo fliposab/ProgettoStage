@@ -8,81 +8,54 @@
 [sub_resource type="BoxMesh" id="BoxMesh_x2yja"]
 material = ExtResource("3_w72ej")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t03m7"]
-size = Vector3(2, 0.5, 50)
+[sub_resource type="BoxShape3D" id="BoxShape3D_w72ej"]
+size = Vector3(30, 0.5, 30)
 
 [node name="LRGraph" type="Node3D"]
 script = ExtResource("1_x2yja")
 
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+collision_mask = 2
+
+[node name="Line" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(2, 0.5, 100)
+material = ExtResource("3_w72ej")
+
+[node name="Line2" type="CSGBox3D" parent="CSGCombiner3D"]
+operation = 1
+size = Vector3(30, 1, 30)
+
 [node name="Points" type="Node3D" parent="."]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
 
-[node name="GraphPoint" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.241968, 0, -1.82565)
-
 [node name="GraphPoint2" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.28385, 0, 2.30904)
-
-[node name="GraphPoint7" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.28385, 0, 2.30904)
-
-[node name="GraphPoint8" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.942208, 0, 1.49769)
-
-[node name="GraphPoint9" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.03994, 0, 0.3364)
-
-[node name="GraphPoint10" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5.49356, 0, 5.7759)
-
-[node name="GraphPoint11" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 11.0067, 0, 9.71245)
-
-[node name="GraphPoint12" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.668877, 0, 1.342)
-
-[node name="GraphPoint13" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.26303, 0, -1.88233)
-
-[node name="GraphPoint14" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.97191, 0, -2.61372)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.41942, 0, 5.94103)
 
 [node name="GraphPoint3" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.55295, 0, -5.58024)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.61398, 0, -2.02205)
 
 [node name="GraphPoint4" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.85717, 0, -1.51611)
-
-[node name="GraphPoint5" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.537287, 0, -0.64579)
-
-[node name="GraphPoint6" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.22, 0, -4.67674)
-
-[node name="Models" type="Node3D" parent="."]
-
-[node name="Line" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.583874, 0, -0.811472, 0, 0.999997, 0, 0.811582, 0, -0.583795, 0, -0.2, 0.492378)
-collision_mask = 3
-
-[node name="Line" type="MeshInstance3D" parent="Line"]
-transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 50, -1.19209e-07, 0, 1.19209e-07)
-mesh = SubResource("BoxMesh_x2yja")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Line"]
-shape = SubResource("BoxShape3D_t03m7")
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.06798, 0, 3.32003)
 
 [node name="debugsphere1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 2, 0, 1.93123)
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 1.32181, 0, 2.49376)
 visible = false
 mesh = SubResource("BoxMesh_x2yja")
 skeleton = NodePath("")
 
 [node name="debugsphere2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -2, 0, -0.946475)
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -0.678194, 0, 2.33224)
 visible = false
 mesh = SubResource("BoxMesh_x2yja")
 skeleton = NodePath("")
 
 [node name="grid_plane" parent="." instance=ExtResource("3_t03m7")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_w72ej")
