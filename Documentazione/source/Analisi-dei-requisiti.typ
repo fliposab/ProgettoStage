@@ -206,14 +206,77 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - L'NPC mostra il messaggio automaticamente.
 
 == UC7 - Transizione scena
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore cambia livello.
+*Precondizioni*:
+- Il giocatore deve trovarsi in un'area per cambiare livello.
+*Postcondizioni*:
+- Il giocatore è nul nuovo livello.
+*Scenario principale*:
+- Il giocatore entra in una zona di transizione.
+- Il giocatore preme il tasto "interagisci".
+- Il livello viene cambiato.
+*Inclusioni*:
+- UC13 - Salvataggio.
+
 == UC8 - Interazione con macchina LR
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore vuole interagire con la macchina per posizionari dei punti sul grafico #gloss[LR].
+*Precondizioni*:
+- Il giocatore deve trovarsi in un'area per interagire con la macchina.
+*Postcondizioni*:
+- Il giocatore può usare la macchina.
+*Scenario principale*:
+- Il giocatore entra in una zona per interagire con la macchina.
+- Il giocatore preme il tasto "interagisci".
+- Il giocatore usa la macchina.
+
 == UC9 - Inserimento punto nel grafico LR
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore vuole posizionare un punto sul grafico LR.
+*Precondizioni*:
+- Il giocatore deve essere in utilizzo di una macchina LR.
+*Postcondizioni*:
+- Il punto viene posizionaro sul grafico.
+*Scenario principale*:
+- Il giocatore mire dove vuole posizionare il punto.
+- Il giocatore preme il tasto "Interagisci".
+- Il punto viene posizionato e la retta del grafico viene aggiornata.
+
 == UC10 - Reset punti aggiunti nel grafico LR
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore vuole togliere i punti da lui aggiunti nel grafico.
+*Precondizioni*:
+- Il giocatore deve essere in utilizzo di una macchina LR.
+*Postcondizioni*:
+- I punti aggiunti dal giocatore vengono tolti
+*Scenario principale*:
+- Il giocatore preme il tasto "Reset".
+- I punti aggiunti dal giocatore vengono tolti e la retta del grafico viene aggiornata.
 
 == UC11 - Disinterazione con macchina LR
-== UC12 - Inserimento dell’oggetto nello spazio dedicato
-== UC12.1 - spazio errato
-== UC12.2 - spazio giusto
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore vuole smettere di usare la macchina LR.
+*Precondizioni*:
+- Il giocatore deve essere in utilizzo di una macchina LR.
+*Postcondizioni*:
+- Il giocatore non sta usando più la macchina.
+*Scenario principale*:
+- Il giocatore preme il tasto per tornare indietro.
+- Il giocatore smette di usare la macchina e può tornare a muoversi.
+
+//== UC12 - Inserimento dell’oggetto nello spazio dedicato
+
 == UC13 - Salvataggio
 *Attori principali*: 
 - Giocatore
