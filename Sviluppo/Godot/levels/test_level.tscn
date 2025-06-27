@@ -29,7 +29,7 @@ background_mode = 2
 sky = SubResource("Sky_x25rp")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6mel"]
-size = Vector3(146.697, 1, 488.913)
+size = Vector3(146.697, 2, 200)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_x25rp")
@@ -98,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8082, 1.41267, 24.3378)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20.3032, 2.8677, 6.10808)
 graph = NodePath("../LRGraph")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("9_ly3hx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7228, 3.66673, -4.5754)
+[node name="GoldenRetriever" parent="." instance=ExtResource("9_ly3hx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6614, 3.62369, 6.01965)
 
 [editable path="FallArea"]

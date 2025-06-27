@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=22 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -16,7 +16,10 @@
 [ext_resource type="Script" uid="uid://bwysmcgwjxr43" path="res://code/state_machine/states/ground_move.gd" id="10_q0i8f"]
 [ext_resource type="Script" uid="uid://blhi14wa3153j" path="res://code/state_machine/states/interact_state.gd" id="12_oprnr"]
 [ext_resource type="PackedScene" uid="uid://c53auo3nnhq7r" path="res://entities/Player/collect_area.tscn" id="15_0i614"]
+[ext_resource type="Script" uid="uid://ppcj2kwmv24b" path="res://code/state_machine/states/grab_state.gd" id="15_cgp7q"]
+[ext_resource type="Script" uid="uid://j615waeyteij" path="res://code/state_machine/states/release_state.gd" id="16_1n8aq"]
 [ext_resource type="PackedScene" uid="uid://l6t1uan5ppyr" path="res://entities/shadow_decal.tscn" id="17_8rie4"]
+[ext_resource type="PackedScene" uid="uid://bq5ldbsphh7ei" path="res://entities/Player/grab_area.tscn" id="18_dp3pk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
 radius = 0.2
@@ -24,6 +27,7 @@ height = 1.43323
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
+collision_mask = 17
 floor_max_angle = 0.523599
 script = ExtResource("1_merdl")
 speed = 400.0
@@ -35,38 +39,6 @@ jump = 14.0
 transform = Transform3D(-0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
-bones/1/position = Vector3(0, 3.84044, 0.138635)
-bones/1/rotation = Quaternion(-0.00596624, -1.02713e-25, 1.72353e-18, 0.999982)
-bones/2/rotation = Quaternion(0.00596624, 1.02915e-25, -1.72353e-18, 0.999982)
-bones/7/rotation = Quaternion(0.0233332, 0.363725, -0.878, 0.310284)
-bones/8/rotation = Quaternion(0.199701, -6.41515e-09, -6.62563e-08, 0.979857)
-bones/9/rotation = Quaternion(0.294851, -6.47267e-09, -1.2589e-07, 0.955543)
-bones/10/rotation = Quaternion(-0.0510753, -0.00363084, -0.112103, 0.992377)
-bones/11/rotation = Quaternion(0.049143, -0.289197, 0.905287, 0.307256)
-bones/12/rotation = Quaternion(0.0160817, 2.40546e-09, 4.32379e-08, 0.999871)
-bones/13/rotation = Quaternion(0.414254, 1.27188e-09, 2.22043e-07, 0.910161)
-bones/14/rotation = Quaternion(-0.0769091, 0.00363391, 0.112197, 0.990699)
-bones/15/rotation = Quaternion(0.960393, 0.0640046, -0.0960665, 0.253615)
-bones/15/scale = Vector3(1, 1, 1.00001)
-bones/16/rotation = Quaternion(0.25005, -1.56615e-09, 0.000772831, 0.968233)
-bones/17/rotation = Quaternion(0.410664, 4.00614e-08, 0.00126909, 0.911786)
-bones/18/rotation = Quaternion(-0.395764, 0.00117326, 0.036678, 0.917619)
-bones/19/rotation = Quaternion(0.981876, -0.0533215, 0.102285, 0.150379)
-bones/20/rotation = Quaternion(0.0445211, -1.4238e-07, -0.000137002, 0.999008)
-bones/21/rotation = Quaternion(0.53128, -9.09786e-08, -0.00164146, 0.847194)
-bones/22/rotation = Quaternion(-0.427598, -0.00119056, -0.0371349, 0.903205)
-bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
-bones/23/rotation = Quaternion(0.707106, 0.001093, 0.001093, 0.707106)
-bones/25/position = Vector3(1.19363, 3.19957, 1.31322)
-bones/26/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
-bones/26/rotation = Quaternion(0.707106, -0.001093, -0.001093, 0.707106)
-bones/28/position = Vector3(-1.19363, 3.19957, 1.31322)
-bones/29/position = Vector3(2.80394, 4.56957, -0.373263)
-bones/29/rotation = Quaternion(-0.0503453, -0.0451223, -0.588757, 0.805478)
-bones/31/position = Vector3(2.65074, 6.18134, -3.18668)
-bones/32/position = Vector3(-2.80394, 4.56957, -0.373263)
-bones/32/rotation = Quaternion(-0.0503453, 0.0451224, 0.588757, 0.805478)
-bones/34/position = Vector3(-2.65074, 6.18134, -3.18668)
 script = ExtResource("3_kdgjc")
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Model/Armature/Skeleton3D" index="1"]
@@ -91,9 +63,16 @@ settings/0/gravity/direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0182943, 3.10808)
+bone_name = "object"
+bone_idx = 35
+
 [node name="Decal" parent="Model/Armature" index="1" instance=ExtResource("17_8rie4")]
 transform = Transform3D(-6.66667, 0, 5.82818e-07, 0, 6.66667, 0, -5.82818e-07, 0, -6.66667, 0.659412, -21.11, 5.76475e-08)
 distance_fade_enabled = true
+
+[node name="GrabArea" parent="Model" instance=ExtResource("18_dp3pk")]
 
 [node name="Misc" type="Node" parent="."]
 
@@ -129,6 +108,20 @@ script = ExtResource("4_rfe5m")
 [node name="Interact" type="Node" parent="StateMachine"]
 script = ExtResource("12_oprnr")
 
+[node name="Grab" type="Node" parent="StateMachine"]
+script = ExtResource("15_cgp7q")
+
+[node name="Timer" type="Timer" parent="StateMachine/Grab"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Release" type="Node" parent="StateMachine"]
+script = ExtResource("16_1n8aq")
+
+[node name="Timer" type="Timer" parent="StateMachine/Release"]
+wait_time = 0.5
+one_shot = true
+
 [node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56907, 0)
 speed = Vector2(1, 2)
@@ -150,6 +143,10 @@ offset_bottom = 65.0
 
 [node name="CollectArea" parent="." instance=ExtResource("15_0i614")]
 
+[connection signal="body_entered" from="Model/GrabArea" to="." method="set_grab_item"]
+[connection signal="body_exited" from="Model/GrabArea" to="." method="reset_grab_item"]
 [connection signal="changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="change_text_count"]
+[connection signal="timeout" from="StateMachine/Grab/Timer" to="StateMachine/Grab" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Release/Timer" to="StateMachine/Release" method="_on_timer_timeout"]
 
 [editable path="Model"]

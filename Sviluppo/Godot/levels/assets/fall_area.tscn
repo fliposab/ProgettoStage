@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="2_uyk4g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyk4g"]
+size = Vector3(0.001, 1, 1)
 
 [node name="FallArea" type="Area3D"]
-collision_mask = 3
+collision_mask = 18
 script = ExtResource("1_10wuw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

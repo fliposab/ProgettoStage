@@ -179,12 +179,13 @@ script = ExtResource("1_ftq5n")
 
 [node name="LevelTube3" parent="Models" instance=ExtResource("2_ftq5n")]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 0, 0, 0)
-
-[node name="Area3D" parent="Models/LevelTube3" index="0"]
-collision_mask = 0
+load_level_path = "res://levels/dt_level.tscn"
 
 [node name="tube" parent="Models/LevelTube3/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_0nv80")
+
+[node name="Label" parent="Models/LevelTube3/Control/VBoxContainer" index="0"]
+text = "DECISION_TREE"
 
 [node name="LevelTube2" parent="Models" instance=ExtResource("2_ftq5n")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)

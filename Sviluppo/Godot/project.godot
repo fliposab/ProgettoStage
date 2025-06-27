@@ -33,6 +33,7 @@ project/assembly_name="ProgettoStage"
 folder_colors={
 "res://code/": "purple",
 "res://entities/": "red",
+"res://levels/": "blue",
 "res://models/": "orange",
 "res://ui/": "green"
 }

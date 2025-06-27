@@ -61,6 +61,6 @@ func calculate_pos_rot(a: float, b: float, center: Vector3)->void:
 
 func position_line(point1: Vector3, point2: Vector3)->void:
 	var sum : Vector3 = Vector3(point1.x+point2.x, point1.y+point2.y, point1.z+point2.z)
-	var new_position : Vector3 = Vector3(sum.x/2.0,global_position.y-0.2,sum.z/2.0)
+	var new_position : Vector3 = Vector3(sum.x/2.0,global_position.y-0.22,sum.z/2.0)
 	line.look_at(point1)
 	line.global_position = new_position

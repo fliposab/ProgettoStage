@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://becejkmc1y65j"]
+
+[ext_resource type="Script" uid="uid://cyvik771hju76" path="res://code/level/decision_tree/decision_node.gd" id="1_2t767"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_88wmp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_88wmp"]
+height = 0.3
+radius = 1.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mpyy2"]
+top_radius = 1.8
+bottom_radius = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qfduj"]
+height = 0.2
+radius = 1.75293
+
+[node name="DecisionNode" type="Node3D"]
+script = ExtResource("1_2t767")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040581, 0)
+shape = SubResource("CylinderShape3D_88wmp")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.15, 0, 0, 0, 1, 0, 0.040581, 0)
+mesh = SubResource("CylinderMesh_mpyy2")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.157166, 0)
+collision_layer = 17
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.355471, 0)
+shape = SubResource("CylinderShape3D_qfduj")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_88wmp")
+text = "QUESTION_1"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

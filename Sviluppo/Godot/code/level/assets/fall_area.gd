@@ -6,13 +6,15 @@ class_name FallArea
 @onready var fade : Control = $Fade
 
 func _on_body_entered(body: Node3D) -> void:
-	if !body is Player:
-		return
-	var player : Player = body
-	timer.start()
-	fade.play_fade()
-	await timer.timeout
-	respawn_player(player)
+	if body is Player:
+		var player : Player = body
+		timer.start()
+		fade.play_fade()
+		await timer.timeout
+		respawn_player(player)
+	elif body is TrainingImage:
+		body.return_to_spawn()
+	
 
 func respawn_player(player: Player)->void:
 	player.return_to_respawn_point()
