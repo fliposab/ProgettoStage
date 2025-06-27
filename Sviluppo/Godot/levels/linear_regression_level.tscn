@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8gkv5w2oc67f"]
+[gd_scene load_steps=15 format=3 uid="uid://8gkv5w2oc67f"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_5abim"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="2_jj01n"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brt0lqmi4hy08" path="res://models/level1_start_mesh.glb" id="6_qb8xj"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="7_24tvr"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="9_kb1fh"]
+[ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="10_imcpe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
 sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
@@ -80,5 +81,14 @@ shape = SubResource("BoxShape3D_qb8xj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28347, 0.359945, 4.19403)
 load_level_path = "res://levels/hub_level.tscn"
 
+[node name="Label" parent="LevelTube/Control/VBoxContainer" index="0"]
+text = "BACK_TO_HUB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SavesHandler" type="Node" parent="."]
+script = ExtResource("10_imcpe")
+
 [editable path="Entities/LRGraph"]
 [editable path="FallArea"]
+[editable path="LevelTube"]

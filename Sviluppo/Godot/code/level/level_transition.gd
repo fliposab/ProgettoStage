@@ -1,7 +1,7 @@
 extends Node
 class_name LevelTransition
 
-var current_level : Level
+var current_level : Node
 @onready var fade_transition : FadeTransition = $Fade
 
 func _ready():
@@ -20,5 +20,14 @@ func switch_level(new_level_path: String):
 	get_tree().get_root().add_child(new_level)
 	current_level = new_level
 	fade_transition.play_fade(true)
-	
-	
+
+func load_last_level():
+	fade_transition.play_fade()
+	get_tree().paused = false
+	await get_tree().create_timer(1.1).timeout
+	get_tree().get_root().remove_child(current_level)
+	current_level.call_deferred("free")
+	var new_level = load(LevelsSaves.last_level).instantiate()
+	get_tree().get_root().add_child(new_level)
+	current_level = new_level
+	fade_transition.play_fade(true)

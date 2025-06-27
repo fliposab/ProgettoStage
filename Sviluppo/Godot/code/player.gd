@@ -88,3 +88,6 @@ func reset_grab_item(body: Node3D) -> void:
 	await get_tree().process_frame
 	grab_item = null
 	can_grab = false
+
+func change_collectibles_max_value(value: int)->void:
+	_collectibles.change_max(value)

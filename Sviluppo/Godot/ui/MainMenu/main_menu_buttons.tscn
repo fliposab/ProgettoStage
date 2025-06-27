@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqipji8qy3t8"]
+[gd_scene load_steps=7 format=3 uid="uid://lqipji8qy3t8"]
 
 [ext_resource type="Script" uid="uid://b5k44yo3pyuwd" path="res://code/ui/main_menu_buttons.gd" id="1_0daph"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="1_tadr4"]
+[ext_resource type="PackedScene" uid="uid://rnklxapul4vv" path="res://ui/MainMenu/load_game_button.tscn" id="2_aauem"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_shefl"]
+[ext_resource type="Script" uid="uid://byvx0mjcj74wt" path="res://code/ui/load_game_button.gd" id="3_hjwbw"]
+[ext_resource type="PackedScene" uid="uid://cwx3sk2na8hs6" path="res://ui/MainMenu/new_game_button.tscn" id="4_hjwbw"]
 
 [node name="MainMenuButtons" type="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
@@ -11,23 +14,20 @@ size_flags_vertical = 6
 theme_override_constants/separation = 25
 script = ExtResource("1_0daph")
 
-[node name="NewGame" type="Button" parent="."]
+[node name="LoadGame" parent="." instance=ExtResource("2_aauem")]
 layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 24
-text = "NEW_GAME"
+script = ExtResource("3_hjwbw")
 
-[node name="LoadGame" type="Button" parent="."]
+[node name="NewGame" parent="." instance=ExtResource("4_hjwbw")]
 layout_mode = 2
-mouse_filter = 2
-theme_override_font_sizes/font_size = 24
-text = "LOAD_GAME"
 
 [node name="Options" parent="." instance=ExtResource("2_shefl")]
 layout_mode = 2
 
 [node name="Quit" parent="." instance=ExtResource("1_tadr4")]
 layout_mode = 2
+save_on_pressed = false
 
-[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="LoadGame" to="LoadGame" method="_on_pressed"]
+[connection signal="pressed" from="NewGame" to="NewGame" method="_on_pressed"]
+[connection signal="exit_options" from="Options" to="." method="_on_options_exit_options"]

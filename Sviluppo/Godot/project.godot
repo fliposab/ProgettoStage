@@ -23,6 +23,7 @@ GlobalSaves="*res://code/saves/global_saves.gd"
 PlayerSaves="*res://code/saves/player_saves.gd"
 OptionsSaves="*res://code/saves/options_saves.gd"
 LevelsTransition="*res://levels/assets/level_transition.tscn"
+LevelsSaves="*res://code/saves/level_save.gd"
 
 [dotnet]
 

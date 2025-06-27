@@ -138,14 +138,15 @@ offset_bottom = 40.0
 layout_mode = 1
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 133.0
-offset_bottom = 65.0
+offset_right = 170.0
+offset_bottom = 90.0
 
 [node name="CollectArea" parent="." instance=ExtResource("15_0i614")]
 
 [connection signal="body_entered" from="Model/GrabArea" to="." method="set_grab_item"]
 [connection signal="body_exited" from="Model/GrabArea" to="." method="reset_grab_item"]
 [connection signal="changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="change_text_count"]
+[connection signal="max_changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="_on_collectibles_max_changed"]
 [connection signal="timeout" from="StateMachine/Grab/Timer" to="StateMachine/Grab" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Release/Timer" to="StateMachine/Release" method="_on_timer_timeout"]
 

@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cona58iu8eeah"]
+[gd_scene load_steps=2 format=3 uid="uid://cona58iu8eeah"]
 
 [ext_resource type="PackedScene" uid="uid://becejkmc1y65j" path="res://levels/assets/decision_node.tscn" id="1_cftd1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8e6fb"]
-size = Vector3(44.9336, 30, 1.96582)
 
 [node name="DecisionTree" type="Node3D"]
 
@@ -11,27 +8,29 @@ size = Vector3(44.9336, 30, 1.96582)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0700061, 0)
 
 [node name="DecisionNode" parent="Nodes" instance=ExtResource("1_cftd1")]
+question_text = "DOG_SIZE"
 
 [node name="DecisionNode2" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, 0)
-
-[node name="DecisionNode3" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 0)
-
-[node name="DecisionNode4" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 6, 0)
-id = "golden_retriever"
-is_final = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -2)
+question_text = "FUR_LENGTH"
 
 [node name="DecisionNode5" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 6, 5)
-id = "german_sheperd"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, -5)
+question_text = "FUR_LENGTH"
 is_final = true
 
+[node name="DecisionNode6" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0)
+id = "golden_retriever"
+question_text = "FUR_LENGTH"
+is_final = true
+
+[node name="DecisionNode3" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -2)
+question_text = "FUR_LENGTH"
+
+[node name="DecisionNode4" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
+question_text = "FUR_LENGTH"
+
 [node name="Branches" type="Node3D" parent="."]
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.96, 0.141744)
-shape = SubResource("BoxShape3D_8e6fb")

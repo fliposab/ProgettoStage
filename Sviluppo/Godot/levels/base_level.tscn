@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyumfgemisawb"]
+[gd_scene load_steps=8 format=3 uid="uid://cyumfgemisawb"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_p5284"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="3_63c5o"]
+[ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="4_satuh"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_6w4ab"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
@@ -35,3 +36,6 @@ environment = SubResource("Environment_gmgay")
 [node name="PauseMenu" parent="." instance=ExtResource("5_6w4ab")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_63c5o")]
+
+[node name="SavesHandler" type="Node" parent="."]
+script = ExtResource("4_satuh")

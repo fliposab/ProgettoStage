@@ -15,11 +15,11 @@ top_radius = 0.55
 bottom_radius = 0.55
 height = 0.15
 
-[node name="TrainingData" instance=ExtResource("1_yaaju")]
+[node name="TrainingData" groups=["collectibles"] instance=ExtResource("1_yaaju")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Model" parent="." index="0"]
-transform = Transform3D(-0.587806, 0, -0.809042, 0, 1, 0, 0.809042, 0, -0.587806, 0, 0, 0)
+transform = Transform3D(-0.104534, 0, -0.994554, 0, 1, 0, 0.994554, 0, -0.104534, 0, 0, 0)
 
 [node name="Coin" parent="Model" index="0"]
 mesh = SubResource("CylinderMesh_gmws4")

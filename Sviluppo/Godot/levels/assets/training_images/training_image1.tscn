@@ -21,7 +21,7 @@ size = Vector2(2, 2)
 
 [node name="GoldenRetriever" type="CharacterBody3D"]
 collision_layer = 16
-collision_mask = 17
+collision_mask = 19
 script = ExtResource("1_8crgr")
 id = "golden_retriever"
 

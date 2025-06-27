@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://7od502637srp"]
+
+[ext_resource type="Script" uid="uid://bq66hpki7qoye" path="res://llm_test.gd" id="1_udvvk"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_udvvk")
+
+[node name="GDLlama" type="GDLlama" parent="."]
+model_path = "Phi-3-mini-4k-instruct-IQ1_M.gguf"
+n_predict = 20
+split_mode = 0
