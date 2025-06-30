@@ -23,7 +23,9 @@ Il seguente documento ha come scopo quello di definire le attività svolte duran
 
 == Glossario
 Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
-Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure consultando il rispettivo documento all'interno della stessa cartella.
+Il glossario è accessibile tramite il link:\ 
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")\
+oppure consultando il rispettivo documento all'interno della stessa cartella.
 
 == Riferimenti
 === Riferimenti normativi
@@ -229,10 +231,21 @@ Sono stati individuati i requisiti e use cases principali, calcolo dei rischi e 
     - menu di pausa: disponibile quando il giocatore preme il rispettivo tasto;
 - opzioni: dove il giocatore può cambiare le impostazioni grafiche e la lingua;
 - schermata principale: da dove il giocatore può iniziare il gioco.
-#figure( caption: "Livello per testing", image("imgs/settimana-1.png", width: 80%))
+#figure( caption: "Livello per testing (settimana 1)", image("imgs/settimana-1.png", width: 80%))
 == Settimana 2 | 23/06 - 27/06
 #pseudoheading[*Retropsettiva*]
+Durante la seconda settimana, sono state sviluppate le principali meccaniche del gioco, tra cui implementazione della Linear Regression e raccolta di oggetti, individuati altri use cases e aggiornato il Piano di qualifica.
 #pseudoheading[*Attività svolte*]
+- Creazione del modello 3D del giocatore;
+- implementazione delle meccaniche principali:
+  - Ponte tramite Linear Regression;
+  - Raccolta e rilascio di un oggetto;
+  - Decision Tree con controllo se il piazzamento dell'oggetto è nella categoria giusta;
+- individuati altri use case;
+- aggiornato il piano di qualfica con nuove metriche e aggiunto il cruscotto;
+- continua stesura degli altri documenti.
+#figure( caption: "Ponte Linear Regression + modello 3D del giocatore (settimana 2)", image("imgs/settimana-2.png", width: 90%))
+#pagebreak()
 == Settimana 3 | 30/06 - 04/07
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]

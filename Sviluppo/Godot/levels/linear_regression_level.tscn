@@ -1,15 +1,59 @@
-[gd_scene load_steps=15 format=3 uid="uid://8gkv5w2oc67f"]
+[gd_scene load_steps=31 format=3 uid="uid://8gkv5w2oc67f"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_5abim"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="2_jj01n"]
+[ext_resource type="PackedScene" uid="uid://ccjwu01e7jq4t" path="res://levels/assets/lr_graph_vertical.tscn" id="2_ue3qp"]
 [ext_resource type="PackedScene" uid="uid://j7kh7pmknn8s" path="res://levels/player_spawn.tscn" id="3_qdyga"]
 [ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="4_jj01n"]
 [ext_resource type="PackedScene" uid="uid://bup16yxx4voly" path="res://levels/assets/collect_line.tscn" id="4_qijag"]
+[ext_resource type="PackedScene" uid="uid://byw02wwul05fa" path="res://levels/assets/lr_graph_inverted.tscn" id="5_imcpe"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="5_qdyga"]
-[ext_resource type="PackedScene" uid="uid://brt0lqmi4hy08" path="res://models/level1_start_mesh.glb" id="6_qb8xj"]
+[ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="6_fl2wk"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="7_24tvr"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="9_kb1fh"]
 [ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="10_imcpe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kb1fh"]
+size = Vector3(40, 10, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfs7l"]
+size = Vector3(4, 60, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ue3qp"]
+size = Vector3(4, 60, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cq4rb"]
+size = Vector3(4, 60, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1wsq1"]
+size = Vector3(4, 60, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qe0ju"]
+size = Vector3(20, 100, 39.925)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y053m"]
+size = Vector3(40, 20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3uslo"]
+size = Vector3(40, 20, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhcsx"]
+size = Vector3(40, 20, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wtbd8"]
+size = Vector3(100, 20, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lo6ya"]
+size = Vector3(40, 20, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f68ad"]
+size = Vector3(50, 100, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_imcpe"]
+size = Vector3(40, 10, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fl2wk"]
+size = Vector3(40, 10, 40)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
 sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
@@ -25,6 +69,8 @@ sky_material = SubResource("ProceduralSkyMaterial_46lwt")
 background_mode = 2
 sky = SubResource("Sky_x25rp")
 ssao_enabled = true
+ssao_radius = 5.0
+ssao_intensity = 3.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qb8xj"]
 size = Vector3(32.5427, 1, 83.1189)
@@ -33,24 +79,114 @@ size = Vector3(32.5427, 1, 83.1189)
 process_mode = 1
 script = ExtResource("1_5abim")
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.771901, 2.42282)
-
 [node name="Models" type="Node3D" parent="."]
 
-[node name="level1_start_mesh" parent="Models" instance=ExtResource("6_qb8xj")]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Models"]
+use_collision = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.55601, -5.14049)
+mesh = SubResource("BoxMesh_kb1fh")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4315, 21.4156, 62.8189)
+mesh = SubResource("BoxMesh_vfs7l")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2503, 21.4156, 33.6954)
+mesh = SubResource("BoxMesh_ue3qp")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.0597, 21.4156, 81.7951)
+mesh = SubResource("BoxMesh_cq4rb")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -52.8281, 21.4156, 118.489)
+mesh = SubResource("BoxMesh_1wsq1")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -12.701, 21.4156, 126.481)
+mesh = SubResource("BoxMesh_1wsq1")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.49008, 9.77544, -22.6566)
+mesh = SubResource("BoxMesh_qe0ju")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.57473, 39.7975)
+mesh = SubResource("BoxMesh_y053m")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.7882, 62.9411)
+mesh = SubResource("BoxMesh_3uslo")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.0271, 98.4769)
+mesh = SubResource("BoxMesh_lhcsx")
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.766, -8.68667, 131.835)
+mesh = SubResource("BoxMesh_wtbd8")
+
+[node name="CSGMesh3D16" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.2352, -3.08092, 80.3225)
+mesh = SubResource("BoxMesh_lo6ya")
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.5126, -5.89662, 85.1676)
+mesh = SubResource("BoxMesh_lo6ya")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.04437, -27.4719, 137.136)
+mesh = SubResource("BoxMesh_f68ad")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.4753, -46.6403, 144.118)
+mesh = SubResource("BoxMesh_f68ad")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5039, 2.48418, 30.7087)
+mesh = SubResource("BoxMesh_imcpe")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.16329, -0.72201)
+mesh = SubResource("BoxMesh_kb1fh")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.3047, 15.44)
+mesh = SubResource("BoxMesh_fl2wk")
 
 [node name="Entities" type="Node3D" parent="."]
 
+[node name="LRGraphVertical" parent="Entities" instance=ExtResource("2_ue3qp")]
+transform = Transform3D(1, -4.37114e-08, -1.91069e-15, 0, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -30.7436, 14.3418, 121.26)
+
 [node name="CollectLine" parent="Entities" instance=ExtResource("4_qijag")]
 transform = Transform3D(0.751126, 0, -0.660159, 0, 1, 0, 0.660159, 0, 0.751126, -6.57898, 0.708748, 11.6156)
+
+[node name="CollectLine2" parent="Entities" instance=ExtResource("4_qijag")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.31452, -2.56875, 54.5078)
+
+[node name="CollectLine3" parent="Entities" instance=ExtResource("4_qijag")]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -33.1604, 15.5626, 121.042)
 
 [node name="CannonLR" parent="Entities" node_paths=PackedStringArray("graph") instance=ExtResource("9_kb1fh")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.0578, 0.790867, 2.24473)
 graph = NodePath("../LRGraph")
 
+[node name="CannonLR2" parent="Entities" node_paths=PackedStringArray("graph") instance=ExtResource("9_kb1fh")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10.0578, 0.790867, 46.0353)
+graph = NodePath("../LRGraphInverted")
+
+[node name="CannonLR3" parent="Entities" node_paths=PackedStringArray("graph") instance=ExtResource("9_kb1fh")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -32.1723, 6.71406, 95.2936)
+graph = NodePath("../LRGraphVertical")
+
 [node name="LRGraph" parent="Entities" instance=ExtResource("4_jj01n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.6557)
+
+[node name="Line" parent="Entities/LRGraph/CSGCombiner3D" index="0"]
+transform = Transform3D(-0.89552, 0, -0.445016, 0, 0.999994, 0, 0.445016, 0, -0.89552, -4.9804, -0.22, -0.417461)
 
 [node name="GraphPoint2" parent="Entities/LRGraph/Points" index="0"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.17585, 0, 5.94103)
@@ -58,8 +194,47 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.17585, 0, 5.94103)
 [node name="GraphPoint3" parent="Entities/LRGraph/Points" index="1"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -6.39626, 0, -6.29395)
 
+[node name="GraphPoint5" parent="Entities/LRGraph/Points" index="3" instance=ExtResource("6_fl2wk")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -7.36803, 0, -1.82396)
+
+[node name="GraphPoint6" parent="Entities/LRGraph/Points" index="4" instance=ExtResource("6_fl2wk")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.42211, 0, -1.82396)
+
+[node name="GraphPoint7" parent="Entities/LRGraph/Points" index="5" instance=ExtResource("6_fl2wk")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.42211, 0, -1.82396)
+
+[node name="debugsphere1" parent="Entities/LRGraph" index="2"]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -3.9804, 0, 1.59487)
+
+[node name="debugsphere2" parent="Entities/LRGraph" index="3"]
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -5.9804, 0, -2.42979)
+
+[node name="LRGraphInverted" parent="Entities" instance=ExtResource("5_imcpe")]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, 0.0366192, 7.53013, 62.3776)
+
+[node name="Line" parent="Entities/LRGraphInverted/CSGCombiner3D" index="1"]
+transform = Transform3D(-0.240196, 0, -0.970684, 0, 0.999894, 0, 0.970725, 0, -0.240186, 1.54823, 0, 5.85708)
+
+[node name="GraphPoint3" parent="Entities/LRGraphInverted/Points" index="0"]
+transform = Transform3D(0.6, 0, 1.85962e-15, 1.77636e-15, 0.59993, 0.00915211, -5.92497e-14, -0.00915219, 0.59993, 9.45376, 1, 7.08458)
+
+[node name="GraphPoint4" parent="Entities/LRGraphInverted/Points" index="1"]
+transform = Transform3D(0.6, 0, -6.29945e-16, 0, 0.6, -3.55271e-15, -6.29945e-16, -1.77636e-15, 0.6, -5.06798, 1, 4.62101)
+
+[node name="GraphPoint5" parent="Entities/LRGraphInverted/Points" index="2" instance=ExtResource("6_fl2wk")]
+transform = Transform3D(0.6, 0, -6.29945e-16, -3.55271e-15, 0.6, -7.10543e-15, -6.29945e-16, -5.32907e-15, 0.6, 2.56027, 1, 8.87433)
+
+[node name="GraphPoint6" parent="Entities/LRGraphInverted/Points" index="3" instance=ExtResource("6_fl2wk")]
+transform = Transform3D(0.6, 0, -6.29946e-16, -7.10543e-15, 0.6, -1.06581e-14, -6.29945e-16, -8.88178e-15, 0.6, -0.753124, 1, 2.84842)
+
+[node name="debugsphere1" parent="Entities/LRGraphInverted" index="2"]
+transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, 2.54823, 7.53013, 6.10452)
+
+[node name="debugsphere2" parent="Entities/LRGraphInverted" index="3"]
+transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, 0.548233, 7.53013, 5.60964)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.253225, -0.950358, 0.180823, 0.0507807, 0.199715, 0.978537, -0.966074, -0.238608, 0.0988326, 0, 2.06607, 2.43376)
+transform = Transform3D(-0.773711, 0.627411, -0.0879002, 0.0507807, 0.199715, 0.978537, 0.631501, 0.752642, -0.186382, 0, 2.06607, 2.43376)
 shadow_enabled = true
 shadow_opacity = 0.2
 
@@ -67,7 +242,7 @@ shadow_opacity = 0.2
 environment = SubResource("Environment_gmgay")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_qdyga")]
-transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 7.98785, 1.01263, -4.04038)
+transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 9.20246, 0.753474, -5.55282)
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_jj01n")]
 
@@ -86,9 +261,20 @@ text = "BACK_TO_HUB"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelTube2" parent="." instance=ExtResource("7_24tvr")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.55156, 22.6335, 122.452)
+load_level_path = "res://levels/hub_level.tscn"
+
+[node name="Label" parent="LevelTube2/Control/VBoxContainer" index="0"]
+text = "BACK_TO_HUB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SavesHandler" type="Node" parent="."]
 script = ExtResource("10_imcpe")
 
 [editable path="Entities/LRGraph"]
+[editable path="Entities/LRGraphInverted"]
 [editable path="FallArea"]
 [editable path="LevelTube"]
+[editable path="LevelTube2"]

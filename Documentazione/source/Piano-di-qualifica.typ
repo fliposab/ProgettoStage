@@ -19,7 +19,9 @@ Il presente documento ha lo scopo di definire le metriche di qualità che verran
 
 == Glossario
 Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
-Il glossario è accessibile tramite il link #link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf") oppure consultando il rispettivo documento all'interno della stessa cartella.
+Il glossario è accessibile tramite il link:\ 
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")\
+oppure consultando il rispettivo documento all'interno della stessa cartella.
 
 == Riferimenti
 === Riferimenti normativi
@@ -220,7 +222,7 @@ In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fa
 //=== Sicurezza
 // 
 === Compatibilità
-- *MPD-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11, MacOS + alcuni distros di Linux, ad esempio Ubuntu.
+- *MPD-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11 e Ubuntu.
 - *MPD-SL - Supported Languages*: numero di lingue supportate, si mira ad avere almeno 2 lingue supportate: italiano e inglese.
 
 #figure(caption: [Valori per misurare la qualità del prodotto in termini di compatibilità], table(

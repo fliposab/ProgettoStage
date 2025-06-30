@@ -25,13 +25,15 @@ Il gioco comprende 3 livelli, ognuno con un tema diverso, un menu principale che
 - *Creazione di un'esperienza di gioco coinvolgente*: il gioco mira a fornire un'esperienza di gioco coinvolgente e stimolante, con livelli progettati per essere divertenti e impegnativi.
 
 == Glossario
-Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni.\
-Il glossario è accessibile tramite il link [Glossario](glossario.typ) oppure consultando il rispettivo documento all'interno della stessa cartella.
+Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
+Il glossario è accessibile tramite il link:\ 
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")\
+oppure consultando il rispettivo documento all'interno della stessa cartella.
 
 == Riferimenti
 === Riferimenti normativi
 - Norme di progetto:
-link
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Norme-di-progetto.pdf")
 
 === Riferimenti informativi
 - Slide T05 del corso di Ingegneria del Software:\
@@ -43,9 +45,6 @@ link
 - Documentazione "Godot Engine":\ 
 #link("https://docs.godotengine.org/en/stable/")\
 \
-
-- Glossario:\
-link
 
 = Use cases
 == Introduzione
@@ -69,7 +68,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto o muove la levetta nel #gloss[controller]
 - Il personaggio si muove nella direzione desiderata
 
-== UC1.1 - Movimento con oggetto
+=== UC1.1 - Movimento con oggetto
 *Attori principali*:\ 
 - Giocatore
 *Descrizione*:\ 
@@ -111,7 +110,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - La telecamera si muove attorno al personaggio.
 
-== UC3.1 - Rotazione telecamera manuale
+=== UC3.1 - Rotazione telecamera manuale
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
@@ -124,7 +123,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme le frecce direzionali o lo #gloss[stick analogico] destro del controller.
 - La telecamera si muove attorno al personaggio.
 
-== UC3.2 - Rotazione telecamera automatica
+=== UC3.2 - Rotazione telecamera automatica
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
@@ -163,7 +162,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
 
-== UC5.1 - Prendere un oggetto
+=== UC5.1 - Prendere un oggetto
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -177,7 +176,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
 
-== UC5.2 - Lasciare un oggetto
+=== UC5.2 - Lasciare un oggetto
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -624,5 +623,116 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     UC29\ Decisione interna],
   ))
 == Requisiti di qualità
+#figure(
+  caption: [Requisiti di qualità],
+  table(
+    columns: (0.7fr, 2fr, 0.8fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0) { luma(230) },
+    table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
+    "R-01-Q-O",
+    "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti la progettazione architetturale",
+    "",
+
+    "R-02-Q-O",
+    "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti le tecnologie utilizzate",
+    "",
+
+    "R-03-Q-O",
+    "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti la progettazione della base di dati",
+    "",
+
+    "R-04-Q-O",
+    "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti l'implementazione del sistema di raccomandazione utilizzato con LLM",
+    "",
+
+    "R-05-Q-O",
+    "Tutte le attività del progetto devono essere svolte rispettando le Norme di Progetto",
+    "",
+
+    "R-06-Q-O", "Tutto il codice e la documentazione vanno salvati all'interno di un repository pubblico", 
+    "",
+  ),
+)
+
 == Requisiti di vincolo
+#show figure: set block(breakable: true)
+#figure(
+  caption: [Requisiti di vincolo],
+  table(
+    columns: (0.7fr, 2fr, 0.8fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0) { luma(230) },
+    table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
+    "R-01-V-O", 
+    "Il gioco deve supportare i sistemi operativi Windows e Ubuntu",
+    "",
+    "R-02-V-O",
+    "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
+    "",
+  ),
+)
+== Tracciamento dei requisiti
+#figure(
+  caption: [Tracciamento requisiti],
+  table(
+    columns: (1fr, 1.5fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0) { luma(230) },
+    table.header([*Requisito*], [*Fonti*]),
+    // Requisiti funzionali
+    "R-01-F-O", "UC1",
+    "R-02-F-O", "UC1.1",
+    "R-03-F-O", "UC2",
+    "R-04-F-O", "UC3",
+    "R-05-F-D", "UC3.1",
+    "R-06-F-O", "UC3.2",
+    "R-07-F-O", "UC4",
+    "R-08-F-O", "UC5",
+    "R-09-F-O", "UC5.1",
+    "R-10-F-O", "UC5.2",
+    "R-11-F-D", "UC6",
+    "R-12-F-O", "UC7",
+    "R-13-F-O", "",
+    "R-14-F-O", "",
+    "R-15-F-O", "",
+    "R-16-F-O", "",
+    "R-17-F-O", "",
+    "R-18-F-O", "",
+    "R-19-F-O", "",
+    "R-20-F-", "",
+    "R-21-F-O", "",
+    "R-22-F-D", "",
+    "R-23-F-D", "",
+    "R-24-F-D", "",
+    "R-25-F-D", "",
+    "R-26-F-O", "",
+    "R-27-F-O", "",
+    "R-28-F-O", "",
+    "R-29-F-", "",
+    "R-30-F-", "",
+    "R-31-F-", "",
+    "R-32-F-", "",
+    "R-33-F-O", "",
+    "R-34-F-O", "",
+    "R-35-F-O", "",
+    "R-36-F-O", "",
+    "R-37-F-O", "",
+    "R-38-F-O", "",
+    "R-39-F-O", "",
+    // Requisiti di qualità
+    "R-01-Q-O", "",
+    "R-02-Q-O", "",
+    "R-03-Q-O", "",
+    "R-04-Q-O", "",
+    "R-05-Q-O", "",
+    "R-06-Q-O", "",
+    // Requisiti di vincolo
+    "R-01-V-O", "",
+    "R-02-V-O", "",
+  ),
+)
 == Riepilogo 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgmf8sblij3yd"]
 
-[ext_resource type="Script" uid="uid://0vgvrcg4m15m" path="res://code/level/linear_regression/lr_graph.gd" id="1_x2yja"]
+[ext_resource type="Script" uid="uid://0vgvrcg4m15m" path="res://code/level/linear_regression/linear_regression_graph_horizontal.gd" id="1_x2yja"]
 [ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="2_c38jn"]
 [ext_resource type="PackedScene" uid="uid://ca3dp2ys5bjlc" path="res://models/grid_plane.glb" id="3_t03m7"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="3_w72ej"]
@@ -19,6 +19,7 @@ use_collision = true
 collision_mask = 2
 
 [node name="Line" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.124198, 0, -0.992246, 0, 0.999997, 0, 0.992246, 0, -0.124198, 0.645095, -0.22, 2.413)
 size = Vector3(2, 0.5, 100)
 material = ExtResource("3_w72ej")
 
@@ -36,16 +37,16 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.41942, 0, 5.94103)
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.61398, 0, -2.02205)
 
 [node name="GraphPoint4" parent="Points" instance=ExtResource("2_c38jn")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.06798, 0, 3.32003)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.09811, 0, 3.32003)
 
 [node name="debugsphere1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 1.32181, 0, 2.49376)
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, 1.6451, 0, 2.53817)
 visible = false
 mesh = SubResource("BoxMesh_x2yja")
 skeleton = NodePath("")
 
 [node name="debugsphere2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -0.678194, 0, 2.33224)
+transform = Transform3D(1.00001, 0, 1.35601e-06, 0, 1, 0, -1.35601e-06, 0, 1.00001, -0.354905, 0, 2.28783)
 visible = false
 mesh = SubResource("BoxMesh_x2yja")
 skeleton = NodePath("")

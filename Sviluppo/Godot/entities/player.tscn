@@ -28,7 +28,7 @@ height = 1.43323
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 17
-floor_max_angle = 0.523599
+wall_min_slide_angle = 0.785398
 script = ExtResource("1_merdl")
 speed = 400.0
 jump = 14.0

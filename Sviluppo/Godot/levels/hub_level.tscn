@@ -163,6 +163,7 @@ sky_material = SubResource("ProceduralSkyMaterial_xl636")
 [sub_resource type="Environment" id="Environment_nrj8t"]
 background_mode = 2
 sky = SubResource("Sky_c4aiy")
+ssao_radius = 2.0
 adjustment_enabled = true
 adjustment_brightness = 1.1
 adjustment_contrast = 1.1
@@ -191,12 +192,14 @@ horizontal_alignment = 1
 
 [node name="LevelTube2" parent="Models" instance=ExtResource("2_ftq5n")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
-
-[node name="Area3D" parent="Models/LevelTube2" index="0"]
-collision_mask = 0
+load_level_path = "res://levels/causality_level.tscn"
 
 [node name="tube" parent="Models/LevelTube2/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_4p34j")
+
+[node name="Label" parent="Models/LevelTube2/Control/VBoxContainer" index="0"]
+text = "CAUSALITY"
+horizontal_alignment = 1
 
 [node name="base_level_main_platform" parent="Models" instance=ExtResource("2_c4aiy")]
 
@@ -228,7 +231,7 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_6wf1f")]
-transform = Transform3D(-0.31853, 0, 0.947913, 0, 1, 0, -0.947913, 0, -0.31853, 9.57765, 0.922163, -5.35684)
+transform = Transform3D(-0.31853, 0, 0.947913, 0, 1, 0, -0.947913, 0, -0.31853, 9.57765, 0.477163, -5.35684)
 gizmo_extents = 0.6
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

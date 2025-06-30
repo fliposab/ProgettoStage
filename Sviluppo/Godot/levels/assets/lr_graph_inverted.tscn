@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://byw02wwul05fa"]
+
+[ext_resource type="Script" uid="uid://b66f8vvmei0me" path="res://code/level/linear_regression/linear_regression_graph_vertical.gd" id="1_kyuaa"]
+[ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="2_kyuaa"]
+[ext_resource type="Material" uid="uid://b51gwytcojifg" path="res://models/materials/orange.tres" id="2_t48k5"]
+[ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="3_t48k5"]
+[ext_resource type="PackedScene" uid="uid://ca3dp2ys5bjlc" path="res://models/grid_plane.glb" id="4_c4apt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2yja"]
+material = ExtResource("3_t48k5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w72ej"]
+size = Vector3(30, 0.5, 30)
+
+[node name="LRGraphInverted" type="Node3D"]
+transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_kyuaa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+operation = 2
+use_collision = true
+collision_mask = 2
+
+[node name="Line2" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(30, 1, 30)
+material = ExtResource("2_t48k5")
+
+[node name="Line" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.874973, 0, -0.484152, 0, 0.999894, 0, 0.484172, 0, -0.874937, -3.47572, 1.25122e-20, 4.20712)
+operation = 2
+size = Vector3(2, 2, 100)
+
+[node name="Points" type="Node3D" parent="."]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, 0, 0, 0)
+
+[node name="GraphPoint3" parent="Points" instance=ExtResource("2_kyuaa")]
+transform = Transform3D(0.6, -9.15934e-16, 0, 3.5527e-15, 0.59993, 0.00915211, -5.86198e-14, -0.00915219, 0.59993, -1.88346, 1, 7.08458)
+
+[node name="GraphPoint4" parent="Points" instance=ExtResource("2_kyuaa")]
+transform = Transform3D(0.6, 0, 0, 1.77636e-15, 0.6, -1.77636e-15, 1.05879e-22, 5.01113e-23, 0.6, -5.06798, 1, 1.32966)
+
+[node name="debugsphere1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, -2.47572, 0, 6.01427)
+visible = false
+mesh = SubResource("BoxMesh_x2yja")
+skeleton = NodePath("")
+
+[node name="debugsphere2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, -4.47572, 0, 2.39997)
+visible = false
+mesh = SubResource("BoxMesh_x2yja")
+skeleton = NodePath("")
+
+[node name="grid_plane" parent="." instance=ExtResource("4_c4apt")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.57356e-28, 0, 0, 1, 7.73059e-16, 0.566747, 1.76855e-08)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_w72ej")

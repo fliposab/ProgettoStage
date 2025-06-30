@@ -1,9 +1,6 @@
-extends Node3D
-class_name LinearRegressionGraph
-
-@onready var points : Node3D = $Points
-@onready var line : CSGBox3D = $CSGCombiner3D/Line
-@export var new_point_scene_path : String = "res://levels/assets/graph_point.tscn"
+@tool
+extends LinearRegressionGraph
+class_name LinearRegressionGraphHorizontal
 
 func _physics_process(delta: float) -> void:
 	line.global_rotation = Vector3.ZERO

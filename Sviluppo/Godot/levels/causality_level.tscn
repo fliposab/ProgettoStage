@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcv0wdbl3113i"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kxjkn"]
+size = Vector3(10, 10, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
+size = Vector3(50, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gp2lk"]
+size = Vector3(100, 10, 120)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lumj3"]
+size = Vector3(150, 10, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qiam4"]
+size = Vector3(100, 50, 170)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
+sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
+sky_horizon_color = Color(0.839186, 0.601855, 0.300063, 1)
+sky_curve = 0.0477961
+ground_bottom_color = Color(0.581033, 0.581033, 0.581033, 1)
+ground_horizon_color = Color(0.959916, 0.52495, 0.147801, 1)
+
+[sub_resource type="Sky" id="Sky_x25rp"]
+sky_material = SubResource("ProceduralSkyMaterial_46lwt")
+
+[sub_resource type="Environment" id="Environment_kxjkn"]
+background_mode = 2
+sky = SubResource("Sky_x25rp")
+ssao_enabled = true
+ssao_radius = 5.0
+
+[node name="TestLevel" instance=ExtResource("1_kxjkn")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Models" index="0"]
+transform = Transform3D(-0.472566, 0, -0.881295, 0, 1, 0, 0.881295, 0, -0.472566, -22.513, 3.20288, 17.05)
+mesh = SubResource("BoxMesh_kxjkn")
+skeleton = NodePath("../../PlayerSpawn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Models" index="1"]
+transform = Transform3D(0.971047, 0, -0.238889, 0, 1, 0, 0.238889, 0, 0.971047, -14.1429, 12.5591, -48.6794)
+mesh = SubResource("BoxMesh_igo0y")
+skeleton = NodePath("../../PlayerSpawn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Models" index="2"]
+transform = Transform3D(-0.00752234, 0, -0.999972, 0, 1, 0, 0.999972, 0, -0.00752234, 27.0019, 12.2495, -1.76149)
+mesh = SubResource("BoxMesh_igo0y")
+skeleton = NodePath("../../PlayerSpawn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Models" index="3"]
+transform = Transform3D(0.175951, 0, -0.984399, 0, 1, 0, 0.984399, 0, 0.175951, -55.1159, 21.3494, 62.7323)
+mesh = SubResource("BoxMesh_igo0y")
+skeleton = NodePath("../../PlayerSpawn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Models" index="4"]
+transform = Transform3D(0.985458, 0, -0.169917, 0, 1, 0, 0.169917, 0, 0.985458, -5.47912, 21.3494, 103.009)
+mesh = SubResource("BoxMesh_igo0y")
+skeleton = NodePath("../../PlayerSpawn")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Models" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.58366, 0)
+use_collision = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Models/CSGCombiner3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.64036, -13.5342)
+mesh = SubResource("BoxMesh_gp2lk")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Models/CSGCombiner3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9012, 3.97606, 79.4441)
+mesh = SubResource("BoxMesh_lumj3")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Models/CSGCombiner3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7241, 9.33574, 25.9969)
+mesh = SubResource("BoxMesh_qiam4")
+
+[node name="DirectionalLight3D" parent="." index="2"]
+transform = Transform3D(-0.90257, -0.183316, 0.389568, 0.356228, 0.190213, 0.914834, -0.241804, 0.964476, -0.106378, 0, 2.06607, 2.43376)
+
+[node name="WorldEnvironment" parent="." index="3"]
+environment = SubResource("Environment_kxjkn")
+
+[node name="PlayerSpawn" parent="." index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.2201, 0, 0)

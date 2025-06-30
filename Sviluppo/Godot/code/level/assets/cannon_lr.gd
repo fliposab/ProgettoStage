@@ -17,6 +17,7 @@ func _on_cannon_add_point(point_position: Vector3) -> void:
 
 func _on_cannon_exit() -> void:
 	camera.current = false
+	player.set_camera_current(true)
 	ui.show()
 	player.model.global_rotation.y = global_rotation.y
 	player.global_position = Vector3(global_position.x, global_position.y + 0.4, global_position.z)

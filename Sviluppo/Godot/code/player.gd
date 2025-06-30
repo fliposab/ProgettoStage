@@ -91,3 +91,6 @@ func reset_grab_item(body: Node3D) -> void:
 
 func change_collectibles_max_value(value: int)->void:
 	_collectibles.change_max(value)
+
+func set_camera_current(value: bool):
+	_camera.current = value
