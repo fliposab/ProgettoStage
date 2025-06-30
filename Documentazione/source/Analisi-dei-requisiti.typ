@@ -508,7 +508,121 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il menu di opzioni viene chiuso.
 
 = Requisiti
+In questa sezione vengono elencati i requisiti del capitolato, individuati durante la fase di analisi. Ogni #gloss[requisito] viene
+identificato da un codice, scelto in base ai seguenti parametri:
+#align(center, [*R - [numero] - [tipo] - [priorità]*])
+con:
+- *Numero*: numero progressivo che identifica il requisito, parte da 01.
+- *Tipo*: può essere
+  - *F*: requisito funzionale, indica una funzionalità del sistema;
+  - *Q*: requisito di qualità, definisce le caratteristiche della qualità del prodotto, come un sistema deve essere o come
+    il sistema deve esibirsi, per soddisfare le esigenze dell'utente;
+  - *V*: requisito di vincolo, ovvero limiti e restrizioni imposte dal capitolato;
+- *Priorità*: può essere
+  - *O*: Obbligatorio, viene richiesto dal #gloss[proponente] ed è necessario per considerare il prodotto completo;
+  - *D*: Desiderabile, non è strettamente necessario ma è un valore aggiunto;
+Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo studente o tramite una discussione con il tutor aziendale.
 == Requisiti funzionali
+#show figure: set block(breakable: true)
+#figure(
+  caption: [Requisiti di funzionalità],
+  table(
+    columns: (0.65fr, 2fr, 0.8fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0) { luma(230) },
+    table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
+    // login
+    [R--F-O],
+    [Il giocatore deve essere in grado di muoversi in uno spazio tridimensionale],
+    [UC1\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve essere in grado di muoversi in uno spazio tridimensionale portando un oggetto],
+    [UC1.1\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve essere in grado saltare],
+    [UC2\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve essere in grado di ruotare la telecamera],
+    [UC3, UC3.1, UC3.2\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve essere in grado di raccogliere collezionabili sparsi per il livello],
+    [UC4\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve essere in grado di interagire con oggetti presenti nel livello],
+    [UC5\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter prendere oggetti sparsi per il livello],
+    [UC5.1\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter lasciare l'oggetto che sta portando],
+    [UC5.2\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter interagire con NPC e ricevere messaggi],
+    [UC6\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve poter cambiare livello tramite aree di transizione],
+    [UC7\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve poter interagire con la macchina LR],
+    [UC8\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter inserire punti nel grafico LR],
+    [UC9\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter resettare i punti aggiunti nel grafico LR],
+    [UC10\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il giocatore deve poter interrompere l’interazione con la macchina LR],
+    [UC11\ Discussione con il tutor aziendale],
+    [R--F-O],
+    [Il gioco deve salvare automaticamente i progressi in momenti specifici],
+    [UC13\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve poter mettere in pausa il gioco],
+    [UC14\ Decisione interna],
+    [R--F-O],
+    [Il giocatore deve poter riprendere il gioco dal menu di pausa],
+    [UC15\ Decisione interna],
+    [R-16-F-O],
+    [Il giocatore deve poter accedere alle opzioni del gioco],
+    [UC16\ Decisione interna],
+    [R-17-F-O],
+    [Il giocatore deve poter tornare al livello hub dal menu di pausa],
+    [UC17\ Decisione interna],
+    [R-18-F-O],
+    [Il giocatore deve poter tornare al menu principale dal menu di pausa],
+    [UC18\ Decisione interna],
+    [R-19-F-O],
+    [Il giocatore deve poter chiudere il gioco dal menu di pausa o principale],
+    [UC19\ Decisione interna],
+    [R-20-F-O],
+    [Il giocatore deve poter caricare una partita salvata dal menu principale],
+    [UC20\ Decisione interna],
+    [R-21-F-O],
+    [Il giocatore deve poter avviare una nuova partita dal menu principale],
+    [UC21\ Decisione interna],
+    [R-22-F-O],
+    [Il giocatore deve poter modificare la modalità della finestra dal menu delle opzioni],
+    [UC22\ Decisione interna],
+    [R-23-F-O],
+    [Il giocatore deve poter modificare la risoluzione della finestra],
+    [UC23\ Decisione interna],
+    [R-24-F-D],
+    [Il giocatore deve poter modificare la scala di risoluzione del gioco],
+    [UC24\ Decisione interna],
+    [R-25-F-D],
+    [Il giocatore deve essere in grado di poter modificare il tipo di anti-aliasing usato nel gioco, oppure non usarlo],
+    [UC25\ Decisione interna],
+    [R-26-F-D],[Il giocatore deve essere in grado di modificare la qualità delle ombre nel gioco],
+    [UC26\ Decisione interna],
+    [R-27-F-D],[Il giocatore deve poter cambiare lingua di gioco],
+    [UC27\ Decisione interna],
+    [R-28-F-D],[Il giocatore deve poter cambiare il volume generale del gioco],
+    [UC28\ Decisione interna],
+    [R-29-F-O],[Il gioco deve applicare e salvare le opzioni selezionate],[
+    UC29\ Decisione interna],
+  ))
 == Requisiti di qualità
 == Requisiti di vincolo
 == Riepilogo 
