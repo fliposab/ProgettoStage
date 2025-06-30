@@ -53,6 +53,7 @@ Nelle seguenti sezioni sono riportati i casi d'uso del #gloss[videogioco], che d
 Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
 #figure(image("imgs/giocatore.png", width: auto), caption: "Attore principale")
 
+#set heading(supplement: "UC", numbering: "1.")
 // Azioni nel livello
 == UC1 - Movimento
 #figure(image("imgs/uc-movimento.png", width: auto), caption: "Movimento")
@@ -63,10 +64,15 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Precondizioni*:\ 
 - Il giocatore deve essere in un livello del gioco.
 *Postcondizioni*:\
-- Il personaggio si muove nella direzione desiderata e interagisce con l'ambiente circostante
+- Il personaggio si muove nella direzione desiderata e interagisce con l'ambiente circostante.
 *Scenario principale*:\
-- Il giocatore preme il tasto o muove la levetta nel #gloss[controller]
-- Il personaggio si muove nella direzione desiderata
+- Il giocatore preme il tasto o muove la levetta nel #gloss[controller].
+- Il personaggio si muove nella direzione desiderata.
+*Inclusioni*:\
+- Rotazione telecamera automatica.
+*Generalizzazioni*:\
+- Movimento con oggetto.
+
 
 === UC1.1 - Movimento con oggetto
 *Attori principali*:\ 
@@ -135,6 +141,36 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - La telecamera si muove automaticamente dietro il personaggio.\
 
+== UC? - Caduta
+*Attori principali*:
+- Giocatore
+*Descrizione*:\ 
+- Il giocatore cade dal livello ed entra nell'area di caduta.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.
+- Il giocatore deve entrare in un'area di caduta.
+*Postcondizioni*:
+- Il giocatore torna dove era prima di cadere
+*Scenario principale*:
+- Il giocatore cade dal livello.
+- Il giocatore entra in un'area di caduta
+- Il giocatore torna dove si trovava prima di cadere.
+*Inclusioni*:
+- Riposizionamento.
+
+== UC. - Riposizionamento
+*Attori principali*:
+- Giocatore
+*Descrizione*:\ 
+- Il giocatore viene posizionato in una certa zona del livello.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.
+*Postcondizioni*:
+- Il giocatore viene riposizionato.
+*Scenario principale*:
+- Il giocatore svolge una certa azione.
+- La stessa azione riposiziona il giocatore in una zona diversa.
+
 == UC4 - Raccolta collezionabile
 #figure(image("imgs/uc-raccolta_collezionabile.png", width: auto), caption: "Raccolta collezionabile")
 *Attori principali*: 
@@ -150,6 +186,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il collezionabile viene automaticamente raccolto.
 
 == UC5 - Interazione con un oggetto
+#figure(image("imgs/uc-interazione.png", width: auto), caption: "Interazione con un oggetto")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -192,6 +229,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore lascia l'oggetto.
 
 == UC6 - Interazione con NPC
+#figure(image("imgs/uc-interazione_npc.png", width: auto), caption: "Interazione con un NPC")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -203,6 +241,18 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore si avvicina ad un NPC.
 - L'NPC mostra il messaggio automaticamente.
+
+=== UC6.1 - Interazione con NPC automatica
+
+=== UC6.2 - Interazione con NPC manuale
+
+=== UC6.3 - Avanti nel dialogo
+
+=== UC6.4 - Fine dialogo
+
+=== UC6.5 - Scelta opzione dialogo
+
+== UC - Visualizzazione livello successivo
 
 == UC7 - Transizione scena
 *Attori principali*: 
@@ -221,6 +271,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - UC13 - Salvataggio.
 
 == UC8 - Interazione con macchina LR
+#figure(image("imgs/uc-macchina_lr.png", width: auto), caption: "Interazione la macchina LR")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -274,17 +325,57 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto per tornare indietro.
 - Il giocatore smette di usare la macchina e può tornare a muoversi.
 
-//== UC12 - Inserimento dell’oggetto nello spazio dedicato
+== UC12 - Inserimento dell’oggetto nello spazio dedicato
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore posiziona l'oggetto che sta portando in uno spazio apposito.
+*Precondizioni*:
+- Il giocatore deve portare un oggetto.
+*Postcondizioni*:
+- In base all'oggetto, il giocatore visualizza diversi possibili risultati.
+*Scenario principale*:
+- Il giocatore lascia l'oggetto in una zona speciale.
+- Il giocatore vede il risultato in base all'oggetto posizionato.
+*Generalizzazioni*:
+- Inserimento dell'oggetto nello spazio giusto.
+- Inserimento dell'oggetto nello spazio sbagliato.
+
+=== UC12.1 - Inserimento dell'oggetto nello spazio giusto
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore posiziona l'oggetto che sta portando nello spazio da lui ritenuto corretto.
+*Precondizioni*:
+- Il giocatore deve portare un oggetto.
+*Postcondizioni*:
+- Il giocatore viene avvisato che l'oggetto posizionato è giusto.
+*Scenario principale*:
+- Il giocatore lascia l'oggetto nella zona.
+- Il giocatore viene avvisato che l'oggetto era giusto.
+
+=== UC12.2 - Inserimento dell'oggetto nello spazio sbagliato
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore posiziona l'oggetto che sta portando nello spazio da lui ritenuto corretto.
+*Precondizioni*:
+- Il giocatore deve portare un oggetto.
+*Postcondizioni*:
+- Il giocatore viene avvisato che l'oggetto posizionato è sbagliato.
+*Scenario principale*:
+- Il giocatore lascia l'oggetto nella zona.
+- Il giocatore viene avvisato che l'oggetto era sbagliato.
 
 == UC13 - Salvataggio
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
-Il gioco salva in automatico in momenti specifici.
+- Il gioco salva in automatico in momenti specifici.
 *Precondizioni*: 
-Il giocatore deve essere in un livello del gioco.
+- Il giocatore deve essere in un livello del gioco.
 *Postcondizioni*: 
-La partita viene salvata e il giocatore può riprendere da quel punto in un secondo momento.
+- La partita viene salvata e il giocatore può riprendere da quel punto in un secondo momento.
 *Scenario principale*:
 - Il giocatore passa in una zona di transizione.
 - Il gioco salva i dati.
@@ -506,6 +597,7 @@ La partita viene salvata e il giocatore può riprendere da quel punto in un seco
 - Il gioco applica le opzioni.
 - Il menu di opzioni viene chiuso.
 
+#set heading(numbering: "1.")
 = Requisiti
 In questa sezione vengono elencati i requisiti del capitolato, individuati durante la fase di analisi. Ogni #gloss[requisito] viene
 identificato da un codice, scelto in base ai seguenti parametri:
@@ -633,26 +725,26 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
     "R-01-Q-O",
     "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti la progettazione architetturale",
-    "",
+    "Decisione interna",
 
     "R-02-Q-O",
     "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti le tecnologie utilizzate",
-    "",
+    "Decisione interna",
 
     "R-03-Q-O",
     "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti la progettazione della base di dati",
-    "",
+    "Decisione interna",
 
     "R-04-Q-O",
     "È richiesta la presentazione del documento Specifica Tecnica che include dettagli riguardanti l'implementazione del sistema di raccomandazione utilizzato con LLM",
-    "",
+    "Decisione interna",
 
     "R-05-Q-O",
     "Tutte le attività del progetto devono essere svolte rispettando le Norme di Progetto",
-    "",
+    "Decisione interna",
 
     "R-06-Q-O", "Tutto il codice e la documentazione vanno salvati all'interno di un repository pubblico", 
-    "",
+    "Decisione interna",
   ),
 )
 
@@ -668,10 +760,10 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
     "R-01-V-O", 
     "Il gioco deve supportare i sistemi operativi Windows e Ubuntu",
-    "",
+    "Decisione interna",
     "R-02-V-O",
     "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
-    "",
+    "Decisione interna",
   ),
 )
 == Tracciamento dei requisiti

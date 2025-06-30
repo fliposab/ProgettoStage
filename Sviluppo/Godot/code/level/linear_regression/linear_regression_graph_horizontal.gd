@@ -13,6 +13,7 @@ func add_point(new_point_position: Vector3)->void:
 	points.add_child(new_point)
 	new_point.custom = true
 	new_point.global_position = new_point_position
+	new_point.global_position.y = global_position.y
 	calculate_a_b()
 	global_rotation.x = 0.0
 	line.global_rotation.x = 0.0
