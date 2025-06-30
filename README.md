@@ -1,5 +1,5 @@
 # ProgettoStage
-Progetto di tirocinio UniPD a tema di Game Design.
+Progetto di tirocinio a tema di Game Design.
 
 ## Istruzioni
 - Scaricare il progetto attraverso il tasto apposito in alto a destra della repo;
