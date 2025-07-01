@@ -325,6 +325,14 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto per tornare indietro.
 - Il giocatore smette di usare la macchina e può tornare a muoversi.
 
+== UC - Visualizzazione domanda nel Decision Tree
+
+== UC - Visualizzazione direzioni nel Decision Tree
+
+=== UC - Visualizzazione opzione direzione destra
+=== UC - Visualizzazione opzione direzione sinistra
+=== UC - Visualizzazione opzione direzione centrale
+
 == UC12 - Inserimento dell’oggetto nello spazio dedicato
 *Attori principali*: 
 - Giocatore
@@ -340,32 +348,6 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Generalizzazioni*:
 - Inserimento dell'oggetto nello spazio giusto.
 - Inserimento dell'oggetto nello spazio sbagliato.
-
-=== UC12.1 - Inserimento dell'oggetto nello spazio giusto
-*Attori principali*: 
-- Giocatore
-*Descrizione*:
-- Il giocatore posiziona l'oggetto che sta portando nello spazio da lui ritenuto corretto.
-*Precondizioni*:
-- Il giocatore deve portare un oggetto.
-*Postcondizioni*:
-- Il giocatore viene avvisato che l'oggetto posizionato è giusto.
-*Scenario principale*:
-- Il giocatore lascia l'oggetto nella zona.
-- Il giocatore viene avvisato che l'oggetto era giusto.
-
-=== UC12.2 - Inserimento dell'oggetto nello spazio sbagliato
-*Attori principali*: 
-- Giocatore
-*Descrizione*:
-- Il giocatore posiziona l'oggetto che sta portando nello spazio da lui ritenuto corretto.
-*Precondizioni*:
-- Il giocatore deve portare un oggetto.
-*Postcondizioni*:
-- Il giocatore viene avvisato che l'oggetto posizionato è sbagliato.
-*Scenario principale*:
-- Il giocatore lascia l'oggetto nella zona.
-- Il giocatore viene avvisato che l'oggetto era sbagliato.
 
 == UC13 - Salvataggio
 *Attori principali*: 
