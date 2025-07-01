@@ -2,7 +2,11 @@
 extends LinearRegressionGraph
 class_name LinearRegressionGraphHorizontal
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+
 func _physics_process(delta: float) -> void:
+	print(self)
 	line.global_rotation = Vector3.ZERO
 	calculate_a_b()
 	global_rotation.x = 0.0
@@ -62,3 +66,6 @@ func position_line(point1: Vector3, point2: Vector3)->void:
 	var new_position : Vector3 = Vector3(sum.x/2.0,global_position.y-0.22,sum.z/2.0)
 	line.look_at(point1)
 	line.global_position = new_position
+
+func resize_line(value: float)->void:
+	line.scale.x = value

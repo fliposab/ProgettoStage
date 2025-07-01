@@ -2,6 +2,9 @@
 extends LinearRegressionGraph
 class_name LinearRegressionGraphVertical
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
 func _physics_process(delta: float) -> void:
 	line.rotation = Vector3.ZERO
 	calculate_a_b()
@@ -67,3 +70,6 @@ func calculate_angle(point1: Vector3, point2: Vector3)->float:
 	var cy : float = point1.z - point2.z
 	var cx : float = point1.x - point2.x
 	return (cos(cx/i)**-1)
+
+func resize_line(value: float)->void:
+	line.scale.x = value

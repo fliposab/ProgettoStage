@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://8gkv5w2oc67f"]
+[gd_scene load_steps=32 format=3 uid="uid://8gkv5w2oc67f"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_5abim"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="2_jj01n"]
@@ -36,6 +36,9 @@ size = Vector3(40, 20, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3uslo"]
 size = Vector3(40, 20, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_baigv"]
+size = Vector3(40, 20, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lhcsx"]
 size = Vector3(40, 20, 50)
@@ -120,6 +123,14 @@ mesh = SubResource("BoxMesh_y053m")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.7882, 62.9411)
 mesh = SubResource("BoxMesh_3uslo")
 
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0446, -2.50942, 63.6837)
+mesh = SubResource("BoxMesh_baigv")
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8745, -2.50942, 63.6837)
+mesh = SubResource("BoxMesh_baigv")
+
 [node name="CSGMesh3D10" type="CSGMesh3D" parent="Models/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.0271, 98.4769)
 mesh = SubResource("BoxMesh_lhcsx")
@@ -159,13 +170,14 @@ mesh = SubResource("BoxMesh_fl2wk")
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="LRGraphVertical" parent="Entities" instance=ExtResource("2_ue3qp")]
+process_mode = 4
 transform = Transform3D(1, -4.37114e-08, -1.91069e-15, 0, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -30.7436, 14.3418, 121.26)
 
 [node name="CollectLine" parent="Entities" instance=ExtResource("4_qijag")]
 transform = Transform3D(0.751126, 0, -0.660159, 0, 1, 0, 0.660159, 0, 0.751126, -6.57898, 0.708748, 11.6156)
 
 [node name="CollectLine2" parent="Entities" instance=ExtResource("4_qijag")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.31452, -2.56875, 54.5078)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.84702, -2.56875, 54.5078)
 
 [node name="CollectLine3" parent="Entities" instance=ExtResource("4_qijag")]
 transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -33.1604, 15.5626, 121.042)
@@ -183,6 +195,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -32.17
 graph = NodePath("../LRGraphVertical")
 
 [node name="LRGraph" parent="Entities" instance=ExtResource("4_jj01n")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.6557)
 
 [node name="Line" parent="Entities/LRGraph/CSGCombiner3D" index="0"]
@@ -216,13 +229,13 @@ transform = Transform3D(1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08
 transform = Transform3D(-0.240196, 0, -0.970684, 0, 0.999894, 0, 0.970725, 0, -0.240186, 1.54823, 0, 5.85708)
 
 [node name="GraphPoint3" parent="Entities/LRGraphInverted/Points" index="0"]
-transform = Transform3D(0.6, 0, 1.85962e-15, 1.77636e-15, 0.59993, 0.00915211, -5.92497e-14, -0.00915219, 0.59993, 9.45376, 1, 7.08458)
+transform = Transform3D(0.6, 1.77636e-15, 3.747e-15, 1.77636e-15, 0.59993, 0.00915211, -5.92497e-14, -0.00915219, 0.59993, 3.81479, 1, 7.08458)
 
 [node name="GraphPoint4" parent="Entities/LRGraphInverted/Points" index="1"]
 transform = Transform3D(0.6, 0, -6.29945e-16, 0, 0.6, -3.55271e-15, -6.29945e-16, -1.77636e-15, 0.6, -5.06798, 1, 4.62101)
 
 [node name="GraphPoint5" parent="Entities/LRGraphInverted/Points" index="2" instance=ExtResource("6_fl2wk")]
-transform = Transform3D(0.6, 0, -6.29945e-16, -3.55271e-15, 0.6, -7.10543e-15, -6.29945e-16, -5.32907e-15, 0.6, 2.56027, 1, 8.87433)
+transform = Transform3D(0.6, 0, -6.29945e-16, -3.55271e-15, 0.6, -7.10543e-15, -6.29945e-16, -7.10543e-15, 0.6, -1.36053, 1, 8.87433)
 
 [node name="GraphPoint6" parent="Entities/LRGraphInverted/Points" index="3" instance=ExtResource("6_fl2wk")]
 transform = Transform3D(0.6, 0, -6.29946e-16, -7.10543e-15, 0.6, -1.06581e-14, -6.29945e-16, -8.88178e-15, 0.6, -0.753124, 1, 2.84842)
@@ -264,6 +277,9 @@ vertical_alignment = 1
 [node name="LevelTube2" parent="." instance=ExtResource("7_24tvr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.55156, 22.6335, 122.452)
 load_level_path = "res://levels/hub_level.tscn"
+
+[node name="CollisionShape3D" parent="LevelTube2/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31738, -14.8365)
 
 [node name="Label" parent="LevelTube2/Control/VBoxContainer" index="0"]
 text = "BACK_TO_HUB"

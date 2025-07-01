@@ -21,7 +21,7 @@ use_collision = true
 collision_mask = 2
 
 [node name="Line" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-0.841395, 0, -0.540399, 0, 0.999894, 0, 0.540421, 0, -0.84136, -2.40474, 0, 4.04756)
+transform = Transform3D(-0.841395, 0, -0.540399, 0, 0.999894, 0, 0.540421, 0, -0.84136, -2.40474, 0, 4.04757)
 size = Vector3(2, 4, 100)
 material = ExtResource("4_quku2")
 
@@ -55,7 +55,7 @@ transform = Transform3D(0.6, -9.15934e-16, 2.4869e-14, 3.5527e-15, 0.59993, 0.00
 transform = Transform3D(0.6, 0, 0, 1.77636e-15, 0.6, -1.77636e-15, 1.05879e-22, 5.01113e-23, 0.6, -5.06798, 1, 1.32966)
 
 [node name="debugsphere1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, -1.40474, 0, 5.60448)
+transform = Transform3D(1.00002, -2.98023e-08, 1.35602e-06, -4.17233e-07, 1, 1.78819e-07, -1.35601e-06, -4.76837e-07, 1.00001, -1.40474, 0, 5.60449)
 visible = false
 mesh = SubResource("BoxMesh_x2yja")
 skeleton = NodePath("")

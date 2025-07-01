@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbtt36s8tq4n7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8i1xr"]
+size = Vector3(4, 4, 0.2)
+
+[node name="DogBreedSign" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8i1xr")

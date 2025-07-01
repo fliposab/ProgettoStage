@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cona58iu8eeah"]
+[gd_scene load_steps=3 format=3 uid="uid://cona58iu8eeah"]
 
 [ext_resource type="PackedScene" uid="uid://becejkmc1y65j" path="res://levels/assets/decision_node.tscn" id="1_cftd1"]
+[ext_resource type="PackedScene" uid="uid://v7xs3lei7fnu" path="res://levels/assets/decision_node_final.tscn" id="2_dbu5l"]
 
 [node name="DecisionTree" type="Node3D"]
 
@@ -8,29 +9,95 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0700061, 0)
 
 [node name="DecisionNode" parent="Nodes" instance=ExtResource("1_cftd1")]
-question_text = "DOG_SIZE"
-
-[node name="DecisionNode2" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3, -2)
-question_text = "FUR_LENGTH"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+_question_text = "FUR_LENGTH"
+left_text = "LONG"
+right_text = "SHORT"
 
 [node name="DecisionNode5" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, -5)
-question_text = "FUR_LENGTH"
-is_final = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30264, 4, -2.92391)
+_question_text = "FUR_LENGTH"
+left_text = "LONG"
+right_text = "SHORT"
 
-[node name="DecisionNode6" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 6, 0)
-id = "golden_retriever"
-question_text = "FUR_LENGTH"
-is_final = true
-
-[node name="DecisionNode3" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -2)
-question_text = "FUR_LENGTH"
+[node name="DecisionNode2" parent="Nodes" instance=ExtResource("1_cftd1")]
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
 
 [node name="DecisionNode4" parent="Nodes" instance=ExtResource("1_cftd1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
-question_text = "FUR_LENGTH"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
+
+[node name="DecisionNode8" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 2)
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
+
+[node name="DecisionNode9" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7223, 6, 6.05075)
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
+
+[node name="DecisionNode3" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0165496, 1.97989, 3.99272)
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
+
+[node name="DecisionNodeFinal5" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 7)
+
+[node name="DecisionNodeFinal6" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.898526, 0, 0.43892, 0, 1, 0, -0.43892, 0, 0.898526, -1.85628, 6, 11.3537)
+
+[node name="DecisionNodeFinal7" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.898526, 0, 0.43892, 0, 1, 0, -0.43892, 0, 0.898526, -6.39185, 6, 9.34905)
+
+[node name="DecisionNodeFinal10" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -10.8072, 8, 9.99896)
+
+[node name="DecisionNodeFinal11" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -14.3657, 8, 6.54539)
+
+[node name="DecisionNodeFinal9" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3013, 6, 2.58236)
+
+[node name="DecisionNodeFinal8" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99292, 4, -2.04686)
+
+[node name="DecisionNode7" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01655, 3.97989, 6.99272)
+_question_text = "DOG_SIZE"
+left_text = "DOG_SIZE_LARGE"
+right_text = "DOG_SIZE_SMALL"
+center_text = "DOG_SIZE_MEDIUM"
+
+[node name="DecisionNodeFinal" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, 6, -3.89524)
+
+[node name="DecisionNodeFinal2" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54986, 6, -7.16674)
+
+[node name="DecisionNode6" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.25141, 4, 2.69726)
+_question_text = "FUR_LENGTH"
+left_text = "LONG"
+right_text = "SHORT"
+
+[node name="DecisionNodeFinal3" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.22274, 6, 6.91581)
+
+[node name="DecisionNodeFinal4" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.4942, 6, 2.94448)
 
 [node name="Branches" type="Node3D" parent="."]

@@ -19,3 +19,6 @@ func calculate_pos_rot(a: float, b: float, center: Vector3)->void:
 
 func position_line(point1: Vector3, point2: Vector3)->void:
 	return
+
+func resize_line(value: float)->void:
+	return

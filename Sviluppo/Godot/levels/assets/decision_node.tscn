@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://becejkmc1y65j"]
+[gd_scene load_steps=9 format=3 uid="uid://becejkmc1y65j"]
 
-[ext_resource type="Script" uid="uid://cyvik771hju76" path="res://code/level/decision_tree/decision_node.gd" id="1_2t767"]
+[ext_resource type="Script" uid="uid://cyvik771hju76" path="res://code/level/decision_tree/decision_node_intermediate.gd" id="1_2t767"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_88wmp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_88wmp"]
@@ -14,6 +14,42 @@ bottom_radius = 1.8
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qfduj"]
 height = 0.2
 radius = 1.75293
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88wmp"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpyy2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfduj"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="DecisionNode" type="Node3D"]
 script = ExtResource("1_2t767")
@@ -49,18 +85,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 40.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("2_88wmp")
-text = "QUESTION_1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LeftDirection" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_88wmp")
+text = "← "
+
+[node name="CenterDirection" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_mpyy2")
+text = "↑ "
+
+[node name="RightDirection" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfduj")
+text = "→ "
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
