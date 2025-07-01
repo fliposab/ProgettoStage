@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=18 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
-[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image1.tscn" id="2_wgacr"]
+[ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
 [ext_resource type="PackedScene" uid="uid://cona58iu8eeah" path="res://levels/assets/decision_tree.tscn" id="3_ciugy"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_8vxcw"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="5_8g85a"]
 [ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="6_2cdcn"]
+[ext_resource type="Script" uid="uid://bqoiwb6pq1qwm" path="res://code/saves/dt_saves_handler.gd" id="6_yev1y"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="7_0hd3l"]
+[ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/dog_line.tscn" id="9_yev1y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
 sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
@@ -91,20 +93,20 @@ shadow_mesh = SubResource("ArrayMesh_0itir")
 
 [node name="DTLevel" instance=ExtResource("1_l1nkn")]
 
-[node name="DirectionalLight3D" parent="." index="2"]
+[node name="DecisionTree" parent="." index="0" instance=ExtResource("3_ciugy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59917, 2.45972, 6.9589)
+
+[node name="DogBreedSign" parent="." index="1" instance=ExtResource("2_0hd3l")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 1.77638, -1.79465)
+
+[node name="DirectionalLight3D" parent="." index="4"]
 transform = Transform3D(-0.967801, 0.246593, 0.0505244, 0.0384467, -0.0535525, 0.997825, 0.248763, 0.967638, 0.0423474, 0, 2.06607, 2.43376)
 
-[node name="WorldEnvironment" parent="." index="3"]
+[node name="WorldEnvironment" parent="." index="5"]
 environment = SubResource("Environment_8vxcw")
 
-[node name="PlayerSpawn" parent="." index="5"]
-transform = Transform3D(-0.441052, 0, 0.897482, 0, 1, 0, -0.897482, 0, -0.441052, 13.9241, 1.99406, -18.4657)
-
-[node name="DecisionTree" parent="." index="6" instance=ExtResource("3_ciugy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45972, 6.9589)
-
-[node name="GoldenRetriever" parent="." index="7" instance=ExtResource("2_wgacr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577736, 0.818223, -18.9716)
+[node name="PlayerSpawn" parent="." index="7"]
+transform = Transform3D(-0.441052, 0, 0.897482, 0, 1, 0, -0.897482, 0, -0.441052, 1.22967, 1.99406, -1.66773)
 
 [node name="FallArea" parent="." index="8" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
@@ -113,12 +115,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4995, 0, 0)
 shape = SubResource("BoxShape3D_8g85a")
 
+[node name="SavesHandler" parent="." index="9"]
+script = ExtResource("6_yev1y")
+breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="10"]
 operation = 1
 use_collision = true
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.00376, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.89144, 0)
 mesh = SubResource("BoxMesh_8vxcw")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D" index="1"]
@@ -136,6 +142,12 @@ mesh = SubResource("ArrayMesh_yev1y")
 [node name="Label" parent="LevelTube3/Control/VBoxContainer" index="0"]
 text = "BACK_TO_HUB"
 horizontal_alignment = 1
+
+[node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
+
+[connection signal="ready" from="." to="DogBreedSign" method="check_save_unlocked"]
+[connection signal="send_data" from="DecisionTree" to="DogBreedSign" method="_on_data_received"]
 
 [editable path="FallArea"]
 [editable path="LevelTube3"]

@@ -94,3 +94,9 @@ func change_collectibles_max_value(value: int)->void:
 
 func set_camera_current(value: bool):
 	_camera.current = value
+
+func lock_camera(value: bool)->void:
+	if value:
+		_camera_raycast.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		_camera_raycast.process_mode = Node.PROCESS_MODE_INHERIT

@@ -11,6 +11,8 @@ func _ready():
 			break
 
 func switch_level(new_level_path: String):
+	if current_level.saves_handler:
+		current_level.saves_handler.save_data()
 	fade_transition.play_fade()
 	get_tree().paused = false
 	await get_tree().create_timer(1.1).timeout

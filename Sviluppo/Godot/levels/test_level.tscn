@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_o6mel"]
 [ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="7_ur00s"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
-[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image1.tscn" id="9_ly3hx"]
+[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="9_ly3hx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4n8tn"]
 
@@ -87,6 +87,7 @@ transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
 
 [node name="LRGraph" parent="." instance=ExtResource("7_ur00s")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8082, 1.41267, 24.3378)
 
 [node name="LRGraph2" parent="." instance=ExtResource("2_4n8tn")]

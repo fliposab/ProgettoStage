@@ -1,24 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cona58iu8eeah"]
+[gd_scene load_steps=4 format=3 uid="uid://cona58iu8eeah"]
 
+[ext_resource type="Script" uid="uid://qxhqxpd3b3uw" path="res://code/level/assets/decision_tree.gd" id="1_8e6fb"]
 [ext_resource type="PackedScene" uid="uid://becejkmc1y65j" path="res://levels/assets/decision_node.tscn" id="1_cftd1"]
 [ext_resource type="PackedScene" uid="uid://v7xs3lei7fnu" path="res://levels/assets/decision_node_final.tscn" id="2_dbu5l"]
 
 [node name="DecisionTree" type="Node3D"]
+script = ExtResource("1_8e6fb")
 
 [node name="Nodes" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0700061, 0)
 
 [node name="DecisionNode" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
-_question_text = "FUR_LENGTH"
-left_text = "LONG"
-right_text = "SHORT"
+_question_text = "EARS"
+left_text = "PRICK"
+right_text = "DROP"
 
 [node name="DecisionNode5" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30264, 4, -2.92391)
-_question_text = "FUR_LENGTH"
-left_text = "LONG"
-right_text = "SHORT"
+_question_text = "FUR_COLOR"
+left_text = "BLACK / BROWN"
+right_text = "BLACK / WHITE"
 
 [node name="DecisionNode2" parent="Nodes" instance=ExtResource("1_cftd1")]
 _question_text = "DOG_SIZE"
@@ -28,76 +30,102 @@ center_text = "DOG_SIZE_MEDIUM"
 
 [node name="DecisionNode4" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
-_question_text = "DOG_SIZE"
-left_text = "DOG_SIZE_LARGE"
-right_text = "DOG_SIZE_SMALL"
-center_text = "DOG_SIZE_MEDIUM"
+_question_text = "FUR_LENGTH"
+left_text = "SHORT"
+right_text = "LONG"
 
 [node name="DecisionNode8" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 2)
-_question_text = "DOG_SIZE"
-left_text = "DOG_SIZE_LARGE"
-right_text = "DOG_SIZE_SMALL"
-center_text = "DOG_SIZE_MEDIUM"
+_question_text = "FUR_TYPE"
+left_text = "CURLY_FUR"
+right_text = "SMOOTH_FUR"
 
 [node name="DecisionNode9" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7223, 6, 6.05075)
-_question_text = "DOG_SIZE"
-left_text = "DOG_SIZE_LARGE"
-right_text = "DOG_SIZE_SMALL"
-center_text = "DOG_SIZE_MEDIUM"
+_question_text = "FUR_COLOR"
+left_text = "ORANGE / BROWN"
+right_text = "WHITE"
+
+[node name="DecisionNode10" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7223, 6, 2.05075)
+_question_text = "EARS"
+left_text = "DROP"
+right_text = "PRICK"
+
+[node name="DecisionNode11" parent="Nodes" instance=ExtResource("1_cftd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1643, 8, -0.94925)
+_question_text = "FUR_COLOR"
+left_text = "ORANGE / WHITE"
+right_text = "BLACK / WHITE"
 
 [node name="DecisionNode3" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0165496, 1.97989, 3.99272)
-_question_text = "DOG_SIZE"
-left_text = "DOG_SIZE_LARGE"
-right_text = "DOG_SIZE_SMALL"
-center_text = "DOG_SIZE_MEDIUM"
+_question_text = "EARS"
+left_text = "PRICK"
+right_text = "DROP"
 
 [node name="DecisionNodeFinal5" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 7)
+_id = "shiba_inu"
 
 [node name="DecisionNodeFinal6" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(0.898526, 0, 0.43892, 0, 1, 0, -0.43892, 0, 0.898526, -1.85628, 6, 11.3537)
+_id = "beagle"
 
 [node name="DecisionNodeFinal7" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(0.898526, 0, 0.43892, 0, 1, 0, -0.43892, 0, 0.898526, -6.39185, 6, 9.34905)
+_id = "cocker_spaniel"
 
 [node name="DecisionNodeFinal10" parent="Nodes" instance=ExtResource("2_dbu5l")]
-transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -10.8072, 8, 9.99896)
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -10.4068, 8, 9.99896)
+_id = "poodle"
 
 [node name="DecisionNodeFinal11" parent="Nodes" instance=ExtResource("2_dbu5l")]
-transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -14.3657, 8, 6.54539)
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -13.3495, 8, 6.9446)
+_id = "shin_tzu"
 
-[node name="DecisionNodeFinal9" parent="Nodes" instance=ExtResource("2_dbu5l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3013, 6, 2.58236)
+[node name="DecisionNodeFinal12" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -14.9917, 8, 3.03751)
+_id = "daschund"
+
+[node name="DecisionNodeFinal13" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -17.9917, 10, -1.96249)
+_id = "corgi"
+
+[node name="DecisionNodeFinal14" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -14.9917, 10, -4.96249)
+_id = "boston_terrier"
 
 [node name="DecisionNodeFinal8" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99292, 4, -2.04686)
+_id = "pomeranian"
 
 [node name="DecisionNode7" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01655, 3.97989, 6.99272)
-_question_text = "DOG_SIZE"
-left_text = "DOG_SIZE_LARGE"
-right_text = "DOG_SIZE_SMALL"
-center_text = "DOG_SIZE_MEDIUM"
+_question_text = "FUR_COLOR"
+left_text = "WHITE / BROWN"
+right_text = "ORANGE"
 
 [node name="DecisionNodeFinal" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, 6, -3.89524)
+_id = "border_collie"
 
 [node name="DecisionNodeFinal2" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54986, 6, -7.16674)
+_id = "german_shepherd"
 
 [node name="DecisionNode6" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.25141, 4, 2.69726)
-_question_text = "FUR_LENGTH"
-left_text = "LONG"
-right_text = "SHORT"
+_question_text = "FUR COLOR"
+left_text = "BLACK / ORANGE"
+right_text = "ORANGE"
 
 [node name="DecisionNodeFinal3" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.22274, 6, 6.91581)
+_id = "golden_retriever"
 
 [node name="DecisionNodeFinal4" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.4942, 6, 2.94448)
+_id = "rottweiler"
 
 [node name="Branches" type="Node3D" parent="."]

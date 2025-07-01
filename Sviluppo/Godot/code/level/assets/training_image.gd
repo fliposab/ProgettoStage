@@ -6,6 +6,7 @@ class_name TrainingImage
 var _spawn_position : Vector3
 var holding : bool = false
 var og_parent : Node
+var id_number : int = 0
 
 func _ready()->void:
 	og_parent = get_parent()

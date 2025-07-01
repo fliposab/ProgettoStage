@@ -18,5 +18,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func check_if_correct(body: Node3D):
 	if body.id == _id:
 		_is_correct = true
+		owner.send_correct_data(body.id_number)
 	else:
 		_is_correct = false

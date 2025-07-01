@@ -30,6 +30,7 @@ layout_mode = 2
 
 [node name="Quit" parent="." instance=ExtResource("3_nc40a")]
 layout_mode = 2
+text = "SAVE_AND_QUIT_GAME"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]
 [connection signal="exit_options" from="Options" to="." method="_on_options_exit_options"]

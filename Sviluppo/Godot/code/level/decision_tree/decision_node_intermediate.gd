@@ -26,11 +26,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func show_directions()->void:
 	left_direction_label.text = "← " + left_text
-	if left_text:
-		left_direction_label.visible = true
 	right_direction_label.text = "→ " + right_text
-	if right_text:
-		right_direction_label.visible = true
-	center_direction_label.text = "↑ " + left_text
-	if center_text:
-		center_direction_label.visible = true
+	center_direction_label.text = "↑ " + center_text
+	if center_text == "":
+		center_direction_label.hide()

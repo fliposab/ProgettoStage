@@ -1,0 +1,321 @@
+[gd_scene load_steps=48 format=3 uid="uid://di8t74vjdvr5x"]
+
+[ext_resource type="Script" uid="uid://djvmlghcvixcw" path="res://code/level/assets/dog_line.gd" id="1_14ahn"]
+[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="2_sles7"]
+[ext_resource type="Texture2D" uid="uid://520ojmg2nexf" path="res://models/materials/textures/australian_sheperd.png" id="3_4n32b"]
+[ext_resource type="Texture2D" uid="uid://cpe8m6iwio7sm" path="res://models/materials/textures/beagle.png" id="4_7bgk7"]
+[ext_resource type="Texture2D" uid="uid://dhquswoss62co" path="res://models/materials/textures/border_collie.png" id="5_oqyek"]
+[ext_resource type="Texture2D" uid="uid://cmw8fkk25bu5n" path="res://models/materials/textures/boston_terrier.png" id="6_5ndh0"]
+[ext_resource type="Texture2D" uid="uid://bhpppmp08lsef" path="res://models/materials/textures/cocker_spaniel.png" id="7_harvn"]
+[ext_resource type="Texture2D" uid="uid://d3va8rfao0kyb" path="res://models/materials/textures/corgi.png" id="8_harvn"]
+[ext_resource type="Texture2D" uid="uid://c3yjsgfu5lunv" path="res://models/materials/textures/daschund.png" id="9_eikrv"]
+[ext_resource type="Texture2D" uid="uid://bypwwfw2tcnl6" path="res://models/materials/textures/german_sheperd.png" id="10_srmip"]
+[ext_resource type="Texture2D" uid="uid://bhv7vgb7j1qfn" path="res://models/materials/textures/golden_retriever.png" id="11_pxh1r"]
+[ext_resource type="Texture2D" uid="uid://b7kt8ncmtt2kj" path="res://models/materials/textures/husky.png" id="12_frjlr"]
+[ext_resource type="Texture2D" uid="uid://cfb1u7wu58b7m" path="res://models/materials/textures/pomeranian.png" id="13_frjlr"]
+[ext_resource type="Texture2D" uid="uid://blp8qsdu88utp" path="res://models/materials/textures/poodle.png" id="14_vafwf"]
+[ext_resource type="Texture2D" uid="uid://cbaqcj0u0u4dk" path="res://models/materials/textures/rottweiler.png" id="15_vafwf"]
+[ext_resource type="Texture2D" uid="uid://b3hpckrsg0fyd" path="res://models/materials/textures/shiba_inu.png" id="16_fhh2n"]
+[ext_resource type="Texture2D" uid="uid://cje3iivjgwwbb" path="res://models/materials/textures/shin_tzu.png" id="17_3ykif"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1t2b"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("3_4n32b")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_7bgk7"]
+material = SubResource("StandardMaterial3D_n1t2b")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ndh0"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("4_7bgk7")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_harvn"]
+material = SubResource("StandardMaterial3D_5ndh0")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eikrv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("5_oqyek")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_cqkcj"]
+material = SubResource("StandardMaterial3D_eikrv")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqkcj"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("6_5ndh0")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fqevv"]
+material = SubResource("StandardMaterial3D_cqkcj")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srmip"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("7_harvn")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxh1r"]
+material = SubResource("StandardMaterial3D_srmip")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqevv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("8_harvn")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_srmip"]
+material = SubResource("StandardMaterial3D_fqevv")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxh1r"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("9_eikrv")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_frjlr"]
+material = SubResource("StandardMaterial3D_pxh1r")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vafwf"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("10_srmip")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fhh2n"]
+material = SubResource("StandardMaterial3D_vafwf")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ykif"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("11_pxh1r")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_l8476"]
+material = SubResource("StandardMaterial3D_3ykif")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c12sl"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("12_frjlr")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_6ehbk"]
+material = SubResource("StandardMaterial3D_c12sl")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhh2n"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("13_frjlr")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_3ykif"]
+material = SubResource("StandardMaterial3D_fhh2n")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8476"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("14_vafwf")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_c12sl"]
+material = SubResource("StandardMaterial3D_l8476")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ehbk"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("15_vafwf")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vpe53"]
+material = SubResource("StandardMaterial3D_6ehbk")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpe53"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("16_fhh2n")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_kpveq"]
+material = SubResource("StandardMaterial3D_vpe53")
+size = Vector2(2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpveq"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("17_3ykif")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_njepb"]
+material = SubResource("StandardMaterial3D_kpveq")
+size = Vector2(2, 2)
+
+[node name="DogLine" type="Node3D"]
+script = ExtResource("1_14ahn")
+
+[node name="GoldenRetriever" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12998, 0, 1.68993)
+
+[node name="MeshInstance3D" parent="GoldenRetriever" index="1"]
+mesh = SubResource("QuadMesh_7bgk7")
+
+[node name="GoldenRetriever2" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89932, 0, 1.68993)
+id = "australian_shepherd"
+
+[node name="MeshInstance3D" parent="GoldenRetriever2" index="1"]
+mesh = SubResource("QuadMesh_harvn")
+
+[node name="GoldenRetriever3" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75569, 0, 0)
+id = "border_collie"
+
+[node name="MeshInstance3D" parent="GoldenRetriever3" index="1"]
+mesh = SubResource("QuadMesh_cqkcj")
+
+[node name="GoldenRetriever4" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7658, 0, 0)
+id = "boston_terrier"
+
+[node name="MeshInstance3D" parent="GoldenRetriever4" index="1"]
+mesh = SubResource("QuadMesh_fqevv")
+
+[node name="GoldenRetriever5" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45175, 0, 0)
+id = "cocker_spaniel"
+
+[node name="MeshInstance3D" parent="GoldenRetriever5" index="1"]
+mesh = SubResource("QuadMesh_pxh1r")
+
+[node name="GoldenRetriever6" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.996529, 0, 1.68993)
+id = "corgi"
+
+[node name="MeshInstance3D" parent="GoldenRetriever6" index="1"]
+mesh = SubResource("QuadMesh_srmip")
+
+[node name="GoldenRetriever7" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.821887, 0, 1.68993)
+id = "daschund"
+
+[node name="MeshInstance3D" parent="GoldenRetriever7" index="1"]
+mesh = SubResource("QuadMesh_frjlr")
+
+[node name="GoldenRetriever8" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.727449, 0, 0)
+id = "german_shepherd"
+
+[node name="MeshInstance3D" parent="GoldenRetriever8" index="1"]
+mesh = SubResource("QuadMesh_fhh2n")
+
+[node name="GoldenRetriever9" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87809, 0, 1.68993)
+
+[node name="MeshInstance3D" parent="GoldenRetriever9" index="1"]
+mesh = SubResource("QuadMesh_l8476")
+
+[node name="GoldenRetriever10" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90554, 0, 0)
+id = "husky"
+
+[node name="MeshInstance3D" parent="GoldenRetriever10" index="1"]
+mesh = SubResource("QuadMesh_6ehbk")
+
+[node name="GoldenRetriever11" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14545, 0, 1.68993)
+id = "pomeranian"
+
+[node name="MeshInstance3D" parent="GoldenRetriever11" index="1"]
+mesh = SubResource("QuadMesh_3ykif")
+
+[node name="GoldenRetriever12" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.76104, 0, 0)
+id = "poodle"
+
+[node name="MeshInstance3D" parent="GoldenRetriever12" index="1"]
+mesh = SubResource("QuadMesh_c12sl")
+
+[node name="GoldenRetriever13" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53396, 0, 1.68993)
+id = "rottweiler"
+
+[node name="MeshInstance3D" parent="GoldenRetriever13" index="1"]
+mesh = SubResource("QuadMesh_vpe53")
+
+[node name="GoldenRetriever14" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02541, 0, 0)
+id = "shiba_inu"
+
+[node name="MeshInstance3D" parent="GoldenRetriever14" index="1"]
+mesh = SubResource("QuadMesh_kpveq")
+
+[node name="GoldenRetriever15" parent="." instance=ExtResource("2_sles7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.65169, 0, 1.68993)
+id = "shin_tzu"
+
+[node name="MeshInstance3D" parent="GoldenRetriever15" index="1"]
+mesh = SubResource("QuadMesh_njepb")
+
+[editable path="GoldenRetriever"]
+[editable path="GoldenRetriever2"]
+[editable path="GoldenRetriever3"]
+[editable path="GoldenRetriever4"]
+[editable path="GoldenRetriever5"]
+[editable path="GoldenRetriever6"]
+[editable path="GoldenRetriever7"]
+[editable path="GoldenRetriever8"]
+[editable path="GoldenRetriever9"]
+[editable path="GoldenRetriever10"]
+[editable path="GoldenRetriever11"]
+[editable path="GoldenRetriever12"]
+[editable path="GoldenRetriever13"]
+[editable path="GoldenRetriever14"]
+[editable path="GoldenRetriever15"]

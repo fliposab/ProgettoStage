@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://331irxrfvw3d"]
 
-[ext_resource type="Script" uid="uid://dpjoqjunh02kl" path="res://code/level/assets/training_image.gd" id="1_8crgr"]
-[ext_resource type="Texture2D" uid="uid://bhv7vgb7j1qfn" path="res://models/materials/textures/golden_retriever.png" id="1_ll2sy"]
-[ext_resource type="PackedScene" uid="uid://l6t1uan5ppyr" path="res://entities/shadow_decal.tscn" id="3_53i1g"]
+[ext_resource type="Script" uid="uid://dpjoqjunh02kl" path="res://code/level/assets/training_image.gd" id="1_20xi7"]
+[ext_resource type="Texture2D" uid="uid://bhv7vgb7j1qfn" path="res://models/materials/textures/golden_retriever.png" id="2_dhjtn"]
+[ext_resource type="PackedScene" uid="uid://l6t1uan5ppyr" path="res://entities/shadow_decal.tscn" id="3_g27jr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jbi1f"]
 size = Vector3(0.5, 1.69727, 0.5)
@@ -12,7 +12,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_texture = ExtResource("1_ll2sy")
+albedo_texture = ExtResource("2_dhjtn")
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_fof80"]
@@ -22,7 +22,7 @@ size = Vector2(2, 2)
 [node name="GoldenRetriever" type="CharacterBody3D"]
 collision_layer = 16
 collision_mask = 19
-script = ExtResource("1_8crgr")
+script = ExtResource("1_20xi7")
 id = "golden_retriever"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -34,5 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.941515, 0)
 layers = 2
 mesh = SubResource("QuadMesh_fof80")
 
-[node name="Decal" parent="." instance=ExtResource("3_53i1g")]
+[node name="Decal" parent="." instance=ExtResource("3_g27jr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.08832, 0)

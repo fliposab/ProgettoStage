@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3qvhgcfavk1s"
-path="res://.godot/imported/schnauzer.png-8d5ca2960262845f5ea87978ed4fce66.ctex"
+uid="uid://lent03nx8jxe"
+path="res://.godot/imported/husky_locked.png-ce817834d98d240956bf37e7131143f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/materials/textures/schnauzer.png"
-dest_files=["res://.godot/imported/schnauzer.png-8d5ca2960262845f5ea87978ed4fce66.ctex"]
+source_file="res://models/materials/textures/husky_locked.png"
+dest_files=["res://.godot/imported/husky_locked.png-ce817834d98d240956bf37e7131143f8.ctex"]
 
 [params]
 
