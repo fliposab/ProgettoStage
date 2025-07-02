@@ -33,14 +33,32 @@
     )
   )*/
   
+  set align(center)
 
+  (image("imgs/logo_zucchetti.png", width: 400pt))
+  linebreak()
+  (image("imgs/logo_unipd.png", width: 250pt))
+
+  linebreak()
+  linebreak()
+  linebreak()
+
+  set align(center)
+  par(
+    justify: false, 
+    text(46pt, weight: "bold", fill: black, hyphenate: false)[AI TrAIning]
+  )
+  linebreak()
   // Titolo
   set align(center)
   par(
     justify: false, 
-    text(38pt, weight: "black", fill: black, hyphenate: false)[#titolo]
+    text(32pt, weight: "black", fill: black, hyphenate: false)[#titolo]
   )
 
+  linebreak()
+  linebreak()
+  linebreak()
   linebreak()
   linebreak()
   //Autore
@@ -59,7 +77,6 @@
       #grid(
         align: horizon, 
         columns: (1fr, 1fr),
-        //align(left)[#image("images/logo.jpg", width: 2em)], align(right)[#titolo], 
       )
       #line(length: 100%, stroke: 0.5pt)
     ],

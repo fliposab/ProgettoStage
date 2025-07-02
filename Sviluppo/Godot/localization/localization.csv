@@ -1,0 +1,21 @@
+KEYS, it
+RESUME, Riprendi
+LOAD_GAME, Carica partita
+NEW_GAME, Nuova partita
+OPTIONS, Opzioni
+MAIN_MENU, Menu principale
+WINDOW_MODE, Modalità finestra
+WINDOW_MODE_DESC, 
+WINDOW_RESOLUTION, Risoluzione finestra
+WINDOW_RESOLUTION_DESC,
+RESOLUTION_SCALE, Scala risoluzione
+RESOLUTION_SCALE_DESC,
+ANTI_ALIASING, Anti-Aliasing
+ANTI_ALIASING_DESC,
+SHADOWS_QUALITY, Qualità delle ombre
+SHADOWS_QUALITY_DESC,
+SAVE_AND_QUIT_GAME, Salva ed esci dal gioco
+SAVE_AND_EXIT, Salva ed esci
+LINEAR_REGRESSION, Regressione linear
+DECISION_TREE, Albero di decisione
+CAUSALITY, Causalità

@@ -203,13 +203,14 @@ script = ExtResource("1_14ahn")
 
 [node name="GoldenRetriever" parent="." instance=ExtResource("2_sles7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12998, 0, 1.68993)
+id = "australian_shepherd"
 
 [node name="MeshInstance3D" parent="GoldenRetriever" index="1"]
 mesh = SubResource("QuadMesh_7bgk7")
 
 [node name="GoldenRetriever2" parent="." instance=ExtResource("2_sles7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89932, 0, 1.68993)
-id = "australian_shepherd"
+id = "beagle"
 
 [node name="MeshInstance3D" parent="GoldenRetriever2" index="1"]
 mesh = SubResource("QuadMesh_harvn")

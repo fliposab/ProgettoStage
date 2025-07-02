@@ -108,6 +108,11 @@ interact_reset={
 ]
 }
 
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://localization/localization. it.translation")
+
 [layer_names]
 
 3d_physics/layer_1="World"

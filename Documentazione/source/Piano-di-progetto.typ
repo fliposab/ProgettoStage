@@ -231,7 +231,7 @@ Sono stati individuati i requisiti e use cases principali, calcolo dei rischi e 
     - menu di pausa: disponibile quando il giocatore preme il rispettivo tasto;
 - opzioni: dove il giocatore può cambiare le impostazioni grafiche e la lingua;
 - schermata principale: da dove il giocatore può iniziare il gioco.
-#figure( caption: "Livello per testing (settimana 1)", image("imgs/settimana-1.png", width: 80%))
+#figure( caption: "Livello per testing (settimana 1)", image("imgs/settimana-1.png", width: 85%))
 == Settimana 2 | 23/06 - 27/06
 #pseudoheading[*Retropsettiva*]
 Durante la seconda settimana, sono state sviluppate le principali meccaniche del gioco, tra cui implementazione della Linear Regression e raccolta di oggetti, individuati altri use cases e aggiornato il Piano di qualifica.

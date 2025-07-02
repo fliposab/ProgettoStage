@@ -53,7 +53,6 @@ Nelle seguenti sezioni sono riportati i casi d'uso del #gloss[videogioco], che d
 Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
 #figure(image("imgs/giocatore.png", width: auto), caption: "Attore principale")
 
-#set heading(supplement: "UC", numbering: "1.")
 // Azioni nel livello
 == UC1 - Movimento
 #figure(image("imgs/uc-movimento.png", width: auto), caption: "Movimento")
@@ -141,7 +140,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - La telecamera si muove automaticamente dietro il personaggio.\
 
-== UC? - Caduta
+== UC4 - Caduta
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -158,7 +157,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Inclusioni*:
 - Riposizionamento.
 
-== UC. - Riposizionamento
+== UC5 - Riposizionamento
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -171,7 +170,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore svolge una certa azione.
 - La stessa azione riposiziona il giocatore in una zona diversa.
 
-== UC4 - Raccolta collezionabile
+== UC6 - Raccolta collezionabile
 #figure(image("imgs/uc-raccolta_collezionabile.png", width: auto), caption: "Raccolta collezionabile")
 *Attori principali*: 
 - Giocatore
@@ -184,8 +183,8 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore si avvicina all'oggetto collezionabile.
 - Il collezionabile viene automaticamente raccolto.
-
-== UC5 - Interazione con un oggetto
+/*
+== UC7 - Interazione con un oggetto
 #figure(image("imgs/uc-interazione.png", width: auto), caption: "Interazione con un oggetto")
 *Attori principali*: 
 - Giocatore
@@ -198,8 +197,120 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
+*/
 
-=== UC5.1 - Prendere un oggetto
+== UC7 - Interazione con entità
+#figure(image("imgs/uc-interazione_npc.png", width: auto), caption: "Interazione con un NPC")
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore si avvicina a un'#gloss[entità] e vede un messaggio.
+*Precondizioni*:
+- Il giocatore deve essere vicino ad un'entità.
+*Postcondizioni*:
+- L'entità mostra un messaggio.
+*Scenario principale*:
+- Il giocatore si avvicina ad un'entità.
+- L'entità mostra un messaggio.
+*Generalizzazioni*:
+- Interazione con un'entità manuale.
+
+
+=== UC7.1 - Interazione con entità automatica
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore si avvicina a un'entità e vede il messaggio di testo.
+*Precondizioni*:
+- Il giocatore deve essere vicino ad un'entità.
+*Postcondizioni*:
+- Il giocatore visualizza il messaggio.
+*Scenario principale*:
+- Il giocatore si avvicina ad un'entità.
+- Il giocatore visualizza il messaggio.
+*Inclusioni*:
+- Visualizzazione dialogo manuale.
+- Visualizzazione classificazioni oggetti scoperte.
+
+=== UC7.2 - Interazione con entità manuale
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore si avvicina a un'entità e vede l'input che deve premere per interagire.
+*Precondizioni*:
+- Il giocatore deve essere vicino ad un'entità.
+*Postcondizioni*:
+- Il gicatore preme l'input per interagire.
+*Scenario principale*:
+- Il giocatore si avvicina ad un'entità.
+- L'entità mostra l'input da premere per interagire.
+- Il giocatore preme l'input.
+*Estensioni*:
+- Visualizzazione dialogo manuale.
+- Prendere un oggetto.
+- Visualizzazione classificazioni oggetti scoperte.
+- Transizione scena
+
+== UC8 - Visualizzazione dialogo
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore visualizza il dialogo mostrato dall'entità.
+*Precondizioni*:
+- Il giocatore ha premuto l'input per interagire con l'entità.
+*Postcondizioni*:
+- L'entità mostra il dialogo.
+- Il giocatore non può muoversi.
+*Scenario principale*:
+- Il giocatore visualizza il il dialogo
+- Il giocatore non può muoversi durante l'interazione.
+
+=== UC8.1 - Avanti nel dialogo
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore vuole continuare il dialogo.
+*Precondizioni*:
+- Il giocatore ha premuto l'input per andare avanti nel dialogo.
+*Postcondizioni*:
+- Viene mostrato il messaggio successivo del dialogo.
+*Scenario principale*:
+- Il giocatore preme l'input per andare avanti nel dialogo.
+- Il giocatore visualizza il messaggio successivo.
+*Estensioni*:
+- Fine dialogo
+
+=== UC8.2 - Fine interazione
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore vuole terminare l'interazione.
+*Precondizioni*:
+- Il giocatore sta interagendo con un'entità.
+*Postcondizioni*:
+- Il giocatore preme l'input
+- Il giocatore finisce il dialogo.
+- Il giocatore può muoversi di nuovo.
+*Scenario principale*:
+- Il giocatore smette di visualizzare il dialogo.
+- Il giocatore è libero di muoversi.
+
+=== UC8.3 - Scelta opzione dialogo
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore deve scegliere un'opzione per andare avanti nel dialogo.
+*Precondizioni*:
+- Il giocatore deve essere in un dialogo.
+- Il giocatore visualizza le opzioni tra cui scegliere.
+*Postcondizioni*:
+- Il giocatore ha scelto l'opzione.
+- Il dialogo finisce.
+*Scenario principale*:
+- Il giocatore preme l'input per scegliere l'opzione.
+- Viene eseguita l'opzione scelta.
+
+== UC9 - Prendere un oggetto
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -213,7 +324,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
 
-=== UC5.2 - Lasciare un oggetto
+== UC10 - Lasciare un oggetto
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -228,33 +339,61 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme lo stesso tasto con cui ha raccolto l'oggetto
 - Il giocatore lascia l'oggetto.
 
-== UC6 - Interazione con NPC
-#figure(image("imgs/uc-interazione_npc.png", width: auto), caption: "Interazione con un NPC")
+== UC11 - Visualizzazione classificazioni oggetti scoperti
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
-- Il giocatore si avvicina a un #gloss[NPC] e riceve un messaggio.
+- Il giocatore vuole visualizzare tutte le classificazioni degli oggetti che è riuscito ad indovinare nel livello.
 *Precondizioni*:
-- Il giocatore deve essere vicino ad un NPC.
+- Il giocatore è dentro il livello del Decision Tree
+- Il livello deve contenere il Decision Tree sulle razze dei cani.
 *Postcondizioni*:
-- L'NPC mostra il messaggio.
+- Il giocatore visualizza le razze di cani scoperte.
 *Scenario principale*:
-- Il giocatore si avvicina ad un NPC.
-- L'NPC mostra il messaggio automaticamente.
+- Il giocatore si avvicina all'entità (il cartello in questo caso).
+- Il giocatore preme l'input per interagire
+- Il giocatore visualizza le classificazioni degli oggetti scoperti.
+*Estensioni*:
+- Fine interazione
 
-=== UC6.1 - Interazione con NPC automatica
+/*
+=== UC10.1 - Nuova razza cane scoperta
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore vuole visualizzare le razze di cani che è riuscito ad indovinare nel livello.
+*Precondizioni*:
+- Il giocatore è dentro il livello del Decision Tree
+- Il livello deve contenere il Decision Tree sulle razze dei cani.
+*Postcondizioni*:
+- Il giocatore visualizza le razze di cani scoperte.
+*Scenario principale*:
+- Il giocatore si avvicina all'entità (il cartello in questo caso).
+- Il giocatore preme l'input per interagire
+- Il giocatore visualizza le razze di cani scoperte.
+*Estensioni*:
+- Fine interazione
 
-=== UC6.2 - Interazione con NPC manuale
 
-=== UC6.3 - Avanti nel dialogo
+== UC11 - Visualizzazione livello successivo
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore vuole visualizzare le razze di cani che è riuscito ad indovinare nel livello.
+*Precondizioni*:
+- Il giocatore è dentro il livello del Decision Tree
+- Il livello deve contenere il Decision Tree sulle razze dei cani.
+*Postcondizioni*:
+- Il giocatore visualizza le razze di cani scoperte.
+*Scenario principale*:
+- Il giocatore si avvicina all'entità (il cartello in questo caso).
+- Il giocatore preme l'input per interagire
+- Il giocatore visualizza le razze di cani scoperte.
+*Estensioni*:
+- Fine interazione
+*/
 
-=== UC6.4 - Fine dialogo
-
-=== UC6.5 - Scelta opzione dialogo
-
-== UC - Visualizzazione livello successivo
-
-== UC7 - Transizione scena
+== UC12 - Transizione scena
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -268,9 +407,9 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto "interagisci".
 - Il livello viene cambiato.
 *Inclusioni*:
-- UC13 - Salvataggio.
+- Salvataggio.
 
-== UC8 - Interazione con macchina LR
+== UC13 - Interazione con macchina LR
 #figure(image("imgs/uc-macchina_lr.png", width: auto), caption: "Interazione la macchina LR")
 *Attori principali*: 
 - Giocatore
@@ -284,8 +423,12 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore entra in una zona per interagire con la macchina.
 - Il giocatore preme il tasto "interagisci".
 - Il giocatore usa la macchina.
+*Estensioni*:
+- Inserimento punto nel grafico LR
+- Reset dei punti aggiunti al grafico LR
+- Disinterazione con macchina LR
 
-== UC9 - Inserimento punto nel grafico LR
+== UC14 - Inserimento punto nel grafico LR
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -299,7 +442,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto "Interagisci".
 - Il punto viene posizionato e la retta del grafico viene aggiornata.
 
-== UC10 - Reset punti aggiunti nel grafico LR
+== UC15 - Reset punti aggiunti nel grafico LR
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -312,7 +455,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto "Reset".
 - I punti aggiunti dal giocatore vengono tolti e la retta del grafico viene aggiornata.
 
-== UC11 - Disinterazione con macchina LR
+== UC16 - Disinterazione con macchina LR
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -324,16 +467,16 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore preme il tasto per tornare indietro.
 - Il giocatore smette di usare la macchina e può tornare a muoversi.
+/*
+== UC16 - Visualizzazione domanda nel Decision Tree
 
-== UC - Visualizzazione domanda nel Decision Tree
+== UC17 - Visualizzazione direzioni nel Decision Tree
 
-== UC - Visualizzazione direzioni nel Decision Tree
-
-=== UC - Visualizzazione opzione direzione destra
-=== UC - Visualizzazione opzione direzione sinistra
-=== UC - Visualizzazione opzione direzione centrale
-
-== UC12 - Inserimento dell’oggetto nello spazio dedicato
+=== UC17.1 - Visualizzazione opzione direzione destra
+=== UC17.2 - Visualizzazione opzione direzione sinistra
+=== UC17.3 - Visualizzazione opzione direzione centrale
+*/
+== UC17 - Inserimento dell’oggetto nello spazio dedicato
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -341,15 +484,11 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Precondizioni*:
 - Il giocatore deve portare un oggetto.
 *Postcondizioni*:
-- In base all'oggetto, il giocatore visualizza diversi possibili risultati.
+- Se l'oggetto è giusto, il nuovo oggetto viene mostrato nella visualizzazione delle classificazioni degli oggetti scoperti.
 *Scenario principale*:
 - Il giocatore lascia l'oggetto in una zona speciale.
-- Il giocatore vede il risultato in base all'oggetto posizionato.
-*Generalizzazioni*:
-- Inserimento dell'oggetto nello spazio giusto.
-- Inserimento dell'oggetto nello spazio sbagliato.
 
-== UC13 - Salvataggio
+== UC18 - Salvataggio
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -362,7 +501,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore passa in una zona di transizione.
 - Il gioco salva i dati.
 
-== UC14 - Pausa
+== UC19 - Pausa
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -375,7 +514,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore preme il tasto di pausa o il comando del controller.
 - Il gioco si interrompe e viene visualizzato il menu di pausa.
 
-== UC15 -  Riprendi
+== UC20 -  Riprendi
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -388,7 +527,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Riprendi gioco" dal menu di pausa.
 - Il gioco riprende dalla posizione in cui era stato interrotto.
 
-== UC16 - Opzioni
+== UC21 - Opzioni
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -401,7 +540,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Opzioni" dal menu di pausa.
 - Il gioco visualizza le opzioni disponibili per la modifica delle impostazioni.
 
-== UC17 - Torna alla hub
+== UC22 - Torna alla hub
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -416,7 +555,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Lo schermo diventa nero per una breve durata di tempo.
 - Il giocatore torna al livello hub.
 
-== UC18 - Torna al menu principale
+== UC23 - Torna al menu principale
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -429,7 +568,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Torna al menu principale" dal menu di pausa.
 - Il gioco torna al menu principale.
 
-== UC19 - Chiudi il gioco
+== UC24 - Chiudi il gioco
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -442,7 +581,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Esci dal gioco" dal menu di pausa o dal menu principale.
 - Il gioco viene chiuso.
 
-== UC20 - Carica partita
+== UC25 - Carica partita
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -456,7 +595,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Carica partita" dal menu principale.
 - Il gioco carica lo stato della partita salvata e il giocatore viene portato al livello in cui si trovava.
 
-== UC21 - Nuova partita
+== UC26 - Nuova partita
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -470,7 +609,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Nuova partita" dal menu principale.
 - Il gioco inizia e il giocatore viene portato al livello base.
 
-== UC22 - Modifica modalità finestra
+== UC27 - Modifica modalità finestra
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -483,7 +622,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Modifica modalità finestra/schermo intero" dal menu delle opzioni. 
 - Il gioco cambia la modalità di visualizzazione in base alla selezione del giocatore.
 
-== UC23 - Modifica risoluzione finestra
+== UC28 - Modifica risoluzione finestra
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -496,7 +635,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Modifica risoluzione" dal menu delle opzioni.
 - Il gioco visualizza un elenco di risoluzioni disponibili e il giocatore può selezionare quella desiderata.
 
-== UC24 - Modifica scala di risoluzione
+== UC29 - Modifica scala di risoluzione
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -510,7 +649,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore scorre la barra sul valore desiderato.
 - Il gioco cambia la scala di risoluzione in base alla selezione del giocatore.
 
-== UC25 - Modifica anti-aliasing
+== UC30 - Modifica anti-aliasing
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -524,7 +663,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore visualizza un elenco di opzioni disponibili e il giocatore può selezionare quella desiderata.
 - Il gioco cambia la qualità delle ombre in base alla selezione del giocatore.
 
-== UC26 - Modifica qualità ombre
+== UC31 - Modifica qualità ombre
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -538,7 +677,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore visualizza un elenco di opzioni disponibili e il giocatore può selezionare quella desiderata.
 - Il gioco cambia la qualità delle ombre in base alla selezione del giocatore.
 
-== UC27 - Cambia lingua
+== UC32 - Cambia lingua
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -552,7 +691,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore visualizza un elenco di lingue disponibili e il giocatore può selezionare quella desiderata.
 - Il gioco cambia la lingua in base alla selezione del giocatore.
 
-== UC28 - Modifica volume
+== UC33 - Modifica volume
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -565,7 +704,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore seleziona l'opzione "Modifica volume" dal menu delle opzioni.
 - Il giocatore visualizza un cursore per regolare il volume.
 
-== UC28 - Salva ed esci dalle opzioni
+== UC34 - Salva ed esci dalle opzioni
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -579,7 +718,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il gioco applica le opzioni.
 - Il menu di opzioni viene chiuso.
 
-#set heading(numbering: "1.")
+
 = Requisiti
 In questa sezione vengono elencati i requisiti del capitolato, individuati durante la fase di analisi. Ogni #gloss[requisito] viene
 identificato da un codice, scelto in base ai seguenti parametri:
@@ -605,97 +744,119 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     align: center + horizon,
     fill: (x, y) => if (y == 0) { luma(230) },
     table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
-    // login
-    [R--F-O],
+    [R-01-F-O],
     [Il giocatore deve essere in grado di muoversi in uno spazio tridimensionale],
     [UC1\ Discussione con il tutor aziendale],
-    [R--F-O],
+    [R-02-F-O],
     [Il giocatore deve essere in grado di muoversi in uno spazio tridimensionale portando un oggetto],
     [UC1.1\ Discussione con il tutor aziendale],
-    [R--F-O],
+    [R-03-F-O],
     [Il giocatore deve essere in grado saltare],
     [UC2\ Decisione interna],
-    [R--F-O],
+    [R-04-F-O],
+    [La telecamera deve muoversi automaticamente dietro il giocatore quando questo si muove],
+    [UC3, UC3.1\ Decisione interna],
+    [R-05-F-O],
     [Il giocatore deve essere in grado di ruotare la telecamera],
-    [UC3, UC3.1, UC3.2\ Decisione interna],
-    [R--F-O],
+    [UC3, UC3.2\ Decisione interna],
+    [R-06-F-O],[Il giocatore deve tornare in una posizione precedente quando cade dal livello],
+    [UC4, UC5\ Decisione interna],
+    [R-07-F-O],
     [Il giocatore deve essere in grado di raccogliere collezionabili sparsi per il livello],
-    [UC4\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve essere in grado di interagire con oggetti presenti nel livello],
-    [UC5\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter prendere oggetti sparsi per il livello],
-    [UC5.1\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter lasciare l'oggetto che sta portando],
-    [UC5.2\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter interagire con NPC e ricevere messaggi],
-    [UC6\ Decisione interna],
-    [R--F-O],
-    [Il giocatore deve poter cambiare livello tramite aree di transizione],
-    [UC7\ Decisione interna],
-    [R--F-O],
-    [Il giocatore deve poter interagire con la macchina LR],
-    [UC8\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter inserire punti nel grafico LR],
+    [UC6\ Discussione con il tutor aziendale],
+    ////
+    [R-08-F-O],
+    [Il giocatore deve essere in grado di interagire con entità presenti nel livello],
+    [UC7, UC7.1, UC7.2\ Discussione con il tutor aziendale],
+    [R-09-F-O],
+    [Il giocatore deve poter visualizzare il dialogo quando interagisce con delle entità specifiche],
+    [UC8\ Decisione interna],
+    [R-10-F-O],
+    [Il giocatore deve poter andare avanti nel dialogo],
+    [UC8.1\ Decisione interna],
+    [R-11-F-O],
+    [Il giocatore deve poter finire l'interazione con l'entità],
+    [UC8.2\ Decisione interna],
+    [R-12-F-O],
+    [Il giocatore deve poter scegliere un'opzione quando ne vengono mostrate di più],
+    [UC8.3\ Decisione interna],
+    [R-13-F-O],
+    [Il giocatore deve poter essere in grado di raccogliere oggetti],
     [UC9\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter resettare i punti aggiunti nel grafico LR],
+    [R-F-14-O],
+    [Il giocatore deve poter essere in grado di lasciare l'oggetto che sta portando],
     [UC10\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il giocatore deve poter interrompere l’interazione con la macchina LR],
+    [R-15-F-O],[Il giocatore deve poter visualizzare gli oggetti che ha classificato correttamente],
     [UC11\ Discussione con il tutor aziendale],
-    [R--F-O],
-    [Il gioco deve salvare automaticamente i progressi in momenti specifici],
-    [UC13\ Decisione interna],
-    [R--F-O],
-    [Il giocatore deve poter mettere in pausa il gioco],
-    [UC14\ Decisione interna],
-    [R--F-O],
-    [Il giocatore deve poter riprendere il gioco dal menu di pausa],
-    [UC15\ Decisione interna],
     [R-16-F-O],
-    [Il giocatore deve poter accedere alle opzioni del gioco],
-    [UC16\ Decisione interna],
+    [Il giocatore deve poter essere in grado di cambiare livello],
+    [UC12\ Decisione interna],
+    ////
     [R-17-F-O],
-    [Il giocatore deve poter tornare al livello hub dal menu di pausa],
-    [UC17\ Decisione interna],
+    [Il giocatore deve poter interagire con la macchina LR],
+    [UC13\ Discussione con il tutor aziendale],
     [R-18-F-O],
-    [Il giocatore deve poter tornare al menu principale dal menu di pausa],
-    [UC18\ Decisione interna],
+    [Il giocatore deve poter inserire punti nel grafico LR],
+    [UC14\ Discussione con il tutor aziendale],
     [R-19-F-O],
-    [Il giocatore deve poter chiudere il gioco dal menu di pausa o principale],
-    [UC19\ Decisione interna],
+    [Il giocatore deve poter resettare i punti aggiunti nel grafico LR],
+    [UC15\ Discussione con il tutor aziendale],
     [R-20-F-O],
-    [Il giocatore deve poter caricare una partita salvata dal menu principale],
-    [UC20\ Decisione interna],
+    [Il giocatore deve poter interrompere l’interazione con la macchina LR],
+    [UC16\ Discussione con il tutor aziendale],
     [R-21-F-O],
-    [Il giocatore deve poter avviare una nuova partita dal menu principale],
-    [UC21\ Decisione interna],
+    [Lo spazio deve riconoscere se l'oggetto posto sopra sia giusto o sbagliato],
+    [UC17\ Discussione con il tutor aziendale],
     [R-22-F-O],
-    [Il giocatore deve poter modificare la modalità della finestra dal menu delle opzioni],
-    [UC22\ Decisione interna],
+    [Il gioco deve salvare automaticamente i progressi in momenti specifici],
+    [UC18\ Decisione interna],
     [R-23-F-O],
-    [Il giocatore deve poter modificare la risoluzione della finestra],
+    [Il giocatore deve poter mettere in pausa il gioco],
+    [UC19\ Decisione interna],
+    [R-24-F-O],
+    [Il giocatore deve poter riprendere il gioco dal menu di pausa],
+    [UC20\ Decisione interna],
+    [R-25-F-O],
+    [Il giocatore deve poter accedere alle opzioni del gioco],
+    [UC21\ Decisione interna],
+    [R-26-F-O],
+    [Il giocatore deve poter tornare al livello hub dal menu di pausa],
+    [UC22\ Decisione interna],
+    [R-27-F-D],
+    [Il giocatore deve poter tornare al menu principale dal menu di pausa],
     [UC23\ Decisione interna],
-    [R-24-F-D],
-    [Il giocatore deve poter modificare la scala di risoluzione del gioco],
+    [R-28-F-O],
+    [Il giocatore deve poter chiudere il gioco dal menu di pausa o principale],
     [UC24\ Decisione interna],
-    [R-25-F-D],
-    [Il giocatore deve essere in grado di poter modificare il tipo di anti-aliasing usato nel gioco, oppure non usarlo],
+    [R-29-F-O],
+    [Il giocatore deve poter caricare una partita salvata dal menu principale],
     [UC25\ Decisione interna],
-    [R-26-F-D],[Il giocatore deve essere in grado di modificare la qualità delle ombre nel gioco],
+    [R-30-F-O],
+    [Il giocatore deve poter avviare una nuova partita dal menu principale],
     [UC26\ Decisione interna],
-    [R-27-F-D],[Il giocatore deve poter cambiare lingua di gioco],
+    [R-31-F-O],
+    [Il giocatore deve poter modificare la modalità della finestra dal menu delle opzioni],
     [UC27\ Decisione interna],
-    [R-28-F-D],[Il giocatore deve poter cambiare il volume generale del gioco],
+    [R-32-F-O],
+    [Il giocatore deve poter modificare la risoluzione della finestra],
     [UC28\ Decisione interna],
-    [R-29-F-O],[Il gioco deve applicare e salvare le opzioni selezionate],[
-    UC29\ Decisione interna],
-  ))
+    [R-33-F-D],
+    [Il giocatore deve poter modificare la scala di risoluzione del gioco],
+    [UC29\ Decisione interna],
+    [R-34-F-D],
+    [Il giocatore deve essere in grado di poter modificare il tipo di anti-aliasing usato nel gioco, oppure non usarlo],
+    [UC30\ Decisione interna],
+    [R-35-F-D],[Il giocatore deve essere in grado di modificare la qualità delle ombre nel gioco],
+    [UC31\ Decisione interna],
+    [R-36-F-D],[Il giocatore deve poter cambiare lingua di gioco],
+    [UC32\ Decisione interna],
+    [R-37-F-D],[Il giocatore deve poter cambiare il volume generale del gioco],
+    [UC33\ Decisione interna],
+    [R-38-F-O],[Il gioco deve applicare e salvare le opzioni selezionate],[
+    UC34\ Decisione interna],
+  )
+)
+
 == Requisiti di qualità
 #figure(
   caption: [Requisiti di qualità],
@@ -752,61 +913,60 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
 #figure(
   caption: [Tracciamento requisiti],
   table(
-    columns: (1fr, 1.5fr),
+    columns: (1.2fr, 1.2fr, 0.5fr),
     inset: 8pt,
     align: center + horizon,
     fill: (x, y) => if (y == 0) { luma(230) },
-    table.header([*Requisito*], [*Fonti*]),
+    table.header([*Requisito*], [*Fonti*], [*Soddisfatto*]),
     // Requisiti funzionali
-    "R-01-F-O", "UC1",
-    "R-02-F-O", "UC1.1",
-    "R-03-F-O", "UC2",
-    "R-04-F-O", "UC3",
-    "R-05-F-D", "UC3.1",
-    "R-06-F-O", "UC3.2",
-    "R-07-F-O", "UC4",
-    "R-08-F-O", "UC5",
-    "R-09-F-O", "UC5.1",
-    "R-10-F-O", "UC5.2",
-    "R-11-F-D", "UC6",
-    "R-12-F-O", "UC7",
-    "R-13-F-O", "",
-    "R-14-F-O", "",
-    "R-15-F-O", "",
-    "R-16-F-O", "",
-    "R-17-F-O", "",
-    "R-18-F-O", "",
-    "R-19-F-O", "",
-    "R-20-F-", "",
-    "R-21-F-O", "",
-    "R-22-F-D", "",
-    "R-23-F-D", "",
-    "R-24-F-D", "",
-    "R-25-F-D", "",
-    "R-26-F-O", "",
-    "R-27-F-O", "",
-    "R-28-F-O", "",
-    "R-29-F-", "",
-    "R-30-F-", "",
-    "R-31-F-", "",
-    "R-32-F-", "",
-    "R-33-F-O", "",
-    "R-34-F-O", "",
-    "R-35-F-O", "",
-    "R-36-F-O", "",
-    "R-37-F-O", "",
-    "R-38-F-O", "",
-    "R-39-F-O", "",
+    "R-01-F-O", "UC1","\u{2713}",
+    "R-02-F-O", "UC1.1","\u{2713}",
+    "R-03-F-O", "UC2","\u{2713}",
+    "R-04-F-O", "UC3, UC3.1","\u{2713}",
+    "R-05-F-D", "UC3, UC3.2","\u{2713}",
+    "R-06-F-O", "UC4, UC5","\u{2713}",
+    "R-07-F-O", "UC6","\u{2713}",
+    "R-08-F-O", "UC7, UC7.1, UC7.2","\u{2713}",
+    "R-09-F-O", "UC8","",
+    "R-10-F-O", "UC8.1","\u{2713}",
+    "R-11-F-D", "UC8.2","",
+    "R-12-F-O", "UC8.3","\u{2713}",
+    "R-13-F-O", "UC9","\u{2713}",
+    "R-14-F-O", "UC10","\u{2713}",
+    "R-15-F-O", "UC11","\u{2713}",
+    "R-16-F-O", "UC12","\u{2713}",
+    "R-17-F-O", "UC13","\u{2713}",
+    "R-18-F-O", "UC14","\u{2713}",
+    "R-19-F-O", "UC15","\u{2713}",
+    "R-20-F-O", "UC16","\u{2713}",
+    "R-21-F-O", "UC17","\u{2713}",
+    "R-22-F-D", "UC18","\u{2713}",
+    "R-23-F-D", "UC19","\u{2713}",
+    "R-24-F-D", "UC20","\u{2713}",
+    "R-25-F-D", "UC21","\u{2713}",
+    "R-26-F-O", "UC22","\u{2713}",
+    "R-27-F-D", "UC23","\u{2713}",
+    "R-28-F-O", "UC24","\u{2713}",
+    "R-29-F-O", "UC25","\u{2713}",
+    "R-30-F-O", "UC26","\u{2713}",
+    "R-31-F-O", "UC27","\u{2713}",
+    "R-32-F-O", "UC28","\u{2713}",
+    "R-33-F-O", "UC29","\u{2713}",
+    "R-34-F-D", "UC30","\u{2713}",
+    "R-35-F-D", "UC31","\u{2713}",
+    "R-36-F-D", "UC32","",
+    "R-37-F-D", "UC33","",
+    "R-38-F-O", "UC34","\u{2713}",
     // Requisiti di qualità
-    "R-01-Q-O", "",
-    "R-02-Q-O", "",
-    "R-03-Q-O", "",
-    "R-04-Q-O", "",
-    "R-05-Q-O", "",
-    "R-06-Q-O", "",
+    "R-01-Q-O", "Decisione interna","",
+    "R-02-Q-O", "Decisione interna","",
+    "R-03-Q-O", "Decisione interna","",
+    "R-04-Q-O", "Decisione interna","",
+    "R-05-Q-O", "Decisione interna","\u{2713}",
+    "R-06-Q-O", "Decisione interna","\u{2713}",
     // Requisiti di vincolo
-    "R-01-V-O", "",
-    "R-02-V-O", "",
+    "R-01-V-O", "Decisione interna","",
+    "R-02-V-O", "Decisione interna","",
   ),
 )
 == Riepilogo 

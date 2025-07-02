@@ -52,7 +52,7 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
 - *MPC-CT - Completion Time*: tempo totale previsto per completare il progetto, idealmente non deve superare quello pianificato nel Piano di lavoro.
 
 #figure(caption: [Valori per misurare la qualità della fornitura], table(
-  columns: (0.8fr, 2fr, 1.2fr, 1.2fr),
+  columns: (auto,auto,auto,auto),
   inset: 8pt,
   align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
@@ -105,7 +105,7 @@ Le seguenti metriche vengono applicate principalmente al #gloss[modello 3D] prin
   "\u{2264}40",
   "\u{2264}32",
   "MPC-UIC","UV Islands Count","\u{2264}30","\u{2264}15", //22
-  "MPC-UIS","UV Islands Space","\u{2265}80%","\u{2265}90%",
+  "MPC-UIS","UV Islands Space","\u{2265}40%","\u{2265}50%",
 ))
 
 === Documentazione
@@ -213,7 +213,7 @@ Molto importante è specificare le componenti della macchina su cui viene testat
   align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Componente*], [*Dettagli*]),
-  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[#gloss[SSD] / #gloss[HDD]],[],[Sistema Operativo],[Pop_OS]
+  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[#gloss[SSD] / #gloss[HDD]],[Almeno 300 MB liberi],[Sistema Operativo],[Pop_OS]
 ))\
 In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fascia media-bassa, quindi si ritiene che se il gioco offre delle buone prestazioni sulla macchina di testing, offrirà in media buone prestazioni su tutte le macchine con un sistema operativo supportato.
 
@@ -243,12 +243,15 @@ In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fa
 
 = Metodologie di testing
 == Tipologie di test
+=== Test manuali
 === Test di unità
 I test di unità sono utilizzati per verificare il corretto funzionamento delle singole unità del prodotto software, come ad esempio le funzioni o i metodi.\
 I test di unità sono eseguiti durante lo sviluppo del prodotto, e sono utilizzati per identificare eventuali problemi o errori nelle singole unità del prodotto.\
 //.......
 
 = Cruscotto di valutazione delle metriche
+== Codice
+#pagebreak()
 == Grafica 3D
 === MPC-MTC - Model Tris Count
 #align(figure(caption: [Modello 3D con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))
@@ -258,6 +261,10 @@ Dall'immagine si può vedere che il numero totale di triangoli del modello ammon
 Dall'immagine si può vedere che il numero totale di ossa (ossa IK incluse) ammonta a 36. Sono state richieste più ossa per dare un effetto "curva" agli arti del modello.
 Inoltre sono state aggiunte tre ossa per animare l'antenna sulla testa.
 === MPC-UIC - UV Islands Count
-=== MPC-UIC - UV Islands Count
+#figure(caption: [UV del modello del giocatore], image("imgs/uv-mapping.png", width: 80%))
+Dall'immagine è possibile vedere anche il numero di isole UV (22) e l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
 
+=== MPC-UIS - UV Islands Space
+Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato è pari al 68%.\
+Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente u blender, è stato utilizzato uno script di Python esterno.
 //= Automiglioramento
