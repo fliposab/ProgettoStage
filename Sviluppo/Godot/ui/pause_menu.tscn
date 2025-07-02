@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyvffgfl5sxyh"]
+[gd_scene load_steps=5 format=3 uid="uid://dyvffgfl5sxyh"]
 
 [ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="1_50142"]
 [ext_resource type="PackedScene" uid="uid://om0xmc0ae5vd" path="res://ui/Pause/pause_buttons.tscn" id="2_ejwgg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ejwgg"]
+font_size = 82
+outline_size = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euhrg"]
 bg_color = Color(1, 1, 1, 1)
@@ -45,12 +49,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/bold_font_size = 80
-bbcode_enabled = true
-text = "[b]PAUSE"
-fit_content = true
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_ejwgg")
 horizontal_alignment = 1
 vertical_alignment = 1
 

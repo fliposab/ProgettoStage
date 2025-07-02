@@ -12,6 +12,7 @@ class_name DecisionNodeIntermediate
 @export var center_text : String
 
 func _ready()->void:
+	center_direction_label.show()
 	_ui.hide()
 	$Control/VBoxContainer/Label.text = _question_text
 	show_directions()
@@ -25,8 +26,10 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		_ui.hide()
 
 func show_directions()->void:
-	left_direction_label.text = "← " + left_text
-	right_direction_label.text = "→ " + right_text
-	center_direction_label.text = "↑ " + center_text
+	left_direction_label.text = "← " + tr(left_text)
+	right_direction_label.text = "→ " + tr(right_text)
 	if center_text == "":
 		center_direction_label.hide()
+		return
+	center_direction_label.text = "↑ " + tr(center_text)
+	

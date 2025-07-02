@@ -111,7 +111,8 @@ interact_reset={
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://localization/localization. it.translation")
+locale/translations=PackedStringArray("res://localization/localization.en.translation", "res://localization/localization.it.translation")
+locale/test="it"
 
 [layer_names]
 

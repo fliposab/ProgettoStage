@@ -1,0 +1,20 @@
+# LANGUAGE translation for ProgettoStage for the following files:
+# res://ui/Pause/pause_buttons.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ProgettoStage\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: ui/Pause/pause_buttons.tscn
+msgid "RESUME"
+msgstr ""
+
+#: ui/Pause/pause_buttons.tscn
+msgid "SAVE_AND_QUIT_GAME"
+msgstr ""

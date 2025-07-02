@@ -14,3 +14,4 @@ func _on_player_spawn_player_spawned(player: Player) -> void:
 
 func _ready()->void:
 	collectibles_count = get_tree().get_nodes_in_group("collectibles").size()
+	print(tr("RESUME"))

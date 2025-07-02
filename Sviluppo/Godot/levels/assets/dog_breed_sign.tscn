@@ -141,6 +141,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wiyaj")
 [node name="ScrollContainer" type="ScrollContainer" parent="Grid/VBoxContainer/PanelContainer"]
 layout_mode = 2
 follow_focus = true
+scroll_vertical = 397
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 

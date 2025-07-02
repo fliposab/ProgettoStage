@@ -1,21 +1,71 @@
-KEYS, it
-RESUME, Riprendi
-LOAD_GAME, Carica partita
-NEW_GAME, Nuova partita
-OPTIONS, Opzioni
-MAIN_MENU, Menu principale
-WINDOW_MODE, Modalità finestra
+KEYS,it,en
+BACK_TO_HUB,Torna alla Hub,Back to Hub
+RESUME,Riprendi,Resume
+LOAD_GAME,Carica partita,Load Game
+NEW_GAME,Nuova partita,New Game
+OPTIONS,Opzioni,Options
+MAIN_MENU,Menu principale,Main Menu
+WINDOW_MODE,Modalità finestra,Window Mode
 WINDOW_MODE_DESC, 
-WINDOW_RESOLUTION, Risoluzione finestra
+WINDOW_RESOLUTION,Risoluzione finestra,Window Resolution
 WINDOW_RESOLUTION_DESC,
-RESOLUTION_SCALE, Scala risoluzione
+RESOLUTION_SCALE,Scala risoluzione,Resolution Scale
 RESOLUTION_SCALE_DESC,
-ANTI_ALIASING, Anti-Aliasing
+ANTI_ALIASING,Anti-Aliasing,Anti-Aliasing
 ANTI_ALIASING_DESC,
-SHADOWS_QUALITY, Qualità delle ombre
+SHADOWS_QUALITY,Qualità delle ombre,Shadows Quality
 SHADOWS_QUALITY_DESC,
-SAVE_AND_QUIT_GAME, Salva ed esci dal gioco
-SAVE_AND_EXIT, Salva ed esci
-LINEAR_REGRESSION, Regressione linear
-DECISION_TREE, Albero di decisione
-CAUSALITY, Causalità
+SAVE_AND_QUIT_GAME,Salva ed esci dal gioco,Save and Quit Game
+SAVE_AND_EXIT,Salva ed esci,Save and exit
+LINEAR_REGRESSION,Regressione lineare,Linear Regression
+DECISION_TREE,Albero di decisione,Decision Tree
+CAUSALITY,Causalità,Causality
+PAUSE,PAUSA,PAUSE
+GRAB,Prendi,Grab
+RELEASE,Lascia,Release
+RESET,Reset,Reset
+SHOOT,Spara,Shoot
+LEAVE,Finisci,Leave
+FUR_LENGTH,Lunghezza del pelo, Fur length
+LONG,Lungo,Long
+SHORT,Corto,Short
+FUR_TYPE,Tipo del pelo,Fur type
+DOG_SIZE,Taglia,Size
+FUR_COLOR,Colore del pelo,Fur color
+EARS,Orecchie,Ears
+DOG_SIZE_LARGE,Grande,Big
+DOG_SIZE_MEDIUM,Media,Medium
+DOG_SIZE_SMALL,Piccola,Small
+PRICK,A punta,Prick
+DROP,Cadenti,Drop
+BLACK / BROWN,Nero / Marrone,Black / Brown
+BLACK / WHITE,Nero / Bianco,Black / White
+ORANGE / BROWN,Arancione / Marrone,Orange / Brown
+WHITE,Bianco,White
+ORANGE / WHITE,Arancione / Bianco,Orange / White
+WHITE / BROWN,Bianco / Marrone,White / Brown
+BLACK / ORANGE,Nero / Arancione,Black / Orange
+WHITE / ORANGE / BLUE,Bianco / Arancione / Blu,White / Orange / Blue
+ORANGE,Arancione,Orange
+FUR_TYPE,Tipo di pelo,Fur type
+CURLY_FUR,Mosso,Curly
+SMOOTH_FUR,Liscio,Smooth
+DOG_BREED_DISCOVERED,Razze di cane scoperte,Dog Breeds Discovered
+E: GRAB,E: Prendi,E: Grab
+E: CLOSE,E: Chiudi,E: Close
+E: READ_SIGN,E: Leggi,E: Read
+AUSTRALIAN_SHEPHERD,Pastore australiano,Australian Shepherd
+BEAGLE,Beagle,Beagle
+BORDER_COLLIE,Border collie,Border Collie
+BOSTON_TERRIER,Boston terrier,Boston Terrier
+COCKER_SPANIEL,Cocker spaniel,Cocker Spaniel
+CORGI,Corgi,Corgi
+DASCHUND,Bassotto,Daschund
+GERMAN_SHEPHERD,Pastore tedesco,German Shepherd
+GOLDEN_RETRIEVER,Golden retriever,Golden Retriever
+HUSKY,Husky,Husky
+POMERANIAN,Volpino,Pomeranian
+POODLE,Barboncino,Poodle
+ROTTWEILER,Rottweiler,Rottweiler
+SHIBA_INU,Shiba inu,Shiba Inu
+SHIN_TZU,Shin tzu,Shin Tzu

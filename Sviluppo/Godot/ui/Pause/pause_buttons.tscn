@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://om0xmc0ae5vd"]
+[gd_scene load_steps=7 format=3 uid="uid://om0xmc0ae5vd"]
 
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_stvng"]
+[ext_resource type="StyleBox" uid="uid://ccr5cwjb6e5x1" path="res://ui/styles/pause_buttons_style.tres" id="2_4auwg"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_yrbp4"]
 [ext_resource type="PackedScene" uid="uid://d20j4g3etcakh" path="res://ui/Pause/back_to_hub_level.tscn" id="3_4auwg"]
 [ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="3_mv45p"]
@@ -17,19 +18,24 @@ script = ExtResource("1_stvng")
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("2_4auwg")
 text = "RESUME"
 
 [node name="Options" parent="." instance=ExtResource("2_yrbp4")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_4auwg")
 
 [node name="HubLevel" parent="." instance=ExtResource("3_4auwg")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_4auwg")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_mv45p")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_4auwg")
 
 [node name="Quit" parent="." instance=ExtResource("3_nc40a")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("2_4auwg")
 text = "SAVE_AND_QUIT_GAME"
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_button_pressed"]

@@ -55,7 +55,7 @@ func load_last_level()->void:
 	
 	config.load(SAVE_PATH)
 	
-	last_level = config.get_value("common", "current_level")
+	#last_level = config.get_value("common", "current_level")
 	
 func load_var(value, config: ConfigFile, section: String, key: String):
 	if config.get_value(section, key):

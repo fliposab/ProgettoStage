@@ -6,12 +6,12 @@ uid="uid://bdemt6yuf7i5g"
 
 [deps]
 
-files=["res://localization/localization. it.translation"]
+files=["res://localization/localization.it.translation", "res://localization/localization.en.translation"]
 
 source_file="res://localization/localization.csv"
-dest_files=["res://localization/localization. it.translation"]
+dest_files=["res://localization/localization.it.translation", "res://localization/localization.en.translation"]
 
 [params]
 
-compress=true
+compress=false
 delimiter=0
