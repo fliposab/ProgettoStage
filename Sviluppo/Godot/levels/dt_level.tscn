@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=19 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bqoiwb6pq1qwm" path="res://code/saves/dt_saves_handler.gd" id="6_yev1y"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="7_0hd3l"]
 [ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/dog_line.tscn" id="9_yev1y"]
+[ext_resource type="PackedScene" uid="uid://4fm5js5aotam" path="res://models/tree.glb" id="10_kqcum"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
 sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
@@ -95,6 +96,9 @@ shadow_mesh = SubResource("ArrayMesh_0itir")
 
 [node name="DecisionTree" parent="." index="0" instance=ExtResource("3_ciugy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59917, 2.45972, 6.9589)
+
+[node name="tree" parent="DecisionTree" index="2" instance=ExtResource("10_kqcum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59917, -2.45972, -6.9589)
 
 [node name="DogBreedSign" parent="." index="1" instance=ExtResource("2_0hd3l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 1.77638, -1.79465)

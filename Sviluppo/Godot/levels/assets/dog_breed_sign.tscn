@@ -141,7 +141,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wiyaj")
 [node name="ScrollContainer" type="ScrollContainer" parent="Grid/VBoxContainer/PanelContainer"]
 layout_mode = 2
 follow_focus = true
-scroll_vertical = 397
+scroll_vertical = 100
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
@@ -343,7 +343,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_o2xmj")
-text = "E: CLOSE"
+text = "Q: CLOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 

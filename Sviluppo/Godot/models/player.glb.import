@@ -5432,6 +5432,12 @@ _subresources={
 "slices/amount": 0
 }
 },
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "uid://bym6idkd6ijln"
+}
+},
 "nodes": {
 "PATH:Armature/Skeleton3D/robot": {
 "mesh_instance/layers": 2

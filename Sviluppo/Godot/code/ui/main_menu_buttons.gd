@@ -5,8 +5,7 @@ signal new_game()
 signal load_game()
 
 func _ready():
-	LevelsSaves.load_last_level()
-	if !LevelsSaves.last_level:
+	if !LevelsSaves.check_save_exist():
 		get_child(0).hide()
 		get_child(1).grab_focus()
 		return

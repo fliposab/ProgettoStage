@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds4cf31m0gu3f"]
+
+[ext_resource type="Script" uid="uid://ii40gwlha0sh" path="res://code/player/camera_project_strategy.gd" id="1_gcgse"]
+[ext_resource type="Script" uid="uid://kibvgiocftw6" path="res://code/player/player_camera.gd" id="1_m5olg"]
+
+[node name="Camera3D" type="Camera3D"]
+current = true
+fov = 50.0
+script = ExtResource("1_m5olg")
+
+[node name="ProjectUI" type="Node" parent="."]
+script = ExtResource("1_gcgse")

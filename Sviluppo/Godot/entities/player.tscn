@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=23 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ddd3gv5leyy4b" path="res://code/player/player_movement.gd" id="5_x08pd"]
 [ext_resource type="PackedScene" uid="uid://b5yb44m1p21ax" path="res://ui/collectibles_ui.tscn" id="7_6nm46"]
 [ext_resource type="PackedScene" uid="uid://bu4ctaknncujn" path="res://entities/respawn_point.tscn" id="7_i623q"]
+[ext_resource type="PackedScene" uid="uid://cs7l1h67t3t1l" path="res://entities/grab_item_node.tscn" id="10_28s6d"]
 [ext_resource type="Script" uid="uid://bwysmcgwjxr43" path="res://code/state_machine/states/ground_move.gd" id="10_q0i8f"]
 [ext_resource type="Script" uid="uid://blhi14wa3153j" path="res://code/state_machine/states/interact_state.gd" id="12_oprnr"]
 [ext_resource type="PackedScene" uid="uid://c53auo3nnhq7r" path="res://entities/Player/collect_area.tscn" id="15_0i614"]
@@ -39,6 +40,8 @@ jump = 14.0
 transform = Transform3D(-0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/4/rotation = Quaternion(-0.0594118, 1.19245e-07, -6.42248e-09, 0.998234)
+bones/5/rotation = Quaternion(-0.000350755, -1.19177e-07, -9.13686e-12, 1)
 script = ExtResource("3_kdgjc")
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Model/Armature/Skeleton3D" index="1"]
@@ -87,6 +90,8 @@ green_training_data_count = 0
 
 [node name="Movement" type="Node" parent="Misc"]
 script = ExtResource("5_x08pd")
+
+[node name="GrabItem" parent="Misc" instance=ExtResource("10_28s6d")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.689824, 0)
@@ -143,8 +148,8 @@ offset_bottom = 90.0
 
 [node name="CollectArea" parent="." instance=ExtResource("15_0i614")]
 
-[connection signal="body_entered" from="Model/GrabArea" to="." method="set_grab_item"]
-[connection signal="body_exited" from="Model/GrabArea" to="." method="reset_grab_item"]
+[connection signal="body_entered" from="Model/GrabArea" to="Misc/GrabItem" method="set_grab_item"]
+[connection signal="body_exited" from="Model/GrabArea" to="Misc/GrabItem" method="exit_area"]
 [connection signal="changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="change_text_count"]
 [connection signal="max_changed" from="Misc/Collectibles" to="PlayerUI/PanelContainer" method="_on_collectibles_max_changed"]
 [connection signal="timeout" from="StateMachine/Grab/Timer" to="StateMachine/Grab" method="_on_timer_timeout"]

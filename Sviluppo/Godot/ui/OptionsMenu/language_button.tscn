@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3yk8dha5e83y"]
 
-[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/OptionsMenu/options_button.gd" id="1_p5ag5"]
+[ext_resource type="Script" uid="uid://cy4f45ir0x115" path="res://ui/OptionsMenu/language_button.gd" id="1_p5ag5"]
 
 [node name="Language" type="HBoxContainer"]
 script = ExtResource("1_p5ag5")
@@ -24,3 +24,4 @@ popup/item_1/id = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="OptionButton" to="." method="pass_description"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_item_selected"]

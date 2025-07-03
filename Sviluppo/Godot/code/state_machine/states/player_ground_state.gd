@@ -3,7 +3,7 @@ extends State
 func enter(previous_state_path, _msg:={})->void :
 	if _msg.has("reset_camera"):
 		player.reset_camera()
-	if player.is_holding:
+	if player.grab_item.is_holding:
 		player.play("idle_grab")
 	else:
 		player.play("idle")
@@ -21,7 +21,11 @@ func physics_update(delta: float)->void:
 	if !player.is_on_floor():
 		finished.emit("Air")
 		return
-	if Input.is_action_just_pressed("interact") and player.grab_item and player.can_grab:
+	if Input.is_action_just_pressed("interact") and \
+	player.grab_item.can_grab_item():
 		finished.emit("Grab")
-	if Input.is_action_just_pressed("interact") and player.is_holding and player.can_grab:
+		return
+	if Input.is_action_just_pressed("interact") and \
+	player.grab_item.can_release_item():
 		finished.emit("Release")
+		return

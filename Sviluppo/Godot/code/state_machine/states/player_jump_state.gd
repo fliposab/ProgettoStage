@@ -6,13 +6,13 @@ func enter(previous_state_path, _msg:={})->void :
 	falling = false
 	if _msg.has("jump"):
 		player.velocity.y += player.jump
-		if player.is_holding:
+		if player.grab_item.is_holding:
 			player.play("jump_grab")
 		else:
 			player.play("jump")
 	else:
 		falling = true
-		if player.is_holding:
+		if player.grab_item.is_holding:
 			player.play("fall_still_grab")
 		else:
 			player.play("fall_still")
@@ -20,7 +20,7 @@ func enter(previous_state_path, _msg:={})->void :
 
 func physics_update(delta: float)->void:
 	if player.velocity.y < 0.0 and !falling:
-		if player.is_holding:
+		if player.grab_item.is_holding:
 			player.play("fall_grab")
 		else:
 			player.play("fall")

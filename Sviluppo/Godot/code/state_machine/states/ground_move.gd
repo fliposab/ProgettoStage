@@ -1,7 +1,7 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
-	if player.is_holding:
+	if player.grab_item.is_holding:
 		player.play("run_grab")
 	else:
 		player.play("run")
@@ -18,5 +18,11 @@ func physics_update(delta: float)->void:
 	if !player.is_on_floor():
 		finished.emit("Air")
 		return
-	if Input.is_action_just_pressed("interact") and player.grab_item:
+	if Input.is_action_just_pressed("interact") and \
+	player.grab_item.can_grab_item():
 		finished.emit("Grab")
+		return
+	if Input.is_action_just_pressed("interact") and \
+	player.grab_item.can_release_item():
+		finished.emit("Release")
+		return

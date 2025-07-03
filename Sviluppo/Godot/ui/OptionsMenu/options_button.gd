@@ -24,7 +24,7 @@ func _on_item_selected(index: int) -> void:
 func check_selected_item(saves_handler: SavesHandler):
 	return
 
-func set_selected_item(index: int)->void:
+func set_selected_item(index)->void:
 	option_button.selected = index
 
 func pass_description()->void:

@@ -904,9 +904,11 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-01-V-O", 
     "Il gioco deve supportare i sistemi operativi Windows e Ubuntu",
     "Decisione interna",
-    "R-02-V-O",
+    "R-02-V-D",
     "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
     "Decisione interna",
+    "","Il gioco deve supportare input da tastiera e da controller generico","Decisione interna",
+    "R--V-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando","Decisione interna"
   ),
 )
 == Tracciamento dei requisiti
@@ -954,7 +956,7 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-33-F-O", "UC29","\u{2713}",
     "R-34-F-D", "UC30","\u{2713}",
     "R-35-F-D", "UC31","\u{2713}",
-    "R-36-F-D", "UC32","",
+    "R-36-F-D", "UC32","\u{2713}",
     "R-37-F-D", "UC33","",
     "R-38-F-O", "UC34","\u{2713}",
     // Requisiti di qualità

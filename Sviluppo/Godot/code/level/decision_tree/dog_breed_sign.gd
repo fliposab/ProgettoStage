@@ -27,7 +27,7 @@ func _on_interact_button_pressed():
 		ui.show()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and (is_inside or is_grid_open):
+	if event.is_action_pressed("interact_go_back") and (is_inside or is_grid_open):
 		_on_interact_button_pressed()
 
 func _on_data_received(id: int):

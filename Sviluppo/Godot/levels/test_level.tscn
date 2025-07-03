@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn25tfoqwa3b7"]
+[gd_scene load_steps=16 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://byw02wwul05fa" path="res://levels/assets/lr_graph_inverted.tscn" id="2_4n8tn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="7_ur00s"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
 [ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="9_ly3hx"]
+[ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="10_4n8tn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4n8tn"]
 
@@ -25,6 +26,8 @@ sky_material = SubResource("ProceduralSkyMaterial_46lwt")
 [sub_resource type="Environment" id="Environment_gmgay"]
 background_mode = 2
 sky = SubResource("Sky_x25rp")
+glow_enabled = true
+glow_blend_mode = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6mel"]
 size = Vector3(146.697, 2, 200)
@@ -82,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.32982, 0)
 shape = SubResource("BoxShape3D_o6mel")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_o6mel")]
-transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 5.82758, 0.928288)
+transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 5.82758, -1.85746)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
 
@@ -102,6 +105,9 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.420799
 graph = NodePath("../LRGraph2")
 
 [node name="GoldenRetriever" parent="." instance=ExtResource("9_ly3hx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6614, 3.62369, -2.85473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6614, 3.85072, -2.85473)
+
+[node name="NPCDialogue" parent="." instance=ExtResource("10_4n8tn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 4)
 
 [editable path="FallArea"]

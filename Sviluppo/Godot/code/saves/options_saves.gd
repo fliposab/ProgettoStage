@@ -14,6 +14,7 @@ func save_data()->void:
 	config.set_value("common", "anti_aliasing", stats.anti_aliasing)
 	config.set_value("common", "shadows_quality", stats.shadows_quality)
 	config.set_value("common", "max_fps", stats.max_fps)
+	config.set_value("common", "language", stats.language)
 	
 	config.save(SAVE_PATH)
 
@@ -33,7 +34,7 @@ func load_data() -> void:
 	stats.anti_aliasing = load_var(stats.anti_aliasing, config, "common", "anti_aliasing")
 	stats.shadows_quality = load_var(stats.shadows_quality, config, "common", "shadows_quality")
 	stats.max_fps = load_var(stats.max_fps, config, "common", "max_fps")
-
+	stats.language = load_var(stats.language, config, "common", "language")
 
 func load_var(value, config: ConfigFile, section: String, key: String):
 	if config.get_value(section, key):

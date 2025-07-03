@@ -4,7 +4,6 @@ class_name LevelSave
 const SAVE_PATH = "user://levels_save.ini"
 
 var stats : SavesHandler
-var last_level : String
 
 func save_data()->void:
 	var config := ConfigFile.new()
@@ -45,17 +44,14 @@ func load_dt_data() -> void:
 	config.load(SAVE_PATH)
 	stats.breeds_unlocked = load_var(stats.breeds_unlocked, config, "dt_level", "breeds_unlocked")
 	
-func load_last_level()->void:
+func check_save_exist()->bool:
 	var config := ConfigFile.new()
 	var err = config.load(SAVE_PATH)
 	# If the file didn't load, ignore it.
 	if err != OK:
 		printerr("SaveFile ",self.name," not found")
-		return
-	
-	config.load(SAVE_PATH)
-	
-	#last_level = config.get_value("common", "current_level")
+		return false
+	return true
 	
 func load_var(value, config: ConfigFile, section: String, key: String):
 	if config.get_value(section, key):

@@ -6,7 +6,6 @@
 script = ExtResource("1_dso41")
 
 [node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(970, 0)
 layout_mode = 2
 text = "WINDOW_MODE"
 vertical_alignment = 1

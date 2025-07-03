@@ -6,6 +6,7 @@ func _on_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(1280,720))
 		1: #1920x1080
 			DisplayServer.window_set_size(Vector2i(1920,1080))
+
 	pass_value.emit("window_resolution",index+1)
 
 func check_selected_item(saves_handler: SavesHandler):

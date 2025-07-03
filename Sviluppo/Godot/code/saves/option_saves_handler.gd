@@ -6,6 +6,7 @@ extends SavesHandler
 @export var anti_aliasing : int = 4
 @export var shadows_quality : int = 2
 @export var max_fps : int = 4
+@export var language : String = "Italiano"
 
 func set_save_node()->void:
 	_save_node = OptionsSaves

@@ -14,11 +14,9 @@ class_name Player
 @onready var _respawn_point : RespawnPoint = $RespawnPoint
 @onready var _movement_node : PlayerMovement = $Misc/Movement
 @onready var _bone_attachment : BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
-
-var grab_item : Node3D
-var can_grab : bool = false
-var is_holding : bool = false
-var hold_item : Node3D
+@onready var grab_item : GrabItem = $Misc/GrabItem:
+	get():
+		return grab_item
 
 func _physics_process(delta: float) -> void:
 	check_if_on_floor(delta)
@@ -64,39 +62,25 @@ func reset_camera() -> void:
 func change_state(state: String, msg := {})->void:
 	_state_machine.transition_to(state, msg)
 
-func set_grab_item(body: Node3D)->void:
-	grab_item = body
-	if body:
-		can_grab = true
-	else:
-		can_grab = false
-
-func set_hold_item(body: Node3D)->void:
-	hold_item = body
-	
-func carry()->void:
-	#_bone_attachment.add_child(grab_item)
-	grab_item.move_node(_bone_attachment)
-	grab_item.holding = true
-
-func release()->void:
-	#_bone_attachment.remove_child(grab_item)
-	hold_item.move_node(hold_item.og_parent, false)
-	hold_item.holding = false
-
-func reset_grab_item(body: Node3D) -> void:
-	await get_tree().process_frame
-	grab_item = null
-	can_grab = false
-
 func change_collectibles_max_value(value: int)->void:
 	_collectibles.change_max(value)
 
 func set_camera_current(value: bool):
 	_camera.current = value
 
+func get_camera()->Camera3D:
+	return _camera
+
 func lock_camera(value: bool)->void:
 	if value:
 		_camera_raycast.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
 		_camera_raycast.process_mode = Node.PROCESS_MODE_INHERIT
+
+func face(object: Node3D)->void:
+	model.look_at(object.global_position)
+	model.global_rotation.x = 0.0
+	model.global_rotation.z = 0.0
+
+func get_bone_attachment()->BoneAttachment3D:
+	return _bone_attachment

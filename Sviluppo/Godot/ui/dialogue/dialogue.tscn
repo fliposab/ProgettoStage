@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://pnkx7d2cib5p"]
+
+[ext_resource type="StyleBox" uid="uid://qjk4p67fbpqb" path="res://ui/styles/dialogue_box_style.tres" id="2_h4lfh"]
+[ext_resource type="Script" uid="uid://op5cn8083y13" path="res://code/ui/dialogue_algorithm.gd" id="2_m4qfh"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("2_m4qfh")
+
+[node name="Text1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_h4lfh")
+text = "TEXT1"
+
+[node name="Text2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("2_h4lfh")
+text = "TEXT2"

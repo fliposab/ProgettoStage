@@ -92,6 +92,7 @@ text = "© 2025, Filippo Sabbadin"
 fit_content = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://qkp7n7aj708b"]
+
+[ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="1_l735k"]
+[ext_resource type="Script" uid="uid://4q6s4pn0s81" path="res://code/level/assets/npc_dialogue.gd" id="2_adou1"]
+[ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="3_iroik"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3x6me"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_akhyy"]
+
+[node name="NPCDialogue" instance=ExtResource("1_l735k")]
+script = ExtResource("2_adou1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
+mesh = SubResource("CapsuleMesh_3x6me")
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("CapsuleShape3D_akhyy")
+
+[node name="Dialogue" parent="." index="5" instance=ExtResource("3_iroik")]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="dialogue_ended" from="Dialogue" to="." method="_on_dialogue_dialogue_ended"]

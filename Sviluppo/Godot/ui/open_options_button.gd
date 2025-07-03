@@ -1,7 +1,7 @@
 extends Button
 class_name OpenOptionsButton
 
-@onready var options_menu : Control = $OptionsMenu
+@onready var options_menu : Control = $CanvasLayer/OptionsMenu
 
 signal exit_options()
 

@@ -4,19 +4,31 @@ RESUME,Riprendi,Resume
 LOAD_GAME,Carica partita,Load Game
 NEW_GAME,Nuova partita,New Game
 OPTIONS,Opzioni,Options
+QUIT_GAME,Esci dal gioco,Quit Game
 MAIN_MENU,Menu principale,Main Menu
 WINDOW_MODE,Modalità finestra,Window Mode
-WINDOW_MODE_DESC, 
+WINDOW_MODE_DESCRIPTION,Scegli se vuoi giocare in modalità finestra o a schermo interno,Choose if you want to play in windowed mode or fullscreen
+FULLSCREEN,Schermo intero,Fullscreen
+WINDOWED,Finestra,Windowed
 WINDOW_RESOLUTION,Risoluzione finestra,Window Resolution
-WINDOW_RESOLUTION_DESC,
+MAX_FPS,FPS massimi, Max FPS
+WINDOW_RESOLUTION_DESCRIPTION,La risoluzione della finestra. Questa opzione funziona solo se si sta giocando in finestra, The window resolution. This setting only works if you're playing in windowed mode
 RESOLUTION_SCALE,Scala risoluzione,Resolution Scale
-RESOLUTION_SCALE_DESC,
-ANTI_ALIASING,Anti-Aliasing,Anti-Aliasing
-ANTI_ALIASING_DESC,
+RESOLUTION_SCALE_DESCRIPTION,Valore a cui viene moltiplicata la risoluzione. Utile se si sta giocando a schermo intero, Value multiplied by the game resolution. Useful if you're playing in fullscreen mode
+ANTI_ALIASING,"Anti-Aliasing","Anti-Aliasing"
+ANTI_ALIASING_DESCRIPTION,""Ammorbidisce" le figure nel gioco","Makes the image more "smooth""
+NONE,Nessuno,None
 SHADOWS_QUALITY,Qualità delle ombre,Shadows Quality
-SHADOWS_QUALITY_DESC,
+SHADOWS_QUALITY_DESCRIPTION,Modifica la risoluzione delle ombre,Modifies the shadow resolution
+MAX_FPS_DESCRIPTION,Cambia i frames al secondo massimi. Nota: gli fps massimi non possono superare la frequenza di aggiornamento dello schermo,Change the max frames per second. Note: max fps cannot be higher than the screen refresh rate.
+LANGUAGE_DESCRIPTION,Cambia la lingua del gioco,Change the game language
+HIGH,Alta,High
+MEDIUM,Media,Medium
+LOW,Bassa,Low
+VERY_LOW,Molto bassa,Very low
+LANGUAGE,Lingua,Language
 SAVE_AND_QUIT_GAME,Salva ed esci dal gioco,Save and Quit Game
-SAVE_AND_EXIT,Salva ed esci,Save and exit
+SAVE_AND_RETURN,Salva e torna al gioco,Save and return
 LINEAR_REGRESSION,Regressione lineare,Linear Regression
 DECISION_TREE,Albero di decisione,Decision Tree
 CAUSALITY,Causalità,Causality
@@ -52,7 +64,7 @@ CURLY_FUR,Mosso,Curly
 SMOOTH_FUR,Liscio,Smooth
 DOG_BREED_DISCOVERED,Razze di cane scoperte,Dog Breeds Discovered
 E: GRAB,E: Prendi,E: Grab
-E: CLOSE,E: Chiudi,E: Close
+Q: CLOSE,Q: Chiudi,Q: Close
 E: READ_SIGN,E: Leggi,E: Read
 AUSTRALIAN_SHEPHERD,Pastore australiano,Australian Shepherd
 BEAGLE,Beagle,Beagle
@@ -69,3 +81,8 @@ POODLE,Barboncino,Poodle
 ROTTWEILER,Rottweiler,Rottweiler
 SHIBA_INU,Shiba inu,Shiba Inu
 SHIN_TZU,Shin tzu,Shin Tzu
+E: USE_CANNON,E: Usa cannone,E: Use cannon
+E: SHOOT,E: Spara,E: Shoot
+Q: LEAVE,Q: Smetti,Q: Leave
+R: RESET,R: Resetta,R: Reset
+E: SELECT,E: Seleziona,E: Select

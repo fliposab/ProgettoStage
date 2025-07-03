@@ -5,9 +5,10 @@ class_name OptionsMenu
 
 @onready var saves_handler : SavesHandler = $OptionSavesHandler
 @onready var buttons_container : OptionsButtons = $VBoxContainer/ButtonsContainer
-@onready var save_button : Button = $HBoxContainer/Save
+@onready var save_button : Button = $Save
 
 func _ready():
+	hide()
 	check_settings()
 	
 func _input(event: InputEvent) -> void:
