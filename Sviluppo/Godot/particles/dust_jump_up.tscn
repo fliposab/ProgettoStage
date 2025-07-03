@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://d48syw2nukfw"]
+
+[ext_resource type="Material" uid="uid://dw3sdqkhiefrr" path="res://models/materials/dust.tres" id="1_nriar"]
+[ext_resource type="Script" uid="uid://ce4gp0on4g206" path="res://code/particles/one_shot_particle.gd" id="2_fs003"]
+
+[sub_resource type="Curve" id="Curve_ylh61"]
+_data = [Vector2(0, 0.594278), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bwivp"]
+curve = SubResource("Curve_ylh61")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nriar"]
+emission_shape_scale = Vector3(1, 1, 0)
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, 2, 0)
+linear_accel_min = -17.6
+linear_accel_max = -3.85
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+scale_min = 0.8
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_bwivp")
+
+[sub_resource type="SphereMesh" id="SphereMesh_bwivp"]
+material = ExtResource("1_nriar")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+top_level = true
+amount = 16
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nriar")
+draw_pass_1 = SubResource("SphereMesh_bwivp")
+script = ExtResource("2_fs003")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

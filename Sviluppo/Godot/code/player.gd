@@ -14,6 +14,7 @@ class_name Player
 @onready var _respawn_point : RespawnPoint = $RespawnPoint
 @onready var _movement_node : PlayerMovement = $Misc/Movement
 @onready var _bone_attachment : BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
+@onready var particle_emitter : ParticleEmitter = $Misc/ParticleEmitter
 @onready var grab_item : GrabItem = $Misc/GrabItem:
 	get():
 		return grab_item

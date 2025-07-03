@@ -88,6 +88,8 @@ La mappatura dei comandi è la seguente:
 - *D-Pad*: Navigazione nei menu
 
 Le icone dei tasti vengono mostrate a schermo durante il gioco per facilitare l'associazione tra azione e comando.
+
+// Metter il trademark di xbox nel footer
 = Navigazione
 == Menu Principale
 #figure(caption: [Menu principale], image("imgs/menu_principale.png",width:90%))

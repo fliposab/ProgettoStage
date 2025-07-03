@@ -11,7 +11,6 @@ func _ready()->void:
 	ui.hide()
 	grid.hide()
 	
-	
 func _on_interact_button_pressed():
 	is_grid_open = !is_grid_open
 	owner.pause_menu.can_pause = !is_grid_open
@@ -27,8 +26,10 @@ func _on_interact_button_pressed():
 		ui.show()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact_go_back") and (is_inside or is_grid_open):
+	if event.is_action_pressed("interact") and (is_inside):
 		_on_interact_button_pressed()
+	elif event.is_action_pressed("interact_go_back") and (is_grid_open):
+		pass
 
 func _on_data_received(id: int):
 	owner.saves_handler.breeds_unlocked[id] = true

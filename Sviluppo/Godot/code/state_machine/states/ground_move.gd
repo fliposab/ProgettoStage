@@ -1,10 +1,14 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
+	player.particle_emitter.start_run_particles()
 	if player.grab_item.is_holding:
 		player.play("run_grab")
 	else:
 		player.play("run")
+
+func exit()->void:
+	player.particle_emitter.start_run_particles(false)
 
 func physics_update(delta: float)->void:
 	player.get_move_input(delta, 0.1)
