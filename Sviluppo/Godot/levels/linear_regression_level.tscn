@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="5_qdyga"]
 [ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="6_fl2wk"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="7_24tvr"]
-[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="9_kb1fh"]
+[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/lr_cannon.tscn" id="9_kb1fh"]
 [ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="10_imcpe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kb1fh"]

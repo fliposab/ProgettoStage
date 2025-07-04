@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfj5eea2bvleu"
-path="res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"
+uid="uid://nmwnv63a2h26"
+path="res://.godot/imported/causality_level.gltf-71ceb7c17ebda851fef4e71548c62035.scn"
 
 [deps]
 
-source_file="res://models/ramp.glb"
-dest_files=["res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"]
+source_file="res://export/causality_level.gltf"
+dest_files=["res://.godot/imported/causality_level.gltf-71ceb7c17ebda851fef4e71548c62035.scn"]
 
 [params]
 
@@ -32,12 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cylinder": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

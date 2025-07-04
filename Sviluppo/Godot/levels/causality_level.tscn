@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=14 format=3 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kxjkn"]
-size = Vector3(10, 10, 10)
+[ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="2_lumj3"]
+[ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="3_igo0y"]
+[ext_resource type="PackedScene" uid="uid://usclfa07kaag" path="res://models/seats.tscn" id="4_gp2lk"]
+[ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="5_qiam4"]
+[ext_resource type="PackedScene" uid="uid://bfj5eea2bvleu" path="res://models/ramp.glb" id="6_go4ui"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
 size = Vector3(50, 30, 30)
@@ -35,32 +37,22 @@ ssao_radius = 5.0
 
 [node name="TestLevel" instance=ExtResource("1_kxjkn")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Models" index="0"]
-transform = Transform3D(-0.472566, 0, -0.881295, 0, 1, 0, 0.881295, 0, -0.472566, -22.513, 3.20288, 17.05)
-mesh = SubResource("BoxMesh_kxjkn")
-skeleton = NodePath("../../PlayerSpawn")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Models" index="1"]
-transform = Transform3D(0.971047, 0, -0.238889, 0, 1, 0, 0.238889, 0, 0.971047, -14.1429, 12.5591, -48.6794)
-mesh = SubResource("BoxMesh_igo0y")
-skeleton = NodePath("../../PlayerSpawn")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Models" index="2"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Models" index="0"]
 transform = Transform3D(-0.00752234, 0, -0.999972, 0, 1, 0, 0.999972, 0, -0.00752234, 27.0019, 12.2495, -1.76149)
 mesh = SubResource("BoxMesh_igo0y")
 skeleton = NodePath("../../PlayerSpawn")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Models" index="3"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Models" index="1"]
 transform = Transform3D(0.175951, 0, -0.984399, 0, 1, 0, 0.984399, 0, 0.175951, -55.1159, 21.3494, 62.7323)
 mesh = SubResource("BoxMesh_igo0y")
 skeleton = NodePath("../../PlayerSpawn")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Models" index="4"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Models" index="2"]
 transform = Transform3D(0.985458, 0, -0.169917, 0, 1, 0, 0.169917, 0, 0.985458, -5.47912, 21.3494, 103.009)
 mesh = SubResource("BoxMesh_igo0y")
 skeleton = NodePath("../../PlayerSpawn")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Models" index="5"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Models" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.58366, 0)
 use_collision = true
 
@@ -84,3 +76,23 @@ environment = SubResource("Environment_kxjkn")
 
 [node name="PlayerSpawn" parent="." index="5"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.2201, 0, 0)
+
+[node name="ice_cream_shop" parent="." index="7" instance=ExtResource("2_lumj3")]
+transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.4687, -0.224021, 13.769)
+
+[node name="NPCDialogue" parent="." index="8" instance=ExtResource("3_igo0y")]
+transform = Transform3D(-0.312335, 0, -0.949972, 0, 1, 0, 0.949972, 0, -0.312335, -27.4359, 0.627758, 13.5477)
+
+[node name="Seats" parent="." index="9" instance=ExtResource("4_gp2lk")]
+transform = Transform3D(0.505825, 0, 0.120588, 0, 0.52, 0, -0.120588, 0, 0.505825, -36.6295, -0.22402, 16.5751)
+
+[node name="Seats2" parent="." index="10" instance=ExtResource("4_gp2lk")]
+transform = Transform3D(0.475441, 0, -0.210607, 0, 0.52, 0, 0.210607, 0, 0.475441, -38.2819, -0.22402, 11.401)
+
+[node name="Seats3" parent="." index="11" instance=ExtResource("4_gp2lk")]
+transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.488497, -41.9892, -0.22402, 16.0537)
+
+[node name="apartment" parent="." index="12" instance=ExtResource("5_qiam4")]
+
+[node name="ramp" parent="." index="13" instance=ExtResource("6_go4ui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.114183)

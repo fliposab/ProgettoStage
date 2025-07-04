@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="5_o6mel"]
 [ext_resource type="PackedScene" uid="uid://cgmf8sblij3yd" path="res://levels/assets/lr_graph.tscn" id="7_ur00s"]
-[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
+[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/lr_cannon.tscn" id="8_wndkh"]
 [ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="9_ly3hx"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="10_4n8tn"]
 [ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="11_wkb0e"]

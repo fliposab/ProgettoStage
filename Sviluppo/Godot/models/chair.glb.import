@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfj5eea2bvleu"
-path="res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"
+uid="uid://bc1qobr1ythpc"
+path="res://.godot/imported/chair.glb-f31fd6f7173cae37f3e2883df82a1cb2.scn"
 
 [deps]
 
-source_file="res://models/ramp.glb"
-dest_files=["res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"]
+source_file="res://models/chair.glb"
+dest_files=["res://.godot/imported/chair.glb-f31fd6f7173cae37f3e2883df82a1cb2.scn"]
 
 [params]
 
@@ -34,7 +34,7 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cylinder": {
+"PATH:Plane": {
 "generate/physics": true
 }
 }

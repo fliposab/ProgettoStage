@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://usclfa07kaag"]
+
+[ext_resource type="PackedScene" uid="uid://cj14h14nieaip" path="res://models/table.glb" id="1_y55my"]
+[ext_resource type="PackedScene" uid="uid://bc1qobr1ythpc" path="res://models/chair.glb" id="2_xbcnm"]
+
+[node name="Seats" type="Node3D"]
+transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0, 0, 0)
+
+[node name="table" parent="." instance=ExtResource("1_y55my")]
+
+[node name="chair" parent="." instance=ExtResource("2_xbcnm")]
+transform = Transform3D(0.904953, 0, -0.425511, 0, 1, 0, 0.425511, 0, 0.904953, -0.903993, 0, 2.15908)
+
+[node name="chair2" parent="." instance=ExtResource("2_xbcnm")]
+transform = Transform3D(0.684025, 0, 0.729458, 0, 1, 0, -0.729458, 0, 0.684025, 1.58653, 0, 1.76667)
+
+[node name="chair3" parent="." instance=ExtResource("2_xbcnm")]
+transform = Transform3D(-0.823938, 0, 0.566679, 0, 1, 0, -0.566679, 0, -0.823938, 1.58653, 0, -2.21794)
+
+[node name="chair4" parent="." instance=ExtResource("2_xbcnm")]
+transform = Transform3D(-0.662162, 0, -0.74936, 0, 1, 0, 0.74936, 0, -0.662162, -0.779381, 0, -1.93069)

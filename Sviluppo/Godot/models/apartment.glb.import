@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bfj5eea2bvleu"
-path="res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"
+uid="uid://b0qlquffbxcro"
+path="res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"
 
 [deps]
 
-source_file="res://models/ramp.glb"
-dest_files=["res://.godot/imported/ramp.glb-3f25e9c81b6971982493fbe1586239e4.scn"]
+source_file="res://models/apartment.glb"
+dest_files=["res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"]
 
 [params]
 
@@ -34,7 +34,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cylinder": {
+"PATH:Cube": {
+"generate/physics": true
+},
+"PATH:Cube_001": {
 "generate/physics": true
 }
 }
