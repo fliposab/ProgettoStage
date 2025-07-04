@@ -66,6 +66,7 @@ DOG_BREED_DISCOVERED,Razze di cane scoperte,Dog Breeds Discovered
 E: GRAB,E: Prendi,E: Grab
 Q: CLOSE,Q: Chiudi,Q: Close
 E: READ_SIGN,E: Leggi,E: Read
+E: DROP,E: Lascia,E: Drop
 AUSTRALIAN_SHEPHERD,Pastore australiano,Australian Shepherd
 BEAGLE,Beagle,Beagle
 BORDER_COLLIE,Border collie,Border Collie

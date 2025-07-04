@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi0my7a7g7x76"]
+[gd_scene load_steps=8 format=3 uid="uid://bi0my7a7g7x76"]
 
 [ext_resource type="Script" uid="uid://dvch4c1bclrbr" path="res://code/level/assets/npc.gd" id="1_b5svi"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="1_ptyj2"]
 [ext_resource type="Script" uid="uid://cwdwg1xdxp7xi" path="res://code/ui/project_text.gd" id="2_x2eu5"]
+[ext_resource type="StyleBox" uid="uid://qjk4p67fbpqb" path="res://ui/styles/dialogue_box_style.tres" id="3_rbmm8"]
+[ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="4_o6mwc"]
+[ext_resource type="Script" uid="uid://b82baq35oa1s0" path="res://code/level/assets/npc_model.gd" id="5_rbmm8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2eu5"]
+height = 1.26813
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b5svi"]
 radius = 5.0
@@ -11,6 +16,8 @@ radius = 5.0
 script = ExtResource("1_b5svi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.619402, 0)
+shape = SubResource("CapsuleShape3D_x2eu5")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2
@@ -42,14 +49,54 @@ offset_right = 49.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("1_ptyj2")
-text = "TALK"
+theme_override_styles/normal = ExtResource("3_rbmm8")
+text = "TEST_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="UIPosition" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26307, 0)
 
+[node name="Model" parent="." instance=ExtResource("4_o6mwc")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+script = ExtResource("5_rbmm8")
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="body_exited" from="Area3D" to="Control" method="_on_area_3d_body_exited"]
+
+[editable path="Model"]

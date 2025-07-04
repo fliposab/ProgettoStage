@@ -85,3 +85,6 @@ func face(object: Node3D)->void:
 
 func get_bone_attachment()->BoneAttachment3D:
 	return _bone_attachment
+
+func get_current_state_name()->String:
+	return _state_machine.state.name

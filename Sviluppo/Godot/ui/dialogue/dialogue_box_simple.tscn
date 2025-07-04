@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://mrvomwc7vlsi"]
+
+[ext_resource type="StyleBox" uid="uid://qjk4p67fbpqb" path="res://ui/styles/dialogue_box_style.tres" id="1_cllnp"]
+[ext_resource type="Script" uid="uid://b6j5tmt3v25y0" path="res://code/ui/dialogue_box_simple.gd" id="2_4c4hg"]
+
+[node name="Text1" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_right = 51.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("1_cllnp")
+text = "TEXT"
+script = ExtResource("2_4c4hg")

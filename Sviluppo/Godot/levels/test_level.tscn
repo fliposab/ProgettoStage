@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cn25tfoqwa3b7"]
+[gd_scene load_steps=17 format=3 uid="uid://cn25tfoqwa3b7"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_x25rp"]
 [ext_resource type="PackedScene" uid="uid://byw02wwul05fa" path="res://levels/assets/lr_graph_inverted.tscn" id="2_4n8tn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/cannon_lr.tscn" id="8_wndkh"]
 [ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="9_ly3hx"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="10_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="11_wkb0e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4n8tn"]
 
@@ -108,6 +109,9 @@ graph = NodePath("../LRGraph2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6614, 3.85072, -2.85473)
 
 [node name="NPCDialogue" parent="." instance=ExtResource("10_4n8tn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, 4)
+transform = Transform3D(-0.91072, 0, 0.413025, 0, 1, 0, -0.413025, 0, -0.91072, -4, 1.49422, 4)
+
+[node name="NPC" parent="." instance=ExtResource("11_wkb0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6746, 1.5, -8.96051)
 
 [editable path="FallArea"]

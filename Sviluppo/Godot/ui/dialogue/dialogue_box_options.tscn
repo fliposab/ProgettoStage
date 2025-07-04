@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfiwsy6urkant"]
+
+[ext_resource type="Script" uid="uid://p8ow8nk2tja2" path="res://code/ui/dialogue_box_options.gd" id="1_77eq3"]
+[ext_resource type="StyleBox" uid="uid://qjk4p67fbpqb" path="res://ui/styles/dialogue_box_style.tres" id="1_itt1s"]
+[ext_resource type="PackedScene" uid="uid://ce2q8yv8pugf5" path="res://ui/dialogue/correct_box.tscn" id="2_fwcay"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_vxcm5"]
+[ext_resource type="PackedScene" uid="uid://bw2a66hpe0hgj" path="res://code/wrong_box.tscn" id="3_mn12p"]
+[ext_resource type="Script" uid="uid://bm5lt5e20uqxm" path="res://code/ui/dialogue_oprions_button.gd" id="4_hyxeg"]
+
+[node name="TextOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77eq3")
+correct_text_box = ExtResource("2_fwcay")
+wrong_text_box = ExtResource("3_mn12p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 176.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("1_itt1s")
+text = "SELECT_AN_OPTION"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("2_vxcm5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+script = ExtResource("4_hyxeg")
+
+[node name="Button" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option 2"
+
+[node name="Button3" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option 3"

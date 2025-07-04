@@ -2,23 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="1_l735k"]
 [ext_resource type="Script" uid="uid://4q6s4pn0s81" path="res://code/level/assets/npc_dialogue.gd" id="2_adou1"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_3x6me"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="3_iroik"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3x6me"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_akhyy"]
+height = 1.5246
 
 [node name="NPCDialogue" instance=ExtResource("1_l735k")]
 script = ExtResource("2_adou1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
-mesh = SubResource("CapsuleMesh_3x6me")
-
-[node name="CollisionShape3D" parent="." index="1"]
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
 shape = SubResource("CapsuleShape3D_akhyy")
 
-[node name="Dialogue" parent="." index="5" instance=ExtResource("3_iroik")]
+[node name="Label" parent="Control" index="0"]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("3_3x6me")
+text = "E: TALK"
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[node name="UIPosition" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19066, 0)
+
+[node name="Dialogue" parent="." index="4" instance=ExtResource("3_iroik")]
+
+[node name="AnimationPlayer" parent="Model" index="1"]
+autoplay = "idle"
+
 [connection signal="dialogue_ended" from="Dialogue" to="." method="_on_dialogue_dialogue_ended"]
+
+[editable path="Dialogue"]
+[editable path="Model"]
