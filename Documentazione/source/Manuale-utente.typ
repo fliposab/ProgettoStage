@@ -87,8 +87,6 @@ La mappatura dei comandi è la seguente:
 - *Y*: Cambia oggetto / arma
 - *D-Pad*: Navigazione nei menu
 
-Le icone dei tasti vengono mostrate a schermo durante il gioco per facilitare l'associazione tra azione e comando.
-
 // Metter il trademark di xbox nel footer
 = Navigazione
 == Menu Principale
@@ -116,6 +114,7 @@ Quando il giocatore passa sopra una delle opzioni, viene fornita una sua breve d
 - *Lingua*: cambia la lingua del gioco. La modifica viene applicata subito e non è necessario un riavvio del gioco.
 
 == Menu di pausa
+#figure(image("imgs/menu_pausa.png", width: 90%), caption: [Menu di pausa])
 Il menu di pausa è accessibile in qualsiasi momento durante il livello quando il giocatore è libero di muoversi.
 Premendo il tasto apposito, il gioco viene fermato e viene visualizzato il menu.
 Il giocatore può scegliere le seguenti azioni:

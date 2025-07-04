@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dddi4bepfh0lv"]
+
+[ext_resource type="Script" uid="uid://7x0r80t0axyj" path="res://code/level/assets/ac_unit.gd" id="1_c2dsr"]
+[ext_resource type="PackedScene" uid="uid://bbr70o34agnm8" path="res://models/ac_unit.glb" id="1_s6rjw"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_fkq6g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6rjw"]
+size = Vector3(4.39905, 3.66168, 5.62402)
+
+[node name="ACUnit" type="Node3D"]
+script = ExtResource("1_c2dsr")
+
+[node name="ac_unit" parent="." instance=ExtResource("1_s6rjw")]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.865906, 0.597015, 0)
+shape = SubResource("BoxShape3D_s6rjw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -23.0
+offset_right = 47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_fkq6g")
+text = "E: TURN_ON"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

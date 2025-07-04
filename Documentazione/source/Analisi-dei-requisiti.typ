@@ -40,7 +40,7 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")\
 \
 - Diagrammi UML - Use case:\
-#link("https://www.uml-diagrams.org/use-case-diagrams.html")\
+da cambiare\
 \
 - Documentazione "Godot Engine":\ 
 #link("https://docs.godotengine.org/en/stable/")\
@@ -50,7 +50,7 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 == Introduzione
 Nelle seguenti sezioni sono riportati i casi d'uso del #gloss[videogioco], che descrivono le funzionalità principali e le interazioni tra il giocatore e il gioco.\
 == Attori
-Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
+Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
 #figure(image("imgs/giocatore.png", width: auto), caption: "Attore principale")
 
 // Azioni nel livello
@@ -141,6 +141,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - La telecamera si muove automaticamente dietro il personaggio.\
 
 == UC4 - Caduta
+#figure(image("imgs/uc-caduta.png", width: auto), caption: "Rotazione telecamera")
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -200,7 +201,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 */
 
 == UC7 - Interazione con entità
-#figure(image("imgs/uc-interazione_npc.png", width: auto), caption: "Interazione con un NPC")
+#figure(image("imgs/uc-interazione.png", width: auto), caption: "Interazione entità")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -213,6 +214,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina ad un'entità.
 - L'entità mostra un messaggio.
 *Generalizzazioni*:
+- Interazione con un'entità automatica.
 - Interazione con un'entità manuale.
 
 
@@ -229,10 +231,10 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore si avvicina ad un'entità.
 - Il giocatore visualizza il messaggio.
 *Inclusioni*:
-- Visualizzazione dialogo manuale.
-- Visualizzazione classificazioni oggetti scoperte.
+- Visualizzazione dialogo.
 
 === UC7.2 - Interazione con entità manuale
+#figure(image("imgs/uc-interazione_manuale.png", width: auto), caption: "Interazione entità")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -241,6 +243,7 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore deve essere vicino ad un'entità.
 *Postcondizioni*:
 - Il gicatore preme l'input per interagire.
+- Il giocatore non può muoversi.
 *Scenario principale*:
 - Il giocatore si avvicina ad un'entità.
 - L'entità mostra l'input da premere per interagire.
@@ -263,7 +266,6 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore non può muoversi.
 *Scenario principale*:
 - Il giocatore visualizza il il dialogo
-- Il giocatore non può muoversi durante l'interazione.
 
 === UC8.1 - Avanti nel dialogo
 *Attori principali*: 
@@ -289,10 +291,10 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il giocatore sta interagendo con un'entità.
 *Postcondizioni*:
 - Il giocatore preme l'input
-- Il giocatore finisce il dialogo.
+- Il giocatore di interagire con l'entità.
 - Il giocatore può muoversi di nuovo.
 *Scenario principale*:
-- Il giocatore smette di visualizzare il dialogo.
+- Il giocatore smette di interagire con l'entità.
 - Il giocatore è libero di muoversi.
 
 === UC8.3 - Scelta opzione dialogo
@@ -309,6 +311,8 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore preme l'input per scegliere l'opzione.
 - Viene eseguita l'opzione scelta.
+*Estensioni*:
+- Avanti nel dialogo.
 
 == UC9 - Prendere un oggetto
 *Attori principali*: 
@@ -323,6 +327,8 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 *Scenario principale*:
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
+*Inclusione*:
+- Movimento con un oggetto
 
 == UC10 - Lasciare un oggetto
 *Attori principali*: 
@@ -487,6 +493,8 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Se l'oggetto è giusto, il nuovo oggetto viene mostrato nella visualizzazione delle classificazioni degli oggetti scoperti.
 *Scenario principale*:
 - Il giocatore lascia l'oggetto in una zona speciale.
+*Inclusioni*:
+- Salvataggio.
 
 == UC18 - Salvataggio
 *Attori principali*: 
@@ -718,6 +726,35 @@ Nel gioco è presente un solo attore, il *giocatore*, cioè l'utente che interag
 - Il gioco applica le opzioni.
 - Il menu di opzioni viene chiuso.
 
+== UC35 - Accensione unità esterna condizionatore
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore accende un'unità esterna di un condizionatore.
+*Precondizioni*:
+- Il giocatore deve essere in un livello
+*Postcondizioni*
+- L'unità esterna del condizionatore viene accesa
+- Il giocatore non può più interagire con l'entità.
+*Scenario principale*:
+- Il giocatore si avvicina all'entità.
+- Il giocatore preme l'input per accendere l'unità esterna del condizionatore.
+
+== UC36 - Visualizzazione scena di intermezzo
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore visualizza una #gloss[scena di intermezzo].
+*Precondizioni*:
+- Il giocatore deve soddisfare certe condizioni.
+*Postcondizioni*
+- Il giocatore visualizza la scena di intermezzo
+*Scenario principale*:
+- Il giocatore soddisfa le condizioni per la scena di intermezzo.
+- Il giocatore si ferma.
+- Il giocatore visualizza la scena di intermezzo.
+- Il giocatore può tornare a muoversi.
+
 
 = Requisiti
 In questa sezione vengono elencati i requisiti del capitolato, individuati durante la fase di analisi. Ogni #gloss[requisito] viene
@@ -727,12 +764,12 @@ con:
 - *Numero*: numero progressivo che identifica il requisito, parte da 01.
 - *Tipo*: può essere
   - *F*: requisito funzionale, indica una funzionalità del sistema;
-  - *Q*: requisito di qualità, definisce le caratteristiche della qualità del prodotto, come un sistema deve essere o come
-    il sistema deve esibirsi, per soddisfare le esigenze dell'utente;
-  - *V*: requisito di vincolo, ovvero limiti e restrizioni imposte dal capitolato;
+  - *Q*: requisito di qualità, definisce le caratteristiche della qualità del prodotto, come un sistema deve essere o come il sistema deve esibirsi, per soddisfare le esigenze dell'utente;
+  - *V*: requisito deciso con il tutor aziendale e vincolante per il completamento del progetto;
+  - *A*: requisito di accessibilità, indica una funzionalità da soddisfare per rendere il gioco accessibile ad un numero maggiore di utenti.
 - *Priorità*: può essere
-  - *O*: Obbligatorio, viene richiesto dal #gloss[proponente] ed è necessario per considerare il prodotto completo;
-  - *D*: Desiderabile, non è strettamente necessario ma è un valore aggiunto;
+  - *O*: Obbligatorio e necessario per considerare il prodotto completo;
+  - *D*: Desiderabile, non strettamente necessario ma è un valore aggiunto;
 Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo studente o tramite una discussione con il tutor aziendale.
 == Requisiti funzionali
 #show figure: set block(breakable: true)
@@ -854,6 +891,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     [UC33\ Decisione interna],
     [R-38-F-O],[Il gioco deve applicare e salvare le opzioni selezionate],[
     UC34\ Decisione interna],
+    [R-39-F-O],[Il giocatore deve poter accendere delle unità esterne di un condizionatore premendo un tasto],[UC35\ Discussione con il tutor aziendale],
+    [R-40-F-O],[Il giocatore deve poter vedere scene di intermezzo],[UC36\ Decisione interna]
   )
 )
 
@@ -892,23 +931,43 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
 )
 
 == Requisiti di vincolo
-#show figure: set block(breakable: true)
 #figure(
   caption: [Requisiti di vincolo],
+  table(
+    columns: (0.7fr, 2fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0) { luma(230) },
+    table.header([*ID Requisito*], [*Descrizione*]),
+    "R-01-V-O",
+    "Il gioco deve avere almeno 3 livelli",
+    "R-02-V-O",[Un livello deve avere come tema "Regressione lineare"],
+    "R-03-V-O",[Un livello deve avere come tema "Alberi di decisione"],
+    "R-04-V-O",[Un livello deve avere come tema "Causalità"],
+    "R-05-V-O",[Il movimento del gioco deve essere tridimensionale]
+  ),
+)
+== Requisiti di accessibilità
+#show figure: set block(breakable: true)
+#figure(
+  caption: [Requisiti di accessibilità],
   table(
     columns: (0.7fr, 2fr, 0.8fr),
     inset: 8pt,
     align: center + horizon,
     fill: (x, y) => if (y == 0) { luma(230) },
     table.header([*ID Requisito*], [*Descrizione*], [*Fonte*]),
-    "R-01-V-O", 
-    "Il gioco deve supportare i sistemi operativi Windows e Ubuntu",
+    "R-01-A-O", 
+    "Il gioco deve supportare il sistema operativo Windows",
     "Decisione interna",
-    "R-02-V-D",
+    "R-02-A-D","Il gioco deve supportare il sistema operativo Ubuntu","Decisione interna",
+    "R-03-A-D","Il gioco deve supportare il sistema operativo Mac-OS","Decisione interna",
+    "R-04-A-D",
     "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
     "Decisione interna",
-    "","Il gioco deve supportare input da tastiera e da controller generico","Decisione interna",
-    "R--V-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando","Decisione interna"
+    "R-05-A-O","Il gioco deve supportare input da tastiera","Decisione interna",
+    "R-06-A-D","Il gioco deve supportare input da un controller generico","Decisione interna",
+    "R-07-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando","Discussione con il tutor aziendale"
   ),
 )
 == Tracciamento dei requisiti
@@ -929,9 +988,9 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-06-F-O", "UC4, UC5","\u{2713}",
     "R-07-F-O", "UC6","\u{2713}",
     "R-08-F-O", "UC7, UC7.1, UC7.2","\u{2713}",
-    "R-09-F-O", "UC8","",
+    "R-09-F-O", "UC8","\u{2713}",
     "R-10-F-O", "UC8.1","\u{2713}",
-    "R-11-F-D", "UC8.2","",
+    "R-11-F-D", "UC8.2","\u{2713}",
     "R-12-F-O", "UC8.3","\u{2713}",
     "R-13-F-O", "UC9","\u{2713}",
     "R-14-F-O", "UC10","\u{2713}",
@@ -959,6 +1018,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-36-F-D", "UC32","\u{2713}",
     "R-37-F-D", "UC33","",
     "R-38-F-O", "UC34","\u{2713}",
+    "R-39-F-O", "UC35","",
+    "R-40-F-O", "UC36","",
     // Requisiti di qualità
     "R-01-Q-O", "Decisione interna","",
     "R-02-Q-O", "Decisione interna","",
@@ -967,8 +1028,17 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-05-Q-O", "Decisione interna","\u{2713}",
     "R-06-Q-O", "Decisione interna","\u{2713}",
     // Requisiti di vincolo
-    "R-01-V-O", "Decisione interna","",
-    "R-02-V-O", "Decisione interna","",
+    "R-01-V-O", "Progetto","\u{2713}",
+    "R-02-V-O", "Progetto","\u{2713}",
+    "R-03-V-O", "Progetto","\u{2713}",
+    "R-04-V-O", "Progetto","\u{2713}", 
+    "R-05-V-O", "Progetto","\u{2713}", 
+    // Requisiti di qualità
+    "R-01-A-O", "Decisione interna","",
+    "R-02-A-D", "Decisione interna","",
+    "R-03-A-O", "Decisione interna","\u{2713}",
+    "R-04-A-D", "Decisione interna","",
+    "R-05-A-O", "Discussione con il tutor aziendale","",
   ),
 )
 == Riepilogo 
