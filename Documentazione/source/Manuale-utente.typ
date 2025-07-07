@@ -56,7 +56,7 @@ Il gioco è un eseguibile e può essere avviato senza bisogno di altri programmi
 = Mappatura comandi
 Di seguito viene riportata la mappatura degli input del gioco. Per aiutare comunque il giocatore e rendere l'esperienza più fluida, i tasti vengono mostrati anche durante l'esecuzione del gioco.
 == Tastiera
-La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gioco. Nonostante non sia stata sviluppata per atività di gioco, una corretta disposizione dei tasti può comunque garantire una posizione rilassata del giocatore.
+La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gioco. Nonostante non sia stata sviluppata per attività di gioco, una corretta disposizione dei tasti può comunque garantire una posizione rilassata del giocatore.
 #figure(caption: [Tastiera], image("imgs/keyboard.jpg",width:90%))
 - *WASD*:
 - *Frecce direzionali*:
@@ -71,12 +71,12 @@ La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gio
 - Il gioco non prevede l'utilizzo di un mouse.
 - La lingua della tastiera non è importante, ma è comunque consigliato che abbia caratteri alfanumerici.
 
-== Controller
-In generale i controller sono sviluppati per essere usati con una #gloss[console], e differiscono nei simboli mostrati sui tasti.
-Per risolvere questo problema, durante la sessione di gioco, viene mostrata un'interfaccia universale dei tasti del controller.\
-Ad esempio, le coppie A/B e X/Y sono invertite tra i controller Xbox e Nintendo, mentre i controller DualShock/DualSense utilizzano i simboli Triangolo/Croce/Cerchio/Quadrato.\
-#figure(caption: [Tasti controller Xbox],image("imgs/controller-diagram.png"))
-In questo esempio verranno riportati i tasti di un controller Xbox, visto che sono i più compatibili con giochi eseguiti su PC.\
+== Joystick
+In generale i joysticks sono sviluppati per essere usati con una #gloss[console], e differiscono nei simboli mostrati sui tasti.
+Per risolvere questo problema, durante la sessione di gioco, viene mostrata un'interfaccia universale dei tasti del joystick.\
+Ad esempio, le coppie A/B e X/Y sono invertite tra i joysticks Xbox e Nintendo, mentre i joysticks DualShock/DualSense utilizzano i simboli Triangolo/Croce/Cerchio/Quadrato.\
+#figure(caption: [Tasti  Xbox],image("imgs/controller-diagram.png"))
+In questo esempio verranno riportati i tasti di un joystick Xbox, visto che sono i più compatibili con giochi eseguiti su PC.\
 La mappatura dei comandi è la seguente:
 
 - *Levetta analogica sinstra*: movimento del personaggio

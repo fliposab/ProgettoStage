@@ -17,6 +17,7 @@ class_name Player
 @onready var particle_emitter : ParticleEmitter = $Misc/ParticleEmitter
 @onready var grab_item : GrabItem = $Misc/GrabItem
 @onready var _ui : Control = $PlayerUI
+@onready var saves_handler : SavesHandler = $Misc/PlayerSaveHandler
 
 func _physics_process(delta: float) -> void:
 	check_if_on_floor(delta)

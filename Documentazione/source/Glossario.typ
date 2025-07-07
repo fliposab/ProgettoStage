@@ -8,6 +8,9 @@ doc)
 == Baking
 Attività che prevede la creazione di un'immagine in base ai dati forniti. Questa attività è essenziale per l'archiviazione di immagini e migliorare le prestazioni dell'applicazione.
 
+== Bottleneck
+Collo di bottiglia. Indica un punto critico in un sistema o processo che limita le prestazioni complessive, rallentando l'esecuzione o la produttività. Nel contesto informatico, un bottleneck può essere causato da hardware, software o risorse insufficienti che impediscono al sistema di funzionare alla massima efficienza.
+
 == Bottom-up
 Strategia di sviluppo software che prevede la costruzione di un sistema partendo dai componenti più elementari per arrivare a quelli più complessi. In un approccio bottom-up, i moduli di base vengono sviluppati e integrati progressivamente per creare un sistema completo. Questo approccio consente di testare e validare i singoli componenti prima di integrarli nel sistema finale.
 
@@ -19,6 +22,7 @@ Chiamato anche baco, indica un errore o malfunzionamento in un programma softwar
 Il processore. Si occupa di coordinare l'esecuzione di più processi nella macchina. 
 
 = D
+== Directional pad (D-pad)
 
 = E
 == Efficacia
@@ -27,6 +31,7 @@ La capacità di raggiungere gli obiettivi prefissati e produrre risultati deside
 == Efficienza
 La capacità di ottenere risultati desiderati con il minimo spreco di risorse, tempo o energia. Un sistema o un processo è considerato efficiente quando riesce a massimizzare l'output desiderato riducendo al minimo l'input necessario. L'efficienza è un concetto chiave nell'ottimizzazione delle prestazioni, nella gestione delle risorse e nel miglioramento continuo dei processi.
 
+== Entità
 = F
 = G
 == GameScope
@@ -53,7 +58,11 @@ Ramo dell'informatica che si occupa della creazione di sistemi in grado di simul
 
 == Inverse Kinematics (IK)
 Soluzione usata nell'ambito dell'animazione 3D. Si tratta di semplificare l'animazione calcolando il movimento di altre ossa o articolazioni in base all'ultimo osso della catena. Ad esempio, automatizza il movimento del braccio muovendo solo la mano, anziché ruotare singolarmente braccio, avambraccio e mano. Questo metodo risulta anche molto più simile a come ci si muove naturalmente.
+
 = J
+== Joystick
+Periferica principale usata per la gestione degli input in un videogioco. Ha una forma più ergonomica per rendere più rilassante l'impugnatura tra le mani. Solitamente comprende 2 levette analogiche, 8 tasti frontali e 4 dietro. Comunemente chiamati "controller".
+
 = K
 = L
 == Latenza
@@ -67,6 +76,7 @@ Ramo dell'Intelligenza Artificiale che si occupa dello sviluppo di algoritmi e m
 Nel caso di modellazione digitale, un materiale è composto da più textures e parametri e definisce come l'oggetto interagisce con la luce.
 
 == Modello 3D
+Rappresentazione digitale di un oggetto tridimensionale composta da vertici, spigoli e facce. I modelli 3D vengono utilizzati nei videogiochi, nella grafica computerizzata e nella simulazione per visualizzare oggetti, personaggi o ambienti. Possono essere creati tramite software di modellazione e salvati in diversi formati di file.
 
 = N
 Componente chiave della grafica 3D, è una rappresentazione matematica di un oggetto tridimensionale. È composto da vertici e triangoli. Inoltre, ogni vertice possiede un vettore normale che si occupa del calcolo delle ombre.
@@ -94,6 +104,9 @@ Il relatore aziendale è la persona che sostiene la realizzazione del progetto, 
 Luogo di archiviazione per file e dati, comunemente utilizzato nel contesto dello sviluppo software. Può contenere codice sorgente, documentazione, risorse e altri file necessari per un progetto. Le repository sono spesso gestite tramite sistemi di controllo versione, come Git, che consentono di tenere traccia delle modifiche nel tempo, collaborare con altri sviluppatori e gestire diverse versioni del progetto.
 
 = S
+== Scena di intermezzo
+Sequenza animata o filmato che viene mostrato tra due parti di gioco, solitamente utilizzata per narrare eventi, approfondire la trama o introdurre nuovi personaggi e situazioni. Le scene di intermezzo non richiedono l'interazione diretta del giocatore e servono a migliorare l'esperienza narrativa del videogioco.
+
 == snake_case
 Pratica di scrivere parole composte separando le parole tramite trattino basso, solitamente con le prime lettere delle singole parole in minuscolo.
 
@@ -103,6 +116,8 @@ Dispositivo di memoria di massa che si occupa di immagazzinare dati e conservarl
 == Standard
 Insieme di specifiche, linee guida o criteri stabiliti per garantire la qualità dei sistemi, dei software e delle tecnologie informatiche.
 
+== Stick analogico
+Dispositivo di input presente sui controller, costituito da una levetta che può essere inclinata in più direzioni per rilevare movimenti analogici. Permette un controllo preciso e graduale dei movimenti nei videogiochi, come la direzione e la velocità di un personaggio o della telecamera.
 = T
 == Texture
 L'immagine utilizzata dal modello che offre diverse funzioni in base al tipo, da non confondere con il materiale.

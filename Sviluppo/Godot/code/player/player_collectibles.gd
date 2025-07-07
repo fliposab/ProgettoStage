@@ -26,3 +26,8 @@ func add(value: int, groups: Array[StringName])->void:
 		"collectibles_blue":
 			count_blue += value
 			changed_blue.emit(count_blue)
+
+func get_save_values()->void:
+	count_red = owner.saves_handler.red_training_data_count
+	count_green = owner.saves_handler.green_training_data_count
+	count_blue = owner.saves_handler.blue_training_data_count
