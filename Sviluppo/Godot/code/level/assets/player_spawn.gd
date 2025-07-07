@@ -11,3 +11,4 @@ func _ready()->void:
 	player.global_position = global_position
 	owner.add_child(player)
 	player.model.global_rotation = global_rotation
+	player_spawned.emit(player)

@@ -1,17 +1,31 @@
-[gd_scene load_steps=19 format=4 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=25 format=4 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
-[ext_resource type="PackedScene" uid="uid://dddi4bepfh0lv" path="res://levels/assets/ac_unit.tscn" id="2_352rc"]
+[ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
 [ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="2_lumj3"]
+[ext_resource type="PackedScene" uid="uid://b6u87rpxcijog" path="res://levels/assets/causality/ac_units.tscn" id="2_my6ir"]
 [ext_resource type="PackedScene" uid="uid://ry4u0yoliawx" path="res://models/ice_cream_platform.glb" id="2_of2dn"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="3_igo0y"]
+[ext_resource type="PackedScene" uid="uid://d3ppn5bikqm6q" path="res://levels/assets/causality/crash_cutscene.tscn" id="3_uagpx"]
 [ext_resource type="PackedScene" uid="uid://usclfa07kaag" path="res://models/seats.tscn" id="4_gp2lk"]
+[ext_resource type="Script" uid="uid://db8ne3re5o40l" path="res://code/level/causality/follow_npc.gd" id="4_vhuse"]
 [ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="5_qiam4"]
 [ext_resource type="PackedScene" uid="uid://bfj5eea2bvleu" path="res://models/ramp.glb" id="6_go4ui"]
 [ext_resource type="PackedScene" uid="uid://cvv11jv3xai6i" path="res://models/causality_surface.glb" id="9_my6ir"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="9_rn6iv"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="10_hv8js"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="11_my6ir"]
+
+[sub_resource type="Curve3D" id="Curve3D_04wc3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.242546, 0, 0.227951, 0, 0, 0, 0, 0, 0, -1.8186, 0, 13.142, 0, 0, 0, 0, 0, 0, -2.06904, 0, 22.5812, 0.839857, 0, -1.97393, -0.839857, 0, 1.97393, -2.55669, 0, 30.6403, 0.438848, 0, -2.51345, -0.438848, 0, 2.51345, -11.8041, 0, 40.0861, 0, 0, 0, 0, 0, 0, -11.9484, 0, 52.0612),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svhef"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vhuse"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
 size = Vector3(50, 30, 30)
@@ -88,18 +102,36 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0itir")
 
-[node name="TestLevel" instance=ExtResource("1_kxjkn")]
+[node name="CausalityLevel" instance=ExtResource("1_kxjkn")]
 
-[node name="ACUnits" type="Node3D" parent="." index="0"]
+[node name="CutsceneHandler" type="Node" parent="." index="0"]
+script = ExtResource("2_0djvo")
 
-[node name="ACUnit" parent="ACUnits" index="0" instance=ExtResource("2_352rc")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -27.6569, 7.30984, -35.628)
+[node name="CrashCutscene" parent="CutsceneHandler" index="0" instance=ExtResource("3_uagpx")]
 
-[node name="ACUnit2" parent="ACUnits" index="1" instance=ExtResource("2_352rc")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -16.942, 15.6344, -32.6404)
+[node name="Camera3D" parent="CutsceneHandler/CrashCutscene" index="0"]
+transform = Transform3D(0.5, 0.224144, -0.836516, 1.13133e-08, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -44.6159, 16.9201, 0.684304)
+fov = 50.0
 
-[node name="ACUnit3" parent="ACUnits" index="2" instance=ExtResource("2_352rc")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -5.39213, 7.58022, -29.2884)
+[node name="Path3D" type="Path3D" parent="CutsceneHandler/CrashCutscene" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2254, 0, -41.7046)
+curve = SubResource("Curve3D_04wc3")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CutsceneHandler/CrashCutscene/Path3D" index="0"]
+transform = Transform3D(-0.9875, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.9875, 0.242546, 0, 0.227951)
+
+[node name="MeshInstance3D" type="CharacterBody3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D" index="0"]
+transform = Transform3D(-0.9875, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.9875, -19.9828, 0, -41.4766)
+top_level = true
+script = ExtResource("4_vhuse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D/MeshInstance3D" index="0"]
+shape = SubResource("CapsuleShape3D_svhef")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D/MeshInstance3D" index="1"]
+mesh = SubResource("CapsuleMesh_vhuse")
+
+[node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Models" index="0"]
 transform = Transform3D(-0.00752234, 0, -0.999972, 0, 1, 0, 0.999972, 0, -0.00752234, 27.0019, 12.2495, -1.76149)
@@ -138,19 +170,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.11418
 [node name="causality_surface" parent="Models" index="9" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
 
-[node name="DirectionalLight3D" parent="." index="3"]
+[node name="DirectionalLight3D" parent="." index="4"]
 transform = Transform3D(-0.90257, -0.183316, 0.389568, 0.356228, 0.190213, 0.914834, -0.241804, 0.964476, -0.106378, 0, 2.06607, 2.43376)
 
-[node name="WorldEnvironment" parent="." index="4"]
+[node name="WorldEnvironment" parent="." index="5"]
 environment = SubResource("Environment_kxjkn")
 
-[node name="PauseMenu" parent="." index="5"]
+[node name="PauseMenu" parent="." index="6"]
 visible = false
 
-[node name="PlayerSpawn" parent="." index="6"]
+[node name="PlayerSpawn" parent="." index="7"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -63.1853, 0, 11.6946)
 
-[node name="LevelTube" parent="." index="8" instance=ExtResource("9_rn6iv")]
+[node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -58.9737, -0.22402, 11.4385)
 load_level_path = "res://levels/hub_level.tscn"
 
@@ -160,6 +192,9 @@ mesh = SubResource("ArrayMesh_0djvo")
 [node name="Label" parent="LevelTube/Control/VBoxContainer" index="0"]
 text = "BACK_TO_HUB"
 
+[connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
+
+[editable path="CutsceneHandler/CrashCutscene"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
 [editable path="LevelTube/LevelTube/level_tube"]

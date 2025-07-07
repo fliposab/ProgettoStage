@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://e56iswhuuhdc"]
+[gd_scene load_steps=22 format=4 uid="uid://e56iswhuuhdc"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_ftq5n"]
 [ext_resource type="PackedScene" uid="uid://da0kvplr5p4ut" path="res://models/base_level_main_platform.glb" id="2_c4aiy"]
@@ -10,7 +10,6 @@
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="5_11ood"]
 [ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="6_q222i"]
 [ext_resource type="PackedScene" uid="uid://bqvqxok6afg0t" path="res://ui/pause_menu_hub_level.tscn" id="10_q222i"]
-[ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="11_c5pd8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1jqj6"]
 _surfaces = [{
@@ -199,6 +198,9 @@ size = Vector3(103.066, 1, 127.845)
 
 [node name="HubLevel" type="Node3D"]
 script = ExtResource("1_ftq5n")
+red_collectibles = true
+green_collectibles = true
+blue_collectibles = true
 
 [node name="Models" type="Node3D" parent="."]
 
@@ -271,8 +273,7 @@ shape = SubResource("BoxShape3D_nrj8t")
 [node name="PauseMenu" parent="." instance=ExtResource("10_q222i")]
 visible = false
 
-[node name="SavesHandler" type="Node" parent="."]
-script = ExtResource("11_c5pd8")
+[connection signal="player_spawned" from="PlayerSpawn" to="." method="_on_player_spawn_player_spawned"]
 
 [editable path="Models/LevelTube3"]
 [editable path="Models/LevelTube3/LevelTube"]

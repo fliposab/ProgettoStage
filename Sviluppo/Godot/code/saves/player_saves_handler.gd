@@ -6,4 +6,4 @@ class_name PlayerSavesHandler
 @export var green_training_data_count : int = 0
 
 func set_save_node():
-	_save_node = PlayerSaves
+	_save_node = get_child(0)

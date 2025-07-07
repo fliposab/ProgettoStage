@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5yb44m1p21ax"]
+[gd_scene load_steps=4 format=3 uid="uid://b5yb44m1p21ax"]
 
 [ext_resource type="Script" uid="uid://cbkeiafpikio7" path="res://code/ui/collectibles_ui.gd" id="1_brrbw"]
 
@@ -13,7 +13,11 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+expand_margin_left = 20.0
 expand_margin_right = 20.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_brrbw"]
+font_size = 24
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 200.0
@@ -21,10 +25,9 @@ offset_bottom = 80.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qsoyl")
 script = ExtResource("1_brrbw")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/bold_font_size = 32
-bbcode_enabled = true
-text = "[b]0 / 0"
+text = "0 / 0"
+label_settings = SubResource("LabelSettings_brrbw")
 horizontal_alignment = 2
 vertical_alignment = 1

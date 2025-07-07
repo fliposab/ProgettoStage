@@ -81,6 +81,7 @@ size = Vector3(32.5427, 1, 83.1189)
 [node name="LRLevel" type="Node3D"]
 process_mode = 1
 script = ExtResource("1_5abim")
+red_collectibles = true
 
 [node name="Models" type="Node3D" parent="."]
 
@@ -278,9 +279,6 @@ vertical_alignment = 1
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.55156, 22.6335, 122.452)
 load_level_path = "res://levels/hub_level.tscn"
 
-[node name="CollisionShape3D" parent="LevelTube2/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.31738, -14.8365)
-
 [node name="Label" parent="LevelTube2/Control/VBoxContainer" index="0"]
 text = "BACK_TO_HUB"
 horizontal_alignment = 1
@@ -288,6 +286,8 @@ vertical_alignment = 1
 
 [node name="SavesHandler" type="Node" parent="."]
 script = ExtResource("10_imcpe")
+
+[connection signal="player_spawned" from="PlayerSpawn" to="." method="_on_player_spawn_player_spawned"]
 
 [editable path="Entities/LRGraph"]
 [editable path="Entities/LRGraphInverted"]

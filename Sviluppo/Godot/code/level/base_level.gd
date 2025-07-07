@@ -6,12 +6,10 @@ class_name Level
 @onready var pause_menu : PauseMenu = $PauseMenu
 @onready var saves_handler : SavesHandler = $SavesHandler
 
-var collectibles_count : int
+@export var red_collectibles : bool = false
+@export var green_collectibles : bool = false
+@export var blue_collectibles : bool = false
 
 func _on_player_spawn_player_spawned(player: Player) -> void:
 	await get_tree().process_frame
-	player.change_collectibles_max_value(collectibles_count)
-
-func _ready()->void:
-	collectibles_count = get_tree().get_nodes_in_group("collectibles").size()
-	print(tr("RESUME"))
+	player.show_collectibles_count(red_collectibles,green_collectibles,blue_collectibles)

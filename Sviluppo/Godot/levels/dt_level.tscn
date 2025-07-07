@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=20 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="6_2cdcn"]
 [ext_resource type="Script" uid="uid://bqoiwb6pq1qwm" path="res://code/saves/dt_saves_handler.gd" id="6_yev1y"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="7_0hd3l"]
+[ext_resource type="Script" uid="uid://cds22lypnl04" path="res://code/saves/dt_level_save.gd" id="7_1c2ks"]
 [ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/dog_line.tscn" id="9_yev1y"]
 [ext_resource type="PackedScene" uid="uid://4fm5js5aotam" path="res://models/tree.glb" id="10_kqcum"]
 
@@ -93,6 +94,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0itir")
 
 [node name="DTLevel" instance=ExtResource("1_l1nkn")]
+green_collectibles = true
 
 [node name="DecisionTree" parent="." index="0" instance=ExtResource("3_ciugy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59917, 2.45972, 6.9589)
@@ -122,6 +124,10 @@ shape = SubResource("BoxShape3D_8g85a")
 [node name="SavesHandler" parent="." index="9"]
 script = ExtResource("6_yev1y")
 breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("7_1c2ks")
+SAVE_PATH = "user://dt_level_save.ini"
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="10"]
 operation = 1

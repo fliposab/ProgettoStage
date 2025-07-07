@@ -29,9 +29,9 @@ func load_last_level():
 	await get_tree().create_timer(1.1).timeout
 	get_tree().get_root().remove_child(current_level)
 	current_level.call_deferred("free")
-	var new_level = load(LevelsSaves.last_level).instantiate()
-	get_tree().get_root().add_child(new_level)
-	current_level = new_level
+	#var new_level = load(LevelsSaves.last_level).instantiate()
+	#get_tree().get_root().add_child(new_level)
+	#current_level = new_level
 	fade_transition.play_fade(true)
 
 func new_game()->void:

@@ -4,7 +4,7 @@ class_name CollectArea
 func collect(collectible: Node3D):
 	if not collectible is TrainingData:
 		return
-	owner.add_collectibles(1)
+	owner.add_collectibles(1, collectible.get_groups())
 	collectible.queue_free()
 
 func _on_area_entered(area: Area3D) -> void:

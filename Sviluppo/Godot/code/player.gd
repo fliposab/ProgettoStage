@@ -15,9 +15,8 @@ class_name Player
 @onready var _movement_node : PlayerMovement = $Misc/Movement
 @onready var _bone_attachment : BoneAttachment3D = $Model/Armature/Skeleton3D/BoneAttachment3D
 @onready var particle_emitter : ParticleEmitter = $Misc/ParticleEmitter
-@onready var grab_item : GrabItem = $Misc/GrabItem:
-	get():
-		return grab_item
+@onready var grab_item : GrabItem = $Misc/GrabItem
+@onready var _ui : Control = $PlayerUI
 
 func _physics_process(delta: float) -> void:
 	check_if_on_floor(delta)
@@ -30,8 +29,8 @@ func check_if_on_floor(delta: float) -> void:
 func get_move_input(delta: float, weight: float):
 	_movement_node.get_move_input(delta, weight)
 	
-func add_collectibles(value: int)->void:
-	_collectibles.add(value)
+func add_collectibles(value: int, groups: Array[StringName])->void:
+	_collectibles.add(value, groups)
 
 func rotate_model_direction()->void:
 	if !velocity.is_zero_approx():
@@ -88,3 +87,6 @@ func get_bone_attachment()->BoneAttachment3D:
 
 func get_current_state_name()->String:
 	return _state_machine.state.name
+
+func show_collectibles_count(red: bool, green: bool, blue: bool)->void:
+	_ui.show_collectibles_count(red,green,blue)

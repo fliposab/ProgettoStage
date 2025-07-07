@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://bbtt36s8tq4n7"]
+[gd_scene load_steps=40 format=3 uid="uid://bbtt36s8tq4n7"]
 
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="1_ogk5n"]
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/dog_breed_sign.gd" id="1_wiyaj"]
+[ext_resource type="Script" uid="uid://b4sncsxcr8pu0" path="res://code/ui/scroll_container.gd" id="3_iauig"]
 [ext_resource type="PackedScene" uid="uid://dengp2laclacr" path="res://ui/DogBreed/dog_breed_button.tscn" id="3_o2xmj"]
 [ext_resource type="Script" uid="uid://cd0btltg2v4bf" path="res://code/ui/dog_breed_grid_container.gd" id="4_l8gk8"]
 [ext_resource type="Texture2D" uid="uid://520ojmg2nexf" path="res://models/materials/textures/australian_sheperd.png" id="5_7776e"]
@@ -143,6 +144,7 @@ layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
+script = ExtResource("3_iauig")
 
 [node name="MarginContainer" type="MarginContainer" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer"]
 layout_mode = 2
@@ -346,6 +348,7 @@ text = "Q: CLOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="focus_grid" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer" method="_on_dog_breed_sign_focus_grid"]
 [connection signal="focus_grid" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_focus_grid"]
 [connection signal="unlock_dog" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_unlock_dog"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
