@@ -1,10 +1,11 @@
 extends Node3D
 class_name CrashCutscene
 
-@onready var path_follow : PathFollow3D = $Path3D/PathFollow3D
+@onready var path_follow : PathFollow3D = $PathNPC/PathFollow3D
 @onready var camera : Camera3D = $Camera3D
 @onready var timer : Timer = $Timer
 @onready var fade : FadeTransition = $Fade
+@onready var ice_cream_shop : Node3D = $ice_cream_shop
 
 var player : Player
 

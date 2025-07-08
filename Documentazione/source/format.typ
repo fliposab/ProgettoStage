@@ -1,6 +1,7 @@
 #let documento(
   titolo: "Titolo del documento",
   autore: "Filippo Sabbadin",
+  data: "08 / 08 / 2025",
   //versioni : (
   //   "0.1.0","Data","Autore","Cambiamenti","Verificatore",
   //),
@@ -59,13 +60,20 @@
   linebreak()
   linebreak()
   linebreak()
+
   linebreak()
-  linebreak()
+
   //Autore
   set align(center)
   par(
     justify: false, 
-    text(16pt, fill: black, hyphenate: false)[#autore]
+    text(18pt, fill: black, hyphenate: false)[#autore]
+  )
+
+  //Data
+  linebreak()
+  par(
+    text(14pt)[#data]
   )
 
   // Indice

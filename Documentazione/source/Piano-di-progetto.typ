@@ -244,11 +244,22 @@ Durante la seconda settimana, sono state sviluppate le principali meccaniche del
 - individuati altri use case;
 - aggiornato il piano di qualfica con nuove metriche e aggiunto il cruscotto;
 - continua stesura degli altri documenti.
-#figure( caption: "Ponte Linear Regression + modello 3D del giocatore (settimana 2)", image("imgs/settimana-2.png", width: 90%))
+#figure( caption: "Ponte Linear Regression + modello 3D del giocatore (settimana 2)", image("imgs/settimana-2.png", width: auto))
 #pagebreak()
 == Settimana 3 | 30/06 - 04/07
 #pseudoheading[*Retropsettiva*]
+Durante la terza settimana è stato continuato lo sviluppo dei componenti principali dei livelli del gioco, tra cui il Decision Tree e Causality.\
+Inoltre sono stati aggiustati numerosi bug presenti nell'applicazione.
 #pseudoheading[*Attività svolte*]
+- Creazione del modello 3D per i personaggi non giocabili;
+- Aggiunte interazioni con personaggi non giocabili;
+- aggiunte texture e materiale al modello 3D del giocatore;
+- creazione dei principali modelli 3D presenti nei livelli;
+- modifica sul funzionamento del Decision Tree, adesso non avvisa più subito il giocatore;
+- modifica sui file di salvataggio, ridotto il numero.
+- correzione di bug.
+#figure( caption: "Decision Tree (settimana 3)", image("imgs/settimana-3.png", width: auto))
+#pagebreak()
 == Settimana 4 | 07/07 - 11/07
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]

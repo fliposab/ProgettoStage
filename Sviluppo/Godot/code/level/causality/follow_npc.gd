@@ -4,13 +4,21 @@ class_name FollowNPC
 @export_range(150,300) var speed : float = 200
 
 var _is_following : bool = true
+var _stopped : bool = false
 @onready var _anim_player: AnimationPlayer = $Model/AnimationPlayer
+var direction : Vector3
+
+signal stopped_following(follow_npc: FollowNPC)
 
 func _ready()->void:
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _physics_process(delta: float) -> void:
-	follow_target(delta)
+	if _stopped:
+		velocity = Vector3.ZERO
+	else:
+		follow_target(delta)
+		stop_following(delta)
 	fix_rotation()
 	velocity += get_gravity()
 	move_and_slide()
@@ -23,15 +31,28 @@ func follow_target(delta)->void:
 	if !_is_following:
 		return
 	look_at(get_parent().global_position)
-	var direction = global_basis.x.rotated(Vector3(0,1,0),PI/2)
+	direction = global_basis.x.rotated(Vector3(0,1,0),PI/2)
 	velocity = Vector3(speed*delta*direction.x,0.0,speed*delta*direction.z)
-	if is_zero_approx(position.x) and is_zero_approx(position.z):
-		stop_following()
 
 func on_stop_following() -> void:
-	stop_following()
-
-func stop_following()->void:
 	_is_following = false
+	var rand_rotation_y = randf_range(-PI/6,PI/6)
+	direction = global_basis.x.rotated(Vector3(0,1,0),(rand_rotation_y+PI/2))
+	global_rotation.y += rand_rotation_y
+
+func stop_following(delta)->void:
+	if _is_following:
+		return
+	velocity = Vector3(speed*delta*direction.x,0.0,speed*delta*direction.z)
+
+func stop()->void:
 	velocity = Vector3.ZERO
 	_anim_player.play("idle")
+	stopped_following.emit(self)
+	look_at(owner.owner.ice_cream_shop.global_position)
+	_stopped = true
+
+func start_timer()->void:
+	var wait : float = randf_range(1.5, 2.0)
+	await get_tree().create_timer(wait).timeout 
+	stop()

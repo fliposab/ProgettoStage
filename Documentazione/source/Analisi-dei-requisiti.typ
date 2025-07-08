@@ -89,7 +89,6 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il personaggio si muove nella direzione desiderata insieme all'oggetto.
 
 == UC2 - Salto
-#figure(image("imgs/uc-salto.png", width: auto), caption: "Salto")
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -234,7 +233,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Visualizzazione dialogo.
 
 === UC7.2 - Interazione con entità manuale
-#figure(image("imgs/uc-interazione_manuale.png", width: auto), caption: "Interazione entità")
+#figure(image("imgs/uc-interazione_manuale.png", width: auto), caption: "Interazione manuale")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -510,6 +509,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco salva i dati.
 
 == UC19 - Pausa
+#figure(image("imgs/uc-pausa.png", width: auto), caption: "Apertura menu di pausa")
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -523,6 +523,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco si interrompe e viene visualizzato il menu di pausa.
 
 == UC20 -  Riprendi
+#figure(image("imgs/uc-menu_pausa.png", width: auto), caption: "Menu di pausa")
 *Attori principali*: 
 - Giocatore
 *Descrizione*: 
@@ -590,6 +591,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco viene chiuso.
 
 == UC25 - Carica partita
+#figure(image("imgs/uc-menu_principale.png", width: auto), caption: "Menu principale")
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -618,6 +620,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco inizia e il giocatore viene portato al livello base.
 
 == UC27 - Modifica modalità finestra
+#figure(image("imgs/uc-menu_opzioni.png", width: auto), caption: "Menu opzioni")
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -1018,8 +1021,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-36-F-D", "UC32","\u{2713}",
     "R-37-F-D", "UC33","",
     "R-38-F-O", "UC34","\u{2713}",
-    "R-39-F-O", "UC35","",
-    "R-40-F-O", "UC36","",
+    "R-39-F-O", "UC35","\u{2713}",
+    "R-40-F-O", "UC36","\u{2713}",
     // Requisiti di qualità
     "R-01-Q-O", "Decisione interna","",
     "R-02-Q-O", "Decisione interna","",
@@ -1034,11 +1037,13 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-04-V-O", "Progetto","\u{2713}", 
     "R-05-V-O", "Progetto","\u{2713}", 
     // Requisiti di qualità
-    "R-01-A-O", "Decisione interna","",
+    "R-01-A-O", "Decisione interna","\u{2713}",
     "R-02-A-D", "Decisione interna","",
-    "R-03-A-O", "Decisione interna","\u{2713}",
+    "R-03-A-O", "Decisione interna","",
     "R-04-A-D", "Decisione interna","",
-    "R-05-A-O", "Discussione con il tutor aziendale","",
+    "R-05-A-D", "Decisione interna","\u{2713}",
+    "R-06-A-D", "Decisione interna","",
+    "R-07-A-O", "Discussione con il tutor aziendale","",
   ),
 )
 == Riepilogo 

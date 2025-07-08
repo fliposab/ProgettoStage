@@ -1,67 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=8 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
-[ext_resource type="Script" uid="uid://bydo4h4k08qtc" path="res://code/level/assets/path_follow_3d.gd" id="2_cqkof"]
-[ext_resource type="PackedScene" uid="uid://dpnlgkhyx40db" path="res://levels/assets/npc/follow_npc.tscn" id="3_cqkof"]
+[ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
+[ext_resource type="PackedScene" uid="uid://byfairg6arrbl" path="res://levels/assets/path_npc.tscn" id="3_uxx2u"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="4_7pag3"]
+[ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="5_uxx2u"]
+[ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="6_bpixg"]
 
-[sub_resource type="Curve3D" id="Curve3D_74243"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.242546, 0, 0.227951, 0, 0, 0, 0, 0, 0, -1.8186, 0, 13.142, 0, 0, 0, 0, 0, 0, -2.06904, 0, 22.5812, 0.839857, 0, -1.97393, -0.839857, 0, 1.97393, -2.55669, 0, 30.6403, 0.438848, 0, -2.51345, -0.438848, 0, 2.51345, -17.384, -0.0227346, 42.823, 0, 0, 0, 0, 0, 0, -13.807, 0, 52.3614, 0, 0, 0, 0, 0, 0, -11.7326, 0.973766, 56.8887),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 7
-
-[sub_resource type="BoxMesh" id="BoxMesh_w0vt1"]
-size = Vector3(0.4, 0.4, 0.4)
+[sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
+radius = 8.12483
 
 [node name="CrashCutscene" type="Node3D"]
 script = ExtResource("1_l1q60")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="AreaStopFollow" type="Area3D" parent="."]
+transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 15.3808)
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("2_bpixg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaStopFollow"]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_7pag3")
+
+[node name="PathNPC" parent="." instance=ExtResource("3_uxx2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2254, 0, -41.7046)
-curve = SubResource("Curve3D_74243")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+[node name="PathFollow3D" parent="PathNPC" index="0"]
 transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, 0.242546, 0, 0.227951)
-script = ExtResource("2_cqkof")
-speed = 10.0
 
-[node name="FollowNPC" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -19.9476, 1.83017, -43.7758)
-speed = 300.0
+[node name="FollowNPC" parent="PathNPC/PathFollow3D" index="0"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -18.2094, 1.83017, -43.7758)
 
-[node name="FollowNPC2" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.858406, 0, -0.512969, 0, 1, 0, 0.512969, 0, -0.858406, -21.7715, 1.83017, -43.7758)
-speed = 300.0
+[node name="FollowNPC4" parent="PathNPC/PathFollow3D" index="3"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -16.5244, 1.83017, -51.7419)
 
-[node name="FollowNPC3" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -22.0207, 1.83017, -47.1287)
-speed = 300.0
+[node name="FollowNPC5" parent="PathNPC/PathFollow3D" index="4"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -14.673, 1.83017, -47.9913)
 
-[node name="FollowNPC4" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -16.5244, 1.83017, -47.1287)
-speed = 300.0
-
-[node name="FollowNPC5" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -19.027, 1.83017, -47.9913)
-speed = 300.0
-
-[node name="FollowNPC6" parent="Path3D/PathFollow3D" instance=ExtResource("3_cqkof")]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -19.027, 1.83017, -47.9913)
-speed = 300.0
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
-process_mode = 1
-visible = false
-mesh = SubResource("BoxMesh_w0vt1")
-
-[node name="Timer" type="Timer" parent="Path3D/PathFollow3D"]
-process_mode = 1
-wait_time = 6.0
-one_shot = true
+[node name="FollowNPC7" parent="PathNPC/PathFollow3D" index="6"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -23.875, 1.83017, -51.8393)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
@@ -69,5 +49,13 @@ one_shot = true
 
 [node name="Fade" parent="." instance=ExtResource("4_7pag3")]
 
-[connection signal="timeout" from="Path3D/PathFollow3D/Timer" to="Path3D/PathFollow3D" method="stop_follow"]
+[node name="ice_cream_shop" parent="." instance=ExtResource("5_uxx2u")]
+transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
+
+[node name="NPCDialogue" parent="ice_cream_shop" instance=ExtResource("6_bpixg")]
+transform = Transform3D(0.0930357, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930357, 1.65248, 1.81199, -0.061039)
+
+[connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="PathNPC"]

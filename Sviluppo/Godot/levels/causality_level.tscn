@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
 [ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
-[ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="2_lumj3"]
 [ext_resource type="PackedScene" uid="uid://b6u87rpxcijog" path="res://levels/assets/causality/ac_units.tscn" id="2_my6ir"]
 [ext_resource type="PackedScene" uid="uid://ry4u0yoliawx" path="res://models/ice_cream_platform.glb" id="2_of2dn"]
-[ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="3_igo0y"]
 [ext_resource type="PackedScene" uid="uid://d3ppn5bikqm6q" path="res://levels/assets/causality/crash_cutscene.tscn" id="3_uagpx"]
 [ext_resource type="PackedScene" uid="uid://usclfa07kaag" path="res://models/seats.tscn" id="4_gp2lk"]
 [ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="5_qiam4"]
+[ext_resource type="PackedScene" uid="uid://dddi4bepfh0lv" path="res://levels/assets/ac_unit.tscn" id="5_svhef"]
 [ext_resource type="PackedScene" uid="uid://bfj5eea2bvleu" path="res://models/ramp.glb" id="6_go4ui"]
 [ext_resource type="PackedScene" uid="uid://cvv11jv3xai6i" path="res://models/causality_surface.glb" id="9_my6ir"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="9_rn6iv"]
@@ -17,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ytqvklihm0pa" path="res://levels/collect_line_blue.tscn" id="13_svhef"]
 [ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="15_gqdlx"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="16_04wc3"]
+[ext_resource type="PackedScene" uid="uid://dkpsnc6ylqwc5" path="res://levels/assets/non_interactable_npc.tscn" id="16_svhef"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
 size = Vector3(50, 30, 30)
@@ -108,7 +108,13 @@ script = ExtResource("2_0djvo")
 transform = Transform3D(0.48786, 0.196365, -0.850549, 0, 0.97437, 0.224951, 0.872922, -0.109745, 0.475356, -47.3129, 10.5853, 0)
 fov = 45.0
 
+[node name="AreaStopFollow" parent="CutsceneHandler/CrashCutscene" index="1"]
+transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 18.7986)
+
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
+
+[node name="ACUnit2" parent="ACUnits" index="1" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.06446, 7.30984, -29.9283)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Models" index="0"]
 transform = Transform3D(-0.00752234, 0, -0.999972, 0, 1, 0, 0.999972, 0, -0.00752234, 27.0019, 12.2495, -1.76149)
@@ -135,16 +141,10 @@ transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.48849
 [node name="apartment" parent="Models" index="6" instance=ExtResource("5_qiam4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06821, 0)
 
-[node name="ice_cream_shop" parent="Models" index="7" instance=ExtResource("2_lumj3")]
-transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
-
-[node name="NPCDialogue" parent="Models/ice_cream_shop" index="3" instance=ExtResource("3_igo0y")]
-transform = Transform3D(0.0930357, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930357, 1.65248, 1.81199, -0.061039)
-
-[node name="ramp" parent="Models" index="8" instance=ExtResource("6_go4ui")]
+[node name="ramp" parent="Models" index="7" instance=ExtResource("6_go4ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.114183)
 
-[node name="causality_surface" parent="Models" index="9" instance=ExtResource("9_my6ir")]
+[node name="causality_surface" parent="Models" index="8" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
 
 [node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
@@ -158,6 +158,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.5609, 0.3, 8.36346)
 
 [node name="TrainingData2" parent="Entities" index="3" instance=ExtResource("15_gqdlx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.0132, 0.3, 12.7345)
+
+[node name="NonInteractableNPC2" parent="Entities" index="4" instance=ExtResource("16_svhef")]
+transform = Transform3D(0.664539, 0, -0.747253, 0, 1, 0, 0.747253, 0, 0.664539, -42.1899, -0.408627, 10.8084)
+
+[node name="NonInteractableNPC" parent="Entities" index="5" instance=ExtResource("16_svhef")]
+transform = Transform3D(-0.819002, 0, -0.573791, 0, 1, 0, 0.573791, 0, -0.819002, -40.292, -0.408627, 18.2818)
 
 [node name="DirectionalLight3D" parent="." index="4"]
 transform = Transform3D(-0.90257, -0.183316, 0.389568, 0.356228, 0.190213, 0.914834, -0.241804, 0.964476, -0.106378, 0, 2.06607, 2.43376)
@@ -191,6 +197,8 @@ shape = SubResource("BoxShape3D_svhef")
 [connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
 
 [editable path="CutsceneHandler/CrashCutscene"]
+[editable path="CutsceneHandler/CrashCutscene/PathNPC"]
+[editable path="ACUnits"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
 [editable path="LevelTube/LevelTube/level_tube"]

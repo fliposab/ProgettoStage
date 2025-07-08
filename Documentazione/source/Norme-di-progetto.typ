@@ -213,53 +213,249 @@ Il processo di documentazione comprende le seguenti attività:
   - *compilazione*: modifica dei documenti in base alle esigenze del progetto, in modo da garantire la coerenza tra i vari documenti.
 
 === Struttura dei documenti
+Ci sono diversi tipi di documenti e generalmente sono organizzati nelle seguenti sezioni:
 
 ==== Intestazione
-- *Titolo*:
-- *Autore*:
+La prima pagina è l'intestazione del documento ed è composta generalmente dalle seguenti informazioni:
+- *logo azienda*: logo dell'azienda ospitante;
+- *logo università*: logo dell'università;
+- *titolo*: titolo del documento e nome del file;
+- *autore*: lo studente autore del documento;
+- *data*: data dell'ultima modifica del documento, in DD/MM/YYYY.
 
 ==== Indice
+La terza pagina, e se necessario le seguenti, è riservata all'indice del documento che elenca le sezioni di cui è composto i documento.\
 
 ==== Corpo del documento
+Il corpo del documento è strutturato in capitoli, ciascuno dei quali può essere suddiviso in sottocapitoli, che a loro volta possono contenere ulteriori suddivisioni.\
 
 === Documenti del progetto
+Verranno prodotti i seguenti documenti:
+- *#gloss[Norme di Progetto]*;
+- *#gloss[Piano di Progetto]*;
+- *#gloss[Analisi dei Requisiti]*;
+- *#gloss[Piano di Qualifica]*;
+- *#gloss[Manuale Utente]*;
+- *#gloss[Specifica tecnica]*; 
+- *Glossario*;
 
 === Elenchi puntati
+Ogni voce di un elenco puntato finisce con ";".
 
-=== Diagrammi UML
-
-=== Formato date
+=== Diagrammi Use Case
+Per produrre i diagrammi uml degli use case il team ha usato il seguente sito : #link("https://app.diagrams.net/#G1kdbwjlMBb1ySHratfEgKb-PqIMNOqlVq#%7B%22pageId%22%3A%22Q5CIVrjjWraXMqxVwAuv%22%7D")[draw.io].
+Successivamente vengono inseriti nei documenti opportuni come immagini.
 
 === Composizione tipografica
+Per la composizione tipografica dei documenti si è deciso di usare #gloss[Typst] per i seguenti motivi:
+- semplicità degli strumenti utilizzati per la stesura;
+- sintassi semplice;
+- compilazione immediata;
+Grazie a Typst si riesce facilmente a creare e mantenere un documento anche partendo da un template comune.
 
 === Strumenti
+- *VS Code*: Editor di testo usato per scrivere i documenti;
+- *Typst*: Linguaggio usato per la stesura dei documenti;
+- *Github*: Servizio di hosting per il repository;
 
 == Gestione della configurazione
+=== Repository
+Nella repository si possono trovare diverse cartelle che servono per organizzare e dividere i vari tipi di documenti e codice, in particolare:
+- in *Documentazione* si trovano i documenti relativi al progetto;
+- in *Sviluppo* si trovano i vari file usati per la creazione dell'applicazione.
 
 == Gestione della qualità
 === Scopo e descrizione
-Il processo di gestione della qualità ha lo scopo di garantire che il prodotto software soddisfi
+Il processo di gestione della qualità ha come obiettivo quello di garantire che il software, la documentazione e tutto ciò che viene prodotto sia conforme ai requisiti di qualità specificati e richiesti.
+Gli obiettivi e gli standard di qualità richiesti e che devono essere soddisfatti sono indicati nel documento _Piano di qualifica_.
 
 === Attività
+Seguendo lo standard ISO/IEC 12207:1995, le attività previste per questo processo sono:
+- *implementazione*: in cui vengono realizzati gli strumenti necessari, per esempio i test, per poter attuare correttamente l'attività successiva di verifica, rivelando le varie problematiche e i metodi per mitigarle;
+- *verifica*: in cui deve essere controllata l'efficacia dei processi, dei requisiti rispetto alla consistenza ed esaustività degli stessi, della documentazione prodotta, della progettazione rispetto ai requisiti individuati durante la fase di analisi e riportati nel documento _Analisi dei requisiti_, del codice e dell'integrazione delle varie componenti del sistema tra loro.
+Quindi è l'attività che mette in pratica ciò che è stato individuato e realizzato durante l'attività di implementazione.
 
 == Verifica
 
 == validazione
 
 = Processi organizzativi
+== Gestione dei processi
+=== Scopo e descrizione 
+Il processo di gestione ha lo scopo di identificare le attività e i compiti da svolgere per proseguire nel progetto.
+=== Attività
+- *individuazione di un compito da svolgere*:
+- *esecuzione*:
+- *verifica*:
+=== Strumenti usati
+- *Github*: per gestire tutta la documentazione e il codice per il progetto in un repository;
+- *Notion*: per la gestione delle attività e la pianificazione del progetto.
 
 == Miglioramento
 
+
 = Metriche e standard per la qualità
+Per  migliorare e avere uno standard di qualità da cui attingere se è deciso di utilizzare degli standard riconosciuti a livello internazionale. 
+Tra quelli disponibili è stato scelto lo standard  ISO/IEC 12207:1995 per quanto riguarda la qualità dei processi principali, organizzativi e di supporto.
+Mentre per gli standard di qualità del software, lo standard ISO/IEC 25010:2023.
+Le principali caratteristiche prese in considerazione sono:
+- *Funzionalità*;
+- *Performance*;
+- *Affidabilità*;
+- *Usabilità*;
+- *Portabilità*;
+- *Manutenibilità*;
 
 == Funzionalità
-== Prestazioni
+La funzionalità riguarda e misura il grado di soddisfacibilità dei requisiti rispetto al prodotto finale.
+In particolare vengono misurate:
+- *Completezza*: il software prodotto deve soddisfare tutti i requisiti e le funzionalità previste;
+- *Correttezza*: il funzionamento del software deve rispettare le specifiche dichiarate;
+- *Adeguatezza*: il software prodotto deve essere idoneo allo scopo per cui è stato pensato e al contesto in cui viene usato;
+- *Conformità*: il software prodotto deve rispettare le norme predefinite e il grado di qualità previsto;
+== Performance
+La performance misura l'efficienza di un prodotto e la capacità del prodotto stesso di gestire le risorse in modo direttamente proporzionale alle prestazioni che vengono fornite.
+In particolare vengono misurate:
+- *Risorse*: l'uso delle risorse deve essere efficiente;
+- *Tempo*: il software prodotto deve dare una risposta in tempi consoni alle richieste che gli vengono fatte;
+- *Conformità*: il prodotto deve rispettare dei vincoli di qualità;
+- *Capacità*: il prodotto deve saper gestire i carichi di lavoro attesi senza compromettere le prestazioni previste;
 == Affidabilità
+L'affidabilità è il parametro per misurare se un prodotto reagisce ai problemi senza compromettere le prestazioni.
+In particolare vengono misurate:
+- *Tolleranza ai guasti e agli errori*: il prodotto deve saper gestire gli errori e rispondere a malfunzionamenti o guasti senza che si causino interruzioni gravi nel prodotto e allo stesso tempo mantenere un certo grado di prestazioni;
+- *Maturità*: il prodotto deve garantire affidabilità e stabilità cercando di evitare che si vengano a generare errori o malfunzionamenti;
+- *Recuperabilità*: a seguito di un qualsiasi tipo di errore, guasto o malfunzionamento il prodotto deve essere in grado di tornare alle sue prestazioni standard ripristinando le sue funzionalità;
+- *Disponibilità*: il prodotto deve essere accessibile e correttamente funzionante, quindi operativo ogni qual volta sia necessario;
+- *Aderenza*: il prodotto deve rispettare gli standard di qualità prefissati;
 == Sicurezza
+La sicurezza di un prodotto misura il suo grado di protezione da minacce e vulnerabilità, garantendo che i dati e le funzionalità rimangano integri, disponibili e riservati.
+- *Riservatezza*: il software deve garantire la protezione dei dati sensibili;
+- *Integrità*: il software deve garantire che i dati siano completi, accurati e sicuri;
+- *Autenticazione*: il software deve controllare e verificare le credenziali degli utenti e limitare l'accesso ai soli utenti autorizzati;
+- *Autenticità*: il prodotto deve permettere di verificare la provenienza dei dati;
 == Usabilità
-== Manutenibilità
+L'usabilità ci permette di calcolare e comprendere quando e in quanto tempo l'utente finale riesca ad apprendere le modalità di utilizzo di un prodotto.
+In particolare vengono misurate:
+- *Apprendibilità*: la semplicità con cui l'utente riesce ad apprendere le funzionalità del prodotto;
+- *Comprensibilità*: la facilità con cui l'utente comprende il funzionamento del prodotto e riesce ad utilizzarlo in modo appropriato;
+- *Riconoscibilità*: il prodotto deve fornire un'interfaccia utente intuitiva e di facile comprensione;
+- *Estetica*: l'interfaccia del prodotto deve essere gradevole;
+- *Operabilità*: quanto è semplice per l'utente usare il prodotto in maniera corretta;
 == Portabilità
+La portabilità è la capacità di un prodotto di essere facilmente spostato da un ambiente di esecuzione ad un altro senza insorgere in problemi.
+In particolare vengono misurate:
+- *Adattabilità*: il software deve essere capace di funzionare in ambienti di esecuzione diversi in modo corretto;
+- *Installabilità*: il software deve poter essere installato e configurato facilmente e rapidamente;
+- *Sostituibilità*: il prodotto deve poter funzionare correttamente nel momento in cui venga aggiornato e quindi sostituito da nuove versioni;
+== Manutenibilità
+La manutenibilità di un prodotto misura la facilità con cui può essere modificato, corretto e migliorato nel tempo.
+In particolare vengono misurate:
+- *Analizzabilità*: la facilità con cui il codice può essere controllato al fine di risolvere eventuali errori e problemi;
+- *Modificabilità*: il software deve poter essere modificato e migliorato in maniera semplice;
+- *Testabilità*: la semplicità con cui il prodotto può essere testato;
+- *Riutilizzabilità*: le varie parti del software devono poter essere riutilizzate in progetti o ambienti differenti;
+- *Stabilità*: capacità del prodotto di continuare a funzionare senza gravi problemi a seguito di modifiche sbagliate;
 
-/* da mettere?
 = Metriche di qualità
-*/
+== Nomenclatura delle metriche
+Per identificare le metriche relative ai processi e quelle relative ai prodotti vengono usate, come prefisso, le seguenti sigle:
+- *#gloss[MPC]*: sigla per le metriche per la qualità dei processi;
+- *MPD*: sigla per le metriche per la qualità del prodotto;
+Quindi una metrica avrà come sigla : *MPC/MPD-AcronimoMetrica*.
+
+== Metriche per i processi
+=== Processi primari
+
+==== Fornitura
+===== Planned Value(MPC-PV)/**/
+- *Descrizione*: rappresenta il valore del lavoro che dovrebbe essere completato. 
+  Si basa sulla programmazione delle attività del progetto e riflette il valore del lavoro che si intende portare a termine.
+  Questo indicatore fornisce una base di riferimento per confrontare il progresso reale del progetto con le aspettative;
+- *Come calcolarlo*:  $"Planned Value" = "Budget at Completion" / "% lavoro da completare"$;
+- *Valore ottimo*: \u{2264} BAC;
+- *Valore accettabile*: \u{2265} 0;
+===== Schedule Variance(MPC-SV)
+- *Descrizione*: varianza rispetto a quanto previsto inteso come anticipo o ritardo sui tempi delle attività svolte e da svolgere. 
+  Rappresenta la differenza tra il valore del lavoro completato e il valore del lavoro pianificato.
+  In pratica, misura se un progetto è in anticipo, in ritardo o in linea con la pianificazione effettuata inizialmente;
+- *Come calcolarlo*: Schedule Variance = Earned Value - Planned Value;
+- *Valore ottimo*: \u{2265} 0;
+- *Valore accettabile*: \u{2265} -10%;
+
+==== Sviluppo
+===== Requirement Stability Index(MPC-RSI)
+- *Descrizione*: indice di stabilità dei requisiti. 
+  Indica la percentuale di requisiti che sono stati modificati rispetto al totale dei requisiti. 
+  Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti;
+- *Come calcolarlo*: $"Requirement Stability Index" = (("TNOR" + "NCR" + "NAR" + "NDR") / ("TNOR"))*"100"$ dove:
+  - *TNOR*: Total Number of Original Requirements = numero iniziale di requisiti;
+  - *NCR*: Number of Changed Requirements = numero di requisiti modificati ;
+  - *NAR*: Number of Added Requirements = numero di requisiti aggiunti;
+  - *NDR*: Number of Deleted Requirements = numero di requisiti cancellati;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: \u{2265} 80%;
+===== Technical Debt Ratio(MPC-TDR)
+- *Descrizione*: rapporto tra il tempo necessario per risolvere i problemi tecnici e il tempo necessario per sviluppare nuove funzionali.
+  Quindi calcola quanto costa correggere e mantenere il codice, rispetto a quanto è costato inizialmente svilupparlo;
+- *Valore ottimo*: \u{2264} 5%;
+- *Valore accettabile*: \u{2264} 15%;
+
+=== Processi di supporto
+==== Documentazione
+===== Indice di Gulpease(MPC-IG)
+- *Descrizione*: Indica la complessità nella lettura di una frase o documento. 
+  Considera come variabili il numero di parole, di frasi e di lettere;
+- *Come calcolarlo*: $"Indice di Gulpease" = 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $;
+- *Valore ottimo*: \u{2265} 60;
+- *Valore accettabile*: \u{2265} 40;
+===== Correttezza ortografica(MPC-CO)
+- *Descrizione*: Indica il numero di errori ortografici presenti nella documentazione;
+- *Valore ottimo*: 0;
+- *Valore accettabile*: 3;
+==== Gestione qualità
+===== Satisfaction of Quality Metrics(MPC-SQM)
+- *Descrizione*: misura della quantità di metriche soddisfatte. 
+  Più in particolare viene misurato il grado di soddisfazione dell'utente finale rispetto alla qualità di un prodotto.
+  Ciò aiuta a comprendere se le aspettative del cliente sono state soddisfatte o meno, e consentono di identificare eventuali migliorie;
+- *Come calcolarlo*: $"Satisfaction of Quality Metrics" = "Numero totale di metriche soddisfatte" / "Numero totale di metriche"$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: \u{2265} 85%;
+==== Verifica
+===== Code Coverage(MPC-CCO)
+- *Descrizione*: Quantità di codice eseguito durante i test.
+  Viene utilizzato per valutare la qualità dei test e garantire che il codice sia stato adeguatamente testato. 
+  Un alto livello indica che il codice è stato eseguito in molti contesti e scenari diversi con diverse parti di codice. 
+  Quindi indica quanto codice è stato sottoposto ai test;
+- *Come calcolarlo*: $"Code Coverage" = "Linee di Codice Eseguite" / "Linee di Codice Totali" * 100$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: \u{2265} 90%;
+===== Test Superati in Percentuale(MPC-TSP)
+- *Descrizione*: Indica la proporzione di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti. 
+  Viene espressa come una percentuale e serve a misurare quanto dell'applicazione in fase di sviluppo è stato verificato con successo tramite i test. 
+  Una percentuale alta di test superati indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.
+  Quindi indica quanti test sono stati superati;
+- *Come calcolarlo*: $"Test Superati in Percentuale" = "Numero di Test Superati" / "Numero Totale di Test" * 100$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: 100%;
+== Metriche per il prodotto
+=== Funzionalità
+==== Copertura Requisiti Obbligatori(MPD-RO)
+- *Descrizione*: indica la percentuale di requisiti obbligatori coperti dal prodotto. 
+  Un valore del 100% indica che tutti i requisiti obbligatori sono stati implementati;
+- *Come calcolarlo*: $"Copertura Requisiti Obbligatori" = "Numero Requisiti Obbligatori implementati" / "Numero Requisiti Obbligatori totali"$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: 100%;
+==== Copertura Requisiti Opzionali(MPD-OP)
+- *Descrizione*:  indica la percentuale di requisiti opzionali coperti dal prodotto. 
+  Un valore del 100% indica che tutti i requisiti opzionali sono stati implementati;
+- *Come calcolarlo*: $"Copertura Requisiti Opzionali" = "Numero Requisiti Opzionali implementati" / "Numero Requisiti Opzionali totali"$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: \u{2265} 50%;
+=== Affidabilità
+==== Code Coverage(MPD-CC)
+- *Descrizione*: indica la percentuale di codice coperto dai test.  
+  Un valore alto indica che il codice è stato testato in modo approfondito e che è meno probabile che contenga errori;
+- *Come calcolarlo*: $"Code Coverage" = "righe di codice testate" / "righe di codice totali" *100$;
+- *Valore ottimo*: 100%;
+- *Valore accettabile*: \u{2265} 80%;

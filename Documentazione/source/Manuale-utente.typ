@@ -134,8 +134,17 @@ Il giocatore viene sempre portato in questo livello dopo la schermata principale
 - *Causalità*: indicato dal tubo blu.
 
 == Livello "Linear Regression"
+In questo livello il giocatore deve utilizzare un "cannone" che può sparare un "dato" nel grafico. Appena posizionato il punto nel grafico, la retta viene aggiornata.
+L'obiettivo del giocatore in tutte e tre le sezioni è di posizionare la retta in modo tale che lui possa proseguire alla sezione successiva.
+=== Prima sezione
+=== Seconda sezione
+=== Terza sezione
 
 == Livello "Decision Tree"
+L'obiettivo di questo livello è posizionare ogni cane nella sua sezione giusta nel Decision Tree, classificandolo correttamente in base alle domande fornite ad ogni nodo.
+Tutte le razze di cane classificate correttamente saranno visibili interagendo con il cartello vicino all'albero.
+Inoltre nel livello è presente un aiutante che darà la possibilità di riposizionare tutti i cani alla loro posizione iniziale.\
+Di seguito vengono elencate le risposte giuste per ogni razza di cane:\
 *Pastore australiano*:\
 *Beagle*:\
 *Border Collie*:\
