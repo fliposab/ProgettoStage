@@ -10,12 +10,12 @@ func set_save_node():
 	_save_node = get_child(0)
 
 func set_red_training_data(value: int)->void:
-	if red_training_data_count:
+	if value > red_training_data_count:
 		red_training_data_count = value
 		save_data()
 
 func set_green_training_data(value: int)->void:
-	if green_training_data_count:
+	if value > green_training_data_count:
 		green_training_data_count = value
 		save_data()
 	

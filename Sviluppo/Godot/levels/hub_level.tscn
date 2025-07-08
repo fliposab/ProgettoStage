@@ -201,6 +201,7 @@ script = ExtResource("1_ftq5n")
 red_collectibles = true
 green_collectibles = true
 blue_collectibles = true
+reset_collectibles_on_load = false
 
 [node name="Models" type="Node3D" parent="."]
 

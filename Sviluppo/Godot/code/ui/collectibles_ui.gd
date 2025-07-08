@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var text : Label = $Label
+@onready var text : Label = $HBoxContainer/Label
 @export var max_value : int = 15
 
 func change_text_count(value: int)->void:

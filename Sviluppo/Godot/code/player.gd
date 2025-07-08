@@ -91,3 +91,6 @@ func get_current_state_name()->String:
 
 func show_collectibles_count(red: bool, green: bool, blue: bool)->void:
 	_ui.show_collectibles_count(red,green,blue)
+
+func reset_collectibles_count()->void:
+	_collectibles.reset_count()

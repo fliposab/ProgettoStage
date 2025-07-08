@@ -39,6 +39,8 @@ folder_colors={
 [global_group]
 
 collectibles_red="Training data in the linear regression level"
+collectibles_blue="Training data of the causality level"
+collectibles_green="Training data for the decision tree level"
 
 [importer_defaults]
 
@@ -121,6 +123,8 @@ locale/test="it"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Collectibles"
 3d_physics/layer_4="LR"
+3d_physics/layer_5="Grabbable"
+3d_physics/layer_6="NPC"
 
 [rendering]
 

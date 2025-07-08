@@ -11,10 +11,13 @@ signal changed_green(count: int)
 
 func _ready()->void:
 	await get_tree().process_frame
+	emit_signals()
+
+func emit_signals()->void:
 	changed_red.emit(count_red)
 	changed_green.emit(count_green)
 	changed_blue.emit(count_blue)
-	
+
 func add(value: int, groups: Array[StringName])->void:
 	match groups[0]:
 		"collectibles_red":
@@ -28,6 +31,22 @@ func add(value: int, groups: Array[StringName])->void:
 			changed_blue.emit(count_blue)
 
 func get_save_values()->void:
+	await get_tree().process_frame
 	count_red = owner.saves_handler.red_training_data_count
 	count_green = owner.saves_handler.green_training_data_count
 	count_blue = owner.saves_handler.blue_training_data_count
+	emit_signals()
+
+func reset_count()->void:
+	count_red = 0
+	count_green = 0
+	count_blue = 0
+	emit_signals()
+
+
+func _on_player_save_handler_td_changed(red: int, blue: int, green: int) -> void:
+	await get_tree().process_frame
+	count_red = red
+	count_green = green
+	count_blue = blue
+	emit_signals()

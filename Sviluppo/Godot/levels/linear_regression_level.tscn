@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://8gkv5w2oc67f"]
+[gd_scene load_steps=31 format=3 uid="uid://8gkv5w2oc67f"]
 
 [ext_resource type="Script" uid="uid://bm86smxd71gll" path="res://code/level/base_level.gd" id="1_5abim"]
 [ext_resource type="PackedScene" uid="uid://dyvffgfl5sxyh" path="res://ui/pause_menu.tscn" id="2_jj01n"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cuueswhjiqa3s" path="res://levels/assets/graph_point.tscn" id="6_fl2wk"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="7_24tvr"]
 [ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/lr_cannon.tscn" id="9_kb1fh"]
-[ext_resource type="Script" uid="uid://dvkg7rlnimt3p" path="res://code/saves/level_saves_handler.gd" id="10_imcpe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kb1fh"]
 size = Vector3(40, 10, 20)
@@ -283,9 +282,6 @@ load_level_path = "res://levels/hub_level.tscn"
 text = "BACK_TO_HUB"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="SavesHandler" type="Node" parent="."]
-script = ExtResource("10_imcpe")
 
 [connection signal="player_spawned" from="PlayerSpawn" to="." method="_on_player_spawn_player_spawned"]
 

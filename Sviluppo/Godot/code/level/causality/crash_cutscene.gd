@@ -1,2 +1,24 @@
 extends Node3D
 class_name CrashCutscene
+
+@onready var path_follow : PathFollow3D = $Path3D/PathFollow3D
+@onready var camera : Camera3D = $Camera3D
+@onready var timer : Timer = $Timer
+@onready var fade : FadeTransition = $Fade
+
+var player : Player
+
+func start(trigger: Player)->void:
+	player = trigger
+	player.change_state("Interact")
+	fade.play_fade()
+	await get_tree().create_timer(1.0).timeout
+	camera.current = true
+	fade.play_fade(true)
+	await get_tree().create_timer(1.0).timeout
+	path_follow.start(true)
+	timer.start()
+
+func _on_timer_timeout() -> void:
+	camera.current = false
+	player.change_state("Idle")

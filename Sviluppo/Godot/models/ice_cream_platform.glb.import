@@ -35,7 +35,7 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:ice_cream_platform": {
-"generate/physics": true
+"physics/layer": 33
 }
 }
 }

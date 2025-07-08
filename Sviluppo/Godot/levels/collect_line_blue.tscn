@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://ytqvklihm0pa"]
+
+[ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="1_68020"]
+
+[node name="CollectLine" type="Node3D"]
+
+[node name="TrainingData7" parent="." instance=ExtResource("1_68020")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="TrainingData8" parent="." instance=ExtResource("1_68020")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4, 0, 0)
+
+[node name="TrainingData6" parent="." instance=ExtResource("1_68020")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16, 0, 0)
+
+[node name="TrainingData10" parent="." instance=ExtResource("1_68020")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12, 0, 0)
+
+[node name="TrainingData9" parent="." instance=ExtResource("1_68020")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8, 0, 0)

@@ -1,6 +1,7 @@
 extends Node
 class_name CutsceneHandler
 
-func _on_ac_units_all_units_on() -> void:
-	pass # Replace with function body.
-	#play cutscene
+@onready var crash_cutscene : CrashCutscene = $CrashCutscene
+
+func _on_ac_units_all_units_on(player: Player) -> void:
+	crash_cutscene.start(player)

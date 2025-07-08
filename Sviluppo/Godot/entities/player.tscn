@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=28 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://l6t1uan5ppyr" path="res://entities/shadow_decal.tscn" id="17_8rie4"]
 [ext_resource type="PackedScene" uid="uid://bq5ldbsphh7ei" path="res://entities/Player/grab_area.tscn" id="18_dp3pk"]
 [ext_resource type="Script" uid="uid://b32ilixwbxmsw" path="res://code/ui/player_ui.gd" id="22_fruft"]
+[ext_resource type="Texture2D" uid="uid://b0m18wfd46ybp" path="res://ui/green_collectible_icon.png" id="25_slxql"]
+[ext_resource type="Texture2D" uid="uid://dgnf2ny0krebv" path="res://ui/blue_collectible_icon.png" id="26_evlff"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qly61"]
 radius = 0.2
@@ -31,7 +33,7 @@ height = 1.43323
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 17
+collision_mask = 49
 wall_min_slide_angle = 0.785398
 script = ExtResource("1_merdl")
 speed = 400.0
@@ -184,8 +186,8 @@ script = ExtResource("22_fruft")
 layout_mode = 1
 offset_left = 40.0
 offset_top = 20.0
-offset_right = 440.0
-offset_bottom = 70.0
+offset_right = 547.0
+offset_bottom = 64.0
 theme_override_constants/separation = 50
 
 [node name="RedCollectiblesContainer" parent="PlayerUI/HBoxContainer" instance=ExtResource("7_6nm46")]
@@ -194,16 +196,28 @@ layout_mode = 2
 [node name="GreenCollectiblesContainer" parent="PlayerUI/HBoxContainer" instance=ExtResource("7_6nm46")]
 layout_mode = 2
 
+[node name="TextureRect" parent="PlayerUI/HBoxContainer/GreenCollectiblesContainer/HBoxContainer" index="0"]
+texture = ExtResource("25_slxql")
+
 [node name="BlueCollectiblesContainer" parent="PlayerUI/HBoxContainer" instance=ExtResource("7_6nm46")]
 layout_mode = 2
 
+[node name="TextureRect" parent="PlayerUI/HBoxContainer/BlueCollectiblesContainer/HBoxContainer" index="0"]
+texture = ExtResource("26_evlff")
+
 [connection signal="body_entered" from="Model/GrabArea" to="Misc/GrabItem" method="set_grab_item"]
 [connection signal="body_exited" from="Model/GrabArea" to="Misc/GrabItem" method="exit_area"]
+[connection signal="changed_blue" from="Misc/Collectibles" to="Misc/PlayerSaveHandler" method="set_blue_training_data"]
 [connection signal="changed_blue" from="Misc/Collectibles" to="PlayerUI" method="_on_collectibles_changed_blue"]
+[connection signal="changed_green" from="Misc/Collectibles" to="Misc/PlayerSaveHandler" method="set_green_training_data"]
 [connection signal="changed_green" from="Misc/Collectibles" to="PlayerUI" method="_on_collectibles_changed_green"]
+[connection signal="changed_red" from="Misc/Collectibles" to="Misc/PlayerSaveHandler" method="set_red_training_data"]
 [connection signal="changed_red" from="Misc/Collectibles" to="PlayerUI" method="_on_collectibles_changed_red"]
+[connection signal="td_changed" from="Misc/PlayerSaveHandler" to="Misc/Collectibles" method="_on_player_save_handler_td_changed"]
 [connection signal="timeout" from="Misc/ParticleEmitter/RunDustTimer" to="Misc/ParticleEmitter" method="load_run_particles"]
 [connection signal="timeout" from="StateMachine/Grab/Timer" to="StateMachine/Grab" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Release/Timer" to="StateMachine/Release" method="_on_timer_timeout"]
 
 [editable path="Model"]
+[editable path="PlayerUI/HBoxContainer/GreenCollectiblesContainer"]
+[editable path="PlayerUI/HBoxContainer/BlueCollectiblesContainer"]

@@ -8,24 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="3_igo0y"]
 [ext_resource type="PackedScene" uid="uid://d3ppn5bikqm6q" path="res://levels/assets/causality/crash_cutscene.tscn" id="3_uagpx"]
 [ext_resource type="PackedScene" uid="uid://usclfa07kaag" path="res://models/seats.tscn" id="4_gp2lk"]
-[ext_resource type="Script" uid="uid://db8ne3re5o40l" path="res://code/level/causality/follow_npc.gd" id="4_vhuse"]
 [ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="5_qiam4"]
 [ext_resource type="PackedScene" uid="uid://bfj5eea2bvleu" path="res://models/ramp.glb" id="6_go4ui"]
 [ext_resource type="PackedScene" uid="uid://cvv11jv3xai6i" path="res://models/causality_surface.glb" id="9_my6ir"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="9_rn6iv"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="10_hv8js"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="11_my6ir"]
-
-[sub_resource type="Curve3D" id="Curve3D_04wc3"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.242546, 0, 0.227951, 0, 0, 0, 0, 0, 0, -1.8186, 0, 13.142, 0, 0, 0, 0, 0, 0, -2.06904, 0, 22.5812, 0.839857, 0, -1.97393, -0.839857, 0, 1.97393, -2.55669, 0, 30.6403, 0.438848, 0, -2.51345, -0.438848, 0, 2.51345, -11.8041, 0, 40.0861, 0, 0, 0, 0, 0, 0, -11.9484, 0, 52.0612),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svhef"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vhuse"]
+[ext_resource type="PackedScene" uid="uid://ytqvklihm0pa" path="res://levels/collect_line_blue.tscn" id="13_svhef"]
+[ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="15_gqdlx"]
+[ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="16_04wc3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
 size = Vector3(50, 30, 30)
@@ -102,7 +93,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0itir")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_svhef"]
+size = Vector3(364.952, 14.0747, 343.223)
+
 [node name="CausalityLevel" instance=ExtResource("1_kxjkn")]
+blue_collectibles = true
 
 [node name="CutsceneHandler" type="Node" parent="." index="0"]
 script = ExtResource("2_0djvo")
@@ -110,26 +105,8 @@ script = ExtResource("2_0djvo")
 [node name="CrashCutscene" parent="CutsceneHandler" index="0" instance=ExtResource("3_uagpx")]
 
 [node name="Camera3D" parent="CutsceneHandler/CrashCutscene" index="0"]
-transform = Transform3D(0.5, 0.224144, -0.836516, 1.13133e-08, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -44.6159, 16.9201, 0.684304)
-fov = 50.0
-
-[node name="Path3D" type="Path3D" parent="CutsceneHandler/CrashCutscene" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2254, 0, -41.7046)
-curve = SubResource("Curve3D_04wc3")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="CutsceneHandler/CrashCutscene/Path3D" index="0"]
-transform = Transform3D(-0.9875, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.9875, 0.242546, 0, 0.227951)
-
-[node name="MeshInstance3D" type="CharacterBody3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D" index="0"]
-transform = Transform3D(-0.9875, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.9875, -19.9828, 0, -41.4766)
-top_level = true
-script = ExtResource("4_vhuse")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D/MeshInstance3D" index="0"]
-shape = SubResource("CapsuleShape3D_svhef")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CutsceneHandler/CrashCutscene/Path3D/PathFollow3D/MeshInstance3D" index="1"]
-mesh = SubResource("CapsuleMesh_vhuse")
+transform = Transform3D(0.48786, 0.196365, -0.850549, 0, 0.97437, 0.224951, 0.872922, -0.109745, 0.475356, -47.3129, 10.5853, 0)
+fov = 45.0
 
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
@@ -144,22 +121,22 @@ mesh = SubResource("BoxMesh_igo0y")
 skeleton = NodePath("../../PlayerSpawn")
 
 [node name="ice_cream_platform2" parent="Models" index="2" instance=ExtResource("2_of2dn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.438774, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84, 0)
 
 [node name="Seats" parent="Models" index="3" instance=ExtResource("4_gp2lk")]
-transform = Transform3D(0.505825, 0, 0.120588, 0, 0.52, 0, -0.120588, 0, 0.505825, -36.6295, 0.0113964, 16.5751)
+transform = Transform3D(0.505825, 0, 0.120588, 0, 0.52, 0, -0.120588, 0, 0.505825, -36.6295, -0.409752, 16.5751)
 
 [node name="Seats2" parent="Models" index="4" instance=ExtResource("4_gp2lk")]
-transform = Transform3D(0.475441, 0, -0.210607, 0, 0.52, 0, 0.210607, 0, 0.475441, -38.2819, 0.0113964, 11.401)
+transform = Transform3D(0.475441, 0, -0.210607, 0, 0.52, 0, 0.210607, 0, 0.475441, -38.2819, -0.409752, 11.401)
 
 [node name="Seats3" parent="Models" index="5" instance=ExtResource("4_gp2lk")]
-transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.488497, -41.9892, 0.0113964, 16.0537)
+transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.488497, -41.9892, -0.409752, 16.0537)
 
 [node name="apartment" parent="Models" index="6" instance=ExtResource("5_qiam4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06821, 0)
 
 [node name="ice_cream_shop" parent="Models" index="7" instance=ExtResource("2_lumj3")]
-transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.224021, 15.8037)
+transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
 
 [node name="NPCDialogue" parent="Models/ice_cream_shop" index="3" instance=ExtResource("3_igo0y")]
 transform = Transform3D(0.0930357, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930357, 1.65248, 1.81199, -0.061039)
@@ -169,6 +146,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.11418
 
 [node name="causality_surface" parent="Models" index="9" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
+
+[node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
+transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693, -40.525, 0.3, -5.152)
+
+[node name="TrainingData" parent="Entities" index="1" instance=ExtResource("15_gqdlx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -35.5602, 0.3, 9.8231)
+
+[node name="TrainingData3" parent="Entities" index="2" instance=ExtResource("15_gqdlx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.5609, 0.3, 8.36346)
+
+[node name="TrainingData2" parent="Entities" index="3" instance=ExtResource("15_gqdlx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.0132, 0.3, 12.7345)
 
 [node name="DirectionalLight3D" parent="." index="4"]
 transform = Transform3D(-0.90257, -0.183316, 0.389568, 0.356228, 0.190213, 0.914834, -0.241804, 0.964476, -0.106378, 0, 2.06607, 2.43376)
@@ -180,7 +169,7 @@ environment = SubResource("Environment_kxjkn")
 visible = false
 
 [node name="PlayerSpawn" parent="." index="7"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -63.1853, 0, 11.6946)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.871, 7.8938, -37.3886)
 
 [node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -58.9737, -0.22402, 11.4385)
@@ -192,9 +181,17 @@ mesh = SubResource("ArrayMesh_0djvo")
 [node name="Label" parent="LevelTube/Control/VBoxContainer" index="0"]
 text = "BACK_TO_HUB"
 
+[node name="FallArea" parent="." index="10" instance=ExtResource("16_04wc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9097, 0)
+
+[node name="CollisionShape3D" parent="FallArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.53735, 0)
+shape = SubResource("BoxShape3D_svhef")
+
 [connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
 
 [editable path="CutsceneHandler/CrashCutscene"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
 [editable path="LevelTube/LevelTube/level_tube"]
+[editable path="FallArea"]

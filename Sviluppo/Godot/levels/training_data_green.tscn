@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlopl7bms2h4h"]
+
+[ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data.tscn" id="1_bb4rk"]
+
+[node name="TrainingData" groups=["collectibles_green"] instance=ExtResource("1_bb4rk")]
+
+[node name="Model" parent="." index="0"]
+transform = Transform3D(0.913575, 0, -0.406752, 0, 1, 0, 0.406752, 0, 0.913575, 0, 0, 0)

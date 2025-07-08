@@ -9,7 +9,13 @@ class_name Level
 @export var red_collectibles : bool = false
 @export var green_collectibles : bool = false
 @export var blue_collectibles : bool = false
+@export var reset_collectibles_on_load : bool = true
 
 func _on_player_spawn_player_spawned(player: Player) -> void:
 	await get_tree().process_frame
 	player.show_collectibles_count(red_collectibles,green_collectibles,blue_collectibles)
+	reset_collectibles(player)
+
+func reset_collectibles(player: Player)->void:
+	if reset_collectibles_on_load:
+		player.reset_collectibles_count()

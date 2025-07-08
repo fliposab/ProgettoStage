@@ -8,9 +8,3 @@ script = ExtResource("1_fdm1h")
 
 [node name="ACUnit" parent="." instance=ExtResource("1_668e2")]
 transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -27.6569, 7.30984, -35.628)
-
-[node name="ACUnit2" parent="." instance=ExtResource("1_668e2")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -16.942, 15.6344, -32.6404)
-
-[node name="ACUnit3" parent="." instance=ExtResource("1_668e2")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -5.39213, 7.58022, -29.2884)
