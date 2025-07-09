@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_qhoex"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_86gxt"]
 [ext_resource type="StyleBox" uid="uid://ccr5cwjb6e5x1" path="res://ui/styles/pause_buttons_style.tres" id="2_g5bqd"]
-[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="3_g5bqd"]
+[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/pause/main_menu_button.tscn" id="3_g5bqd"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="4_rcwxg"]
 
 [node name="PauseButtons" type="VBoxContainer"]

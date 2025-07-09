@@ -1,10 +1,11 @@
 extends InteractableArea
 class_name InteractableSign
 
-@onready var grid : Control = $Grid
+@onready var grid : Control = $SignUI
 var is_grid_open: bool = false
 
 signal focus_grid()
+signal hide_grid()
 signal unlock_dog(id: int)
 
 func _ready()->void:
@@ -37,4 +38,5 @@ func _on_go_back_button_pressed():
 	get_tree().paused = is_grid_open
 	player.change_state("Idle")
 	grid.hide()
+	hide_grid.emit()
 	ui.show()

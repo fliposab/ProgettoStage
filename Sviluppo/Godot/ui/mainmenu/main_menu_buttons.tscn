@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b5k44yo3pyuwd" path="res://code/ui/main_menu_buttons.gd" id="1_0daph"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="1_tadr4"]
-[ext_resource type="PackedScene" uid="uid://rnklxapul4vv" path="res://ui/MainMenu/load_game_button.tscn" id="2_aauem"]
+[ext_resource type="PackedScene" uid="uid://rnklxapul4vv" path="res://ui/mainmenu/load_game_button.tscn" id="2_aauem"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_shefl"]
 [ext_resource type="Script" uid="uid://byvx0mjcj74wt" path="res://code/ui/load_game_button.gd" id="3_hjwbw"]
-[ext_resource type="PackedScene" uid="uid://cwx3sk2na8hs6" path="res://ui/MainMenu/new_game_button.tscn" id="4_hjwbw"]
+[ext_resource type="PackedScene" uid="uid://cwx3sk2na8hs6" path="res://ui/mainmenu/new_game_button.tscn" id="4_hjwbw"]
 
 [node name="MainMenuButtons" type="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)

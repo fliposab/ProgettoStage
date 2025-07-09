@@ -22,6 +22,10 @@ config/icon="res://icon.svg"
 OptionsSaves="*res://code/saves/options_saves.gd"
 LevelsTransition="*res://levels/assets/level_transition.tscn"
 
+[display]
+
+window/max_fps=0
+
 [dotnet]
 
 project/assembly_name="ProgettoStage"

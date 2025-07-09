@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_stvng"]
 [ext_resource type="StyleBox" uid="uid://ccr5cwjb6e5x1" path="res://ui/styles/pause_buttons_style.tres" id="2_4auwg"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_yrbp4"]
-[ext_resource type="PackedScene" uid="uid://d20j4g3etcakh" path="res://ui/Pause/back_to_hub_level.tscn" id="3_4auwg"]
-[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/Pause/main_menu_button.tscn" id="3_mv45p"]
+[ext_resource type="PackedScene" uid="uid://d20j4g3etcakh" path="res://ui/pause/back_to_hub_level.tscn" id="3_4auwg"]
+[ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/pause/main_menu_button.tscn" id="3_mv45p"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="3_nc40a"]
 
 [node name="PauseButtons" type="VBoxContainer"]

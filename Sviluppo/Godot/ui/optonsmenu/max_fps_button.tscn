@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqlcgvv5xki45"]
 
-[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/OptionsMenu/options_check_button.tscn" id="1_7l5r8"]
-[ext_resource type="Script" uid="uid://df0tvuuokhakh" path="res://ui/OptionsMenu/max_fps_button.gd" id="2_oax2e"]
+[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/optonsmenu/options_check_button.tscn" id="1_7l5r8"]
+[ext_resource type="Script" uid="uid://df0tvuuokhakh" path="res://ui/optonsmenu/max_fps_button.gd" id="2_oax2e"]
 
 [node name="MaxFPS" instance=ExtResource("1_7l5r8")]
 script = ExtResource("2_oax2e")

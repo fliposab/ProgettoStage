@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvbuclv3w6omw"]
 
 [ext_resource type="Script" uid="uid://klrbnrm4uy3p" path="res://ui/open_options_button.gd" id="1_74j72"]
-[ext_resource type="PackedScene" uid="uid://w6eib3vcwsmx" path="res://ui/OptionsMenu/options_menu.tscn" id="2_dvroa"]
+[ext_resource type="PackedScene" uid="uid://w6eib3vcwsmx" path="res://ui/optonsmenu/options_menu.tscn" id="2_dvroa"]
 
 [node name="Options" type="Button"]
 mouse_filter = 2

@@ -1,9 +1,9 @@
 [gd_scene load_steps=40 format=3 uid="uid://bbtt36s8tq4n7"]
 
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="1_ogk5n"]
-[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/dog_breed_sign.gd" id="1_wiyaj"]
+[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_wiyaj"]
 [ext_resource type="Script" uid="uid://b4sncsxcr8pu0" path="res://code/ui/scroll_container.gd" id="3_iauig"]
-[ext_resource type="PackedScene" uid="uid://dengp2laclacr" path="res://ui/DogBreed/dog_breed_button.tscn" id="3_o2xmj"]
+[ext_resource type="PackedScene" uid="uid://dengp2laclacr" path="res://ui/dogBreed/dog_breed_button.tscn" id="3_o2xmj"]
 [ext_resource type="Script" uid="uid://cd0btltg2v4bf" path="res://code/ui/dog_breed_grid_container.gd" id="4_l8gk8"]
 [ext_resource type="Texture2D" uid="uid://520ojmg2nexf" path="res://models/materials/textures/australian_sheperd.png" id="5_7776e"]
 [ext_resource type="Texture2D" uid="uid://bypwwfw2tcnl6" path="res://models/materials/textures/german_sheperd.png" id="5_l8gk8"]
@@ -100,7 +100,7 @@ text = "E: READ_SIGN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Grid" type="Control" parent="."]
+[node name="SignUI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -109,7 +109,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Grid"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SignUI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -123,7 +123,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Grid/VBoxContainer"]
+[node name="Label" type="Label" parent="SignUI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -133,27 +133,27 @@ text = "DOG_BREED_DISCOVERED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Grid/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="SignUI/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_wiyaj")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Grid/VBoxContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="SignUI/VBoxContainer/PanelContainer"]
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 script = ExtResource("3_iauig")
 
-[node name="MarginContainer" type="MarginContainer" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="GridContainer" type="GridContainer" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/h_separation = 20
@@ -161,184 +161,184 @@ theme_override_constants/v_separation = 10
 columns = 4
 script = ExtResource("4_l8gk8")
 
-[node name="DogBreedButton" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "AUSTRALIAN_SHEPHERD"
 image_unlocked = ExtResource("5_7776e")
 image_locked = ExtResource("6_nr4mp")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton" index="1"]
 text = "AUSTRALIAN_SHEPHERD"
 
-[node name="DogBreedButton3" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton3" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "BEAGLE"
 image_unlocked = ExtResource("5_x5syu")
 image_locked = ExtResource("8_k3c1k")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3" index="0"]
 texture = ExtResource("5_x5syu")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3" index="1"]
 text = "BEAGLE"
 
-[node name="DogBreedButton4" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton4" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "GERMAN_SHEPERD"
 image_unlocked = ExtResource("6_htc0k")
 image_locked = ExtResource("10_iauig")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4" index="0"]
 texture = ExtResource("6_htc0k")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4" index="1"]
 text = "BORDER_COLLIE"
 
-[node name="DogBreedButton5" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton5" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "GERMAN_SHEPERD"
 image_unlocked = ExtResource("7_epwsr")
 image_locked = ExtResource("12_2wcn7")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5" index="0"]
 texture = ExtResource("7_epwsr")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5" index="1"]
 text = "BOSTON_TERRIER"
 
-[node name="DogBreedButton2" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton2" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "COCKER_SPANIEL"
 image_unlocked = ExtResource("8_epwsr")
 image_locked = ExtResource("14_pwqwt")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2" index="0"]
 texture = ExtResource("8_epwsr")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2" index="1"]
 text = "COCKER_SPANIEL"
 
-[node name="DogBreedButton6" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton6" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "CORGI"
 image_unlocked = ExtResource("9_afjo6")
 image_locked = ExtResource("16_xv2mq")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6" index="0"]
 texture = ExtResource("9_afjo6")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6" index="1"]
 text = "CORGI"
 
-[node name="DogBreedButton7" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton7" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "DASCHUND"
 image_unlocked = ExtResource("10_54ybr")
 image_locked = ExtResource("18_sewnb")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7" index="0"]
 texture = ExtResource("10_54ybr")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7" index="1"]
 text = "DASCHUND"
 
-[node name="DogBreedButton8" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton8" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "GERMAN_SHEPERD"
 image_unlocked = ExtResource("5_l8gk8")
 image_locked = ExtResource("20_aogq3")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8" index="0"]
 texture = ExtResource("5_l8gk8")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8" index="1"]
 text = "GERMAN_SHEPHERD"
 
-[node name="DogBreedButton9" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton9" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "GOLDEN_RETRIEVER"
 image_unlocked = ExtResource("12_qv08a")
 image_locked = ExtResource("22_du8fd")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9" index="0"]
 texture = ExtResource("12_qv08a")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9" index="1"]
 text = "GOLDEN_RETRIEVER"
 
-[node name="DogBreedButton10" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton10" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "HUSKY"
 image_unlocked = ExtResource("13_wej6e")
 image_locked = ExtResource("24_vpns3")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10" index="0"]
 texture = ExtResource("13_wej6e")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10" index="1"]
 text = "HUSKY"
 
-[node name="DogBreedButton11" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton11" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "POMERANIAN"
 image_unlocked = ExtResource("14_0k6qi")
 image_locked = ExtResource("26_r8k5b")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11" index="0"]
 texture = ExtResource("14_0k6qi")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11" index="1"]
 text = "POMERANIAN"
 
-[node name="DogBreedButton12" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton12" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "POODLE"
 image_unlocked = ExtResource("15_brujp")
 image_locked = ExtResource("28_86i5n")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12" index="0"]
 texture = ExtResource("15_brujp")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12" index="1"]
 text = "POODLE"
 
-[node name="DogBreedButton13" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton13" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "ROTTWEILER"
 image_unlocked = ExtResource("16_ftrul")
 image_locked = ExtResource("30_pakte")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13" index="0"]
 texture = ExtResource("16_ftrul")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13" index="1"]
 text = "ROTTWEILER"
 
-[node name="DogBreedButton14" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton14" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "SHIBA_INU"
 image_unlocked = ExtResource("17_wonpi")
 image_locked = ExtResource("32_7ydy0")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14" index="0"]
 texture = ExtResource("17_wonpi")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14" index="1"]
 text = "SHIBA_INU"
 
-[node name="DogBreedButton15" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
+[node name="DogBreedButton15" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
 breed_name = "SHIN_TZU"
 image_unlocked = ExtResource("18_65op3")
 image_locked = ExtResource("34_p30jv")
 
-[node name="TextureRect" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15" index="0"]
+[node name="TextureRect" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15" index="0"]
 texture = ExtResource("18_65op3")
 
-[node name="Label" parent="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15" index="1"]
+[node name="Label" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15" index="1"]
 text = "SHIN_TZU"
 
-[node name="Label2" type="Label" parent="Grid/VBoxContainer"]
+[node name="Label2" type="Label" parent="SignUI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -348,24 +348,24 @@ text = "Q: CLOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="focus_grid" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer" method="_on_dog_breed_sign_focus_grid"]
-[connection signal="focus_grid" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_focus_grid"]
-[connection signal="unlock_dog" from="." to="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_unlock_dog"]
+[connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/ScrollContainer" method="_on_dog_breed_sign_focus_grid"]
+[connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_focus_grid"]
+[connection signal="unlock_dog" from="." to="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_unlock_dog"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14"]
-[editable path="Grid/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14"]
+[editable path="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15"]

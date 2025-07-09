@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn8g46gcmx3fn"]
+
+[ext_resource type="Script" uid="uid://bnlv8xfrak0pj" path="res://code/ui/line_chart.gd" id="1_k635y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k635y"]
+
+[node name="LineChart" type="GridContainer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 15
+columns = 3
+script = ExtResource("1_k635y")
+line_color = Color(1, 0, 0, 1)
+bg_color = Color(1, 1, 1, 1)
+x_label = "DAYS"
+
+[node name="y_label" type="Label" parent="."]
+layout_mode = 2
+text = "y"
+label_settings = SubResource("LabelSettings_k635y")
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="y_ticks_container" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="line_container" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="placeholder" type="Control" parent="."]
+layout_mode = 2
+
+[node name="placeholder2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="x_ticks_container" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="placeholder3" type="Control" parent="."]
+layout_mode = 2
+
+[node name="placeholder4" type="Control" parent="."]
+layout_mode = 2
+
+[node name="x_label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1

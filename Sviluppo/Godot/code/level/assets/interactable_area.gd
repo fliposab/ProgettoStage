@@ -8,7 +8,7 @@ var player : Player
 
 func _ready()->void:
 	ui.hide()
-	
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if !body is Player:
 		return
@@ -26,7 +26,8 @@ func _input(event: InputEvent) -> void:
 	if is_inside and !(player.grab_item.can_grab_item() or\
 	player.grab_item.can_release_item())\
 	and player.get_current_state_name() != "Interact"\
-	and event.is_action_pressed("interact"):
+	and event.is_action_pressed("interact")\
+	and !get_tree().paused:
 		_on_interact_button_pressed()
 	elif event.is_action_pressed("interact_go_back") and \
 	is_inside and player.get_current_state_name() == "Interact":

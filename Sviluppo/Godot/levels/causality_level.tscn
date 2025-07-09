@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=26 format=4 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
 [ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="9_rn6iv"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="10_hv8js"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="11_my6ir"]
+[ext_resource type="PackedScene" uid="uid://cpbveoquej7pl" path="res://levels/assets/causality/graph_sign.tscn" id="11_xeixa"]
 [ext_resource type="PackedScene" uid="uid://ytqvklihm0pa" path="res://levels/collect_line_blue.tscn" id="13_svhef"]
 [ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="15_gqdlx"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="16_04wc3"]
@@ -111,6 +112,9 @@ fov = 45.0
 [node name="AreaStopFollow" parent="CutsceneHandler/CrashCutscene" index="1"]
 transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 18.7986)
 
+[node name="PathFollow3D" parent="CutsceneHandler/CrashCutscene/PathNPC" index="0"]
+transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, 0.242546, 0, 0.227951)
+
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
 [node name="ACUnit2" parent="ACUnits" index="1" instance=ExtResource("5_svhef")]
@@ -146,6 +150,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.11418
 
 [node name="causality_surface" parent="Models" index="8" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
+
+[node name="GraphSign" parent="Models" index="9" instance=ExtResource("11_xeixa")]
+transform = Transform3D(-0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, -0.994991, -24.4486, 1.59137, 9.67733)
 
 [node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
 transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693, -40.525, 0.3, -5.152)

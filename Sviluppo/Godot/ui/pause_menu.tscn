@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyvffgfl5sxyh"]
 
 [ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="1_50142"]
-[ext_resource type="PackedScene" uid="uid://om0xmc0ae5vd" path="res://ui/Pause/pause_buttons.tscn" id="2_ejwgg"]
+[ext_resource type="PackedScene" uid="uid://om0xmc0ae5vd" path="res://ui/pause/pause_buttons.tscn" id="2_ejwgg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ejwgg"]
 font_size = 82

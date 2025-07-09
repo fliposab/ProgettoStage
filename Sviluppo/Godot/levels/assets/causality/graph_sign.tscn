@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpbveoquej7pl"]
+
+[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_kxxn3"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_ixgx8"]
+[ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="3_kxxn3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ixgx8"]
+size = Vector3(4, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qpgnk"]
+size = Vector3(3.62109, 2.99829, 2.49079)
+
+[node name="GraphSign" type="Node3D"]
+process_mode = 3
+script = ExtResource("1_kxxn3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ixgx8")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.359895, 1.37114)
+shape = SubResource("BoxShape3D_qpgnk")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -23.0
+offset_right = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_ixgx8")
+text = "E: READ_SIGN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignUI" parent="." instance=ExtResource("3_kxxn3")]
+
+[connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/LineChart" method="draw_line_chart"]
+[connection signal="hide_grid" from="." to="SignUI/VBoxContainer/PanelContainer/LineChart" method="delete_line_chart"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="SignUI"]
