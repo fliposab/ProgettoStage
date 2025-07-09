@@ -3,6 +3,9 @@ class_name NPCModel
 
 var _target: Node3D
 
+func _ready()->void:
+	stop_talking()
+
 func start_talking(new_target: Node3D)->void:
 	_target = new_target
 	$AnimationPlayer.play("talk")

@@ -23,3 +23,9 @@ func model_area_entered():
 
 func model_area_exited():
 	_model.stop_waving()
+
+func reposition_camera(dialogue_started: bool)->void:
+	if dialogue_started:
+		player.reposition_camera(self)
+	else:
+		player.reposition_camera()

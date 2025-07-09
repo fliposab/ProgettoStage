@@ -73,10 +73,7 @@ func get_camera()->Camera3D:
 	return _camera
 
 func lock_camera(value: bool)->void:
-	if value:
-		_camera_raycast.process_mode = Node.PROCESS_MODE_DISABLED
-	else:
-		_camera_raycast.process_mode = Node.PROCESS_MODE_INHERIT
+	_camera_raycast.is_locked = value
 
 func face(object: Node3D)->void:
 	model.look_at(object.global_position)
@@ -94,3 +91,11 @@ func show_collectibles_count(red: bool, green: bool, blue: bool)->void:
 
 func reset_collectibles_count()->void:
 	_collectibles.reset_count()
+
+func reposition_camera(target = self) -> void:
+	if target is Player:
+		_camera_raycast.reset(true)
+		_ui.show()
+	elif target is NPC:
+		_camera_raycast.reposition_camera(target.global_position)
+		_ui.hide()

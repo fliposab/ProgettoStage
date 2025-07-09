@@ -1,6 +1,8 @@
 extends Control
 class_name DialogueBoxSimple
 
+var dialogue_handler : Dialogue
+
 func _ready()->void:
 	pass
 
@@ -15,4 +17,4 @@ func _input(event: InputEvent) -> void:
 		_on_interact_button_pressed()
 
 func _on_interact_button_pressed()->void:
-	owner.next_text()
+	dialogue_handler.next_text()

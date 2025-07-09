@@ -3,9 +3,10 @@ class_name FollowNPC
 
 @export_range(150,300) var speed : float = 200
 
+@onready var _anim_player: AnimationPlayer = $Model/AnimationPlayer
+
 var _is_following : bool = true
 var _stopped : bool = false
-@onready var _anim_player: AnimationPlayer = $Model/AnimationPlayer
 var direction : Vector3
 
 signal stopped_following(follow_npc: FollowNPC)

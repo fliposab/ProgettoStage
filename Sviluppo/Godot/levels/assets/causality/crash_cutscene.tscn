@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="4_7pag3"]
 [ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="5_uxx2u"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="6_bpixg"]
+[ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="7_bpixg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
@@ -53,9 +54,35 @@ one_shot = true
 transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
 
 [node name="NPCDialogue" parent="ice_cream_shop" instance=ExtResource("6_bpixg")]
-transform = Transform3D(0.0930357, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930357, 1.65248, 1.81199, -0.061039)
+transform = Transform3D(0.0930356, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930356, 1.65248, 1.81199, -0.061039)
+
+[node name="Dialogue" parent="ice_cream_shop/NPCDialogue" index="4"]
+offset_left = 100.0
+offset_right = -100.0
+offset_bottom = 294.0
+size_flags_vertical = 3
+
+[node name="Text1" parent="ice_cream_shop/NPCDialogue/Dialogue" index="0"]
+visible = false
+text = "ICE_CREAM_TEXT_1"
+
+[node name="Text2" parent="ice_cream_shop/NPCDialogue/Dialogue" index="1"]
+visible = false
+text = "ICE_CREAM_TEXT_2"
+
+[node name="Text3" parent="ice_cream_shop/NPCDialogue/Dialogue" index="2" instance=ExtResource("7_bpixg")]
+layout_mode = 1
+text = "ICE_CREAM_TEXT_3"
+
+[node name="Text4" parent="ice_cream_shop/NPCDialogue/Dialogue" index="3" instance=ExtResource("7_bpixg")]
+visible = false
+layout_mode = 1
+text = "ICE_CREAM_TEXT_4"
 
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="PathNPC"]
+[editable path="ice_cream_shop/NPCDialogue"]
+[editable path="ice_cream_shop/NPCDialogue/Dialogue"]
+[editable path="ice_cream_shop/NPCDialogue/Model"]

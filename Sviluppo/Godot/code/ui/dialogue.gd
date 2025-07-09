@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name Dialogue
 
 var index : int = 0
@@ -10,6 +10,7 @@ func _ready()->void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
 func start_dialogue()->void:
+	reposition_camera(true)
 	process_mode = Node.PROCESS_MODE_INHERIT
 	index = 0
 	get_child(index).show_text_box()
@@ -18,6 +19,7 @@ func hide_all()->void:
 	index = 0
 	for i in get_child_count():
 		get_child(i).hide_text_box()
+		get_child(i).dialogue_handler = self
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func next_text()->void:
@@ -29,9 +31,13 @@ func next_text()->void:
 		get_child(index).show_text_box()
 
 func end_dialogue():
+	reposition_camera(false)
 	dialogue_ended.emit()
 	hide_all()
 
 func add_text_box(text_box: DialogueBoxSimple)->void:
 	add_child(text_box)
 	text_box.set_owner(self)
+
+func reposition_camera(dialogue_started: bool)->void:
+	owner.reposition_camera(dialogue_started)

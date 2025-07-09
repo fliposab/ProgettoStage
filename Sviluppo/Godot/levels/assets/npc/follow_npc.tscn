@@ -14,7 +14,7 @@ wall_min_slide_angle = 0.785398
 script = ExtResource("1_hn3pn")
 
 [node name="Model" parent="." instance=ExtResource("2_swiuw")]
-transform = Transform3D(-0.17, 0, -1.48619e-08, 0, 0.17, 0, 1.48619e-08, 0, -0.17, 0, 0, 0)
+transform = Transform3D(-0.15, 0, -2.26494e-08, 0, 0.15, 0, 2.26494e-08, 0, -0.15, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Model/Armature" index="0"]
 bones/1/position = Vector3(0, 4.03612, 0)
@@ -23,7 +23,6 @@ bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
 bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
 bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
 bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
 bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
 bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)

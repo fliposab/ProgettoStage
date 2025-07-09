@@ -5,6 +5,8 @@ class_name NPC
 @onready var ui_position : Marker3D = $UIPosition
 @onready var _model : NPCModel = $Model
 
+@export var talk_on_enter : bool = true
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if !body is Player:
 		return
@@ -21,7 +23,9 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	model_area_exited()
 
 func model_area_entered():
-	_model.start_talking(player)
+	if talk_on_enter:
+		_model.start_talking(player)
 
 func model_area_exited():
-	_model.stop_talking()
+	if talk_on_enter:
+		_model.stop_talking()
