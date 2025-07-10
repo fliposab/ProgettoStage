@@ -9,7 +9,10 @@ class_name CrashCutscene
 
 var player : Player
 
+signal start_cutscene()
+
 func start(trigger: Player)->void:
+	start_cutscene.emit()
 	player = trigger
 	player.change_state("Interact")
 	fade.play_fade()

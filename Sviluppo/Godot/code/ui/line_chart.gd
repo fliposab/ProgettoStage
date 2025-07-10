@@ -25,7 +25,7 @@ var line_rect_height
 var line_rect_x
 var line_rect_y
 
-var data = [
+@export var data = [
 	{'x': 1, 'y':25},
 	{'x': 2, 'y':36},
 	{'x': 3, 'y':30},
@@ -107,6 +107,8 @@ func draw_line_chart()->void:
 		line.add_point(Vector2(scaled_x, scaled_y))
 	
 func delete_line_chart()->void:
+	if !$line_container.get_child(0):
+		return
 	$line_container.get_child(0).queue_free()
 	for i in range(x_ticks):
 		$x_ticks_container.get_child(i).queue_free()

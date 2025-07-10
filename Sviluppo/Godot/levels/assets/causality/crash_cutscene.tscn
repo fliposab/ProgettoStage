@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=21 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -7,9 +7,40 @@
 [ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="5_uxx2u"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="6_bpixg"]
 [ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="7_bpixg"]
+[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="8_580fp"]
+[ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="8_w0vt1"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="9_0nrrl"]
+[ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="11_7pcub"]
+[ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
+[ext_resource type="PackedScene" uid="uid://dhuv5joel51jw" path="res://models/shop_sign.glb" id="13_iq6f3"]
+[ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
+[ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_npc_behaviour.gd" id="15_0nrrl"]
+[ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
+size = Vector3(4.83423, 3.91901, 4.24918)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_580fp"]
+content_margin_left = 70.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 30.0
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25nk2"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
 
 [node name="CrashCutscene" type="Node3D"]
 script = ExtResource("1_l1q60")
@@ -49,6 +80,7 @@ wait_time = 8.0
 one_shot = true
 
 [node name="Fade" parent="." instance=ExtResource("4_7pag3")]
+visible = false
 
 [node name="ice_cream_shop" parent="." instance=ExtResource("5_uxx2u")]
 transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
@@ -79,10 +111,187 @@ visible = false
 layout_mode = 1
 text = "ICE_CREAM_TEXT_4"
 
+[node name="GraphSign" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(-0.553721, 0, -0.231071, 0, 0.6, 0, 0.231071, 0, -0.553721, -12.5653, -0.645169, 21.1023)
+script = ExtResource("8_580fp")
+
+[node name="Area3D" type="Area3D" parent="GraphSign"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GraphSign/Area3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 7.62939e-06, 1.90149, 2.8136)
+shape = SubResource("BoxShape3D_2ngro")
+
+[node name="Control" type="Control" parent="GraphSign"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="GraphSign/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -23.0
+offset_right = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("9_0nrrl")
+text = "E: READ_SIGN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignUI" type="Control" parent="GraphSign"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_7pcub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphSign/SignUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 76.0
+offset_right = -64.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="GraphSign/SignUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_580fp")
+
+[node name="Label" type="Label" parent="GraphSign/SignUI/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "GRAPH_NOT_YET_AVAILABLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GraphSign/SignUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_25nk2")
+text = "Q: CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shop_sign" parent="GraphSign" instance=ExtResource("13_iq6f3")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+visible = false
+
+[node name="sign" parent="GraphSign" instance=ExtResource("8_w0vt1")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 0, 0)
+
+[node name="ReplaceUI" type="Node" parent="GraphSign"]
+script = ExtResource("14_0nrrl")
+
+[node name="SignUI" type="Control" parent="GraphSign/ReplaceUI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Chart" parent="GraphSign/ReplaceUI/SignUI" instance=ExtResource("12_8643j")]
+layout_mode = 1
+
+[node name="NPCDialogue" parent="." instance=ExtResource("6_bpixg")]
+transform = Transform3D(-0.672393, 0, 0.740195, 0, 1, 0, -0.740195, 0, -0.672393, -7.18988, -0.408628, 17.0667)
+turn_on_talking = false
+talk_on_enter = false
+
+[node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
+text = "SCIENTIST_BUSY_TEXT_1"
+
+[node name="Text2" parent="NPCDialogue/Dialogue" index="1"]
+text = "SCIENTIST_BUSY_TEXT_2"
+
+[node name="Skeleton3D" parent="NPCDialogue/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.09728, 0)
+bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
+bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
+bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
+bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
+bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
+bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
+bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
+bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
+bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
+bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
+bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
+bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
+bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
+bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
+bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
+bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
+bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
+bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
+bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
+bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
+bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
+bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
+bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
+bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
+
+[node name="ChangeNPCBehaviour" type="Node" parent="NPCDialogue"]
+script = ExtResource("15_0nrrl")
+
+[node name="NewDialogue" parent="NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 27.0
+offset_right = -44.0
+grow_vertical = 2
+
+[node name="Text1" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" index="0"]
+text = "SCIENTIST_FREE_TEXT_1"
+
+[node name="Text2" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
+layout_mode = 1
+text = "SCIENTIST_FREE_TEXT_2"
+
+[connection signal="start_cutscene" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_exited"]
+[connection signal="visibility_changed" from="GraphSign/SignUI" to="GraphSign/SignUI" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="GraphSign/ReplaceUI/SignUI" to="GraphSign/ReplaceUI/SignUI" method="_on_visibility_changed"]
+[connection signal="dialogue_ended" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="NPCDialogue" method="_on_dialogue_dialogue_ended"]
 
 [editable path="PathNPC"]
 [editable path="ice_cream_shop/NPCDialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
+[editable path="GraphSign/ReplaceUI/SignUI/Chart"]
+[editable path="NPCDialogue"]
+[editable path="NPCDialogue/Dialogue"]
+[editable path="NPCDialogue/Model"]
+[editable path="NPCDialogue/ChangeNPCBehaviour/NewDialogue"]

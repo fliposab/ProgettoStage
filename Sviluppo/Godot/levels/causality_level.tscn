@@ -1,14 +1,18 @@
-[gd_scene load_steps=26 format=4 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=31 format=4 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
 [ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
 [ext_resource type="PackedScene" uid="uid://b6u87rpxcijog" path="res://levels/assets/causality/ac_units.tscn" id="2_my6ir"]
 [ext_resource type="PackedScene" uid="uid://ry4u0yoliawx" path="res://models/ice_cream_platform.glb" id="2_of2dn"]
 [ext_resource type="PackedScene" uid="uid://d3ppn5bikqm6q" path="res://levels/assets/causality/crash_cutscene.tscn" id="3_uagpx"]
+[ext_resource type="PackedScene" uid="uid://bip1gy7b470k2" path="res://models/weather_station.glb" id="4_6tdpp"]
 [ext_resource type="PackedScene" uid="uid://usclfa07kaag" path="res://models/seats.tscn" id="4_gp2lk"]
 [ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="5_qiam4"]
 [ext_resource type="PackedScene" uid="uid://dddi4bepfh0lv" path="res://levels/assets/ac_unit.tscn" id="5_svhef"]
+[ext_resource type="PackedScene" uid="uid://baanuesu0vfne" path="res://models/weather_box.glb" id="6_a4abp"]
 [ext_resource type="PackedScene" uid="uid://bfj5eea2bvleu" path="res://models/ramp.glb" id="6_go4ui"]
+[ext_resource type="PackedScene" uid="uid://dx1hm04mo5max" path="res://models/fence.glb" id="7_a46fx"]
+[ext_resource type="PackedScene" uid="uid://oltnrron4554" path="res://models/solar_panel.glb" id="8_a4abp"]
 [ext_resource type="PackedScene" uid="uid://cvv11jv3xai6i" path="res://models/causality_surface.glb" id="9_my6ir"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="9_rn6iv"]
 [ext_resource type="Material" uid="uid://b3qevcc65sgto" path="res://models/materials/blue.tres" id="10_hv8js"]
@@ -18,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="15_gqdlx"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="16_04wc3"]
 [ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="17_svhef"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_agde1"]
+size = Vector3(4.98828, 3.84131, 5.55066)
 
 [sub_resource type="BoxMesh" id="BoxMesh_igo0y"]
 size = Vector3(50, 30, 30)
@@ -112,8 +119,70 @@ fov = 45.0
 [node name="AreaStopFollow" parent="CutsceneHandler/CrashCutscene" index="1"]
 transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 18.7986)
 
-[node name="PathFollow3D" parent="CutsceneHandler/CrashCutscene/PathNPC" index="0"]
-transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, 0.242546, 0, 0.227951)
+[node name="CollisionShape3D" parent="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 1.42065, 2.27533)
+shape = SubResource("BoxShape3D_agde1")
+
+[node name="Skeleton3D" parent="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.09728, 0)
+bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
+bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
+bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
+bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
+bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
+bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
+bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
+bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
+bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
+bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
+bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
+bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
+bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
+bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
+bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
+bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
+bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
+bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
+bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
+bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
+bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
+bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
+bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
+bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
+
+[node name="weather_station" parent="CutsceneHandler/CrashCutscene" index="6" instance=ExtResource("4_6tdpp")]
+transform = Transform3D(0.524811, 0, -0.463221, 0, 0.7, 0, 0.463221, 0, 0.524811, -5.10476, -0.404512, 19.187)
+
+[node name="weather_box" parent="CutsceneHandler/CrashCutscene" index="7" instance=ExtResource("6_a4abp")]
+transform = Transform3D(0.491959, 0, 0.343476, 0, 0.6, 0, -0.343476, 0, 0.491959, -5.10476, -0.404512, 14.45)
+
+[node name="fence" parent="CutsceneHandler/CrashCutscene" index="8" instance=ExtResource("7_a46fx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.60988, -0.526479, 19.3217)
+
+[node name="fence4" parent="CutsceneHandler/CrashCutscene" index="9" instance=ExtResource("7_a46fx")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.98016, -0.526479, 23.2327)
+
+[node name="fence2" parent="CutsceneHandler/CrashCutscene" index="10" instance=ExtResource("7_a46fx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.60988, -0.526479, 8.81313)
+
+[node name="fence3" parent="CutsceneHandler/CrashCutscene" index="11" instance=ExtResource("7_a46fx")]
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.62641, -0.526479, 4.81631)
+
+[node name="fence5" parent="CutsceneHandler/CrashCutscene" index="12" instance=ExtResource("7_a46fx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -16.2593, -0.526479, 18.7111)
+
+[node name="solar_panel" parent="CutsceneHandler/CrashCutscene" index="13" instance=ExtResource("8_a4abp")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -4.48286, -0.411654, 7.51137)
+
+[node name="solar_panel2" parent="CutsceneHandler/CrashCutscene" index="14" instance=ExtResource("8_a4abp")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.07753, -0.411654, 7.51137)
+
+[node name="solar_panel3" parent="CutsceneHandler/CrashCutscene" index="15" instance=ExtResource("8_a4abp")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -11.8132, -0.411654, 7.51137)
 
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
@@ -151,9 +220,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.11418
 [node name="causality_surface" parent="Models" index="8" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
 
-[node name="GraphSign" parent="Models" index="9" instance=ExtResource("11_xeixa")]
-transform = Transform3D(-0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, -0.994991, -24.4486, 1.59137, 9.67733)
-
 [node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
 transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693, -40.525, 0.3, -5.152)
 
@@ -166,8 +232,13 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.5609, 0.3, 8.36346)
 [node name="TrainingData2" parent="Entities" index="3" instance=ExtResource("15_gqdlx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.0132, 0.3, 12.7345)
 
+[node name="GraphSign" parent="Entities" index="4" instance=ExtResource("11_xeixa")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -26.254, 0.471577, 14.789)
+
 [node name="DirectionalLight3D" parent="." index="4"]
-transform = Transform3D(-0.90257, -0.183316, 0.389568, 0.356228, 0.190213, 0.914834, -0.241804, 0.964476, -0.106378, 0, 2.06607, 2.43376)
+transform = Transform3D(-0.970035, -0.237594, 0.050808, 0.0232557, 0.117361, 0.992817, -0.24185, 0.964249, -0.108319, 0, 2.06607, 2.43376)
+shadow_normal_bias = 0.0
+shadow_opacity = 0.4
 
 [node name="WorldEnvironment" parent="." index="5"]
 environment = SubResource("Environment_kxjkn")
@@ -179,7 +250,7 @@ visible = false
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.871, 7.8938, 7.31717)
 
 [node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -58.9737, -0.22402, 11.4385)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.4529, -0.22402, 11.4385)
 load_level_path = "res://levels/hub_level.tscn"
 
 [node name="tube" parent="LevelTube/LevelTube/level_tube" index="0"]
@@ -202,12 +273,36 @@ talk_on_enter = false
 [node name="Label" parent="NPC/Control" index="0"]
 text = "HOT_TEXT_1"
 
-[node name="NPC2" parent="." index="12" instance=ExtResource("17_svhef")]
-transform = Transform3D(-0.625447, 0, -0.780267, 0, 1, 0, 0.780267, 0, -0.625447, -40.14, -0.40863, 18.4927)
-talk_on_enter = false
-
-[node name="Label" parent="NPC2/Control" index="0"]
-text = "HOT_TEXT_2"
+[node name="Skeleton3D" parent="NPC/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.09728, 0)
+bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
+bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
+bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
+bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
+bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
+bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
+bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
+bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
+bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
+bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
+bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
+bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
+bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
+bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
+bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
+bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
+bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
+bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
+bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
+bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
+bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
+bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
+bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
+bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
 
 [connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
 
@@ -216,6 +311,11 @@ text = "HOT_TEXT_2"
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue"]
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Model"]
+[editable path="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/SignUI/Chart"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue/Dialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue/Model"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
 [editable path="ACUnits"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
@@ -223,5 +323,3 @@ text = "HOT_TEXT_2"
 [editable path="FallArea"]
 [editable path="NPC"]
 [editable path="NPC/Model"]
-[editable path="NPC2"]
-[editable path="NPC2/Model"]

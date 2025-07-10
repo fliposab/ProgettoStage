@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvv11jv3xai6i"
-path="res://.godot/imported/causality_surface.glb-cff453c2eda403f37784fb0953fe7580.scn"
+uid="uid://dhuv5joel51jw"
+path="res://.godot/imported/shop_sign.glb-c816208d0f2fec442ab7010d301516fc.scn"
 
 [deps]
 
-source_file="res://models/causality_surface.glb"
-dest_files=["res://.godot/imported/causality_surface.glb-cff453c2eda403f37784fb0953fe7580.scn"]
+source_file="res://models/shop_sign.glb"
+dest_files=["res://.godot/imported/shop_sign.glb-c816208d0f2fec442ab7010d301516fc.scn"]
 
 [params]
 
@@ -32,12 +32,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Cube_005": {
-"generate/physics": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

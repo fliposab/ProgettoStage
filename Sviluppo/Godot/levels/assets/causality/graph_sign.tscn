@@ -1,28 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpbveoquej7pl"]
+[gd_scene load_steps=10 format=3 uid="uid://cpbveoquej7pl"]
 
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_kxxn3"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_ixgx8"]
+[ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="3_2ngro"]
+[ext_resource type="Script" uid="uid://3wmyuixtlxy3" path="res://code/ui/arrows_ui.gd" id="3_ekt7a"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="3_kxxn3"]
+[ext_resource type="PackedScene" uid="uid://dhuv5joel51jw" path="res://models/shop_sign.glb" id="4_qpgnk"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_ixgx8"]
-size = Vector3(4, 4, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
+size = Vector3(4.83423, 3.91901, 4.24918)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qpgnk"]
-size = Vector3(3.62109, 2.99829, 2.49079)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ngro"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekt7a"]
+font_size = 72
+font_color = Color(0, 0, 0, 1)
 
 [node name="GraphSign" type="Node3D"]
 process_mode = 3
 script = ExtResource("1_kxxn3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_ixgx8")
-
 [node name="Area3D" type="Area3D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.359895, 1.37114)
-shape = SubResource("BoxShape3D_qpgnk")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15884, 2.48067)
+shape = SubResource("BoxShape3D_2ngro")
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -53,11 +57,103 @@ text = "E: READ_SIGN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SignUI" parent="." instance=ExtResource("3_kxxn3")]
+[node name="Arrows" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_ekt7a")
 
-[connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/LineChart" method="draw_line_chart"]
-[connection signal="hide_grid" from="." to="SignUI/VBoxContainer/PanelContainer/LineChart" method="delete_line_chart"]
+[node name="Left" type="Label" parent="Arrows"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -49.5
+offset_right = 74.0
+offset_bottom = 49.5
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ngro")
+text = "<"
+label_settings = SubResource("LabelSettings_ekt7a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Label" parent="Arrows"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -72.17
+offset_top = -49.5
+offset_right = -12.17
+offset_bottom = 49.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ngro")
+text = ">"
+label_settings = SubResource("LabelSettings_ekt7a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_2ngro")
+
+[node name="Chart" parent="SignUI" instance=ExtResource("3_kxxn3")]
+layout_mode = 1
+
+[node name="Chart2" parent="SignUI" instance=ExtResource("3_kxxn3")]
+layout_mode = 1
+
+[node name="Label" parent="SignUI/Chart2/VBoxContainer" index="0"]
+text = "AIR_CONDITIONING_USE"
+
+[node name="LineChart" parent="SignUI/Chart2/VBoxContainer/PanelContainer" index="0"]
+data = [{
+"x": 1,
+"y": 21
+}, {
+"x": 2,
+"y": 31
+}, {
+"x": 3,
+"y": 26
+}, {
+"x": 4,
+"y": 35
+}, {
+"x": 5,
+"y": 32
+}, {
+"x": 6,
+"y": 31
+}, {
+"x": 7,
+"y": 33
+}]
+
+[node name="YLabel" parent="SignUI/Chart2" index="1"]
+text = "USE_OF_AIR_CONDITIONERS"
+
+[node name="shop_sign" parent="." instance=ExtResource("4_qpgnk")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[connection signal="focus_grid" from="." to="Arrows" method="_on_graph_sign_focus_grid"]
+[connection signal="hide_grid" from="." to="Arrows" method="_on_graph_sign_hide_grid"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="visibility_changed" from="SignUI" to="SignUI" method="_on_visibility_changed"]
 
-[editable path="SignUI"]
+[editable path="SignUI/Chart"]
+[editable path="SignUI/Chart2"]

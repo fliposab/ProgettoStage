@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvv11jv3xai6i"
-path="res://.godot/imported/causality_surface.glb-cff453c2eda403f37784fb0953fe7580.scn"
+uid="uid://dx1hm04mo5max"
+path="res://.godot/imported/fence.glb-c6c668d695330cc80f850615d91adddd.scn"
 
 [deps]
 
-source_file="res://models/causality_surface.glb"
-dest_files=["res://.godot/imported/causality_surface.glb-cff453c2eda403f37784fb0953fe7580.scn"]
+source_file="res://models/fence.glb"
+dest_files=["res://.godot/imported/fence.glb-c6c668d695330cc80f850615d91adddd.scn"]
 
 [params]
 
@@ -34,8 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cube_005": {
-"generate/physics": true
+"PATH:Cube_008": {
+"generate/physics": true,
+"physics/shape_type": 0
 }
 }
 }

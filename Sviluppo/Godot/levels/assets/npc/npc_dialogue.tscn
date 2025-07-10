@@ -11,6 +11,7 @@ height = 1.5246
 
 [node name="NPCDialogue" instance=ExtResource("1_l735k")]
 script = ExtResource("2_adou1")
+turn_on_talking = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
@@ -25,6 +26,12 @@ text = "E: TALK"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19066, 0)
 
 [node name="Dialogue" parent="." index="4" instance=ExtResource("3_iroik")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 27.0
+offset_right = -44.0
+grow_vertical = 2
 
 [node name="Text1" parent="Dialogue" index="0"]
 text = "ICE_CREAM_MESSAGE_1"
