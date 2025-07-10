@@ -10,9 +10,12 @@ class_name CrashCutscene
 var player : Player
 
 signal start_cutscene()
+signal save_dialogue()
 
-func start(trigger: Player)->void:
+func start(trigger: Player, play_cutscene: bool)->void:
 	start_cutscene.emit()
+	if !play_cutscene:
+		return
 	player = trigger
 	player.change_state("Interact")
 	fade.play_fade()
@@ -26,3 +29,6 @@ func start(trigger: Player)->void:
 func _on_timer_timeout() -> void:
 	camera.current = false
 	player.change_state("Idle")
+
+func _on_correct_option_selected() -> void:
+	save_dialogue.emit()

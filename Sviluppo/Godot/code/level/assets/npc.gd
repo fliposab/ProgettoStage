@@ -1,7 +1,7 @@
 extends InteractableArea
 class_name NPC
 
-@onready var _ui : Control = $Control
+#@onready var _ui : Control = $Control
 @onready var ui_position : Marker3D = $UIPosition
 @onready var _model : NPCModel = $Model
 
@@ -29,3 +29,7 @@ func model_area_entered():
 func model_area_exited():
 	if talk_on_enter:
 		_model.stop_talking()
+
+func connect_signals()->void:
+	area.body_entered.connect(ui.on_area_3d_body_entered)
+	area.body_entered.connect(ui.on_area_3d_body_exited)

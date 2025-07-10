@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=34 format=4 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
 [ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
@@ -20,8 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://cpbveoquej7pl" path="res://levels/assets/causality/graph_sign.tscn" id="11_xeixa"]
 [ext_resource type="PackedScene" uid="uid://ytqvklihm0pa" path="res://levels/collect_line_blue.tscn" id="13_svhef"]
 [ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="15_gqdlx"]
+[ext_resource type="PackedScene" uid="uid://44vm47eguikx" path="res://models/umbrella.glb" id="15_qp7vt"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="16_04wc3"]
 [ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="17_svhef"]
+[ext_resource type="Script" uid="uid://c3cse3mpyxpji" path="res://levels/causality_saves.gd" id="19_a4abp"]
+[ext_resource type="Script" uid="uid://c60cp56npybko" path="res://code/saves/causality_saves_handler.gd" id="19_a46fx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agde1"]
 size = Vector3(4.98828, 3.84131, 5.55066)
@@ -30,11 +33,11 @@ size = Vector3(4.98828, 3.84131, 5.55066)
 size = Vector3(50, 30, 30)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
-sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
-sky_horizon_color = Color(0.839186, 0.601855, 0.300063, 1)
+sky_top_color = Color(0.194204, 0.585754, 0.7575, 1)
+sky_horizon_color = Color(0.412677, 0.690523, 0.866659, 1)
 sky_curve = 0.0477961
 ground_bottom_color = Color(0.581033, 0.581033, 0.581033, 1)
-ground_horizon_color = Color(0.959916, 0.52495, 0.147801, 1)
+ground_horizon_color = Color(0.411765, 0.690196, 0.866667, 1)
 
 [sub_resource type="Sky" id="Sky_x25rp"]
 sky_material = SubResource("ProceduralSkyMaterial_46lwt")
@@ -161,16 +164,16 @@ transform = Transform3D(0.524811, 0, -0.463221, 0, 0.7, 0, 0.463221, 0, 0.524811
 transform = Transform3D(0.491959, 0, 0.343476, 0, 0.6, 0, -0.343476, 0, 0.491959, -5.10476, -0.404512, 14.45)
 
 [node name="fence" parent="CutsceneHandler/CrashCutscene" index="8" instance=ExtResource("7_a46fx")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.60988, -0.526479, 19.3217)
+transform = Transform3D(-0.4, 0, 3.49691e-08, 0, 0.4, 0, -3.49691e-08, 0, -0.4, -1.60988, -0.526479, 19.3217)
 
 [node name="fence4" parent="CutsceneHandler/CrashCutscene" index="9" instance=ExtResource("7_a46fx")]
-transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.98016, -0.526479, 23.2327)
+transform = Transform3D(5.24537e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, 5.24537e-08, -8.98016, -0.526479, 23.8004)
 
 [node name="fence2" parent="CutsceneHandler/CrashCutscene" index="10" instance=ExtResource("7_a46fx")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -1.60988, -0.526479, 8.81313)
+transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -1.60988, -0.526479, 8.81313)
 
 [node name="fence3" parent="CutsceneHandler/CrashCutscene" index="11" instance=ExtResource("7_a46fx")]
-transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.62641, -0.526479, 4.81631)
+transform = Transform3D(-1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, -8.62641, -0.526479, 4.61088)
 
 [node name="fence5" parent="CutsceneHandler/CrashCutscene" index="12" instance=ExtResource("7_a46fx")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -16.2593, -0.526479, 18.7111)
@@ -183,6 +186,37 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.07753, -0.411654, 7.
 
 [node name="solar_panel3" parent="CutsceneHandler/CrashCutscene" index="15" instance=ExtResource("8_a4abp")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -11.8132, -0.411654, 7.51137)
+
+[node name="Skeleton3D" parent="CutsceneHandler/CrashCutscene/NPCDialogue/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.09728, 0)
+bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
+bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
+bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
+bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
+bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
+bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
+bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
+bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
+bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
+bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
+bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
+bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
+bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
+bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
+bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
+bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
+bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
+bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
+bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
+bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
+bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
+bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
+bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
+bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
 
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
@@ -203,10 +237,10 @@ skeleton = NodePath("../../PlayerSpawn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84, 0)
 
 [node name="Seats" parent="Models" index="3" instance=ExtResource("4_gp2lk")]
-transform = Transform3D(0.505825, 0, 0.120588, 0, 0.52, 0, -0.120588, 0, 0.505825, -36.6295, -0.409752, 16.5751)
+transform = Transform3D(0.505825, 0, 0.120588, 0, 0.52, 0, -0.120588, 0, 0.505825, -37.0056, -0.409752, 18.4444)
 
 [node name="Seats2" parent="Models" index="4" instance=ExtResource("4_gp2lk")]
-transform = Transform3D(0.475441, 0, -0.210607, 0, 0.52, 0, 0.210607, 0, 0.475441, -38.2819, -0.409752, 11.401)
+transform = Transform3D(0.475441, 0, -0.210607, 0, 0.52, 0, 0.210607, 0, 0.475441, -37.0789, -0.409752, 12.7733)
 
 [node name="Seats3" parent="Models" index="5" instance=ExtResource("4_gp2lk")]
 transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.488497, -41.9892, -0.409752, 16.0537)
@@ -214,11 +248,23 @@ transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.48849
 [node name="apartment" parent="Models" index="6" instance=ExtResource("5_qiam4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06821, 0)
 
+[node name="Cube" parent="Models/apartment" index="0"]
+visible = false
+
+[node name="Cube_001" parent="Models/apartment" index="1"]
+visible = false
+
 [node name="ramp" parent="Models" index="7" instance=ExtResource("6_go4ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.114183)
 
 [node name="causality_surface" parent="Models" index="8" instance=ExtResource("9_my6ir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
+
+[node name="umbrella" parent="Models" index="9" instance=ExtResource("15_qp7vt")]
+transform = Transform3D(-0.4, 0, 6.03983e-08, 0, 0.4, 0, -6.03983e-08, 0, -0.4, -28.8782, -0.32447, 16.4186)
+
+[node name="Plane_003" parent="Models/umbrella" index="0"]
+transform = Transform3D(19.4373, 0, -5.9163, 0, 13.7094, 0, 9.29863, 0, 12.3671, 28.7243, 12.2835, 0)
 
 [node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
 transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693, -40.525, 0.3, -5.152)
@@ -236,8 +282,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.0132, 0.3, 12.7345)
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -26.254, 0.471577, 14.789)
 
 [node name="DirectionalLight3D" parent="." index="4"]
-transform = Transform3D(-0.970035, -0.237594, 0.050808, 0.0232557, 0.117361, 0.992817, -0.24185, 0.964249, -0.108319, 0, 2.06607, 2.43376)
-shadow_normal_bias = 0.0
+transform = Transform3D(-0.951496, -0.213799, 0.221236, 0.165325, 0.251138, 0.953728, -0.259467, 0.944045, -0.20361, 0, 2.06607, 2.43376)
 shadow_opacity = 0.4
 
 [node name="WorldEnvironment" parent="." index="5"]
@@ -248,6 +293,15 @@ visible = false
 
 [node name="PlayerSpawn" parent="." index="7"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.871, 7.8938, 7.31717)
+
+[node name="SavesHandler" parent="." index="8"]
+script = ExtResource("19_a46fx")
+ac_on_all = false
+question_answered = false
+
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("19_a4abp")
+SAVE_PATH = "user://causality_save.ini"
 
 [node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.4529, -0.22402, 11.4385)
@@ -270,8 +324,8 @@ shape = SubResource("BoxShape3D_svhef")
 transform = Transform3D(0.998995, 0, 0.0448225, 0, 1, 0, -0.0448225, 0, 0.998995, -42.0848, -0.40863, 13.2213)
 talk_on_enter = false
 
-[node name="Label" parent="NPC/Control" index="0"]
-text = "HOT_TEXT_1"
+[node name="Control" parent="NPC" index="2"]
+label_text = "HOT_TEXT_1"
 
 [node name="Skeleton3D" parent="NPC/Model/Armature" index="0"]
 bones/1/position = Vector3(0, 4.09728, 0)
@@ -304,22 +358,70 @@ bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
 bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
 bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
 
+[node name="NPC2" parent="." index="12" instance=ExtResource("17_svhef")]
+transform = Transform3D(-0.724954, 0, -0.688797, 0, 1, 0, 0.688797, 0, -0.724954, -40.4395, -0.40863, 19.2191)
+talk_on_enter = false
+
+[node name="Control" parent="NPC2" index="2"]
+label_text = "HOT_TEXT_2"
+
+[node name="Skeleton3D" parent="NPC2/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.09728, 0)
+bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
+bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
+bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
+bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
+bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
+bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
+bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
+bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
+bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
+bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
+bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
+bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
+bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
+bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
+bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
+bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
+bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
+bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
+bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
+bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
+bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
+bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
+bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
+bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
+
+[connection signal="save_dialogue" from="CutsceneHandler/CrashCutscene" to="SavesHandler" method="_on_crash_cutscene_save_dialogue"]
+[connection signal="all_units_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_all_units_on"]
 [connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
+[connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler/CrashCutscene/NPCDialogue/ChangeNPCBehaviour" method="_on_saves_handler_data_loaded"]
 
 [editable path="CutsceneHandler/CrashCutscene"]
 [editable path="CutsceneHandler/CrashCutscene/PathNPC"]
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Control"]
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Model"]
-[editable path="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/SignUI/Chart"]
+[editable path="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/NewSignUI/Chart"]
 [editable path="CutsceneHandler/CrashCutscene/NPCDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue/Control"]
 [editable path="CutsceneHandler/CrashCutscene/NPCDialogue/Dialogue"]
 [editable path="CutsceneHandler/CrashCutscene/NPCDialogue/Model"]
 [editable path="CutsceneHandler/CrashCutscene/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions"]
 [editable path="ACUnits"]
+[editable path="Models/apartment"]
+[editable path="Models/umbrella"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
 [editable path="LevelTube/LevelTube/level_tube"]
 [editable path="FallArea"]
 [editable path="NPC"]
 [editable path="NPC/Model"]
+[editable path="NPC2"]
+[editable path="NPC2/Model"]

@@ -1,12 +1,16 @@
 extends Control
 class_name ProjectText
 
+@export var label_text : String 
+
 func _ready()->void:
+	$Label.text = tr(label_text)
 	hide()
 	
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	body.get_camera().project_ui(self)
-	show()
+func on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Player:
+		body.get_camera().project_ui(self)
+		show()
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	hide()
+func on_area_3d_body_exited(body: Node3D) -> void:
+	return

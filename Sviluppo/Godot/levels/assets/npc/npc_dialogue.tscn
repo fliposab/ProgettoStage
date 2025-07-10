@@ -17,10 +17,12 @@ turn_on_talking = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
 shape = SubResource("CapsuleShape3D_akhyy")
 
+[node name="Control" parent="." index="2"]
+label_text = "E: TALK"
+
 [node name="Label" parent="Control" index="0"]
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("3_3x6me")
-text = "E: TALK"
 
 [node name="UIPosition" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19066, 0)
@@ -45,5 +47,6 @@ autoplay = "idle"
 
 [connection signal="dialogue_ended" from="Dialogue" to="." method="_on_dialogue_dialogue_ended"]
 
+[editable path="Control"]
 [editable path="Dialogue"]
 [editable path="Model"]

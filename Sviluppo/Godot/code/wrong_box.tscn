@@ -14,5 +14,5 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = ExtResource("1_0t6uk")
-text = "WRONG!"
+text = "WRONG_OPTION"
 script = ExtResource("2_hnko8")

@@ -20,9 +20,13 @@ func _on_interact_button_pressed()->void:
 	return
 
 func on_correct_option_pressed()->void:
-	owner.add_text_box(correct_text_box.instantiate())
-	owner.next_text()
+	var new_text_box = correct_text_box.instantiate()
+	get_parent().add_text_box(new_text_box)
+	get_parent().next_text()
+	new_text_box.dialogue_handler = get_parent()
 
 func on_wrong_option_pressed()->void:
-	owner.add_text_box(wrong_text_box.instantiate())
-	owner.next_text()
+	var new_text_box = wrong_text_box.instantiate()
+	get_parent().add_text_box(new_text_box)
+	get_parent().next_text()
+	new_text_box.dialogue_handler = get_parent()

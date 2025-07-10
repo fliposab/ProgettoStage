@@ -7,12 +7,12 @@ class_name NPCDIalogue
 
 func _on_dialogue_dialogue_ended() -> void:
 	player.change_state("Idle")
-	_area.monitoring = true
 	_model.stop_talking()
+	area.monitoring =true
 
 func _on_interact_button_pressed()->void:
 	_dialogue.start_dialogue()
-	_ui.hide()
+	ui.hide()
 	player.face(self)
 	player.change_state("Interact")
 	_area.monitoring = false
@@ -37,3 +37,18 @@ func get_dialogue()->Dialogue:
 
 func set_dialogue(value: Dialogue)->void:
 	_dialogue = value
+
+func disable_area()->void:
+	_area.monitorable = false
+	_area.monitoring = false
+	turn_on_talking = false
+	talk_on_enter = false
+
+func remove_dialogue()->void:
+	_dialogue.queue_free()
+
+func check_if_can_talk()->bool:
+	return is_inside and !(player.grab_item.can_grab_item() or\
+	player.grab_item.can_release_item())\
+	and player.get_current_state_name() != "Interact"\
+	and !get_tree().paused and _dialogue

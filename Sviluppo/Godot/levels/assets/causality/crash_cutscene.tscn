@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=23 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
 [ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_npc_behaviour.gd" id="15_0nrrl"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
+[ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
+[ext_resource type="PackedScene" uid="uid://b026f6t5ha08r" path="res://ui/dialogue/project_text.tscn" id="19_i8pto"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
@@ -205,7 +207,7 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 [node name="ReplaceUI" type="Node" parent="GraphSign"]
 script = ExtResource("14_0nrrl")
 
-[node name="SignUI" type="Control" parent="GraphSign/ReplaceUI"]
+[node name="NewSignUI" type="Control" parent="GraphSign/ReplaceUI"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -214,7 +216,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Chart" parent="GraphSign/ReplaceUI/SignUI" instance=ExtResource("12_8643j")]
+[node name="Chart" parent="GraphSign/ReplaceUI/NewSignUI" instance=ExtResource("12_8643j")]
 layout_mode = 1
 
 [node name="NPCDialogue" parent="." instance=ExtResource("6_bpixg")]
@@ -277,21 +279,56 @@ text = "SCIENTIST_FREE_TEXT_1"
 layout_mode = 1
 text = "SCIENTIST_FREE_TEXT_2"
 
+[node name="TextOptions" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("17_7pcub")]
+layout_mode = 1
+
+[node name="Label" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer" index="0"]
+text = "SCIENTIST_FREE_TEXT"
+
+[node name="VBoxContainer" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer" index="0"]
+right_option = 3
+
+[node name="Button" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
+text = "CAUSALITY_OPTION_1"
+
+[node name="Button2" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
+text = "CAUSALITY_OPTION_2"
+
+[node name="Button3" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="2"]
+text = "CAUSALITY_OPTION_3"
+
+[node name="NewControl" parent="NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("19_i8pto")]
+label_text = "SCIENTIST_END_TEXT"
+
+[connection signal="start_cutscene" from="." to="PathNPC/PathFollow3D" method="start"]
 [connection signal="start_cutscene" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
+[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
+[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
+[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="rotate_npc"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_exited"]
 [connection signal="visibility_changed" from="GraphSign/SignUI" to="GraphSign/SignUI" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="GraphSign/ReplaceUI/SignUI" to="GraphSign/ReplaceUI/SignUI" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="GraphSign/ReplaceUI/NewSignUI" to="GraphSign/ReplaceUI/NewSignUI" method="_on_visibility_changed"]
+[connection signal="body_entered" from="NPCDialogue/Area3D" to="NPCDialogue/Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="NPCDialogue/Area3D" to="NPCDialogue/Control" method="_on_area_3d_body_exited"]
 [connection signal="dialogue_ended" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="NPCDialogue" method="_on_dialogue_dialogue_ended"]
+[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="." method="_on_correct_option_selected"]
+[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue" method="disable_area"]
+[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue/ChangeNPCBehaviour" method="change_prompt_text"]
 
 [editable path="PathNPC"]
 [editable path="ice_cream_shop/NPCDialogue"]
+[editable path="ice_cream_shop/NPCDialogue/Control"]
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
-[editable path="GraphSign/ReplaceUI/SignUI/Chart"]
+[editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
 [editable path="NPCDialogue"]
+[editable path="NPCDialogue/Control"]
 [editable path="NPCDialogue/Dialogue"]
 [editable path="NPCDialogue/Model"]
 [editable path="NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
+[editable path="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions"]
