@@ -5,7 +5,9 @@ class_name NPC
 @onready var ui_position : Marker3D = $UIPosition
 @onready var _model : NPCModel = $Model
 
-@export var talk_on_enter : bool = true
+@export var talk_on_enter : bool = true:
+	set(value):
+		talk_on_enter = value
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if !body is Player:
@@ -32,4 +34,4 @@ func model_area_exited():
 
 func connect_signals()->void:
 	area.body_entered.connect(ui.on_area_3d_body_entered)
-	area.body_entered.connect(ui.on_area_3d_body_exited)
+	area.body_exited.connect(ui.on_area_3d_body_exited)

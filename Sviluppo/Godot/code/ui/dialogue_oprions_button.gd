@@ -2,7 +2,9 @@ extends VBoxContainer
 class_name DialogueOptionsButtons
 
 @export_range(1,3) var right_option: int = 1
+
 signal correct_option_selected
+signal wrong_option_selected
 
 func _ready()->void:
 	connect_signals()
@@ -27,3 +29,4 @@ func check_if_correct(index: int)->void:
 		correct_option_selected.emit()
 	else:
 		owner.on_wrong_option_pressed()
+		wrong_option_selected.emit()

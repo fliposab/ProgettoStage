@@ -13,4 +13,6 @@ func on_area_3d_body_entered(body: Node3D) -> void:
 		show()
 
 func on_area_3d_body_exited(body: Node3D) -> void:
-	return
+	if body is Player:
+		body.get_camera().remove_ui(self)
+		hide()

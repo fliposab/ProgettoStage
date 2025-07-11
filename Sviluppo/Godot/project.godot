@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProgettoStage"
-run/main_scene="uid://cn25tfoqwa3b7"
+run/main_scene="uid://dda7iu4sk2hnf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 run/low_processor_mode=true
@@ -37,6 +37,7 @@ folder_colors={
 "res://entities/": "red",
 "res://levels/": "blue",
 "res://models/": "orange",
+"res://sounds/": "pink",
 "res://ui/": "green"
 }
 

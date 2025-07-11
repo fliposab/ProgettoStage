@@ -7,9 +7,6 @@ func _ready()->void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func _process(delta: float) -> void:
-	if !_items[0]:
-		process_mode = Node.PROCESS_MODE_DISABLED
-		return
 	for i in _items.size():
 		_items[i].position = owner.unproject_position(_items[i].owner.ui_position.global_position)
 

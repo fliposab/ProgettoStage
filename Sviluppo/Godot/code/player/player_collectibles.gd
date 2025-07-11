@@ -44,7 +44,7 @@ func reset_count()->void:
 	emit_signals()
 
 
-func _on_player_save_handler_td_changed(red: int, blue: int, green: int) -> void:
+func _on_player_save_handler_td_changed(red: int, green: int, blue: int) -> void:
 	await get_tree().process_frame
 	count_red = red
 	count_green = green

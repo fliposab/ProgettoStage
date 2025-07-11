@@ -1,4 +1,4 @@
-extends Button
+extends SimpleButton
 
 @export var save_on_pressed : bool = true
 

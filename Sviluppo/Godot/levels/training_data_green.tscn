@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlopl7bms2h4h"]
+[gd_scene load_steps=6 format=3 uid="uid://dlopl7bms2h4h"]
 
 [ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data.tscn" id="1_bb4rk"]
+[ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="2_5bivn"]
+[ext_resource type="Material" uid="uid://ce8idqe3x42k1" path="res://models/materials/green_unshaded.tres" id="3_ebd5g"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n42tm"]
+material = ExtResource("2_5bivn")
+height = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bjxug"]
+material = ExtResource("3_ebd5g")
+flip_faces = true
+top_radius = 0.55
+bottom_radius = 0.55
+height = 0.15
 
 [node name="TrainingData" groups=["collectibles_green"] instance=ExtResource("1_bb4rk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Model" parent="." index="0"]
-transform = Transform3D(0.913575, 0, -0.406752, 0, 1, 0, 0.406752, 0, 0.913575, 0, 0, 0)
+transform = Transform3D(-0.104565, 0, -0.994757, 0, 1, 0, 0.994757, 0, -0.104565, 0, 0, 0)
+
+[node name="Coin" parent="Model" index="0"]
+mesh = SubResource("CylinderMesh_n42tm")
+
+[node name="Border" parent="Model" index="1"]
+mesh = SubResource("CylinderMesh_bjxug")

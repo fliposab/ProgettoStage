@@ -6,6 +6,7 @@ var level : Level
 var on_top : bool = true
 
 @onready var pause_buttons := $VBoxContainer/PauseButtons
+@onready var open_sound : AudioStreamPlayer = $OpenSound
 
 signal close_menu
 
@@ -27,6 +28,7 @@ func toggle_pause():
 	visible = new_pause_state
 	if visible:
 		pause_buttons.get_first_button_focus()
+		open_sound.play()
 	if not new_pause_state:
 		emit_signal("close_menu")
 

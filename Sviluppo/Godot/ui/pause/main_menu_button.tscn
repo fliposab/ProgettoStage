@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://buyhaetw3vvg8"]
+[gd_scene load_steps=3 format=3 uid="uid://buyhaetw3vvg8"]
 
 [ext_resource type="Script" uid="uid://bepbmv4t434c4" path="res://code/ui/main_menu_button.gd" id="1_sowy4"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_pna20"]
 
 [node name="MainMenu" type="Button"]
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 text = "MAIN_MENU"
 script = ExtResource("1_sowy4")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pna20")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

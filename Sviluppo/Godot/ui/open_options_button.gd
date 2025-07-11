@@ -1,4 +1,4 @@
-extends Button
+extends SimpleButton
 class_name OpenOptionsButton
 
 @onready var options_menu : Control = $CanvasLayer/OptionsMenu

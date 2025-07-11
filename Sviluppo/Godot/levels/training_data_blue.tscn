@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://mpehb7022ba4" path="res://levels/training_data.tscn" id="1_i7aip"]
 
 [node name="TrainingData" groups=["collectibles_blue"] instance=ExtResource("1_i7aip")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Model" parent="." index="0" groups=["collectibles_blue"]]
-transform = Transform3D(0.809045, 0, 0.587803, 0, 1, 0, -0.587803, 0, 0.809045, 0, 0, 0)
+transform = Transform3D(0.309027, 0, -0.951092, 0, 1, 0, 0.951092, 0, 0.309027, 0, 0, 0)

@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://d20j4g3etcakh"]
+[gd_scene load_steps=3 format=3 uid="uid://d20j4g3etcakh"]
 
 [ext_resource type="Script" uid="uid://c1pggi72yp0cm" path="res://code/ui/back_to_hub_level.gd" id="1_1vl62"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_3e02k"]
 
 [node name="HubLevel" type="Button"]
 theme_override_font_sizes/font_size = 24
 text = "BACK_TO_HUB"
 script = ExtResource("1_1vl62")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3e02k")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

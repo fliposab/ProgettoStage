@@ -24,7 +24,6 @@ func _on_interact_button_pressed():
 	ui.hide()
 
 func _on_data_received(id: int):
-	owner.saves_handler.breeds_unlocked[id] = true
 	unlock_dog.emit(id)
 
 func check_save_unlocked()->void:

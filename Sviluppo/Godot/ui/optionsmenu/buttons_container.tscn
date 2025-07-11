@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5u4jb1yv0618"]
 
 [ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_6m20y"]
-[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/optonsmenu/options_check_button.tscn" id="2_lp3yf"]
-[ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/optonsmenu/window_resolution_button.tscn" id="3_5m1ck"]
-[ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/optonsmenu/resolution_scale_button.tscn" id="4_bpfoh"]
-[ext_resource type="PackedScene" uid="uid://c4dyj3jfhscxw" path="res://ui/optonsmenu/anti_aliasing_button.tscn" id="5_2bx5m"]
-[ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/optonsmenu/language_button.tscn" id="6_qyd7g"]
-[ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/optonsmenu/shadows_quality_button.tscn" id="7_h6lk4"]
+[ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/optionsmenu/options_check_button.tscn" id="2_lp3yf"]
+[ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/optionsmenu/window_resolution_button.tscn" id="3_5m1ck"]
+[ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/optionsmenu/resolution_scale_button.tscn" id="4_bpfoh"]
+[ext_resource type="PackedScene" uid="uid://c4dyj3jfhscxw" path="res://ui/optionsmenu/anti_aliasing_button.tscn" id="5_2bx5m"]
+[ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/optionsmenu/language_button.tscn" id="6_qyd7g"]
+[ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/optionsmenu/shadows_quality_button.tscn" id="7_h6lk4"]
 
 [node name="ButtonsContainer" type="VBoxContainer"]
 custom_minimum_size = Vector2(700, 0)

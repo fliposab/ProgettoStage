@@ -1,4 +1,4 @@
-extends Button
+extends SimpleButton
 
 var hub_level_path : String = "res://levels/hub_level.tscn"
 

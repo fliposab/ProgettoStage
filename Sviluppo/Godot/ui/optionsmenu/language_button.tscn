@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3yk8dha5e83y"]
 
-[ext_resource type="Script" uid="uid://cy4f45ir0x115" path="res://ui/optonsmenu/language_button.gd" id="1_p5ag5"]
+[ext_resource type="Script" uid="uid://cy4f45ir0x115" path="res://ui/optionsmenu/language_button.gd" id="1_p5ag5"]
 
 [node name="Language" type="HBoxContainer"]
 script = ExtResource("1_p5ag5")

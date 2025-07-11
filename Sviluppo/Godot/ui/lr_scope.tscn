@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0j4e88o3bouh"]
+[gd_scene load_steps=3 format=3 uid="uid://d0j4e88o3bouh"]
 
 [ext_resource type="Texture2D" uid="uid://ccdncvq46pv4g" path="res://ui/scope.png" id="1_m0pyc"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_una5x"]
 
 [node name="LRScope" type="Control"]
 layout_mode = 3
@@ -19,3 +20,32 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_m0pyc")
 expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -208.0
+offset_right = 232.0
+offset_bottom = -5.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("2_una5x")
+text = "E: SHOOT"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("2_una5x")
+text = "R: RESET"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("2_una5x")
+text = "Q: LEAVE"

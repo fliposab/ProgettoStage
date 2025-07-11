@@ -39,5 +39,12 @@ func add_text_box(text_box: DialogueBoxSimple)->void:
 	add_child(text_box)
 	text_box.set_owner(self)
 
+func remove_text_box(text_box: DialogueBoxSimple)->void:
+	text_box.queue_free()
+	
 func reposition_camera(dialogue_started: bool)->void:
 	owner.reposition_camera(dialogue_started)
+
+func correct_option_selected()->void:
+	await get_tree().process_frame
+	queue_free()

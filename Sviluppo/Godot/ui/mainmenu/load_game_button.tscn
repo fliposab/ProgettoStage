@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://rnklxapul4vv"]
+[gd_scene load_steps=2 format=3 uid="uid://rnklxapul4vv"]
+
+[ext_resource type="Script" uid="uid://6ptc0x0lvqii" path="res://code/saves/check_saves.gd" id="1_vj18m"]
 
 [node name="LoadGame" type="Button"]
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 text = "LOAD_GAME"
+
+[node name="CheckSaves" type="Node" parent="."]
+script = ExtResource("1_vj18m")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dken0igmjwmcx"]
 
-[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/optonsmenu/options_button.gd" id="1_xrtpc"]
+[ext_resource type="Script" uid="uid://b0jndxeedtwyv" path="res://ui/optionsmenu/options_button.gd" id="1_xrtpc"]
 
 [node name="WindowResolution" type="HBoxContainer"]
 script = ExtResource("1_xrtpc")

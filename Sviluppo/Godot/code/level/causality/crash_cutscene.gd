@@ -10,16 +10,20 @@ class_name CrashCutscene
 var player : Player
 
 signal start_cutscene()
+signal cutscene_done(var1: bool, var2: bool)
 signal save_dialogue()
+signal change_char_behaviour(var1: bool, var2: bool)
 
 func start(trigger: Player, play_cutscene: bool)->void:
-	start_cutscene.emit()
 	if !play_cutscene:
+		cutscene_done.emit(true, true)
 		return
 	player = trigger
 	player.change_state("Interact")
 	fade.play_fade()
 	await get_tree().create_timer(1.0).timeout
+	start_cutscene.emit()
+	change_char_behaviour.emit(true,true)
 	camera.current = true
 	fade.play_fade(true)
 	await get_tree().create_timer(1.0).timeout

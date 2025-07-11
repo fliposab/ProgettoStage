@@ -82,17 +82,35 @@ POODLE,Barboncino,Poodle
 ROTTWEILER,Rottweiler,Rottweiler
 SHIBA_INU,Shiba inu,Shiba Inu
 SHIN_TZU,Shin tzu,Shin Tzu
+E: TALK,E: Parla,E: Talk
 E: USE_CANNON,E: Usa cannone,E: Use cannon
 E: SHOOT,E: Spara,E: Shoot
 Q: LEAVE,Q: Smetti,Q: Leave
 R: RESET,R: Resetta,R: Reset
 E: SELECT,E: Seleziona,E: Select
 E: TURN_ON,E: Accendi,E: Turn on
-HOT_TEXT_1,Che caldo...,
-HOT_TEXT_2,Se solo il condizionatore non fosse rotto...,
-ICE_CREAM_TEXT_1,"Ciao scusa, posso chiederti un favore?",
-ICE_CREAM_TEXT_2,"Come sai durante l'estate le persone iniziano a usare di più il condizionatore",
-ICE_CREAM_TEXT_3,"E se guardi il grafico vicino al negozio, puoi notare che aumentando l'uso dei condizionatori aumenta anche il consumo di gelati",
-ICE_CREAM_TEXT_4,"Quindi potresti andare ad accendere i condizionatori negli edifici vicino? Così venderò di più",
-ICE_CREAM_SOLD,Gelati venduti,Ice cream sold
+HOT_TEXT_1,Che caldo...,It's so hot...
+HOT_TEXT_2,Se solo il condizionatore non fosse rotto...,If only the A/C wasn't broken...
+ICE_CREAM_TEXT_1,"Ciao scusa, posso chiederti un favore?","Hi, sorry, can I ask you a favor?"
+ICE_CREAM_TEXT_2,"Come sai durante l'estate le persone iniziano a usare di più il condizionatore.","As you know, during summer people start using A/C more."
+ICE_CREAM_TEXT_3,"E se guardi i grafici vicino al negozio, puoi notare che aumentando l'uso dei condizionatori aumenta anche il consumo di gelati!","And if you look at the graphs near the shop, you can notice that using more A/C, people tend to buy more ice cream!"
+ICE_CREAM_TEXT_4,"Quindi, potresti andare ad accendere i condizionatori negli edifici vicino? Così venderò di più!","So, could you go and turn on the A/C in the near buildings? It will make me sell more!"
+ICE_CREAM_SOLD,Gelati venduti,Ice cream sold    
 DAYS,Giorni,Days
+TEMPERATURE (°C),Temperatura (°C), Temperature(°C)
+AVERAGE_TEMPERATURE,Temperatura media,Average Temperature
+ICE_CREAM_SOLD,Gelati venduti,Ice Cream Sold
+AIR_CONDITIONING_USE,Uso di aria condizionata,Air Conditioning Use
+USE_OF_AIR_CONDITIONERS,Condizionatori accesi,Air Conditioners Turned on
+SCIENTIST_BUSY_TEXT_1,"Scusa, sono impegnato a fare delle misurazioni.",
+SCIENTIST_BUSY_TEXT_2,"Torna più tardi, per favore.",
+SCIENTIST_FREE_TEXT_1,"Non appena ho finito le misurazioni, ho sentito un forte rumore...",""
+SCIENTIST_FREE_TEXT_2,"Mi sono girato e ho visto un sacco di persone andare in gelato.",""
+SCIENTIST_FREE_TEXT_3,"Te sai quale potrebbe essere la causa di tutta questa voglia di gelato?",
+CAUSALITY_OPTION_1,"L'uso dei condizionatori",
+CAUSALITY_OPTION_2,"I gelati sono buoni",
+CAUSALITY_OPTION_3,"L'alta temperatura",
+CORRECT_OPTION,"Mi sembra giusto!",
+WRONG_OPTION,"No, non credo sia corretto...",
+SCIENTIST_END_TEXT,"Quasi quasi vado anch'io a prendere un gelato...",
+GRAPH_NOT_YET_AVAILABLE,Grafico non ancora disponibile,

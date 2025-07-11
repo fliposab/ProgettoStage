@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=24 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
 [ext_resource type="PackedScene" uid="uid://b026f6t5ha08r" path="res://ui/dialogue/project_text.tscn" id="19_i8pto"]
+[ext_resource type="PackedScene" uid="uid://ckw50h418clhq" path="res://levels/assets/collectible_spawner.tscn" id="19_iq6f3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
@@ -219,6 +220,9 @@ grow_vertical = 2
 [node name="Chart" parent="GraphSign/ReplaceUI/NewSignUI" instance=ExtResource("12_8643j")]
 layout_mode = 1
 
+[node name="Label" parent="GraphSign/ReplaceUI/NewSignUI/Chart/VBoxContainer" index="0"]
+text = "AVERAGE_TEMPERATURE"
+
 [node name="NPCDialogue" parent="." instance=ExtResource("6_bpixg")]
 transform = Transform3D(-0.672393, 0, 0.740195, 0, 1, 0, -0.740195, 0, -0.672393, -7.18988, -0.408628, 17.0667)
 turn_on_talking = false
@@ -283,7 +287,7 @@ text = "SCIENTIST_FREE_TEXT_2"
 layout_mode = 1
 
 [node name="Label" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer" index="0"]
-text = "SCIENTIST_FREE_TEXT"
+text = "SCIENTIST_FREE_TEXT_3"
 
 [node name="VBoxContainer" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer" index="0"]
 right_option = 3
@@ -300,11 +304,21 @@ text = "CAUSALITY_OPTION_3"
 [node name="NewControl" parent="NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("19_i8pto")]
 label_text = "SCIENTIST_END_TEXT"
 
+[node name="CollectibleSpawner" parent="NPCDialogue" instance=ExtResource("19_iq6f3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55811, 0)
+number = 8
+load_red = false
+load_blue = true
+
+[connection signal="change_char_behaviour" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
+[connection signal="cutscene_done" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
+[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="rotate_npc"]
+[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
+[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
 [connection signal="start_cutscene" from="." to="PathNPC/PathFollow3D" method="start"]
 [connection signal="start_cutscene" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
-[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
-[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
 [connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="rotate_npc"]
+[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
@@ -319,6 +333,7 @@ label_text = "SCIENTIST_END_TEXT"
 [connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="." method="_on_correct_option_selected"]
 [connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue" method="disable_area"]
 [connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue/ChangeNPCBehaviour" method="change_prompt_text"]
+[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue/CollectibleSpawner" method="generate_collectible"]
 
 [editable path="PathNPC"]
 [editable path="ice_cream_shop/NPCDialogue"]

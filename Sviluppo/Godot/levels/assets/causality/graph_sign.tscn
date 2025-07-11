@@ -113,6 +113,31 @@ script = ExtResource("3_2ngro")
 [node name="Chart" parent="SignUI" instance=ExtResource("3_kxxn3")]
 layout_mode = 1
 
+[node name="LineChart" parent="SignUI/Chart/VBoxContainer/PanelContainer" index="0"]
+line_color = Color(0, 0, 1, 1)
+data = [{
+"x": 1,
+"y": 27
+}, {
+"x": 2,
+"y": 28
+}, {
+"x": 3,
+"y": 31
+}, {
+"x": 4,
+"y": 33
+}, {
+"x": 5,
+"y": 34
+}, {
+"x": 6,
+"y": 36
+}, {
+"x": 7,
+"y": 37
+}]
+
 [node name="Chart2" parent="SignUI" instance=ExtResource("3_kxxn3")]
 layout_mode = 1
 
@@ -120,27 +145,28 @@ layout_mode = 1
 text = "AIR_CONDITIONING_USE"
 
 [node name="LineChart" parent="SignUI/Chart2/VBoxContainer/PanelContainer" index="0"]
+line_color = Color(0, 1, 0, 1)
 data = [{
 "x": 1,
-"y": 21
+"y": 2
 }, {
 "x": 2,
-"y": 31
+"y": 4
 }, {
 "x": 3,
-"y": 26
+"y": 6
 }, {
 "x": 4,
-"y": 35
+"y": 7
 }, {
 "x": 5,
-"y": 32
+"y": 10
 }, {
 "x": 6,
-"y": 31
+"y": 12
 }, {
 "x": 7,
-"y": 33
+"y": 13
 }]
 
 [node name="YLabel" parent="SignUI/Chart2" index="1"]

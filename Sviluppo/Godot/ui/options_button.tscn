@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvbuclv3w6omw"]
+[gd_scene load_steps=4 format=3 uid="uid://bvbuclv3w6omw"]
 
 [ext_resource type="Script" uid="uid://klrbnrm4uy3p" path="res://ui/open_options_button.gd" id="1_74j72"]
-[ext_resource type="PackedScene" uid="uid://w6eib3vcwsmx" path="res://ui/optonsmenu/options_menu.tscn" id="2_dvroa"]
+[ext_resource type="PackedScene" uid="uid://w6eib3vcwsmx" path="res://ui/optionsmenu/options_menu.tscn" id="2_dvroa"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_lht7f"]
 
 [node name="Options" type="Button"]
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 text = "OPTIONS"
 script = ExtResource("1_74j72")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lht7f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -16,4 +20,5 @@ visible = false
 top_level = true
 option_button = NodePath("../..")
 
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

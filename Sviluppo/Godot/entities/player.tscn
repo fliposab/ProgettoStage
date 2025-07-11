@@ -201,6 +201,7 @@ texture = ExtResource("25_slxql")
 
 [node name="BlueCollectiblesContainer" parent="PlayerUI/HBoxContainer" instance=ExtResource("7_6nm46")]
 layout_mode = 2
+max_value = 20
 
 [node name="TextureRect" parent="PlayerUI/HBoxContainer/BlueCollectiblesContainer/HBoxContainer" index="0"]
 texture = ExtResource("26_evlff")

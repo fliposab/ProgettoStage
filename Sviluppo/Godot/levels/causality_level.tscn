@@ -187,36 +187,35 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.07753, -0.411654, 7.
 [node name="solar_panel3" parent="CutsceneHandler/CrashCutscene" index="15" instance=ExtResource("8_a4abp")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -11.8132, -0.411654, 7.51137)
 
-[node name="Skeleton3D" parent="CutsceneHandler/CrashCutscene/NPCDialogue/Model/Armature" index="0"]
-bones/1/position = Vector3(0, 4.09728, 0)
-bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
-bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
-bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
-bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
-bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
-bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
-bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
-bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
-bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
-bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
-bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
-bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
-bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
-bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
-bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
-bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
-bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
-bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
-bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
-bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
-bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
-bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
-bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
-bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
-bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
-bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
-bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
-bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
+[node name="LineChart" parent="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/NewSignUI/Chart/VBoxContainer/PanelContainer" index="0"]
+data = [{
+"x": 1,
+"y": 25
+}, {
+"x": 2,
+"y": 26
+}, {
+"x": 3,
+"y": 28
+}, {
+"x": 4,
+"y": 30
+}, {
+"x": 5,
+"y": 31
+}, {
+"x": 6,
+"y": 33
+}, {
+"x": 7,
+"y": 36
+}]
+
+[node name="YLabel" parent="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/NewSignUI/Chart" index="1"]
+text = "TEMPERATURE (°C)"
+
+[node name="CollectibleSpawner" parent="CutsceneHandler/CrashCutscene/NPCDialogue" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55811, 0)
 
 [node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
 
@@ -248,12 +247,6 @@ transform = Transform3D(0.488497, 0, 0.178243, 0, 0.52, 0, -0.178243, 0, 0.48849
 [node name="apartment" parent="Models" index="6" instance=ExtResource("5_qiam4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06821, 0)
 
-[node name="Cube" parent="Models/apartment" index="0"]
-visible = false
-
-[node name="Cube_001" parent="Models/apartment" index="1"]
-visible = false
-
 [node name="ramp" parent="Models" index="7" instance=ExtResource("6_go4ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0214615, -0.352352, 0.114183)
 
@@ -269,14 +262,14 @@ transform = Transform3D(19.4373, 0, -5.9163, 0, 13.7094, 0, 9.29863, 0, 12.3671,
 [node name="CollectLine" parent="Entities" index="0" instance=ExtResource("13_svhef")]
 transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693, -40.525, 0.3, -5.152)
 
-[node name="TrainingData" parent="Entities" index="1" instance=ExtResource("15_gqdlx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -35.5602, 0.3, 9.8231)
+[node name="CollectLine2" parent="Entities" index="1" instance=ExtResource("13_svhef")]
+transform = Transform3D(0.963031, 0, -0.269391, 0, 1, 0, 0.269391, 0, 0.963031, -36.0931, 7.2187, -35.4815)
 
 [node name="TrainingData3" parent="Entities" index="2" instance=ExtResource("15_gqdlx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.5609, 0.3, 8.36346)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.2466, 0.3, 11.0712)
 
 [node name="TrainingData2" parent="Entities" index="3" instance=ExtResource("15_gqdlx")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -33.0132, 0.3, 12.7345)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -31.8729, 0.3, 13.8457)
 
 [node name="GraphSign" parent="Entities" index="4" instance=ExtResource("11_xeixa")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -26.254, 0.471577, 14.789)
@@ -297,7 +290,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.87
 [node name="SavesHandler" parent="." index="8"]
 script = ExtResource("19_a46fx")
 ac_on_all = false
-question_answered = false
 
 [node name="Saves" type="Node" parent="SavesHandler" index="0"]
 script = ExtResource("19_a4abp")
@@ -398,8 +390,11 @@ bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
 
 [connection signal="save_dialogue" from="CutsceneHandler/CrashCutscene" to="SavesHandler" method="_on_crash_cutscene_save_dialogue"]
 [connection signal="all_units_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_all_units_on"]
-[connection signal="all_units_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
+[connection signal="all_units_on" from="ACUnits" to="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI" method="replace_ui"]
+[connection signal="start_cutscene" from="ACUnits" to="SavesHandler" method="_on_ac_units_all_units_on"]
+[connection signal="start_cutscene" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_on"]
 [connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler/CrashCutscene/NPCDialogue/ChangeNPCBehaviour" method="_on_saves_handler_data_loaded"]
+[connection signal="data_loaded" from="SavesHandler" to="ACUnits" method="check_if_already_activated"]
 
 [editable path="CutsceneHandler/CrashCutscene"]
 [editable path="CutsceneHandler/CrashCutscene/PathNPC"]

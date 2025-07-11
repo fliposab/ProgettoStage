@@ -19,7 +19,7 @@ height = 0.15
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Model" parent="." index="0"]
-transform = Transform3D(0.913592, 0, 0.406755, 0, 1, 0, -0.406755, 0, 0.913592, 0, 0, 0)
+transform = Transform3D(-0.207959, 0, -0.978323, 0, 1, 0, 0.978323, 0, -0.207959, 0, 0, 0)
 
 [node name="Coin" parent="Model" index="0"]
 mesh = SubResource("CylinderMesh_gmws4")

@@ -12,7 +12,8 @@ func save_data():
 	data_saved.emit(self)
 
 func load_data():
-	_save_node.load_data()
+	if !debug_mode:
+		_save_node.load_data()
 	data_loaded.emit(self)
 
 func change_var(name: String, value):
@@ -21,8 +22,7 @@ func change_var(name: String, value):
 func _ready()->void:
 	set_save_node()
 	_save_node.stats = self
-	if !debug_mode:
-		load_data()
+	load_data()
 
 func set_save_node()->void:
 	return

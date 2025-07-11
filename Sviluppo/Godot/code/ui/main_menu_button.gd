@@ -1,4 +1,4 @@
-extends Button
+extends SimpleButton
 
 func _on_pressed() -> void:
 	var root = get_tree().get_root()

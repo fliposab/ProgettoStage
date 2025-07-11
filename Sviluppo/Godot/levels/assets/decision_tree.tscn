@@ -19,8 +19,9 @@ right_text = "DROP"
 [node name="DecisionNode5" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30264, 4, -2.92391)
 _question_text = "FUR_COLOR"
-left_text = "BLACK / BROWN"
+left_text = "GRAY / WHITE"
 right_text = "BLACK / WHITE"
+center_text = "BLACK / BROWN"
 
 [node name="DecisionNode2" parent="Nodes" instance=ExtResource("1_cftd1")]
 _question_text = "DOG_SIZE"
@@ -107,12 +108,16 @@ left_text = "WHITE / BROWN"
 right_text = "ORANGE"
 
 [node name="DecisionNodeFinal" parent="Nodes" instance=ExtResource("2_dbu5l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, 6, -3.89524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5212, 6, -3.03798)
 _id = "border_collie"
 
 [node name="DecisionNodeFinal2" parent="Nodes" instance=ExtResource("2_dbu5l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.54986, 6, -7.16674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21152, 6, -7.16674)
 _id = "german_shepherd"
+
+[node name="DecisionNodeFinal15" parent="Nodes" instance=ExtResource("2_dbu5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55895, 6, -7.16674)
+_id = "husky"
 
 [node name="DecisionNode6" parent="Nodes" instance=ExtResource("1_cftd1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.25141, 4, 2.69726)
