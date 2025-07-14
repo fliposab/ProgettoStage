@@ -49,24 +49,40 @@ Le metriche di qualità di processo sono utilizzate per valutare l'efficacia e l
 === Fornitura
 Per il processo di fornitura, vengono indicate tutte le scelte operative fatte in fase di sviluppo. Viene usato l'acronimo MPC (Minimum Predictive Capability).\
 In questo caso, il MPC è il valore minimo da raggiungere per essere considerato accettabile.
+- *BAC (Budget At Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
+  - Il totale di ore previste ammonta a 304 ore.
 - *MPC-CT - Completion Time*: tempo totale previsto per completare il progetto, idealmente non deve superare quello pianificato nel Piano di lavoro.
+- *MPC-EC - Estimated at Completion*: numero di ore effettive stimate da svolgere per completare i compiti ancora da realizzare
+- *EV - Earned Value*: valore ottenuto fino al momento calcolato.
+  -  Il calcolo viene dato dal lavoro svolto in percentuale moltiplicato per EC.
+- *PV - Planned Value*: attività lavorativa fino al momento calcolato
+  - Il calcolo viene dato dal lavoro pianificato in percentuale moltiplicato per BAC.
+- *AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
+- *TV - Time Variance*: DIfferenza tra budget utilizzabile e quello usato effettivamente
+  - Il calcolo viene dato da EV - AT.
+- *SV - Schedule Variance*: varianza (a livello di anticipo/ritardo) rispetto a quanto previsto.
+  - Il calcolo viene dato da EV - PV;
+  - Se ha valore negativo, si è in ritardo rispetto alle previsioni.
 
 #figure(caption: [Valori per misurare la qualità della fornitura], table(
   columns: (auto,auto,auto,auto),
   inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
+  align: (x, y) => if (x == 0 and y > 0 and y < 10) { horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPC-CC",
-  "Completion Cost",
+  "MPC-CT",
+  "Completion Time",
   "\u{2264}105% EC",
   "\u{2264}100% EC",
+  "MPC-EC",
+  "Estimated at Completion",
+  "\u{00B1}10% rispetto al tempo stimato nel piano di lavoro",
+  "Tempo stimato nel piano di lavoro"
 ))\
 === Sviluppo
 ==== Codice
 - *MPC-RSI - Requirements Stability Index*: indice di stabilità dei requisiti. Indica la percentuale di requisiti che sono stati modificati rispetto al totale dei requisiti. Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti.\
-- *MPC-TD - Technical Debt Ratio*: rapporto tra il tempo necessario per risolvere i problemi tecnici e il tempo necessario per sviluppare nuove funzionalità. Un valore basso indica che il
-codice è ben strutturato e non presenta problemi tecnici.\
+- *MPC-TD - Technical Debt Ratio*: rapporto tra il tempo necessario per risolvere i problemi tecnici e il tempo necessario per sviluppare nuove funzionalità. Un valore basso indica che il codice è ben strutturato e non presenta problemi tecnici.\
 
 #figure(caption: [Valori per misurare la qualità dello sviluppo], table(
   columns: (auto, auto, auto, auto),
@@ -141,7 +157,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
   "MPC-CCO",
   "Code coverage",
-  "\u{2265}90%",
+  "\u{2265}98%",
   "100%",
   "MPC-TSP",
   "Test superati in percentuale",
@@ -213,7 +229,7 @@ Molto importante è specificare le componenti della macchina su cui viene testat
   align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Componente*], [*Dettagli*]),
-  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[#gloss[SSD] / #gloss[HDD]],[Almeno 300 MB liberi],[Sistema Operativo],[Pop_OS]
+  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[AMD® Radeon Graphics (RADV RENOIR) - Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[#gloss[SSD] / #gloss[HDD]],[Almeno 100 MB liberi],[Sistema Operativo],[Ubuntu 22.04]
 ))\
 In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fascia media-bassa, quindi si ritiene che se il gioco offre delle buone prestazioni sulla macchina di testing, offrirà in media buone prestazioni su tutte le macchine con un sistema operativo supportato.
 
@@ -250,8 +266,12 @@ I test di unità sono eseguiti durante lo sviluppo del prodotto, e sono utilizza
 //.......
 
 = Cruscotto di valutazione delle metriche
-== Codice
+== Forniture
+=== MPC-CT
+Inserire il grafico del tempo di lavoro durante le settimane.
 #pagebreak()
+== Codice
+=== 
 == Grafica 3D
 === MPC-MTC - Model Tris Count
 #align(figure(caption: [Modello 3D con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))

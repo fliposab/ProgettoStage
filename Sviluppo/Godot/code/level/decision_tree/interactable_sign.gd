@@ -1,7 +1,11 @@
 extends InteractableArea
 class_name InteractableSign
 
+##Class for an Interactable Sign that needs to show a wide variety of UI.
+
+##The UI of the sign
 @onready var grid : Control = $SignUI
+##true when the sign UI is visible
 var is_grid_open: bool = false
 
 signal focus_grid()
@@ -11,7 +15,8 @@ signal unlock_dog(id: int)
 func _ready()->void:
 	ui.hide()
 	grid.hide()
-	
+
+##Opens the sign UI and puts the player in the Interact state
 func _on_interact_button_pressed():
 	player.face(self)
 	player.change_state("Interact")
@@ -23,9 +28,12 @@ func _on_interact_button_pressed():
 	grid.show()
 	ui.hide()
 
+##Emits a signal containg the index received
+##id: the index for the array
 func _on_data_received(id: int):
 	unlock_dog.emit(id)
 
+##Checks the already unlocked breeds
 func check_save_unlocked()->void:
 	for i in owner.saves_handler.breeds_unlocked.size():
 		if owner.saves_handler.breeds_unlocked[i]:

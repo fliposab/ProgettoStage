@@ -1,10 +1,15 @@
 extends InteractableArea
 class_name NPC
 
-#@onready var _ui : Control = $Control
+##Base class for Non Playable Characters.
+##Used for animated models that show a projected text box when near them.
+
+##The position where the textbox needs to be projected
 @onready var ui_position : Marker3D = $UIPosition
+##The 3D model of the NPC
 @onready var _model : NPCModel = $Model
 
+##Set if the model needs to change animation when entering
 @export var talk_on_enter : bool = true:
 	set(value):
 		talk_on_enter = value
@@ -24,10 +29,12 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 	is_inside = false
 	model_area_exited()
 
+##Check if the NPC needs to play the animation when the player enters the area
 func model_area_entered():
 	if talk_on_enter:
 		_model.start_talking(player)
 
+##Check if the NPC needs to play the animation when the player exits the area
 func model_area_exited():
 	if talk_on_enter:
 		_model.stop_talking()

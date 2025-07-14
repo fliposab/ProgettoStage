@@ -284,6 +284,7 @@ Quindi è l'attività che mette in pratica ciò che è stato individuato e reali
 === Scopo e descrizione 
 Il processo di gestione ha lo scopo di identificare le attività e i compiti da svolgere per proseguire nel progetto.
 === Attività
+Tutti i processi organizzativi sono composti dalle seguenti attvità
 - *individuazione di un compito da svolgere*:
 - *esecuzione*:
 - *verifica*:
@@ -309,10 +310,11 @@ Le principali caratteristiche prese in considerazione sono:
 == Funzionalità
 La funzionalità riguarda e misura il grado di soddisfacibilità dei requisiti rispetto al prodotto finale.
 In particolare vengono misurate:
-- *Completezza*: il software prodotto deve soddisfare tutti i requisiti e le funzionalità previste;
+- *Completezza*: il software prodotto deve soddisfare tutti i requisiti obbligatori e le funzionalità previste;
 - *Correttezza*: il funzionamento del software deve rispettare le specifiche dichiarate;
 - *Adeguatezza*: il software prodotto deve essere idoneo allo scopo per cui è stato pensato e al contesto in cui viene usato;
 - *Conformità*: il software prodotto deve rispettare le norme predefinite e il grado di qualità previsto;
+
 == Performance
 La performance misura l'efficienza di un prodotto e la capacità del prodotto stesso di gestire le risorse in modo direttamente proporzionale alle prestazioni che vengono fornite.
 In particolare vengono misurate:
@@ -320,6 +322,7 @@ In particolare vengono misurate:
 - *Tempo*: il software prodotto deve dare una risposta in tempi consoni alle richieste che gli vengono fatte;
 - *Conformità*: il prodotto deve rispettare dei vincoli di qualità;
 - *Capacità*: il prodotto deve saper gestire i carichi di lavoro attesi senza compromettere le prestazioni previste;
+
 == Affidabilità
 L'affidabilità è il parametro per misurare se un prodotto reagisce ai problemi senza compromettere le prestazioni.
 In particolare vengono misurate:
@@ -328,6 +331,7 @@ In particolare vengono misurate:
 - *Recuperabilità*: a seguito di un qualsiasi tipo di errore, guasto o malfunzionamento il prodotto deve essere in grado di tornare alle sue prestazioni standard ripristinando le sue funzionalità;
 - *Disponibilità*: il prodotto deve essere accessibile e correttamente funzionante, quindi operativo ogni qual volta sia necessario;
 - *Aderenza*: il prodotto deve rispettare gli standard di qualità prefissati;
+
 == Sicurezza
 La sicurezza di un prodotto misura il suo grado di protezione da minacce e vulnerabilità, garantendo che i dati e le funzionalità rimangano integri, disponibili e riservati.
 - *Riservatezza*: il software deve garantire la protezione dei dati sensibili;
@@ -342,6 +346,7 @@ In particolare vengono misurate:
 - *Riconoscibilità*: il prodotto deve fornire un'interfaccia utente intuitiva e di facile comprensione;
 - *Estetica*: l'interfaccia del prodotto deve essere gradevole;
 - *Operabilità*: quanto è semplice per l'utente usare il prodotto in maniera corretta;
+
 == Portabilità
 La portabilità è la capacità di un prodotto di essere facilmente spostato da un ambiente di esecuzione ad un altro senza insorgere in problemi.
 In particolare vengono misurate:
@@ -356,106 +361,3 @@ In particolare vengono misurate:
 - *Testabilità*: la semplicità con cui il prodotto può essere testato;
 - *Riutilizzabilità*: le varie parti del software devono poter essere riutilizzate in progetti o ambienti differenti;
 - *Stabilità*: capacità del prodotto di continuare a funzionare senza gravi problemi a seguito di modifiche sbagliate;
-
-= Metriche di qualità
-== Nomenclatura delle metriche
-Per identificare le metriche relative ai processi e quelle relative ai prodotti vengono usate, come prefisso, le seguenti sigle:
-- *#gloss[MPC]*: sigla per le metriche per la qualità dei processi;
-- *MPD*: sigla per le metriche per la qualità del prodotto;
-Quindi una metrica avrà come sigla : *MPC/MPD-AcronimoMetrica*.
-
-== Metriche per i processi
-=== Processi primari
-
-==== Fornitura
-===== Planned Value(MPC-PV)/**/
-- *Descrizione*: rappresenta il valore del lavoro che dovrebbe essere completato. 
-  Si basa sulla programmazione delle attività del progetto e riflette il valore del lavoro che si intende portare a termine.
-  Questo indicatore fornisce una base di riferimento per confrontare il progresso reale del progetto con le aspettative;
-- *Come calcolarlo*:  $"Planned Value" = "Budget at Completion" / "% lavoro da completare"$;
-- *Valore ottimo*: \u{2264} BAC;
-- *Valore accettabile*: \u{2265} 0;
-===== Schedule Variance(MPC-SV)
-- *Descrizione*: varianza rispetto a quanto previsto inteso come anticipo o ritardo sui tempi delle attività svolte e da svolgere. 
-  Rappresenta la differenza tra il valore del lavoro completato e il valore del lavoro pianificato.
-  In pratica, misura se un progetto è in anticipo, in ritardo o in linea con la pianificazione effettuata inizialmente;
-- *Come calcolarlo*: Schedule Variance = Earned Value - Planned Value;
-- *Valore ottimo*: \u{2265} 0;
-- *Valore accettabile*: \u{2265} -10%;
-
-==== Sviluppo
-===== Requirement Stability Index(MPC-RSI)
-- *Descrizione*: indice di stabilità dei requisiti. 
-  Indica la percentuale di requisiti che sono stati modificati rispetto al totale dei requisiti. 
-  Un valore alto indica che i requisiti sono stabili e non soggetti a modifiche frequenti;
-- *Come calcolarlo*: $"Requirement Stability Index" = (("TNOR" + "NCR" + "NAR" + "NDR") / ("TNOR"))*"100"$ dove:
-  - *TNOR*: Total Number of Original Requirements = numero iniziale di requisiti;
-  - *NCR*: Number of Changed Requirements = numero di requisiti modificati ;
-  - *NAR*: Number of Added Requirements = numero di requisiti aggiunti;
-  - *NDR*: Number of Deleted Requirements = numero di requisiti cancellati;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: \u{2265} 80%;
-===== Technical Debt Ratio(MPC-TDR)
-- *Descrizione*: rapporto tra il tempo necessario per risolvere i problemi tecnici e il tempo necessario per sviluppare nuove funzionali.
-  Quindi calcola quanto costa correggere e mantenere il codice, rispetto a quanto è costato inizialmente svilupparlo;
-- *Valore ottimo*: \u{2264} 5%;
-- *Valore accettabile*: \u{2264} 15%;
-
-=== Processi di supporto
-==== Documentazione
-===== Indice di Gulpease(MPC-IG)
-- *Descrizione*: Indica la complessità nella lettura di una frase o documento. 
-  Considera come variabili il numero di parole, di frasi e di lettere;
-- *Come calcolarlo*: $"Indice di Gulpease" = 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $;
-- *Valore ottimo*: \u{2265} 60;
-- *Valore accettabile*: \u{2265} 40;
-===== Correttezza ortografica(MPC-CO)
-- *Descrizione*: Indica il numero di errori ortografici presenti nella documentazione;
-- *Valore ottimo*: 0;
-- *Valore accettabile*: 3;
-==== Gestione qualità
-===== Satisfaction of Quality Metrics(MPC-SQM)
-- *Descrizione*: misura della quantità di metriche soddisfatte. 
-  Più in particolare viene misurato il grado di soddisfazione dell'utente finale rispetto alla qualità di un prodotto.
-  Ciò aiuta a comprendere se le aspettative del cliente sono state soddisfatte o meno, e consentono di identificare eventuali migliorie;
-- *Come calcolarlo*: $"Satisfaction of Quality Metrics" = "Numero totale di metriche soddisfatte" / "Numero totale di metriche"$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: \u{2265} 85%;
-==== Verifica
-===== Code Coverage(MPC-CCO)
-- *Descrizione*: Quantità di codice eseguito durante i test.
-  Viene utilizzato per valutare la qualità dei test e garantire che il codice sia stato adeguatamente testato. 
-  Un alto livello indica che il codice è stato eseguito in molti contesti e scenari diversi con diverse parti di codice. 
-  Quindi indica quanto codice è stato sottoposto ai test;
-- *Come calcolarlo*: $"Code Coverage" = "Linee di Codice Eseguite" / "Linee di Codice Totali" * 100$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: \u{2265} 90%;
-===== Test Superati in Percentuale(MPC-TSP)
-- *Descrizione*: Indica la proporzione di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti. 
-  Viene espressa come una percentuale e serve a misurare quanto dell'applicazione in fase di sviluppo è stato verificato con successo tramite i test. 
-  Una percentuale alta di test superati indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.
-  Quindi indica quanti test sono stati superati;
-- *Come calcolarlo*: $"Test Superati in Percentuale" = "Numero di Test Superati" / "Numero Totale di Test" * 100$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: 100%;
-== Metriche per il prodotto
-=== Funzionalità
-==== Copertura Requisiti Obbligatori(MPD-RO)
-- *Descrizione*: indica la percentuale di requisiti obbligatori coperti dal prodotto. 
-  Un valore del 100% indica che tutti i requisiti obbligatori sono stati implementati;
-- *Come calcolarlo*: $"Copertura Requisiti Obbligatori" = "Numero Requisiti Obbligatori implementati" / "Numero Requisiti Obbligatori totali"$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: 100%;
-==== Copertura Requisiti Opzionali(MPD-OP)
-- *Descrizione*:  indica la percentuale di requisiti opzionali coperti dal prodotto. 
-  Un valore del 100% indica che tutti i requisiti opzionali sono stati implementati;
-- *Come calcolarlo*: $"Copertura Requisiti Opzionali" = "Numero Requisiti Opzionali implementati" / "Numero Requisiti Opzionali totali"$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: \u{2265} 50%;
-=== Affidabilità
-==== Code Coverage(MPD-CC)
-- *Descrizione*: indica la percentuale di codice coperto dai test.  
-  Un valore alto indica che il codice è stato testato in modo approfondito e che è meno probabile che contenga errori;
-- *Come calcolarlo*: $"Code Coverage" = "righe di codice testate" / "righe di codice totali" *100$;
-- *Valore ottimo*: 100%;
-- *Valore accettabile*: \u{2265} 80%;

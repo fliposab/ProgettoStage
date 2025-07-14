@@ -190,6 +190,9 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.07753, -0.411654, 7.
 [node name="solar_panel3" parent="CutsceneHandler/CrashCutscene" index="15" instance=ExtResource("8_a4abp")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -11.8132, -0.411654, 7.51137)
 
+[node name="GraphSign" parent="CutsceneHandler/CrashCutscene" index="16"]
+visible = false
+
 [node name="LineChart" parent="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/NewSignUI/Chart/VBoxContainer/PanelContainer" index="0"]
 data = [{
 "x": 1,
