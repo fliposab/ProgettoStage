@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwx3sk2na8hs6"]
+[gd_scene load_steps=4 format=3 uid="uid://cwx3sk2na8hs6"]
 
 [ext_resource type="Script" uid="uid://ckdjr5d7vtkqx" path="res://code/ui/new_game_button.gd" id="1_2mli1"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_06tdk"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="3_xera6"]
 
 [node name="NewGame" type="Button"]
 mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 text = "NEW_GAME"
 script = ExtResource("1_2mli1")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_06tdk")
+
+[node name="Sound2" parent="." instance=ExtResource("3_xera6")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://w6eib3vcwsmx"]
+[gd_scene load_steps=18 format=3 uid="uid://w6eib3vcwsmx"]
 
 [ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_81kbp"]
 [ext_resource type="Script" uid="uid://n4f6oxbbrpxg" path="res://ui/optionsmenu/options_menu.gd" id="1_w2tto"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/optionsmenu/language_button.tscn" id="6_weaq7"]
 [ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/optionsmenu/shadows_quality_button.tscn" id="8_ct80g"]
 [ext_resource type="Script" uid="uid://cc3uhbyr0vy4u" path="res://code/saves/option_saves_handler.gd" id="9_weaq7"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="10_c1fan"]
+[ext_resource type="Script" uid="uid://ddy08fr1cy2xa" path="res://ui/base_button.gd" id="10_nwuba"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="12_od73m"]
 
 [sub_resource type="Gradient" id="Gradient_gl0q7"]
 colors = PackedColorArray(0.114897, 0.114897, 0.114897, 1, 0.230315, 0.230315, 0.230315, 1)
@@ -131,6 +134,13 @@ offset_right = 178.0
 offset_bottom = -20.0
 grow_vertical = 0
 text = "SAVE_AND_RETURN"
+script = ExtResource("10_nwuba")
+metadata/_custom_type_script = "uid://ddy08fr1cy2xa"
+
+[node name="Sound" type="AudioStreamPlayer" parent="Save"]
+stream = ExtResource("10_c1fan")
+
+[node name="ConfirmSound" parent="Save" instance=ExtResource("12_od73m")]
 
 [node name="OptionSavesHandler" type="Node" parent="."]
 script = ExtResource("9_weaq7")

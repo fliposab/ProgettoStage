@@ -1,8 +1,6 @@
 extends Node
 class_name Saves
 
-@export var SAVE_PATH = "user://global_save.ini"
-
 var stats : SavesHandler
 
 func save_data()->void:

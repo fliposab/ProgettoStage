@@ -18,6 +18,9 @@ func _on_focus_entered() -> void:
 func grab_button_focus() -> void:
 	option_button.grab_focus()
 
+func _on_option_button_focus_exited() -> void:
+	$MenuScrollSound.play()
+
 func _on_item_selected(index: int) -> void:
 	pass
 

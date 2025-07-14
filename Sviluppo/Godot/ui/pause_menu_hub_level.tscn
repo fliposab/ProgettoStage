@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqvqxok6afg0t"]
+[gd_scene load_steps=5 format=3 uid="uid://bqvqxok6afg0t"]
 
 [ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="1_y4n6d"]
 [ext_resource type="PackedScene" uid="uid://duy7mh2rh6fkj" path="res://ui/pause/pause_buttons_hub_level.tscn" id="2_4nlxs"]
+[ext_resource type="AudioStream" uid="uid://c8qsfhwpek730" path="res://sounds/pause_open.mp3" id="3_jt2yn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euhrg"]
 bg_color = Color(1, 1, 1, 1)
@@ -60,3 +61,9 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_euhrg")
 
 [node name="PauseButtons" parent="VBoxContainer" instance=ExtResource("2_4nlxs")]
 layout_mode = 2
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jt2yn")
+volume_db = -15.0
+
+[connection signal="resume_game" from="VBoxContainer/PauseButtons" to="." method="_on_resume_game"]

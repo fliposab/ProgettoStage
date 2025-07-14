@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://yo158tiy48r4"]
+[gd_scene load_steps=3 format=3 uid="uid://yo158tiy48r4"]
 
 [ext_resource type="Script" uid="uid://cyl82kfv2sbu" path="res://code/ui/window_resolution.gd" id="1_esgsi"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_33mug"]
 
 [node name="WindowResolution" type="HBoxContainer"]
 script = ExtResource("1_esgsi")
@@ -23,5 +24,9 @@ popup/item_0/id = 0
 popup/item_1/text = "1920×1080"
 popup/item_1/id = 1
 
+[node name="MenuScrollSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_33mug")
+
 [connection signal="focus_entered" from="OptionButton" to="." method="pass_description"]
+[connection signal="focus_exited" from="OptionButton" to="." method="_on_option_button_focus_exited"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_item_selected"]

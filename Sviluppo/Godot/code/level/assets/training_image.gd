@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name TrainingImage
 
 @export var id : String
+@onready var mesh : MeshInstance3D = $MeshInstance3D
 
 var _spawn_position : Vector3
 var holding : bool = false

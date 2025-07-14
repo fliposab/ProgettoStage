@@ -14,6 +14,7 @@ alpha_antialiasing_mode = 0
 shading_mode = 0
 albedo_texture = ExtResource("2_dhjtn")
 billboard_mode = 1
+billboard_keep_scale = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_fof80"]
 material = SubResource("StandardMaterial3D_hwxms")

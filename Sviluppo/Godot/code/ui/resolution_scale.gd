@@ -21,9 +21,12 @@ func check_selected_item(saves_handler: SavesHandler):
 
 func _on_button_focus_entered() -> void:
 	check_inputs = true
+	$OptionButton.add_theme_stylebox_override("grabber", preload("res://ui/styles/grabber_focus_style.tres"))
 
 func _on_button_focus_exited() -> void:
 	check_inputs = false
+	$MenuScrollSound.play()
+	$OptionButton.remove_theme_stylebox_override("grabber")
 
 func _input(event: InputEvent) -> void:
 	if check_inputs:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://om0xmc0ae5vd"]
+[gd_scene load_steps=10 format=3 uid="uid://om0xmc0ae5vd"]
 
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_stvng"]
 [ext_resource type="StyleBox" uid="uid://ccr5cwjb6e5x1" path="res://ui/styles/pause_buttons_style.tres" id="2_4auwg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/pause/main_menu_button.tscn" id="3_mv45p"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="3_nc40a"]
 [ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="4_ygljc"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="5_aaqfi"]
 
 [node name="PauseButtons" type="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
@@ -27,6 +28,8 @@ metadata/_custom_type_script = "uid://ddy08fr1cy2xa"
 
 [node name="Sound" type="AudioStreamPlayer" parent="Resume"]
 stream = ExtResource("4_ygljc")
+
+[node name="Sound2" parent="Resume" instance=ExtResource("5_aaqfi")]
 
 [node name="Options" parent="." instance=ExtResource("2_yrbp4")]
 layout_mode = 2

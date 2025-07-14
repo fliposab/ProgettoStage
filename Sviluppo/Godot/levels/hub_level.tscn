@@ -215,7 +215,7 @@ load_level_path = "res://levels/dt_level.tscn"
 mesh = SubResource("ArrayMesh_0nv80")
 
 [node name="Label" parent="Models/LevelTube3/Control/VBoxContainer" index="0"]
-text = "DECISION_TREE"
+text = "E: GO_TO_DECISION_TREE"
 horizontal_alignment = 1
 
 [node name="LevelTube2" parent="Models" instance=ExtResource("2_ftq5n")]
@@ -226,7 +226,7 @@ load_level_path = "res://levels/causality_level.tscn"
 mesh = SubResource("ArrayMesh_4p34j")
 
 [node name="Label" parent="Models/LevelTube2/Control/VBoxContainer" index="0"]
-text = "CAUSALITY"
+text = "E: GO_TO_CAUSALITY"
 horizontal_alignment = 1
 
 [node name="base_level_main_platform" parent="Models" instance=ExtResource("2_c4aiy")]

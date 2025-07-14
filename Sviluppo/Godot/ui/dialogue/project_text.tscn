@@ -33,3 +33,5 @@ theme_override_styles/normal = ExtResource("2_whppd")
 text = "TEST_TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="draw" from="." to="." method="_on_draw"]

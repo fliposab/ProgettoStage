@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ce2q8yv8pugf5" path="res://ui/dialogue/correct_box.tscn" id="2_fwcay"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_vxcm5"]
 [ext_resource type="PackedScene" uid="uid://bw2a66hpe0hgj" path="res://code/wrong_box.tscn" id="3_mn12p"]
-[ext_resource type="Script" uid="uid://bm5lt5e20uqxm" path="res://code/ui/dialogue_oprions_button.gd" id="4_hyxeg"]
+[ext_resource type="Script" uid="uid://bm5lt5e20uqxm" path="res://code/ui/dialogue_options_button.gd" id="4_hyxeg"]
 
 [node name="TextOptions" type="Control"]
 layout_mode = 3

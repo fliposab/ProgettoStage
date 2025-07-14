@@ -1,7 +1,7 @@
 extends Node
 class_name OptionsSave
 
-const SAVE_PATH = "user://options_save.ini"
+const SAVE_PATH = "./options_save.ini"
 
 var stats : SavesHandler
 

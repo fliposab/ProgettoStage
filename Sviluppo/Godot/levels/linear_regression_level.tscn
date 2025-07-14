@@ -270,7 +270,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28347, 0.359945, 4.19403)
 load_level_path = "res://levels/hub_level.tscn"
 
 [node name="Label" parent="LevelTube/Control/VBoxContainer" index="0"]
-text = "BACK_TO_HUB"
+text = "E: BACK_TO_HUB"
 horizontal_alignment = 1
 vertical_alignment = 1
 

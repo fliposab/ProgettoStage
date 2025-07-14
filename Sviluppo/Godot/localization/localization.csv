@@ -1,5 +1,6 @@
 KEYS,it,en
 BACK_TO_HUB,Torna alla Hub,Back to Hub
+E: BACK_TO_HUB,E: Torna alla hub,E: Back to Hub
 RESUME,Riprendi,Resume
 LOAD_GAME,Carica partita,Load Game
 NEW_GAME,Nuova partita,New Game
@@ -29,9 +30,9 @@ VERY_LOW,Molto bassa,Very low
 LANGUAGE,Lingua,Language
 SAVE_AND_QUIT_GAME,Salva ed esci dal gioco,Save and Quit Game
 SAVE_AND_RETURN,Salva e torna al gioco,Save and return
-LINEAR_REGRESSION,Regressione lineare,Linear Regression
-DECISION_TREE,Albero di decisione,Decision Tree
-CAUSALITY,Causalità,Causality
+E: GO_TO_LINEAR_REGRESSION,"E: Vai al livello "Regressione lineare"","E: Go to the "Linear Regression" level"
+E: GO_TO_DECISION_TREE,"E: Vai al livello "Albero di decisione"","E: Go to the "Decision Tree" level"
+E: GO_TO_CAUSALITY,"E: Vai al livello della "Causalità"","E: Go to the "Causality" level"
 PAUSE,PAUSA,PAUSE
 GRAB,Prendi,Grab
 RELEASE,Lascia,Release
@@ -52,6 +53,7 @@ PRICK,A punta,Prick
 DROP,Cadenti,Drop
 BLACK / BROWN,Nero / Marrone,Black / Brown
 BLACK / WHITE,Nero / Bianco,Black / White
+GRAY / WHITE,Grigio / Bianco,Gray / White
 ORANGE / BROWN,Arancione / Marrone,Orange / Brown
 WHITE,Bianco,White
 ORANGE / WHITE,Arancione / Bianco,Orange / White
@@ -102,15 +104,15 @@ AVERAGE_TEMPERATURE,Temperatura media,Average Temperature
 ICE_CREAM_SOLD,Gelati venduti,Ice Cream Sold
 AIR_CONDITIONING_USE,Uso di aria condizionata,Air Conditioning Use
 USE_OF_AIR_CONDITIONERS,Condizionatori accesi,Air Conditioners Turned on
-SCIENTIST_BUSY_TEXT_1,"Scusa, sono impegnato a fare delle misurazioni.",
-SCIENTIST_BUSY_TEXT_2,"Torna più tardi, per favore.",
-SCIENTIST_FREE_TEXT_1,"Non appena ho finito le misurazioni, ho sentito un forte rumore...",""
-SCIENTIST_FREE_TEXT_2,"Mi sono girato e ho visto un sacco di persone andare in gelato.",""
-SCIENTIST_FREE_TEXT_3,"Te sai quale potrebbe essere la causa di tutta questa voglia di gelato?",
-CAUSALITY_OPTION_1,"L'uso dei condizionatori",
-CAUSALITY_OPTION_2,"I gelati sono buoni",
-CAUSALITY_OPTION_3,"L'alta temperatura",
-CORRECT_OPTION,"Mi sembra giusto!",
-WRONG_OPTION,"No, non credo sia corretto...",
-SCIENTIST_END_TEXT,"Quasi quasi vado anch'io a prendere un gelato...",
-GRAPH_NOT_YET_AVAILABLE,Grafico non ancora disponibile,
+SCIENTIST_BUSY_TEXT_1,"Scusa, sono impegnato a fare delle misurazioni.","Sorry, I,m busy taking some measurements"
+SCIENTIST_BUSY_TEXT_2,"Torna più tardi, per favore.","Could you come back later, please?"
+SCIENTIST_FREE_TEXT_1,"Non appena ho finito le misurazioni, ho sentito un forte rumore...","Right when I finished taking measurements, I heard a loud sound..."
+SCIENTIST_FREE_TEXT_2,"Mi sono girato e ho visto un sacco di persone andare in gelato.","I turned and I saw a lot of people going to buy an ice-cream."
+SCIENTIST_FREE_TEXT_3,"Te sai quale potrebbe essere la causa di tutta questa voglia di gelato?","Do you know what could have been the cause of all this craving for ice-cream?"
+CAUSALITY_OPTION_1,"L'uso dei condizionatori","Use of A/C"
+CAUSALITY_OPTION_2,"I gelati sono buoni","The ice-creams are tasty"
+CAUSALITY_OPTION_3,"L'alta temperatura","The hot temperature"
+CORRECT_OPTION,"Mi sembra giusto!","I think that's right!"
+WRONG_OPTION,"No, non credo sia corretto...","No, I don't think that's correct..."
+SCIENTIST_END_TEXT,"Quasi quasi vado anch'io a prendere un gelato...","Maybe I should also go buying some ice-cream..."
+GRAPH_NOT_YET_AVAILABLE,Grafico non ancora disponibile,"Graph not yet available"

@@ -1,6 +1,8 @@
 extends LevelSave
 class_name DTLevelSave
 
+const SAVE_PATH = "./decision_tree_save.ini"
+
 func save_data()->void:
 	var config := ConfigFile.new()
 	config.set_value("dt_level", "breeds_unlocked", stats.breeds_unlocked)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://rnklxapul4vv"]
+[gd_scene load_steps=4 format=3 uid="uid://rnklxapul4vv"]
 
 [ext_resource type="Script" uid="uid://6ptc0x0lvqii" path="res://code/saves/check_saves.gd" id="1_vj18m"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="2_5sul0"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="2_d52gt"]
 
 [node name="LoadGame" type="Button"]
 mouse_filter = 2
@@ -9,3 +11,8 @@ text = "LOAD_GAME"
 
 [node name="CheckSaves" type="Node" parent="."]
 script = ExtResource("1_vj18m")
+
+[node name="Sound2" parent="." instance=ExtResource("2_5sul0")]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d52gt")

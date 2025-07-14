@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0pbuk6hpdsq"]
+
+[ext_resource type="AudioStream" uid="uid://doexyrhirrce0" path="res://sounds/confirm_sound.mp3" id="1_ub7e7"]
+[ext_resource type="Script" uid="uid://7oqut5brfuh0" path="res://code/sounds/confirm_sound.gd" id="2_ub7e7"]
+
+[node name="ConfirmSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_ub7e7")
+volume_db = -20.0
+script = ExtResource("2_ub7e7")

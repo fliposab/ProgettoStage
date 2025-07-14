@@ -22,7 +22,9 @@ func set_grab_item(body: Node3D)->void:
 
 ##imposta che si sta tenendo l'oggetto che prima era considerato grabbable
 func set_hold_item()->void:
+	var item_scale : Vector3 = grabbable_item.scale
 	hold_item = grabbable_item
+	hold_item.mesh.scale = item_scale * 7.0
 
 ##imposta l'oggetto che si sta portando
 func carry()->void:
@@ -40,7 +42,7 @@ func carry()->void:
 func release()->void:
 	show_hold_ui.emit(false)
 	show_grab_ui.emit(false)
-	#_bone_attachment.remove_child(grab_item)
+	hold_item.mesh.scale = hold_item.scale
 	hold_item.move_node(hold_item.og_parent, false)
 	hold_item.holding = false
 	can_grab = true

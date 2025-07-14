@@ -1,6 +1,8 @@
 extends Saves
 class_name  CausalitySaves
 
+const SAVE_PATH = "user://causality_save.ini"
+
 func save_data()->void:
 	var config := ConfigFile.new()
 	config.set_value("causality", "all_ac_turned_on", stats.ac_on_all)

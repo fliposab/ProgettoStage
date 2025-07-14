@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bw0nixc7amxpf" path="res://code/ui/pause_menu.gd" id="1_50142"]
 [ext_resource type="PackedScene" uid="uid://om0xmc0ae5vd" path="res://ui/pause/pause_buttons.tscn" id="2_ejwgg"]
-[ext_resource type="AudioStream" uid="uid://c8qsfhwpek730" path="res://sounds/menu-button-88360.mp3" id="2_fob5h"]
+[ext_resource type="AudioStream" uid="uid://c8qsfhwpek730" path="res://sounds/pause_open.mp3" id="2_fob5h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ejwgg"]
 font_size = 82
@@ -27,7 +27,7 @@ script = ExtResource("1_50142")
 
 [node name="OpenSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fob5h")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -69,3 +69,5 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_euhrg")
 layout_mode = 2
 
 [connection signal="resume_game" from="VBoxContainer/PauseButtons" to="." method="_on_resume_game"]
+
+[editable path="VBoxContainer/PauseButtons"]

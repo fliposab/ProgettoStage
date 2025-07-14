@@ -1,6 +1,8 @@
 extends Saves
 class_name PlayerSave
 
+const SAVE_PATH = "./player_save.ini"
+
 func save_data()->void:
 	var config := ConfigFile.new()
 	

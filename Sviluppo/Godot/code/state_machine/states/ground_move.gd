@@ -1,6 +1,7 @@
 extends State
 
 func enter(previous_state_path, _msg:={})->void :
+	$SoundTimer.start()
 	player.particle_emitter.start_run_particles()
 	if player.grab_item.is_holding:
 		player.play("run_grab")
@@ -9,6 +10,7 @@ func enter(previous_state_path, _msg:={})->void :
 
 func exit()->void:
 	player.particle_emitter.start_run_particles(false)
+	$SoundTimer.stop()
 
 func physics_update(delta: float)->void:
 	player.get_move_input(delta, 0.1)
@@ -30,3 +32,11 @@ func physics_update(delta: float)->void:
 	player.grab_item.can_release_item():
 		finished.emit("Release")
 		return
+
+var sound : bool = true
+func play_sound()->void:
+	if sound:
+		$Footsteps1.play()
+	else:
+		$Footsteps2.play()
+	sound = !sound

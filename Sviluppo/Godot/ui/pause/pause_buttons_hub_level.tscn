@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://duy7mh2rh6fkj"]
+[gd_scene load_steps=9 format=3 uid="uid://duy7mh2rh6fkj"]
 
 [ext_resource type="Script" uid="uid://cqtkwyy51ufd8" path="res://code/ui/pause_buttons.gd" id="1_qhoex"]
 [ext_resource type="PackedScene" uid="uid://bvbuclv3w6omw" path="res://ui/options_button.tscn" id="2_86gxt"]
 [ext_resource type="StyleBox" uid="uid://ccr5cwjb6e5x1" path="res://ui/styles/pause_buttons_style.tres" id="2_g5bqd"]
+[ext_resource type="Script" uid="uid://ddy08fr1cy2xa" path="res://ui/base_button.gd" id="3_5vnai"]
 [ext_resource type="PackedScene" uid="uid://buyhaetw3vvg8" path="res://ui/pause/main_menu_button.tscn" id="3_g5bqd"]
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="4_71ykw"]
 [ext_resource type="PackedScene" uid="uid://ddf42wbi54x34" path="res://ui/quit_button.tscn" id="4_rcwxg"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="5_ac7kf"]
 
 [node name="PauseButtons" type="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
@@ -19,6 +22,13 @@ mouse_filter = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("2_g5bqd")
 text = "RESUME"
+script = ExtResource("3_5vnai")
+metadata/_custom_type_script = "uid://ddy08fr1cy2xa"
+
+[node name="Sound" type="AudioStreamPlayer" parent="Resume"]
+stream = ExtResource("4_71ykw")
+
+[node name="Sound2" parent="Resume" instance=ExtResource("5_ac7kf")]
 
 [node name="Options" parent="." instance=ExtResource("2_86gxt")]
 layout_mode = 2

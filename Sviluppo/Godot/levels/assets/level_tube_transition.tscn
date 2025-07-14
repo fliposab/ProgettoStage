@@ -46,7 +46,7 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("3_kfkwb")
-text = "LINEAR_REGRESSION"
+text = "E: GO_TO_LINEAR_REGRESSION"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 
