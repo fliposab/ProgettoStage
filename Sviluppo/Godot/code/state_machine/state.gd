@@ -1,6 +1,7 @@
 ## Virtual base class for all states.
 ## Extend this class and override its methods to implement a state.
-class_name State extends Node
+class_name State 
+extends Node
 
 var player : Player 
 var state_machine : StateMachine

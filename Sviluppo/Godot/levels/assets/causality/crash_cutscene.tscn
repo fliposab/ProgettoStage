@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
 [ext_resource type="PackedScene" uid="uid://dhuv5joel51jw" path="res://models/shop_sign.glb" id="13_iq6f3"]
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
-[ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_npc_behaviour.gd" id="15_0nrrl"]
+[ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_scientist_npc_behaviour.gd" id="15_0nrrl"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
 [ext_resource type="PackedScene" uid="uid://b026f6t5ha08r" path="res://ui/dialogue/project_text.tscn" id="19_i8pto"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3r1mgkh1a63v"]
+
+[ext_resource type="Script" uid="uid://ddvf7u1qvsfwj" path="res://ui/dialogue/dialogue_option_button.gd" id="1_v460p"]
+
+[node name="Button" type="Button"]
+text = "Option 1"
+script = ExtResource("1_v460p")

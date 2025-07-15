@@ -1,7 +1,7 @@
 extends Camera3D
 class_name PlayerCamera
 
-@onready var project_ui_node : CameraProjectStrategy = $ProjectUI
+@onready var project_ui_node : CameraProjectUI = $ProjectUI
 var _custom_target : Vector3
 
 func project_ui(item: Control)->void:

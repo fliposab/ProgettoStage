@@ -1,5 +1,5 @@
 extends Node
-class_name ChangeNPCBehaviour
+class_name ChangeScientistNPCBehaviour
 
 @onready var new_dialogue : Dialogue = $NewDialogue
 @onready var new_ui : ProjectText = $NewControl

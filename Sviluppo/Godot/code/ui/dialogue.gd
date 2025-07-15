@@ -4,6 +4,7 @@ class_name Dialogue
 var index : int = 0
 
 signal dialogue_ended
+signal dialogue_ended_correct
 
 func _ready()->void:
 	hide_all()
@@ -46,5 +47,4 @@ func reposition_camera(dialogue_started: bool)->void:
 	owner.reposition_camera(dialogue_started)
 
 func correct_option_selected()->void:
-	await get_tree().process_frame
-	queue_free()
+	dialogue_ended_correct.emit()

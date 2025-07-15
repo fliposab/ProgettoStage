@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl82q3wfwech5"]
+
+[ext_resource type="AudioStream" uid="uid://octdnvt5ds4a" path="res://sounds/menu_scroll_sound.mp3" id="1_818yv"]
+[ext_resource type="Script" uid="uid://cp0jsjrdmkhx6" path="res://code/sounds/menu_scroll_sound.gd" id="2_shty3"]
+
+[node name="MenuScrollSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_818yv")
+script = ExtResource("2_shty3")

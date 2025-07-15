@@ -14,6 +14,8 @@ doc)
 #counter(page).update(1)
 
 = Introduzione
+== Scopo del documento
+
 == Scopo del prodotto
 Il progetto consiste nello sviluppo di un videogioco con il motore di gioco #gloss[Godot] di tipo #gloss[platformer], in cui il giocatore controlla un personaggio che si muove in un ambiente tridimensionale.\
 Il gioco si basa su temi di #gloss[Intelligenza Artificiale] e #gloss[Machine Learning], sviluppando meccaniche ed elementi del livello basati su questi argomenti.\

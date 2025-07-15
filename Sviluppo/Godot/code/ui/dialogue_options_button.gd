@@ -1,7 +1,8 @@
 extends VBoxContainer
 class_name DialogueOptionsButtons
 
-@export_range(1,3) var right_option: int = 1
+##The position of the correct option
+@export_range(1,10) var right_option: int = 1
 
 signal correct_option_selected
 signal wrong_option_selected
@@ -9,20 +10,18 @@ signal wrong_option_selected
 func _ready()->void:
 	connect_signals()
 
+##connects all the child buttons pressed signal and numerates 
+##the index of the buttons
 func connect_signals()->void:
-	get_child(0).pressed.connect(_on_button_1_pressed)
-	get_child(1).pressed.connect(_on_button_2_pressed)
-	get_child(2).pressed.connect(_on_button_3_pressed)
+	for i in get_child_count():
+		get_child(i).option_pressed.connect(on_option_pressed)
+		get_child(i).index = i
 
-func _on_button_1_pressed()->void:
-	check_if_correct(1)
+##Received when a button is pressed
+func on_option_pressed(index: int)->void:
+	check_if_correct(index+1)
 
-func _on_button_2_pressed()->void:
-	check_if_correct(2)
-
-func _on_button_3_pressed()->void:
-	check_if_correct(3)
-
+##Checks if the answer is correct or not
 func check_if_correct(index: int)->void:
 	if right_option == index:
 		owner.on_correct_option_pressed()

@@ -1,5 +1,5 @@
 extends Node
-class_name CameraProjectStrategy
+class_name CameraProjectUI
 
 var _items : Array[Control]
 
