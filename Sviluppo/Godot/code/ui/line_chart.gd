@@ -129,3 +129,8 @@ func get_val(val, idx):
 	if [TYPE_INT, TYPE_FLOAT].has(typeof(val)):
 		return val
 	return idx
+
+func update_data(new_data)->void:
+	#delete_line_chart()
+	data[6]["y"] = new_data
+	#draw_line_chart()

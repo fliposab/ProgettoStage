@@ -1,11 +1,11 @@
 extends SavesHandler
 class_name CausalitySavesHandler
 
-@export var ac_on_all : bool = false
+var data : Dictionary = {}
 
 func set_save_node()->void:
 	_save_node = get_child(0)
 
-func _on_ac_units_all_units_on(player: Player, play_cutscene: bool) -> void:
-	ac_on_all = true
+func _on_ac_units_unit_turned_on(array: Array[bool]) -> void:
+	data["ac_on"] = array
 	save_data()

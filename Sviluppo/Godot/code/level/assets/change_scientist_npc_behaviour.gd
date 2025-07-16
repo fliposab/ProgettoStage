@@ -1,5 +1,5 @@
 extends Node
-class_name ChangeScientistNPCBehaviour
+class_name ChangeNPCScientistBehaviour
 
 @onready var new_dialogue : Dialogue = $NewDialogue
 @onready var new_ui : ProjectText = $NewControl
@@ -19,11 +19,7 @@ func rotate_npc()->void:
 	get_parent().rotate_y(PI/1.5)
 
 func _on_saves_handler_data_loaded(save_handler: SavesHandler) -> void:
-	await get_tree().process_frame
-	if save_handler.ac_on_all:
-		change_behaviour(true,true)
-		change_text()
-		rotate_npc()
+	return
 
 func change_prompt_text()->void:
 	get_parent().get_ui().free()
@@ -32,3 +28,12 @@ func change_prompt_text()->void:
 	get_parent().get_ui().name = "Control"
 	new_ui.owner = get_parent()
 	get_parent().connect_signals()
+
+func _on_new_dialogue_dialogue_ended_correct() -> void:
+	change_prompt_text()
+	change_behaviour()
+
+func change_text_and_behaviour():
+	change_text()
+	change_behaviour(true, true)
+	rotate_npc()

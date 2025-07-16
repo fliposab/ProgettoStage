@@ -6,8 +6,9 @@ var index : int
 signal turned_on(index: int)
 
 func _on_interact_button_pressed()->void:
-	turned_on.emit(index, player)
+	get_parent().activate_unit(index)
+	turn_on()
+
+func turn_on()->void:
 	on = true
 	$Area3D.queue_free()
-	#emetti il suono
-	#aggiungi info al livello

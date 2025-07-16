@@ -46,6 +46,14 @@ Una volta accese tutte le unità, verrà avviata una #gloss[scena di intermezzo]
 === Riferimenti informativi
 
 === Riferimenti tecnici
+- Documentazione di Godot:
+#link("https://docs.godotengine.org/it/4.x/about/introduction.html")\
+\
+- I concetti chiave di Godot:
+#link("https://docs.godotengine.org/it/4.x/getting_started/introduction/key_concepts_overview.html")\
+\
+- La filosofia progettuale di Godot:
+#link("https://docs.godotengine.org/it/4.x/getting_started/introduction/godot_design_philosophy.html")
 
 = Tecnologie
 #figure(caption: [Tecnologie utilizzate], table(
@@ -57,26 +65,46 @@ Una volta accese tutte le unità, verrà avviata una #gloss[scena di intermezzo]
   table.cell([*Codice*], colspan: 3),
   [GDScript],[],[(Legata a Godot)],
   [Python],[],[],
-  [Typst],[],[],
-  [\u{002A}.csv],[],[-],
-  [\u{002A}.ini],[],[-],
+  [Typst],[Linguaggio utilizzato per la stesura dei documenti],[],
+  [\u{002A}.csv],["Comma seprated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
+  [\u{002A}.ini],[Tipo d file "plain-text" utilizzato per salvare i dati del gioco],[-],
   table.cell([*Softwares*], colspan: 3),
-  [Godot],[],[4.4.1-stable-mono],
-  [Blender],[],[4.4.3],
-  [GIMP],[],[3.0.4],
+  [Godot],[Il motore di gioco open source per lo sviluppo del videogioco.],[4.5-beta3-mono],
+  [Blender],[Software di modellazone ed animazione 3D usato per creare i modelli 3D del gioco],[4.4.3],
+  [GIMP],[Software di modifica di immagini, usato per modificare le textures del gioco],[3.0.4],
   table.cell([*Strumenti e serivzi*], colspan: 3),
   [Git],[],[2.50.1],
   [GitHub Actions],[],[-]
 ))
 
 = Architettura
-== Premessa
+== Introduzione
+=== Concetti chiave di Godot
+*Nodo*\
+*Scena*\
+*Segnali*\
+=== Assenza di interfacce
 == Assets comuni
+Di seguito viene mostrata l'architettura degli #gloss[assets] presenti in più parti del gioco che non sono unici ad un livello specifico.
 === Giocatore
 #figure(caption: [Diagramma delle classi del giocatore],image("imgs/class-player.png"))
+Il giocatore può essere considerata la classe principale di tutta l'applicazione, attraverso il quale l'utente può interagire con la maggior parte dell'applicazione. Nonostante ci sia solo un giocatore presente del gioco, questo non è un #gloss[singleton], visto che non è presente nel menu principale all'avvio del gioco.\
+
+Molte variabili presenti nel giocatore sono references ai suoi nodi figli presenti nella scena, queste variabili sono precedute dalla parola chiave _\u{0040}onready_ nel codice.
+Similmente, molte funzioni della classe servono solo per accedere alle variabili degli oggetti aggregati.
+
+L'architettura del giocatore presenta diverse funzionalità:
+- *telecamera*;
+- *macchina di stati*;
+- *raccolta di collezionabili*;
+- *gestione dei salvataggi*;
+- *raccolta di oggetti*;
+- *emissione di particelle 3D*;
+- *UI*.
 ==== Telecamera
-#figure(caption: [Diagramma delle classi del giocatore],image("imgs/class-camera.png"))
+#figure(caption: [Diagramma delle classi della telecamera del giocatore],image("imgs/class-camera.png"))
 ==== State Machine
+#figure(caption: [Diagramma sulla struttura della macchina di stati],image("imgs/class-state_machine.png"))
 ==== Collezionabili
 === Interazione
 #figure(caption: [Diagramma degli oggetti con cui il giocatore può interagire],image("imgs/class-interactable.png"))
@@ -89,12 +117,15 @@ Una volta accese tutte le unità, verrà avviata una #gloss[scena di intermezzo]
 == Menu
 === Menu di pausa
 === Menu principale
+== Struttura base livello
 == Livello "Regressione lineare"
 === Cannone
 === Grafico
 == Livello "Albero di decisione"
 === Albero
 == Livello "Causalità"
+#figure(caption: [Diagramma del livello della causalità],image("imgs/class-causality_level.png"))
+=== Scena di intermezzo
 
 = Requisiti soddisfatti
 == Tabella requisiti soddisfatti

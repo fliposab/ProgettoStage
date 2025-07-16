@@ -1,26 +1,28 @@
 extends Node3D
 class_name ACUnits
 
-var already_on : bool = false
+var all_units_already_on : bool = false
 var units : Array[bool] = []
 
-signal all_units_on()
-signal start_cutscene(player: Player, play: bool)
+##emitted when a player turns on an AC unit
+##emitted ONLY with player input
+signal unit_turned_on(array: Array[bool])
+##emitted ONLY with player input
+signal all_units_turned_on()
 
 func _ready()->void:
 	await get_tree().process_frame
-	if already_on:
+	if all_units_already_on:
 		return
 	for i in get_child_count():
-		units.append(owner.saves_handler.ac_on_all)
+		units.append(false)
 		get_child(i).index = i
-		get_child(i).on = units[i]
-		get_child(i).turned_on.connect(activate_unit)
 
-func activate_unit(index: int, player: Player)->void:
+func activate_unit(index: int)->void:
 	units[index] = true
+	unit_turned_on.emit(units)
 	if check_if_activated_all():
-		start_cutscene.emit(player, true)
+		all_units_turned_on.emit()
 
 func check_if_activated_all()->bool:
 	for i in units.size():
@@ -28,8 +30,12 @@ func check_if_activated_all()->bool:
 			return false
 	return true
 
-func check_if_already_activated(save_handler: SavesHandler)->void:
-	if save_handler.ac_on_all:
-		already_on = true
-		all_units_on.emit()
-	
+func _on_saves_handler_data_loaded(save_handler: SavesHandler) -> void:
+	if !save_handler.data.has("ac_on"):
+		return
+	all_units_already_on = true
+	for i in save_handler.data["ac_on"].size():
+		if save_handler.data["ac_on"][i] == false:
+			all_units_already_on = false
+			continue
+		get_child(i).turn_on()

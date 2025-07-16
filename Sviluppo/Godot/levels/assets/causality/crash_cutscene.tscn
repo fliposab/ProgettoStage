@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=25 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -8,15 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="6_bpixg"]
 [ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="7_bpixg"]
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="8_580fp"]
+[ext_resource type="Script" uid="uid://bphr6yyf13k13" path="res://code/level/assets/change_npc_icecream_behaviour.gd" id="8_vsukt"]
 [ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="8_w0vt1"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="9_0nrrl"]
 [ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="11_7pcub"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
-[ext_resource type="PackedScene" uid="uid://dhuv5joel51jw" path="res://models/shop_sign.glb" id="13_iq6f3"]
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
 [ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_scientist_npc_behaviour.gd" id="15_0nrrl"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
+[ext_resource type="PackedScene" uid="uid://d3r1mgkh1a63v" path="res://ui/dialogue/dialogue_option_button.tscn" id="18_i8pto"]
 [ext_resource type="PackedScene" uid="uid://b026f6t5ha08r" path="res://ui/dialogue/project_text.tscn" id="19_i8pto"]
 [ext_resource type="PackedScene" uid="uid://ckw50h418clhq" path="res://levels/assets/collectible_spawner.tscn" id="19_iq6f3"]
 
@@ -114,6 +115,18 @@ visible = false
 layout_mode = 1
 text = "ICE_CREAM_TEXT_4"
 
+[node name="ChangeNPCBehaviour" type="Node" parent="ice_cream_shop/NPCDialogue"]
+script = ExtResource("8_vsukt")
+
+[node name="NewDialogue" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
+
+[node name="Text1" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" index="0"]
+text = "ICE_CREAM_CRASH_TEXT_1"
+
+[node name="Text2" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
+layout_mode = 1
+text = "ICE_CREAM_CRASH_TEXT_2"
+
 [node name="GraphSign" type="Node3D" parent="."]
 process_mode = 3
 transform = Transform3D(-0.553721, 0, -0.231071, 0, 0.6, 0, 0.231071, 0, -0.553721, -12.5653, -0.645169, 21.1023)
@@ -198,10 +211,6 @@ text = "Q: CLOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="shop_sign" parent="GraphSign" instance=ExtResource("13_iq6f3")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-visible = false
-
 [node name="sign" parent="GraphSign" instance=ExtResource("8_w0vt1")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 0, 0)
 
@@ -223,18 +232,18 @@ layout_mode = 1
 [node name="Label" parent="GraphSign/ReplaceUI/NewSignUI/Chart/VBoxContainer" index="0"]
 text = "AVERAGE_TEMPERATURE"
 
-[node name="NPCDialogue" parent="." instance=ExtResource("6_bpixg")]
+[node name="NPCScientist" parent="." instance=ExtResource("6_bpixg")]
 transform = Transform3D(-0.672393, 0, 0.740195, 0, 1, 0, -0.740195, 0, -0.672393, -7.18988, -0.408628, 17.0667)
 turn_on_talking = false
 talk_on_enter = false
 
-[node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
+[node name="Text1" parent="NPCScientist/Dialogue" index="0"]
 text = "SCIENTIST_BUSY_TEXT_1"
 
-[node name="Text2" parent="NPCDialogue/Dialogue" index="1"]
+[node name="Text2" parent="NPCScientist/Dialogue" index="1"]
 text = "SCIENTIST_BUSY_TEXT_2"
 
-[node name="Skeleton3D" parent="NPCDialogue/Model/Armature" index="0"]
+[node name="Skeleton3D" parent="NPCScientist/Model/Armature" index="0"]
 bones/1/position = Vector3(0, 4.09728, 0)
 bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
 bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
@@ -265,10 +274,10 @@ bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
 bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
 bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
 
-[node name="ChangeNPCBehaviour" type="Node" parent="NPCDialogue"]
+[node name="ChangeNPCBehaviour" type="Node" parent="NPCScientist"]
 script = ExtResource("15_0nrrl")
 
-[node name="NewDialogue" parent="NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
+[node name="NewDialogue" parent="NPCScientist/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
 anchors_preset = 15
 anchor_bottom = 1.0
 offset_left = 44.0
@@ -276,74 +285,69 @@ offset_top = 27.0
 offset_right = -44.0
 grow_vertical = 2
 
-[node name="Text1" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" index="0"]
+[node name="Text1" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue" index="0"]
 text = "SCIENTIST_FREE_TEXT_1"
 
-[node name="Text2" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
+[node name="Text2" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
 layout_mode = 1
 text = "SCIENTIST_FREE_TEXT_2"
 
-[node name="TextOptions" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("17_7pcub")]
+[node name="TextOptions" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("17_7pcub")]
 layout_mode = 1
 
-[node name="Label" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer" index="0"]
+[node name="Label" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer" index="0"]
 text = "SCIENTIST_FREE_TEXT_3"
 
-[node name="VBoxContainer" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer" index="0"]
+[node name="VBoxContainer" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer" index="0"]
 right_option = 3
 
-[node name="Button" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
+[node name="Button" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
 text = "CAUSALITY_OPTION_1"
 
-[node name="Button2" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
+[node name="Button2" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
 text = "CAUSALITY_OPTION_2"
 
-[node name="Button3" parent="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="2"]
+[node name="Button3" parent="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="2" instance=ExtResource("18_i8pto")]
+layout_mode = 2
 text = "CAUSALITY_OPTION_3"
 
-[node name="NewControl" parent="NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("19_i8pto")]
+[node name="NewControl" parent="NPCScientist/ChangeNPCBehaviour" instance=ExtResource("19_i8pto")]
 label_text = "SCIENTIST_END_TEXT"
 
-[node name="CollectibleSpawner" parent="NPCDialogue" instance=ExtResource("19_iq6f3")]
+[node name="CollectibleSpawner" parent="NPCScientist" instance=ExtResource("19_iq6f3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55811, 0)
 number = 8
 load_red = false
 load_blue = true
 
-[connection signal="change_char_behaviour" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
-[connection signal="cutscene_done" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
-[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_behaviour"]
-[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
-[connection signal="cutscene_done" from="." to="NPCDialogue/ChangeNPCBehaviour" method="rotate_npc"]
-[connection signal="start_cutscene" from="." to="PathNPC/PathFollow3D" method="start"]
-[connection signal="start_cutscene" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
-[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="change_text"]
-[connection signal="start_cutscene" from="." to="NPCDialogue/ChangeNPCBehaviour" method="rotate_npc"]
+[connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
+[connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
+[connection signal="change_values" from="." to="NPCScientist/ChangeNPCBehaviour" method="change_text_and_behaviour"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_exited"]
+[connection signal="dialogue_ended" from="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="ice_cream_shop/NPCDialogue" method="_on_dialogue_dialogue_ended"]
 [connection signal="body_entered" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_exited"]
 [connection signal="visibility_changed" from="GraphSign/SignUI" to="GraphSign/SignUI" method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="GraphSign/ReplaceUI/NewSignUI" to="GraphSign/ReplaceUI/NewSignUI" method="_on_visibility_changed"]
-[connection signal="body_entered" from="NPCDialogue/Area3D" to="NPCDialogue/Control" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="NPCDialogue/Area3D" to="NPCDialogue/Control" method="_on_area_3d_body_exited"]
-[connection signal="dialogue_ended" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="NPCDialogue" method="_on_dialogue_dialogue_ended"]
-[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="." method="_on_correct_option_selected"]
-[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue" method="disable_area"]
-[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue/ChangeNPCBehaviour" method="change_prompt_text"]
-[connection signal="correct_option_selected" from="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" to="NPCDialogue/CollectibleSpawner" method="generate_collectible"]
+[connection signal="body_entered" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_exited"]
+[connection signal="dialogue_ended" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist" method="_on_dialogue_dialogue_ended"]
+[connection signal="dialogue_ended" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/CollectibleSpawner" method="generate_collectible"]
+[connection signal="dialogue_ended_correct" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/ChangeNPCBehaviour" method="_on_new_dialogue_dialogue_ended_correct"]
 
 [editable path="PathNPC"]
 [editable path="ice_cream_shop/NPCDialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Control"]
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
+[editable path="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
 [editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
-[editable path="NPCDialogue"]
-[editable path="NPCDialogue/Control"]
-[editable path="NPCDialogue/Dialogue"]
-[editable path="NPCDialogue/Model"]
-[editable path="NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
-[editable path="NPCDialogue/ChangeNPCBehaviour/NewDialogue/TextOptions"]
+[editable path="NPCScientist"]
+[editable path="NPCScientist/Control"]
+[editable path="NPCScientist/Dialogue"]
+[editable path="NPCScientist/Model"]
+[editable path="NPCScientist/ChangeNPCBehaviour/NewDialogue"]
+[editable path="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions"]
