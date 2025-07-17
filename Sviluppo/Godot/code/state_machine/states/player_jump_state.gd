@@ -1,4 +1,5 @@
 extends State
+class_name InteractState
 
 var falling : bool = false
 

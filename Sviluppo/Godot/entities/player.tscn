@@ -108,7 +108,7 @@ settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Model/Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0182943, 3.10808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.018294334, 3.108078)
 bone_name = "object"
 bone_idx = 35
 
@@ -125,12 +125,15 @@ script = ExtResource("2_qsoyl")
 
 [node name="PlayerSaveHandler" parent="Misc" instance=ExtResource("3_ef06p")]
 script = ExtResource("4_tjdhl")
-red_training_data_count = 0
-blue_training_data_count = 0
-green_training_data_count = 0
+data = {
+"blue_training_data_count": 0,
+"green_training_data_count": 0,
+"red_training_data_count": 0
+}
 
 [node name="PlayerSaves" type="Node" parent="Misc/PlayerSaveHandler"]
 script = ExtResource("9_hj0ki")
+save_path = "./player_save.ini"
 
 [node name="Movement" type="Node" parent="Misc"]
 script = ExtResource("5_x08pd")

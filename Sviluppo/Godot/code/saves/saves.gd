@@ -1,6 +1,7 @@
+@abstract class_name Saves
 extends Node
-class_name Saves
 
+@export var save_path : String = "./"
 var stats : SavesHandler
 
 func save_data()->void:
@@ -8,9 +9,3 @@ func save_data()->void:
 
 func load_data() -> void:
 	return
-
-func load_var(value, config: ConfigFile, section: String, key: String):
-	if config.get_value(section, key):
-		return config.get_value(section, key)
-	else:
-		return value

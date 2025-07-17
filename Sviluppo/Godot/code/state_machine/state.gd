@@ -1,6 +1,6 @@
-## Virtual base class for all states.
+## Abstract class for all states.
 ## Extend this class and override its methods to implement a state.
-class_name State 
+@abstract class_name State 
 extends Node
 
 var player : Player 

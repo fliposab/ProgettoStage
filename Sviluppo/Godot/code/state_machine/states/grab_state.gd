@@ -1,4 +1,5 @@
 extends State
+class_name GrabState
 
 func enter(previous_state_path, _msg:={})->void :
 	player.grab_item.carry()

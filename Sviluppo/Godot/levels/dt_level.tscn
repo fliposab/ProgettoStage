@@ -188,6 +188,7 @@ breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, 
 
 [node name="Saves" type="Node" parent="SavesHandler" index="0"]
 script = ExtResource("7_1c2ks")
+save_path = "./decision_tree_save.ini"
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="11"]
 operation = 1

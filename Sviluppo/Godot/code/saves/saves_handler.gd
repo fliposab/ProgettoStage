@@ -2,7 +2,7 @@ extends Node
 class_name SavesHandler
 
 @export var debug_mode : bool = 0
-var _save_node
+var _save_node: Saves
 	
 signal data_saved(save_handler: SavesHandler)
 signal data_loaded(save_handler: SavesHandler)

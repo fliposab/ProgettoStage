@@ -1,4 +1,5 @@
 extends State
+class_name IdleState
 
 func enter(previous_state_path, _msg:={})->void :
 	if _msg.has("reset_camera"):

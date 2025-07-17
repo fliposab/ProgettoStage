@@ -1,4 +1,5 @@
 extends State
+class_name ReleaseState
 
 func enter(previous_state_path, _msg:={})->void :
 	player.play("release")

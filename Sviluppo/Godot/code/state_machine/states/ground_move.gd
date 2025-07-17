@@ -1,4 +1,5 @@
 extends State
+class_name GroundMoveState
 
 func enter(previous_state_path, _msg:={})->void :
 	$SoundTimer.start()

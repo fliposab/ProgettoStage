@@ -1,9 +1,8 @@
-extends Node
+extends Saves
 class_name OptionsSave
 
-const SAVE_PATH = "./options_save.ini"
-
-var stats : SavesHandler
+func _ready()->void:
+	save_path ="./options_save"
 
 func save_data()->void:
 	var config := ConfigFile.new()
@@ -16,28 +15,22 @@ func save_data()->void:
 	config.set_value("common", "max_fps", stats.max_fps)
 	config.set_value("common", "language", stats.language)
 	
-	config.save(SAVE_PATH)
+	config.save(save_path)
 
 func load_data() -> void:
 	var config := ConfigFile.new()
-	var err = config.load(SAVE_PATH)
+	var err = config.load(save_path)
 	# If the file didn't load, ignore it.
 	if err != OK:
 		printerr("SaveFile ",self.name," not found")
 		return
 	
-	config.load(SAVE_PATH)
+	config.load(save_path)
 	
-	stats.window_mode = load_var(stats.window_mode, config, "common", "window_mode")
-	stats.window_resolution = load_var(stats.window_resolution, config, "common", "window_resolution")
-	stats.resolution_scale = load_var(stats.resolution_scale, config, "common", "resolution_scale")
-	stats.anti_aliasing = load_var(stats.anti_aliasing, config, "common", "anti_aliasing")
-	stats.shadows_quality = load_var(stats.shadows_quality, config, "common", "shadows_quality")
-	stats.max_fps = load_var(stats.max_fps, config, "common", "max_fps")
-	stats.language = load_var(stats.language, config, "common", "language")
-
-func load_var(value, config: ConfigFile, section: String, key: String):
-	if config.get_value(section, key):
-		return config.get_value(section, key)
-	else:
-		return value
+	stats.window_mode = config.get_value("common", "window_mode", stats.window_mode)
+	stats.window_resolution = config.get_value("common", "window_resolution", stats.window_resolution)
+	stats.resolution_scale = config.get_value("common", "resolution_scale", stats.resolution_scale)
+	stats.anti_aliasing = config.get_value("common", "anti_aliasing", stats.anti_aliasing)
+	stats.shadows_quality = config.get_value("common", "shadows_quality", stats.shadows_quality)
+	stats.max_fps = config.get_value("common", "max_fps", stats.max_fps)
+	stats.language = config.get_value("common", "language", stats.language)
