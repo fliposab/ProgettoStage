@@ -1,8 +1,10 @@
 extends State
 class_name GroundMoveState
 
+@onready var footseps_sounds : FootStepsSound = $FootstepSounds
+
 func enter(previous_state_path, _msg:={})->void :
-	$SoundTimer.start()
+	footseps_sounds.start()
 	player.particle_emitter.start_run_particles()
 	if player.grab_item.is_holding:
 		player.play("run_grab")
@@ -11,7 +13,7 @@ func enter(previous_state_path, _msg:={})->void :
 
 func exit()->void:
 	player.particle_emitter.start_run_particles(false)
-	$SoundTimer.stop()
+	footseps_sounds.stop()
 
 func physics_update(delta: float)->void:
 	player.get_move_input(delta, 0.1)
@@ -34,10 +36,5 @@ func physics_update(delta: float)->void:
 		finished.emit("Release")
 		return
 
-var sound : bool = true
 func play_sound()->void:
-	if sound:
-		$Footsteps1.play()
-	else:
-		$Footsteps2.play()
-	sound = !sound
+	footseps_sounds.play()

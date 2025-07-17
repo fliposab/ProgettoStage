@@ -96,9 +96,25 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Descrizione*:\ 
 - Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del controller.
 *Precondizioni*:
-- Il giocatore deve essere in un livello del gioco e il personaggio deve essere in grado di saltare.
+- Il giocatore deve essere in un livello del gioco.
+- Il giocatore deve essere libero di muoversi.
 *Postcondizioni*:
-- Il personaggio salta e può interagire con l'ambiente durante il salto.
+- Il personaggio esegue il salto.
+*Scenario principale*:
+- Il giocatore preme il tasto o il comando per saltare.
+- Il personaggio salta.
+
+=== UC2.1 - Salto con oggetto 
+*Attori principali*:
+- Giocatore
+*Descrizione*:\
+- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del controller mentre sta trasportando un oggetto.
+*Precondizioni*:
+- Il giocatore deve essere in un livello del gioco.
+- Il giocatore deve essere libero di muoversi.
+- Il giocatore sta portando un oggetto.
+*Postcondizioni*:
+- Il personaggio esegue il salto portandosi l'oggetto.
 *Scenario principale*:
 - Il giocatore preme il tasto o il comando per saltare.
 - Il personaggio salta.
@@ -1026,10 +1042,10 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-39-F-O", "UC35","\u{2713}",
     "R-40-F-O", "UC36","\u{2713}",
     // Requisiti di qualità
-    "R-01-Q-O", "Decisione interna","",
-    "R-02-Q-O", "Decisione interna","",
-    "R-03-Q-O", "Decisione interna","",
-    "R-04-Q-O", "Decisione interna","",
+    "R-01-Q-O", "Decisione interna","\u{2713}",
+    "R-02-Q-O", "Decisione interna","\u{2713}",
+    "R-03-Q-O", "Decisione interna","\u{2713}",
+    "R-04-Q-O", "Decisione interna","\u{2713}",
     "R-05-Q-O", "Decisione interna","\u{2713}",
     "R-06-Q-O", "Decisione interna","\u{2713}",
     // Requisiti di vincolo
@@ -1048,4 +1064,18 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-07-A-O", "Discussione con il tutor aziendale","",
   ),
 )
-== Riepilogo 
+= Riepilogo 
+== Tracciamento dei requisiti
+#figure(
+  caption: [Tracciamento requisiti],
+  table(
+    columns: (1.2fr, 0.8fr, 0.8fr, 0.5fr),
+    inset: 8pt,
+    align: center + horizon,
+    fill: (x, y) => if (y == 0 or y == 5) { luma(230) },
+    table.header([*Tipologia*], [*Obbligatori*], [*Desiderabili*],[*Totale*]),
+    [Funzionali],[],[],[40],
+    [Qualità],[6],[-],[6],
+    [Vincolo],[5],[-],[5],
+    [Accessibilità],[3],[4],[7],
+    table.cell(colspan: 3, [*Totale*]),[*58*]))

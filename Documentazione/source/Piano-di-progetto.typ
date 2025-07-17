@@ -262,10 +262,20 @@ Inoltre sono stati aggiustati numerosi bug presenti nell'applicazione.
 #pagebreak()
 == Settimana 4 | 07/07 - 11/07
 #pseudoheading[*Retropsettiva*]
+Durante la quarta settimana, sono stati sviluppati i componenti principali del terzo livello del gioco, a tema Causalità. Sono stati inoltre corretti alcuni bug presenti nell'applicazione ed è stata aggiornata la documentazione sul progetto. Infine è stato sviluppato un Proof of Concept e presentato al relatore aziendale.
 #pseudoheading[*Attività svolte*]
+- sviluppo del terzo livello, a tema Causalità, con i seguenti componenti:
+  - creazione dei modelli 3D per gli oggetti presenti nel livello;
+  - implementazione degli oggetti interagibili del livello;
+  - aggiunta dei personaggi non giocabili con i loro rispettivi dialoghi;
+  - aggiunte classi per controllare e cambiare il comportamento dei personaggi non giocabili;
+- risolti alcuni bugs presenti nell'applicazione;
+#figure( caption: "Livello Causalità (settimana 4)", image("imgs/settimana-4.png", width: 100%))
+#pagebreak()
 == Settimana 5 | 14/07 - 18/07
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]
+- refactoring
 == Settimana 6 | 21/07 - 25/07
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]

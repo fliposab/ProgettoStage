@@ -12,6 +12,7 @@ doc)
 #pagebreak()
 #set page(numbering: "1")
 #counter(page).update(1)
+#show figure: set block(breakable: true)
 
 = Introduzione
 == Scopo del documento
@@ -23,6 +24,17 @@ Il glossario è accessibile tramite il link:\
 #link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")\
 oppure consultando il rispettivo documento all'interno della stessa cartella.
 
+== Specifiche macchina
+Alcuni test e metriche di qualità sono eseguiti su una macchina con specifiche hardware e software definite nella tabella. Molto importante è specificare le componenti della macchina su cui viene testato il gioco, dato che macchine diverse offrono prestazioni diverse.
+#figure(caption: [Componenti macchina 1], table(
+  columns: (0.8fr, 2fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Componente*], [*Dettagli*]),
+  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[AMD® Radeon Graphics (RADV RENOIR) - Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[Sistema Operativo],[Ubuntu 22.04]
+))\
+In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fascia media-bassa, quindi si ritiene che se il gioco offre delle buone prestazioni sulla macchina di testing, offrirà in media buone prestazioni su tutte le macchine con un sistema operativo supportato.
 == Riferimenti
 === Riferimenti normativi
 - Norme di progetto:\
@@ -220,18 +232,22 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
 
 === Efficienza
 - *MPD-TF - Target FPS*: indica gli #gloss[fps] obiettivo da mantenere durante l'esecuzione del gioco. 
-- *MPD-LS - Lag Spikes*: indica il numero di #gloss[lag spikes] che occorrono durante l'esecuzione del gioco. Non vengono contati durante un #gloss[caricamento] tra un livello e un altro e vengono contati solo durante i livelli.
-==== Specifiche macchina
-Molto importante è specificare le componenti della macchina su cui viene testato il gioco, dato che macchine diverse offrono prestazioni diverse:
-#figure(caption: [Componenti macchina 1], table(
-  columns: (0.8fr, 2fr),
+- *MPD-LS - Lag Spikes*: indica il numero di #gloss[lag spikes] che occorrono durante l'esecuzione del gioco. Non vengono contati durante un caricamento tra un livello e un altro.
+#figure(caption: [Valori per misurare la qualità del prodotto in termini di efficienza], table(
+  columns: (auto, auto, auto, auto),
   inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 10) { left } else { center + horizon },
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Componente*], [*Dettagli*]),
-  [#gloss[CPU]],[AMD® Ryzen 5 4500U],[#gloss[GPU]],[AMD® Radeon Graphics (RADV RENOIR) - Integrata alla CPU],[#gloss[RAM]],[8GB DDR4],[#gloss[SSD] / #gloss[HDD]],[Almeno 100 MB liberi],[Sistema Operativo],[Ubuntu 22.04]
-))\
-In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fascia media-bassa, quindi si ritiene che se il gioco offre delle buone prestazioni sulla macchina di testing, offrirà in media buone prestazioni su tutte le macchine con un sistema operativo supportato.
+  table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
+  "MPD-TF",
+  "Target FPS",
+  "\u{2265}30",
+  "60",
+  "MPD-LS",
+  "Lag Spikes",
+  "\u{2264}2 per minute",
+  "0",
+))
 
 //=== Manutenibilità
 // 
@@ -259,12 +275,86 @@ In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fa
 
 = Metodologie di testing
 == Tipologie di test
-=== Test manuali
 === Test di unità
 I test di unità sono utilizzati per verificare il corretto funzionamento delle singole unità del prodotto software, come ad esempio le funzioni o i metodi.\
 I test di unità sono eseguiti durante lo sviluppo del prodotto, e sono utilizzati per identificare eventuali problemi o errori nelle singole unità del prodotto.\
-//.......
+#figure(caption: [Test di unità], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [TU-01],[Si verifica che il personaggio principale venga caricato],[],
+  [TU-02],[Si verifica che il personaggio principale possa muoversi],[],
+  [TU-03],[Si verifica che il personaggio principale possa saltare],[],
+  [TU-04],[Si verifica che la macchina di stati cambi stato quando il personaggio principale inizia a cadere],[],
+  [],[Si verifica che il personaggio principale carichi l'animazione di _idle_ quando non si muove],[],
+  [],[Si verifica che il personaggio principale carichi l'animazione di corsa quando viene premuto l'input],[],
+  [],[Si verifica che il personaggio principale carichi l'animazione di caduta quando inizia a cadere],[],
+  [],[Si verifica che il personaggio principale carichi l'animazione di salto quando salta],[],
+))
 
+=== Test di integrazione
+I test di integrazione sono utilizzati per verificare che le diverse unità del prodotto software funzionino correttamente insieme.\
+I test di integrazione sono eseguiti dopo i test di unità, e sono utilizzati per identificare eventuali problemi o errori nelle interazioni tra le diverse unità del prodotto.\
+#figure(caption: [Test di integrazione], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [],[Si verifica che un NPC mostri il messaggio quando il giocatore si avvicina],[],
+  [],[],[],
+  [],[],[],
+  [],[Si verifica che il giocatore possa prendere un oggetto],[]))
+
+=== Test di sistema
+=== Test di accettazione
+I test di accettazione sono utilizzati per verificare che il prodotto software soddisfi i requisiti e le aspettative del cliente.\
+I test di accettazione sono eseguiti alla fine dello sviluppo del prodotto, e sono utilizzati per verificare che il prodotto sia pronto per essere rilasciato.\
+I test di accettazione sono eseguiti dal cliente o da un team di test indipendente, e sono utilizzati per verificare che il prodotto soddisfi i requisiti funzionali e non funzionali.\
+#figure(caption: [Test di accettazione], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [],[],[]))
+
+=== Test di compatibilità
+#figure(caption: [Test di compatibilità], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [TC-01],[Si verifica che il gioco funzioni nel sistema operativo Ubuntu 22.04],[],
+  [TC-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[]))
+
+
+=== Test sulle prestazioni
+I test sulle prestazioni sono utilizzati per verificare le prestazioni del prodotto software, come ad esempio la velocità di esecuzione, l'utilizzo della memoria e delle risorse di sistema.\
+I test sulle prestazioni sono eseguiti durante lo sviluppo del prodotto, e sono utilizzati per identificare eventuali problemi o aree di miglioramento delle prestazioni del gioco.\
+Verranno utilizzati gli strumenti forniti da Godot, per misurare gli #gloss[fps], gli oggetti presenti nella scena e renderizzati, etc...
+Tutti questi test sono eseguiti con le impostazioni grafiche al massimo.
+#figure(caption: [Test sulle prestazioni], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  "TP-01",
+  "Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
+  "\u{2713}",
+  "T-02","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
+  "",
+  "T-03","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
+  "T-04","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
+  "T-05","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
+  "T-06","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
+  "T-07","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
+  "T-08","Si verifica che non siano presenti nodi non utilizzati nella scena","",
+))
 = Cruscotto di valutazione delle metriche
 == Forniture
 === MPC-CT
