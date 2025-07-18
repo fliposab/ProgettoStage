@@ -63,55 +63,6 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
   [*Linux*],[x86_32 CPU with SSE2 instructions\ x86_64 CPU, ARMv7 or ARMv8 CPU],[Distribution uscita dopo il 2016]))
 
 Si applicano gli stessi requisiti minimi forniti dalla documentazione per eseguire l'editor Desktop/laptop: #link("https://docs.godotengine.org/it/4.x/about/system_requirements.html")
-/*CPU
-	
-
-    Windows: x86_32 CPU with SSE2 instructions, x86_64 CPU, ARMv8 CPU
-
-        Example: Intel Core 2 Duo E8200, AMD Athlon XE BE-2300, Snapdragon X Elite
-
-    macOS: x86_64 or ARM CPU (Apple Silicon)
-
-        Example: Intel Core 2 Duo SU9400, Apple M1
-
-    Linux: x86_32 CPU with SSE2 instructions, x86_64 CPU, ARMv7 or ARMv8 CPU
-
-        Example: Intel Core 2 Duo E8200, AMD Athlon XE BE-2300, Raspberry Pi 4
-
-GPU
-	
-
-    Forward+ renderer: Integrated graphics with full Vulkan 1.0 support
-
-        Example: Intel HD Graphics 5500 (Broadwell), AMD Radeon R5 Graphics (Kaveri)
-
-    Mobile renderer: Integrated graphics with full Vulkan 1.0 support
-
-        Example: Intel HD Graphics 5500 (Broadwell), AMD Radeon R5 Graphics (Kaveri)
-
-    Compatibility renderer: Integrated graphics with full OpenGL 3.3 support
-
-        Example: Intel HD Graphics 2500 (Ivy Bridge), AMD Radeon R5 Graphics (Kaveri)
-
-RAM
-	
-
-    Native editor: 4 GB
-
-    Web editor: 8 GB
-
-Storage
-	
-
-200 MB (used for the executable, project files and cache). Exporting projects requires downloading export templates separately (1.3 GB after installation).
-
-Operating system
-	
-
-    Native editor: Windows 7, macOS 10.13 (Compatibility) or macOS 10.15 (Forward+/Mobile), Linux distribution released after 2016
-
-    Web editor: Firefox 79, Chrome 68, Edge 79, Safari 15.2, Opera 64
-*/
 
 = Installazione ed esecuzione
 Il gioco può essere scaricato dalla seguente pagina:\
@@ -129,14 +80,14 @@ Di seguito viene riportata la mappatura degli input del gioco. Per aiutare comun
 == Tastiera
 La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gioco. Nonostante non sia stata sviluppata per attività di gioco, una corretta disposizione dei tasti può comunque garantire una posizione rilassata del giocatore.
 #figure(caption: [Tastiera], image("imgs/keyboard.jpg",width:90%))
-- *WASD*:
-- *Frecce direzionali*:
-- *Barra spaziatrice*:
-- *E*:
-- *Q*:
-- *R*:
-- *Invio*:
-- *Esc*:\
+- *WASD*: movimento personaggio
+- *Frecce direzionali*: movimento telecamera
+- *Barra spaziatrice*: salto
+- *E*: interazione
+- *Q*: stop interazione
+- *R*: reset (durante l'uso del cannone LR)
+- *Invio*: conferma nella UI
+- *Esc*: apertura/chiusura menu di pausa\
 \
 - Il gioco non richiede la presenza di un tastierino numerico nella tastiera.
 - Il gioco non prevede l'utilizzo di un mouse.

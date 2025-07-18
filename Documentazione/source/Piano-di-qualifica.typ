@@ -276,8 +276,6 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
 = Metodologie di testing
 == Tipologie di test
 === Test di unità
-I test di unità sono utilizzati per verificare il corretto funzionamento delle singole unità del prodotto software, come ad esempio le funzioni o i metodi.\
-I test di unità sono eseguiti durante lo sviluppo del prodotto, e sono utilizzati per identificare eventuali problemi o errori nelle singole unità del prodotto.\
 #figure(caption: [Test di unità], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,
@@ -295,8 +293,6 @@ I test di unità sono eseguiti durante lo sviluppo del prodotto, e sono utilizza
 ))
 
 === Test di integrazione
-I test di integrazione sono utilizzati per verificare che le diverse unità del prodotto software funzionino correttamente insieme.\
-I test di integrazione sono eseguiti dopo i test di unità, e sono utilizzati per identificare eventuali problemi o errori nelle interazioni tra le diverse unità del prodotto.\
 #figure(caption: [Test di integrazione], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,
@@ -309,10 +305,14 @@ I test di integrazione sono eseguiti dopo i test di unità, e sono utilizzati pe
   [],[Si verifica che il giocatore possa prendere un oggetto],[]))
 
 === Test di sistema
+#figure(caption: [Test di accettazione], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [],[],[]))
 === Test di accettazione
-I test di accettazione sono utilizzati per verificare che il prodotto software soddisfi i requisiti e le aspettative del cliente.\
-I test di accettazione sono eseguiti alla fine dello sviluppo del prodotto, e sono utilizzati per verificare che il prodotto sia pronto per essere rilasciato.\
-I test di accettazione sono eseguiti dal cliente o da un team di test indipendente, e sono utilizzati per verificare che il prodotto soddisfi i requisiti funzionali e non funzionali.\
 #figure(caption: [Test di accettazione], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,

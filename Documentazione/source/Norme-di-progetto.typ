@@ -194,7 +194,7 @@ Di norma, 1024 pixels corrispondono a 1 metro.
 - *Godot*: motore di gioco utilizzato per lo sviluppo del videogioco.
 - *Blender*: software di modellazione 3D utilizzato per la creazione dei modelli, delle animazioni e delle texture del videogioco.
 - *GIMP*: software di modifica delle immagini utilizzato per la modifica occasionale di #gloss[texture] o e delle immagini del videogioco.
-- *#gloss[Gamescope]*: strumento che fornisce un overlay durante il gioco, mostrando le variue statistiche come fps, #gloss[latenza], etc...
+- *#gloss[Gamescope]*: strumento che fornisce un overlay durante il gioco, mostrando le varie statistiche come fps, #gloss[latenza], etc...
 
 = Processi di supporto
 == Documentazione
@@ -277,23 +277,24 @@ Quindi è l'attività che mette in pratica ciò che è stato individuato e reali
 
 == Verifica
 
-== validazione
+== Validazione
 
 = Processi organizzativi
 == Gestione dei processi
 === Scopo e descrizione 
-Il processo di gestione ha lo scopo di identificare le attività e i compiti da svolgere per proseguire nel progetto.
+Il processo di gestione ha lo scopo di identificare le attività e i compiti da svolgere per proseguire nel progetto. 
 === Attività
 Tutti i processi organizzativi sono composti dalle seguenti attvità
 - *individuazione di un compito da svolgere*:
 - *esecuzione*:
 - *verifica*:
+
 === Strumenti usati
 - *Github*: per gestire tutta la documentazione e il codice per il progetto in un repository;
 - *Notion*: per la gestione delle attività e la pianificazione del progetto.
 
 == Miglioramento
-
+Le attività di miglioramento hanno lo scopo di garantire che il processo di sviluppo del software sia continuamente migliorato e ottimizzato.
 
 = Metriche e standard per la qualità
 Per  migliorare e avere uno standard di qualità da cui attingere se è deciso di utilizzare degli standard riconosciuti a livello internazionale. 
