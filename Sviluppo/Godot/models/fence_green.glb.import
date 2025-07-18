@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0qlquffbxcro"
-path="res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"
+uid="uid://ch7phrb3aeg6v"
+path="res://.godot/imported/fence_green.glb-b3d5bda9ace6759312eed729944ebcad.scn"
 
 [deps]
 
-source_file="res://models/apartment.glb"
-dest_files=["res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"]
+source_file="res://models/fence_green.glb"
+dest_files=["res://.godot/imported/fence_green.glb-b3d5bda9ace6759312eed729944ebcad.scn"]
 
 [params]
 
@@ -37,17 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Cube": {
-"generate/physics": true,
-"physics/mask": 0
-},
-"PATH:Cube_001": {
-"generate/physics": true,
-"physics/mask": 0
-}
-}
-}
-gltf/naming_version=1
+_subresources={}
+gltf/naming_version=2
 gltf/embedded_image_handling=1

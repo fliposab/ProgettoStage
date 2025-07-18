@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0wgwsfgnt3ax"]
+[gd_scene load_steps=6 format=3 uid="uid://c0wgwsfgnt3ax"]
 
 [ext_resource type="Script" uid="uid://b8ppim80pih60" path="res://code/camera_raycast.gd" id="1_x7wl3"]
 [ext_resource type="PackedScene" uid="uid://ja7dtj635wmt" path="res://entities/camera_target.tscn" id="2_hpeqk"]
 [ext_resource type="PackedScene" uid="uid://ds4cf31m0gu3f" path="res://entities/player_camera.tscn" id="3_hpeqk"]
 [ext_resource type="Script" uid="uid://dfelk763dbolw" path="res://code/player/camera_focus_target.gd" id="4_tspah"]
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_15ce8"]
+
 [node name="CameraRaycast" type="RayCast3D"]
+exclude_parent = false
 target_position = Vector3(0, -5.5, 0)
 script = ExtResource("1_x7wl3")
 
 [node name="CameraTarget" parent="." instance=ExtResource("2_hpeqk")]
 top_level = true
+offset = Vector3(0, 2.8, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraTarget"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_15ce8")
 spring_length = 8.0
 
 [node name="Camera3D" parent="CameraTarget/SpringArm3D" instance=ExtResource("3_hpeqk")]

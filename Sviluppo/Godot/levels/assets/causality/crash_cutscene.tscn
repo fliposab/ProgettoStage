@@ -50,6 +50,8 @@ expand_margin_bottom = 10.0
 script = ExtResource("1_l1q60")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.749187, 0, -0.6623585, 0, 1, 0, 0.6623585, 0, 0.749187, -29.946869, 7.646237, 0)
+fov = 50.0
 
 [node name="AreaStopFollow" type="Area3D" parent="."]
 transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 15.3808)
@@ -65,7 +67,7 @@ shape = SubResource("SphereShape3D_7pag3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2254, 0, -41.7046)
 
 [node name="PathFollow3D" parent="PathNPC" index="0"]
-transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, 0.242546, 0, 0.227951)
+transform = Transform3D(-0.98749804, 0, 0.15760955, 0, 1, 0, -0.15760955, 0, -0.98749804, 0.242546, 0, 0.227951)
 
 [node name="FollowNPC" parent="PathNPC/PathFollow3D" index="0"]
 transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -18.2094, 1.83017, -43.7758)

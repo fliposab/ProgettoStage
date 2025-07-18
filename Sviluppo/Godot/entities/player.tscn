@@ -182,7 +182,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="CameraRaycast" parent="." instance=ExtResource("5_qly61")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56907, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6359067, 0)
 
 [node name="RespawnPoint" parent="." instance=ExtResource("7_i623q")]
 

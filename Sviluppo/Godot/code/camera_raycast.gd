@@ -28,10 +28,10 @@ func _physics_process(delta: float) -> void:
 		_camera_pivot.rotate_on_input(delta)
 
 func calculate_position()->void:
-	if is_colliding():
+	if is_colliding() or get_parent().is_on_floor():
 		_camera_pivot.calculate_position(get_collision_point())
 	else:
-		_camera_pivot.calculate_position(Vector3.ZERO)
+		_camera_pivot.calculate_position(global_position + target_position)
 
 func respawn(point: Vector3)->void:
 	_camera_pivot.respawn(point)

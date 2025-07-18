@@ -7,10 +7,7 @@ class_name CameraTarget
 
 func calculate_position(point: Vector3) -> void:
 	var focus_point: Vector3
-	if point != Vector3.ZERO:
-		focus_point = point + offset
-	else:
-		focus_point = global_position + Vector3(0.0, point.y, 0.0) + offset
+	focus_point = point + offset
 	global_position.y = lerp(global_position.y, focus_point.y, 0.05)
 	global_position.x = focus_point.x
 	global_position.z = focus_point.z

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0qlquffbxcro"
-path="res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"
+uid="uid://d573s1n0f7m1"
+path="res://.godot/imported/electricity_pole.glb-7a715a0e41201fd7559f538bfc6df31d.scn"
 
 [deps]
 
-source_file="res://models/apartment.glb"
-dest_files=["res://.godot/imported/apartment.glb-2f2b626d2027abb0f97686ad4845a47d.scn"]
+source_file="res://models/electricity_pole.glb"
+dest_files=["res://.godot/imported/electricity_pole.glb-7a715a0e41201fd7559f538bfc6df31d.scn"]
 
 [params]
 
@@ -39,15 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Cube": {
+"PATH:Cube_005": {
 "generate/physics": true,
-"physics/mask": 0
-},
-"PATH:Cube_001": {
-"generate/physics": true,
-"physics/mask": 0
+"physics/shape_type": 0
 }
 }
 }
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1

@@ -39,16 +39,87 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 #link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")
 \
 
-= Requisiti consigliati
-== Requisiti hardware
+= Requisiti minimi
+== Hardware
+#figure(caption: [Tabella requisiti hardware minimi], table(
+  columns: (0.4fr, 1fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Componenete*], [*Nome*]),
+  [*GPU*],[Richiede supporto per Vulkan 1.0: \ Intel HD Graphics 5500 (Broadwell)\ AMD Radeon R5 Graphics (Kaveri)],
+  [*CPU*],[Intel Core 2 Duo E8200\ AMD Athlon XE BE-2300, Snapdragon X Elite],
+  [*RAM*],[4GB],
+  [*Spazio su disco*],[150MB]))
+== Sistema operativo
+#figure(caption: [Tabella sistemi operativi supportati], table(
+  columns: (0.4fr, 1fr, 0.4fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Nome*], [*Architettura processore*],[*Versione*]),
+  [*Windows*],[x86_32 CPU with SSE2 instructions\
+  x86_64 CPU, ARMv8 CPU],[7],
+  [*Linux*],[x86_32 CPU with SSE2 instructions\ x86_64 CPU, ARMv7 or ARMv8 CPU],[Distribution uscita dopo il 2016]))
+
+Si applicano gli stessi requisiti minimi forniti dalla documentazione per eseguire l'editor Desktop/laptop: #link("https://docs.godotengine.org/it/4.x/about/system_requirements.html")
+/*CPU
+	
+
+    Windows: x86_32 CPU with SSE2 instructions, x86_64 CPU, ARMv8 CPU
+
+        Example: Intel Core 2 Duo E8200, AMD Athlon XE BE-2300, Snapdragon X Elite
+
+    macOS: x86_64 or ARM CPU (Apple Silicon)
+
+        Example: Intel Core 2 Duo SU9400, Apple M1
+
+    Linux: x86_32 CPU with SSE2 instructions, x86_64 CPU, ARMv7 or ARMv8 CPU
+
+        Example: Intel Core 2 Duo E8200, AMD Athlon XE BE-2300, Raspberry Pi 4
+
+GPU
+	
+
+    Forward+ renderer: Integrated graphics with full Vulkan 1.0 support
+
+        Example: Intel HD Graphics 5500 (Broadwell), AMD Radeon R5 Graphics (Kaveri)
+
+    Mobile renderer: Integrated graphics with full Vulkan 1.0 support
+
+        Example: Intel HD Graphics 5500 (Broadwell), AMD Radeon R5 Graphics (Kaveri)
+
+    Compatibility renderer: Integrated graphics with full OpenGL 3.3 support
+
+        Example: Intel HD Graphics 2500 (Ivy Bridge), AMD Radeon R5 Graphics (Kaveri)
+
+RAM
+	
+
+    Native editor: 4 GB
+
+    Web editor: 8 GB
+
+Storage
+	
+
+200 MB (used for the executable, project files and cache). Exporting projects requires downloading export templates separately (1.3 GB after installation).
+
+Operating system
+	
+
+    Native editor: Windows 7, macOS 10.13 (Compatibility) or macOS 10.15 (Forward+/Mobile), Linux distribution released after 2016
+
+    Web editor: Firefox 79, Chrome 68, Edge 79, Safari 15.2, Opera 64
+*/
 
 = Installazione ed esecuzione
 Il gioco può essere scaricato dalla seguente pagina:\
 #link("https://github.com/fliposab/ProgettoStage/releases")\
 
 Nella pagina si troveranno due versioni:
-- 0.1.0: versione #gloss[PoC]
-- 1.0.0: versione #gloss[MVP]
+- v0.1-PoC: versione #gloss[PoC]
+- v1.0: versione #gloss[MVP]
 
 Selezionare la versione desiderata, il sistema operativo corrispondente alla macchina che si sta usando ed estrarre il pacchetto zip dentro una cartella.\
 Il gioco è un eseguibile e può essere avviato senza bisogno di altri programmi.
