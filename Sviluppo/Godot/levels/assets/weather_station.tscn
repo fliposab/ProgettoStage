@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmj1sfxg51l87"]
+
+[ext_resource type="PackedScene" uid="uid://bip1gy7b470k2" path="res://models/weather_station.glb" id="1_cpr54"]
+[ext_resource type="Script" uid="uid://bn4ox6ahib5sl" path="res://code/level/assets/weather_station.gd" id="2_7g31e"]
+
+[node name="weather_station" instance=ExtResource("1_cpr54")]
+script = ExtResource("2_7g31e")

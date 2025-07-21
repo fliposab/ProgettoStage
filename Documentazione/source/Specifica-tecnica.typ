@@ -87,15 +87,15 @@ da cambiare\
   [GDScript],[],[(Legata a Godot)],
   [Python],[],[],
   [Typst],[Linguaggio utilizzato per la stesura dei documenti],[],
-  [\u{002A}.csv],["Comma seprated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
-  [\u{002A}.ini],[Tipo d file "plain-text" utilizzato per salvare i dati del gioco],[-],
   table.cell([*Softwares*], colspan: 3),
   [Godot],[Il motore di gioco open source per lo sviluppo del videogioco.],[4.5-beta3-mono],
   [Blender],[Software di modellazone ed animazione 3D usato per creare i modelli 3D del gioco],[4.4.3],
   [GIMP],[Software di modifica di immagini, usato per modificare le textures del gioco],[3.0.4],
   table.cell([*Strumenti e serivzi*], colspan: 3),
   [Git],[],[2.50.1],
-  [GitHub Actions],[],[-]
+  [GitHub Actions],[],[-],
+  [\u{002A}.csv],["Comma seprated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
+  [\u{002A}.ini],[Tipo d file "plain-text" utilizzato per salvare i dati del gioco],[-],
 ))
 
 = Premessa

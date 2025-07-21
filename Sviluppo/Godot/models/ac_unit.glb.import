@@ -44,6 +44,12 @@ _subresources={
 "use_external/fallback_path": "res://models/materials/radial_grid.tres",
 "use_external/path": "uid://ymj661q32rph"
 }
+},
+"nodes": {
+"PATH:ac_unit": {
+"generate/physics": true,
+"physics/shape_type": 1
+}
 }
 }
 gltf/naming_version=1

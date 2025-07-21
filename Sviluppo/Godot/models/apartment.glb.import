@@ -38,14 +38,37 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Cube": {
-"generate/physics": true,
-"physics/mask": 0
+"materials": {
+"apartment": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/concrete_wall.tres",
+"use_external/path": "uid://dnnaranwc1nr3"
 },
-"PATH:Cube_001": {
+"concrete_base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/concrete_base.tres",
+"use_external/path": "uid://do6n5daedi36"
+},
+"concrete_roof": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plaster_red.tres",
+"use_external/path": "uid://dj61ibfvga4de"
+},
+"metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/metal_rust.tres",
+"use_external/path": "uid://d1bpw4jdu16d0"
+},
+"windows": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/window.tres",
+"use_external/path": "uid://7divv5d5nrd8"
+}
+},
+"nodes": {
+"PATH:ap1": {
 "generate/physics": true,
-"physics/mask": 0
+"physics/layer": 33
 }
 }
 }
