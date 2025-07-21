@@ -37,6 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"leaves": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/tree_leaves.tres",
+"use_external/path": "uid://bqllcxiqynttw"
+},
+"wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/wood_tree.tres",
+"use_external/path": "uid://6us3q6nolbg5"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

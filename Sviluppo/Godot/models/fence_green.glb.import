@@ -37,6 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"fence_bricks": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/bricks.tres",
+"use_external/path": "uid://c80ch7j3ephyc"
+},
+"green_metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/green_metal.tres",
+"use_external/path": "uid://bquymmkk8bdf6"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

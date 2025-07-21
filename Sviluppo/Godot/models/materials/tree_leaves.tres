@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bqllcxiqynttw"]
+
+[ext_resource type="Texture2D" uid="uid://4d5rc0x6we5g" path="res://models/materials/textures/tree_branch_leaves_alb.png" id="1_1s35h"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_1s35h")

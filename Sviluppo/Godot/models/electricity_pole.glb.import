@@ -38,10 +38,16 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Cube_005": {
-"generate/physics": true,
-"physics/shape_type": 0
+"materials": {
+"dark_wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/wood_worn.tres",
+"use_external/path": "uid://c11hhm4s5evm3"
+},
+"metallic": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/metal_simple_gray.tres",
+"use_external/path": "uid://b5lbft8upno5v"
 }
 }
 }

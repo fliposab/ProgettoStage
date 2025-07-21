@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://c3a27euortneh" path="res://models/apartment2.glb" id="31_f36fp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f36fp"]
-sky_top_color = Color(0.8503415, 0.8822677, 0.75335246, 1)
+sky_top_color = Color(0.80999994, 0.879, 0.9, 1)
 sky_horizon_color = Color(0.90588236, 0.64705884, 0.16470589, 1)
 ground_bottom_color = Color(0.12112529, 0.12704778, 0.26126, 1)
 ground_horizon_color = Color(0.90588236, 0.64705884, 0.16470589, 1)
@@ -211,13 +211,13 @@ transform = Transform3D(-0.79999995, 0, -8.940695e-08, 0, 0.7999999, 0, 8.940695
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -59.02674, -0.086948395, -38.107933)
 
 [node name="FenceBorder" parent="Models" index="15" instance=ExtResource("19_8aqv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.527725, -1.5381985, -58.91539)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -53.527725, -1.5381985, -58.91539)
 
 [node name="FenceBorder2" parent="Models" index="16" instance=ExtResource("19_8aqv0")]
-transform = Transform3D(0.7932896, 0, -0.60884446, 0, 1, 0, 0.60884446, 0, 0.7932896, 18.45657, -1.5382004, -32.33875)
+transform = Transform3D(-0.79328954, 0, 0.6088445, 0, 1, 0, -0.6088445, 0, -0.79328954, 18.45657, -1.5382004, -32.33875)
 
 [node name="FenceBorder3" parent="Models" index="17" instance=ExtResource("19_8aqv0")]
-transform = Transform3D(-0.40220338, 0, -0.91555035, 0, 1, 0, 0.91555035, 0, -0.40220338, 41.208893, -1.5382004, 36.377293)
+transform = Transform3D(0.40220347, 0, 0.9155503, 0, 1, 0, -0.9155503, 0, 0.40220347, 42.46879, -1.5382004, 33.785633)
 
 [node name="tree_nature" parent="Models" index="18" instance=ExtResource("20_p6bnd")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -60.51957, -0.42737293, -72.93416)

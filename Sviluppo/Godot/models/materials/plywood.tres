@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cthq7twp70m5h"]
+
+[ext_resource type="Texture2D" uid="uid://bxibepyfhvace" path="res://models/materials/textures/plywood_alb.jpg" id="1_evd2e"]
+[ext_resource type="Texture2D" uid="uid://bpneyrch1u710" path="res://models/materials/textures/plywood_nrm.png" id="2_haroh"]
+[ext_resource type="Texture2D" uid="uid://ge1ik5xnyskx" path="res://models/materials/textures/plywood_rgh.png" id="3_grtpm"]
+
+[resource]
+albedo_texture = ExtResource("1_evd2e")
+metallic_specular = 0.0
+roughness_texture = ExtResource("3_grtpm")
+normal_enabled = true
+normal_texture = ExtResource("2_haroh")
+ao_enabled = true
+ao_light_affect = 1.0

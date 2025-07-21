@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ctbyrextbq7xt"]
+
+[ext_resource type="Texture2D" uid="uid://cuo56gm5mqjxm" path="res://models/materials/textures/road_asphalt_alb.png" id="1_else7"]
+[ext_resource type="Texture2D" uid="uid://k53tn0fd6hgg" path="res://models/materials/textures/road_asphalt_nrm.png" id="2_7hk7a"]
+[ext_resource type="Texture2D" uid="uid://daq1aijmx5bta" path="res://models/materials/textures/road_asphalt_rgh.png" id="3_a7n55"]
+
+[resource]
+albedo_texture = ExtResource("1_else7")
+metallic = 0.2
+metallic_specular = 0.05
+roughness_texture = ExtResource("3_a7n55")
+normal_enabled = true
+normal_texture = ExtResource("2_7hk7a")
