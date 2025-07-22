@@ -99,6 +99,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC2 - Salto
 == UC2 - Salto
+#figure(image("imgs/uc-salto.png", width: auto), caption: "Salto")
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -173,7 +174,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC4 - Caduta
 == UC4 - Caduta
-#figure(image("imgs/uc-caduta.png", width: auto), caption: "Rotazione telecamera")
+#figure(image("imgs/uc-caduta.png", width: auto), caption: "Caduta")
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
@@ -293,7 +294,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC8 - Interazione con personaggio non giocabile
 == UC8 - Interazione con personaggio non giocabile
-#figure(image("imgs/uc-interazione_npc.png", width: auto), caption: "Interazione personaggio non giocabile")
+#figure(image("imgs/uc-dialogo.png", width: auto), caption: "Interazione personaggio non giocabile")
 *Attori principali*:
 - Giocatore.
 *Descrizione*:
@@ -358,6 +359,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Avanti nel dialogo.
 
 === UC8.4 - Fine interazione
+#figure(image("imgs/uc-fine_interazione.png", width: auto), caption: "Fine interazione")
 *Attori principali*: 
 - Giocatore.
 *Descrizione*:
@@ -392,6 +394,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC10 - Lasciare un oggetto
 == UC10 - Lasciare un oggetto
+#figure(image("imgs/uc-lasciare_oggetto.png", width: auto), caption: "Lasciare un oggetto")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -833,6 +836,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC35 - Accensione unità esterna condizionatore
 == UC35 - Accensione unità esterna condizionatore
+#figure(image("imgs/uc-accensione_condizionatore.png", width: auto), caption: "Accensione unità esterna condizionatore")
 *Attori principali*:
 - Giocatore
 *Descrizione*:
