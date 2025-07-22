@@ -17,7 +17,7 @@ size = Vector3(0.4, 0.4, 0.4)
 curve = SubResource("Curve3D_74243")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, 0.242546, 0, 0.227951)
+transform = Transform3D(-0.98749804, 0, 0.15760955, 0, 1, 0, -0.15760955, 0, -0.98749804, 0.242546, 0, 0.227951)
 script = ExtResource("1_ckq45")
 speed = 10.0
 
@@ -47,6 +47,14 @@ speed = 300.0
 
 [node name="FollowNPC7" parent="PathFollow3D" instance=ExtResource("2_u3q4h")]
 transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -19.9476, 1.83017, -51.8393)
+speed = 285.802
+
+[node name="FollowNPC8" parent="PathFollow3D" instance=ExtResource("2_u3q4h")]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -21.936325, 1.83017, -56.822094)
+speed = 285.802
+
+[node name="FollowNPC9" parent="PathFollow3D" instance=ExtResource("2_u3q4h")]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -16.036366, 1.83017, -53.376286)
 speed = 285.802
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PathFollow3D"]

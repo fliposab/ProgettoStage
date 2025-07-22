@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=30 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -14,15 +14,26 @@
 [ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="11_7pcub"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
+[ext_resource type="Script" uid="uid://pqf5fgffhfkp" path="res://code/level/assets/sign.gd" id="14_i5tty"]
 [ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_scientist_npc_behaviour.gd" id="15_0nrrl"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
 [ext_resource type="PackedScene" uid="uid://d3r1mgkh1a63v" path="res://ui/dialogue/dialogue_option_button.tscn" id="18_i8pto"]
 [ext_resource type="PackedScene" uid="uid://b026f6t5ha08r" path="res://ui/dialogue/project_text.tscn" id="19_i8pto"]
 [ext_resource type="PackedScene" uid="uid://ckw50h418clhq" path="res://levels/assets/collectible_spawner.tscn" id="19_iq6f3"]
+[ext_resource type="PackedScene" uid="uid://c716gvo1oko3x" path="res://levels/assets/causality/apartment.tscn" id="21_ld2kx"]
+[ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="22_qe2tm"]
+[ext_resource type="PackedScene" uid="uid://c3a27euortneh" path="res://models/apartment2.glb" id="22_vsukt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
+
+[sub_resource type="Curve3D" id="Curve3D_qe2tm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.283988, 0, -7.5569267, 0, 0, 0, 0, 0, 0, -1.8186, 0, 13.142, 0, 0, 0, 0, 0, 0, -3.0721712, 0, 22.3381, 0.839857, 0, -1.97393, -0.839857, 0, 1.97393, -18.686758, 0, 26.731468, 0.438848, 0, -2.51345, -0.438848, 0, 2.51345, -20.454464, -0.0227346, 42.078926, 0, 0, 0, 0, 0, 0, -20.692474, 0, 62.116913, 0, 0, 0, 0, 0, 0, -7.9412894, 0.973766, 66.31262),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
 size = Vector3(4.83423, 3.91901, 4.24918)
@@ -50,7 +61,7 @@ expand_margin_bottom = 10.0
 script = ExtResource("1_l1q60")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.749187, 0, -0.6623585, 0, 1, 0, 0.6623585, 0, 0.749187, -29.946869, 7.646237, 0)
+transform = Transform3D(0.70493144, 0.27142802, -0.6552852, 1.1978399e-08, 0.92387956, 0.38268346, 0.7092756, -0.2697656, 0.6512717, -32.574158, 13.800546, 15.171474)
 fov = 50.0
 
 [node name="AreaStopFollow" type="Area3D" parent="."]
@@ -67,19 +78,60 @@ shape = SubResource("SphereShape3D_7pag3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2254, 0, -41.7046)
 
 [node name="PathFollow3D" parent="PathNPC" index="0"]
-transform = Transform3D(-0.98749804, 0, 0.15760955, 0, 1, 0, -0.15760955, 0, -0.98749804, 0.242546, 0, 0.227951)
+speed = 8.0
 
 [node name="FollowNPC" parent="PathNPC/PathFollow3D" index="0"]
 transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -18.2094, 1.83017, -43.7758)
 
 [node name="FollowNPC4" parent="PathNPC/PathFollow3D" index="3"]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -16.5244, 1.83017, -51.7419)
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -13.9475765, 1.83017, -51.7419)
 
 [node name="FollowNPC5" parent="PathNPC/PathFollow3D" index="4"]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -14.673, 1.83017, -47.9913)
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -13.727588, 1.83017, -47.9913)
+
+[node name="FollowNPC6" parent="PathNPC/PathFollow3D" index="5"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -18.737846, 1.83017, -47.9913)
 
 [node name="FollowNPC7" parent="PathNPC/PathFollow3D" index="6"]
-transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -23.875, 1.83017, -51.8393)
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -20.691269, 1.83017, -51.8393)
+
+[node name="FollowNPC8" parent="PathNPC/PathFollow3D" index="7"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, -16.47314, 1.83017, -56.043644)
+
+[node name="PathNPC2" parent="." instance=ExtResource("3_uxx2u")]
+transform = Transform3D(0.23551525, 0, -0.97187066, 0, 1, 0, 0.97187066, 0, 0.23551525, 34.526966, 1.9073486e-06, 3.2226925)
+curve = SubResource("Curve3D_qe2tm")
+
+[node name="PathFollow3D" parent="PathNPC2" index="0"]
+transform = Transform3D(-0.9972583, 0, 0.07393645, 0, 1, 0, -0.07393645, 0, -0.9972583, -0.283988, 0, -7.5569267)
+speed = 7.0
+
+[node name="FollowNPC" parent="PathNPC2/PathFollow3D" index="0"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 47.990158, 1.8301691, 0.66409826)
+
+[node name="FollowNPC2" parent="PathNPC2/PathFollow3D" index="1"]
+transform = Transform3D(-0.858406, 0, -0.512969, 0, 1, 0, 0.512969, 0, -0.858406, 44.092926, 1.83017, 0.053485394)
+
+[node name="FollowNPC3" parent="PathNPC2/PathFollow3D" index="2"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 43.843727, 1.83017, -3.299416)
+
+[node name="FollowNPC4" parent="PathNPC2/PathFollow3D" index="3"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 51.108868, 1.83017, 6.1412234)
+
+[node name="FollowNPC5" parent="PathNPC2/PathFollow3D" index="4"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 53.34982, 1.83017, 1.9999514)
+
+[node name="FollowNPC6" parent="PathNPC2/PathFollow3D" index="5"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 46.837425, 1.83017, -4.1620145)
+
+[node name="FollowNPC7" parent="PathNPC2/PathFollow3D" index="6"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 57.573303, 1.830172, 2.3223667)
+
+[node name="FollowNPC8" parent="PathNPC2/PathFollow3D" index="7"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 50.066757, 1.830171, -0.22583103)
+
+[node name="FollowNPC9" parent="PathNPC2/PathFollow3D" index="8"]
+transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 55.630116, 1.83017, 5.0424156)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0
@@ -117,10 +169,47 @@ visible = false
 layout_mode = 1
 text = "ICE_CREAM_TEXT_4"
 
+[node name="Skeleton3D" parent="ice_cream_shop/NPCDialogue/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.0972776, 0)
+bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
+bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
+bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
+bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
+bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
+bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
+bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
+bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
+bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
+bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
+bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
+bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
+bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
+bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
+bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
+bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
+bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
+bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
+bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
+bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
+bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
+bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
+bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
+bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
+bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
+bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
+
 [node name="ChangeNPCBehaviour" type="Node" parent="ice_cream_shop/NPCDialogue"]
 script = ExtResource("8_vsukt")
 
 [node name="NewDialogue" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 23.0
+offset_right = -45.0
+grow_vertical = 2
 
 [node name="Text1" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" index="0"]
 text = "ICE_CREAM_CRASH_TEXT_1"
@@ -215,6 +304,10 @@ vertical_alignment = 1
 
 [node name="sign" parent="GraphSign" instance=ExtResource("8_w0vt1")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 0, 0)
+script = ExtResource("14_i5tty")
+
+[node name="sign_001" parent="GraphSign/sign" index="1"]
+visible = false
 
 [node name="ReplaceUI" type="Node" parent="GraphSign"]
 script = ExtResource("14_0nrrl")
@@ -246,35 +339,35 @@ text = "SCIENTIST_BUSY_TEXT_1"
 text = "SCIENTIST_BUSY_TEXT_2"
 
 [node name="Skeleton3D" parent="NPCScientist/Model/Armature" index="0"]
-bones/1/position = Vector3(0, 4.09728, 0)
-bones/1/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
-bones/2/rotation = Quaternion(-3.55271e-15, 0, 0, 1)
-bones/7/rotation = Quaternion(-0.023485, 0.0234848, -0.706717, 0.706717)
-bones/8/rotation = Quaternion(0.0332126, -4.95772e-10, -1.04095e-08, 0.999448)
-bones/9/rotation = Quaternion(0.0323715, 1.22883e-14, -1.40209e-08, 0.999476)
-bones/10/rotation = Quaternion(-0.0323714, -1.17329e-14, 1.40209e-08, 0.999476)
-bones/11/rotation = Quaternion(-1.89107e-07, 3.28651e-08, 0.707107, 0.707107)
-bones/12/rotation = Quaternion(-0.0329788, 2.84094e-14, -1.4284e-08, 0.999456)
-bones/13/rotation = Quaternion(0.0653154, -4.65066e-14, 2.82898e-08, 0.997865)
-bones/14/rotation = Quaternion(-0.0323714, 1.59817e-14, -1.40209e-08, 0.999476)
-bones/15/rotation = Quaternion(0.99946, 5.06898e-05, 0.00154484, 0.0328303)
-bones/16/rotation = Quaternion(0.0328302, 8.42749e-09, 0.000101482, 0.999461)
-bones/17/rotation = Quaternion(0.0309446, 4.48108e-08, 9.56175e-05, 0.999521)
-bones/18/rotation = Quaternion(-0.0309446, -2.97296e-08, -9.56335e-05, 0.999521)
-bones/19/rotation = Quaternion(0.999999, 1.11059e-07, -0.00154562, -3.45446e-07)
-bones/20/rotation = Quaternion(-0.0273001, -5.87431e-08, 8.44577e-05, 0.999627)
-bones/21/rotation = Quaternion(0.05822, -5.28216e-08, -0.000179937, 0.998304)
-bones/22/rotation = Quaternion(-0.0309447, 2.96853e-08, 9.56335e-05, 0.999521)
-bones/23/position = Vector3(0.8966, 2.18657, -3.93359e-08)
-bones/26/position = Vector3(1.26988, 3.14157, 1.27994)
-bones/27/position = Vector3(-0.8966, 2.18657, -3.93359e-08)
-bones/30/position = Vector3(-1.26988, 3.14157, 1.27994)
-bones/31/position = Vector3(3.93406, 6.57884, -2.7658e-08)
-bones/31/rotation = Quaternion(0, -2.38419e-07, 0, 1)
-bones/33/position = Vector3(2.91064, 6.57884, -3.18668)
-bones/34/position = Vector3(-3.93406, 6.57884, -2.7658e-08)
-bones/34/rotation = Quaternion(0, 2.38419e-07, 0, 1)
-bones/36/position = Vector3(-2.91064, 6.57884, -3.18668)
+bones/1/position = Vector3(0, 4.0972776, 0)
+bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
+bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
+bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
+bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
+bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
+bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
+bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
+bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
+bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
+bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
+bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
+bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
+bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
+bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
+bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
+bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
+bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
+bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
+bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
+bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
+bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
+bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
+bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
+bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
+bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
+bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
 
 [node name="ChangeNPCBehaviour" type="Node" parent="NPCScientist"]
 script = ExtResource("15_0nrrl")
@@ -322,9 +415,25 @@ number = 8
 load_red = false
 load_blue = true
 
+[node name="Apartment" parent="." instance=ExtResource("21_ld2kx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0817046, 0)
+
+[node name="apartment" parent="Apartment" instance=ExtResource("22_qe2tm")]
+
+[node name="Apartment2" parent="." instance=ExtResource("21_ld2kx")]
+transform = Transform3D(0.5948369, 0, -0.80384654, 0, 1, 0, 0.80384654, 0, 0.5948369, 16.903309, 0.6169348, 41.803528)
+
+[node name="apartment" parent="Apartment2" instance=ExtResource("22_vsukt")]
+
 [connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCBehaviour" method="change_text_and_behaviour"]
+[connection signal="change_values" from="." to="Apartment" method="already_open"]
+[connection signal="change_values" from="." to="Apartment2" method="already_open"]
+[connection signal="start_cutscene" from="." to="Apartment" method="play_open"]
+[connection signal="start_cutscene" from="." to="Apartment2" method="play_open"]
+[connection signal="start_following" from="." to="PathNPC/PathFollow3D" method="start"]
+[connection signal="start_following" from="." to="PathNPC2/PathFollow3D" method="start"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
@@ -333,6 +442,7 @@ load_blue = true
 [connection signal="body_entered" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_exited"]
 [connection signal="visibility_changed" from="GraphSign/SignUI" to="GraphSign/SignUI" method="_on_visibility_changed"]
+[connection signal="change_model" from="GraphSign/ReplaceUI" to="GraphSign/sign" method="show_paper"]
 [connection signal="visibility_changed" from="GraphSign/ReplaceUI/NewSignUI" to="GraphSign/ReplaceUI/NewSignUI" method="_on_visibility_changed"]
 [connection signal="body_entered" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_exited"]
@@ -341,11 +451,13 @@ load_blue = true
 [connection signal="dialogue_ended_correct" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/ChangeNPCBehaviour" method="_on_new_dialogue_dialogue_ended_correct"]
 
 [editable path="PathNPC"]
+[editable path="PathNPC2"]
 [editable path="ice_cream_shop/NPCDialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Control"]
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
 [editable path="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
+[editable path="GraphSign/sign"]
 [editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
 [editable path="NPCScientist"]
 [editable path="NPCScientist/Control"]
@@ -353,3 +465,4 @@ load_blue = true
 [editable path="NPCScientist/Model"]
 [editable path="NPCScientist/ChangeNPCBehaviour/NewDialogue"]
 [editable path="NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions"]
+[editable path="Apartment2"]

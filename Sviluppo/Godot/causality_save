@@ -1,3 +1,5 @@
 [level]
 
-data={}
+data={
+"ac_on": Array[bool]([true, true])
+}

@@ -44,6 +44,11 @@ _subresources={
 "use_external/fallback_path": "res://models/materials/concrete_wall.tres",
 "use_external/path": "uid://dnnaranwc1nr3"
 },
+"black": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/black_unshaded.tres",
+"use_external/path": "uid://dk7kjkhvyjb1y"
+},
 "concrete_base": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/materials/concrete_base.tres",
@@ -51,8 +56,8 @@ _subresources={
 },
 "concrete_roof": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/materials/plaster_red.tres",
-"use_external/path": "uid://dj61ibfvga4de"
+"use_external/fallback_path": "res://models/materials/concrete_base.tres",
+"use_external/path": "uid://do6n5daedi36"
 },
 "metal": {
 "use_external/enabled": true,
@@ -63,12 +68,19 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/materials/window.tres",
 "use_external/path": "uid://7divv5d5nrd8"
+},
+"wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plywood.tres",
+"use_external/path": "uid://cthq7twp70m5h"
 }
 },
 "nodes": {
-"PATH:ap1": {
-"generate/physics": true,
-"physics/layer": 33
+"PATH:Cube_001": {
+"generate/physics": true
+},
+"PATH:ap1_002": {
+"generate/physics": true
 }
 }
 }

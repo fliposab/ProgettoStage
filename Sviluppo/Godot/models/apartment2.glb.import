@@ -44,6 +44,11 @@ _subresources={
 "use_external/fallback_path": "res://models/materials/concrete_wall_yellow.tres",
 "use_external/path": "uid://b5mfiu6kjm1ek"
 },
+"black": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/black_unshaded.tres",
+"use_external/path": "uid://dk7kjkhvyjb1y"
+},
 "concrete_base": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/materials/concrete_base.tres",
@@ -63,6 +68,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://models/materials/window.tres",
 "use_external/path": "uid://7divv5d5nrd8"
+},
+"wood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plywood.tres",
+"use_external/path": "uid://cthq7twp70m5h"
 }
 }
 }

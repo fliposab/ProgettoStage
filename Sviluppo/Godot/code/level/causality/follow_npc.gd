@@ -5,7 +5,7 @@ class_name FollowNPC
 
 @onready var _anim_player: AnimationPlayer = $Model/AnimationPlayer
 
-var _is_following : bool = true
+var _is_following : bool = false
 var _stopped : bool = false
 var direction : Vector3
 
@@ -27,6 +27,9 @@ func _physics_process(delta: float) -> void:
 func fix_rotation()->void:
 	rotation.x = 0.0
 	rotation.z = 0.0
+
+func start_following()->void:
+	_is_following = true
 
 func follow_target(delta)->void:
 	if !_is_following:

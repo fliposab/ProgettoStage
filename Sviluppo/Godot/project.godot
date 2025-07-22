@@ -24,7 +24,6 @@ LevelsTransition="*res://levels/assets/level_transition.tscn"
 
 [display]
 
-window/vsync/vsync_mode=0
 window/max_fps=0
 
 [dotnet]

@@ -16,6 +16,11 @@ func _physics_process(delta: float) -> void:
 func start(value: bool = true)->void:
 	if value:
 		process_mode = Node.PROCESS_MODE_PAUSABLE
+		child_start_follow()
 	else:
 		process_mode = Node.PROCESS_MODE_DISABLED
-	
+
+func child_start_follow()->void:
+	for i in get_child_count():
+		if get_child(i) is FollowNPC:
+			get_child(i).start_following()

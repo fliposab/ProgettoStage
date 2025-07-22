@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c716gvo1oko3x"]
+
+[ext_resource type="Script" uid="uid://dn5sj44yow8vp" path="res://code/level/causality/apartment.gd" id="1_f81dn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0xo1"]
+size = Vector3(8.556641, 5.3876953, 1)
+
+[node name="Apartment" type="Node3D"]
+script = ExtResource("1_f81dn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, -21.94543, 1.2973633, -34.938396)
+shape = SubResource("BoxShape3D_p0xo1")
