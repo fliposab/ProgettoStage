@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/weather_station.glb-45a49650515c808683e9a6672
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,7 +34,32 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plastic_black.tres",
+"use_external/path": "uid://cgtkxjoyr4omc"
+},
+"black": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/metal_simple_gray.tres",
+"use_external/path": "uid://b5lbft8upno5v"
+},
+"metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/metal_simple_white.tres",
+"use_external/path": "uid://cexcxsnqv2n5j"
+},
+"plastic": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plastic_white.tres",
+"use_external/path": "uid://mdrej4jyoev8"
+}
+},
 "nodes": {
 "PATH:Cube_002": {
 "generate/physics": true,

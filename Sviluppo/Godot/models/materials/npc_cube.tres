@@ -1,4 +1,14 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bxghmb4iw02i0"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bxghmb4iw02i0"]
+
+[ext_resource type="Texture2D" uid="uid://mw783pnyaufi" path="res://models/materials/textures/npc_alb.png" id="1_7d8if"]
+[ext_resource type="Texture2D" uid="uid://cpkvlfq7sktxn" path="res://models/materials/textures/npc_ems.png" id="2_4jmil"]
+[ext_resource type="Texture2D" uid="uid://cqyhhgqumghau" path="res://models/materials/textures/npc_spc.png" id="3_ralgh"]
 
 [resource]
+albedo_texture = ExtResource("1_7d8if")
 metallic = 1.0
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_ralgh")
+roughness = 0.0
+emission_enabled = true
+emission_texture = ExtResource("2_4jmil")

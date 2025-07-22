@@ -1,7 +1,7 @@
 [common]
 
 window_mode=1
-window_resolution=1
+window_resolution=2
 resolution_scale=1.0
 anti_aliasing=1
 shadows_quality=1

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b5mfiu6kjm1ek"]
+
+[ext_resource type="Texture2D" uid="uid://d3yyvtlhee47f" path="res://models/materials/textures/plastered_wall_light_alb.png" id="1_yyvwp"]
+[ext_resource type="Texture2D" uid="uid://12ehcv2g1udo" path="res://models/materials/textures/plastered_wall_nrm.png" id="2_i0woi"]
+[ext_resource type="Texture2D" uid="uid://xh0yikudxlg" path="res://models/materials/textures/plastered_wall_rgh.png" id="3_cw40r"]
+
+[resource]
+albedo_texture = ExtResource("1_yyvwp")
+roughness_texture = ExtResource("3_cw40r")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_i0woi")
+ao_enabled = true
+ao_light_affect = 1.0

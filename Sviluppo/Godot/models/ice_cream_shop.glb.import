@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/ice_cream_shop.glb-269ecc67a39fa5f9d8ae409d3c
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,16 +34,52 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/red_plaster_weathered.tres",
+"use_external/path": "uid://dt4djo2l4b2pg"
+},
+"base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/concrete_base.tres",
+"use_external/path": "uid://do6n5daedi36"
+},
+"counter": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/concrete_wall_yellow.tres",
+"use_external/path": "uid://b5mfiu6kjm1ek"
+},
+"ice_creams": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/ice_creams.tres",
+"use_external/path": "uid://cbd6dixpa218k"
+},
+"inside": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/plastic_white.tres",
+"use_external/path": "uid://mdrej4jyoev8"
+},
+"metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/metal_simple_gray.tres",
+"use_external/path": "uid://b5lbft8upno5v"
+},
+"root": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/concrete_wall.tres",
+"use_external/path": "uid://dnnaranwc1nr3"
+}
+},
 "nodes": {
 "PATH:Cube": {
 "generate/physics": true,
 "physics/layer": 33,
 "physics/shape_type": 0
-},
-"PATH:Cube_001": {
-"generate/physics": true,
-"physics/layer": 33
 }
 }
 }

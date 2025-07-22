@@ -51,6 +51,9 @@ In sintesi, la macchina su cui viene testato il gioco offre prestazioni sulla fa
 - Glossario:\
 #link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")
 \
+=== Riferimenti tecnici
+- GUT - Godot Unit Test:\
+#link("https://github.com/bitwes/Gut")\
 = Metriche di qualità
 == Introduzione
 Le metriche di qualità sono utilizzate per valutare la qualità del prodotto software, e per identificare eventuali problemi o aree di miglioramento.\
@@ -61,7 +64,7 @@ Le metriche di qualità di processo sono utilizzate per valutare l'efficacia e l
 === Fornitura
 Per il processo di fornitura, vengono indicate tutte le scelte operative fatte in fase di sviluppo. Viene usato l'acronimo MPC (Minimum Predictive Capability).\
 In questo caso, il MPC è il valore minimo da raggiungere per essere considerato accettabile.
-- *BAC (Budget At Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
+- *TAC (Time At Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
   - Il totale di ore previste ammonta a 304 ore.
 - *MPC-CT - Completion Time*: tempo totale previsto per completare il progetto, idealmente non deve superare quello pianificato nel Piano di lavoro.
 - *MPC-EC - Estimated at Completion*: numero di ore effettive stimate da svolgere per completare i compiti ancora da realizzare
@@ -90,6 +93,7 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
   "Estimated at Completion",
   "\u{00B1}10% rispetto al tempo stimato nel piano di lavoro",
   "Tempo stimato nel piano di lavoro"
+
 ))\
 === Sviluppo
 ==== Codice
@@ -118,6 +122,7 @@ Le seguenti metriche vengono applicate principalmente al #gloss[modello 3D] prin
 - *MPC-MBC - Model Bones Count*: il movimento del modello tramite ossa è un processo che consuma risorse della CPU. Visto che la CPU rappresenta un potenziale #gloss[bottleneck] visto che è molto più lenta rispetto alla GPU, è necessario minimizzare il numero di ossa nell'armatura del modello. Il numero minimo dovrebbe essere: 12 per gli arti, mani e piedi + 4 per la spina dorsale + 16 per le ossa #gloss[IK].
 - *MPC-UIC - UV Islands Count*: avere un numero minore di #gloss[UV Islands] permette una gestione della #gloss[texture] più semplice e prestazioni leggermente migliori, visto che i vertici ai bordi dell'isola UV vengono renderizzati due o più volte.\
 - *MPC-UIS - UV Islands Space (in percentuale)*: percentuale della texture occupata e utilizzata dalle UV Islands. Uno spazio maggiore utilizza più pixel dell'immagine e garantisce una maggiore qualità.
+Queste misurazioni verranno effettuate per i modelli del giocatore e dell'NPC, visto che sono i modelli più comuni e complessi.
 #figure(caption: [Valori per misurare la qualità dello sviluppo], table(
   columns: (auto, auto, auto, auto),
   inset: 8pt,
@@ -133,7 +138,7 @@ Le seguenti metriche vengono applicate principalmente al #gloss[modello 3D] prin
   "\u{2264}40",
   "\u{2264}32",
   "MPC-UIC","UV Islands Count","\u{2264}30","\u{2264}15", //22
-  "MPC-UIS","UV Islands Space","\u{2265}40%","\u{2265}50%",
+  "MPC-UIS","UV Islands Space","\u{2265}40%","\u{2265}60%",
 ))
 
 === Documentazione
@@ -254,8 +259,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
 //=== Sicurezza
 // 
 === Compatibilità
-- *MPD-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11 e Ubuntu.
-- *MPD-SL - Supported Languages*: numero di lingue supportate, si mira ad avere almeno 2 lingue supportate: italiano e inglese.
+- *MPD-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11 e Linux.
 
 #figure(caption: [Valori per misurare la qualità del prodotto in termini di compatibilità], table(
   columns: (auto, auto, auto, auto),
@@ -267,15 +271,15 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "Supported Operative Systems",
   "\u{2265}2",
   "\u{2265}3",
-  "MPD-SL",
-  "Supported Languages",
-  "\u{2265}2",
-  "\u{2265}2",
 ))
 
 = Metodologie di testing
-== Tipologie di test
-=== Test di unità
+Di seguito sono elencate le metodologie di testing che verranno utilizzate per verificare e validare il prodotto software. Le metodologie di testing sono suddivise in quattro categorie:
+- *test di unità*: test che verificano il corretto funzionamento di singole unità del codice, questi test sono stati svolti con l'addon della community "GUT - Godot Unit Test";\
+- *test di integrazione*: test che verificano il corretto funzionamento dell'interazione tra più unità del codice, sono svolti manualmente;\
+- *test di sistema*: test che verificano il corretto funzionamento del sistema nel suo complesso, inclusi i requisiti funzionali e non funzionali, comprendono anche test sulle prestazioni, e sono svolti utilizzando gli strumenti forniti da Godot;\
+- *test di accettazione*: test che verificano se il prodotto è pronto per essere rilasciato.
+== Test di unità
 #figure(caption: [Test di unità], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,
@@ -292,7 +296,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   [],[Si verifica che il personaggio principale carichi l'animazione di salto quando salta],[],
 ))
 
-=== Test di integrazione
+== Test di integrazione
 #figure(caption: [Test di integrazione], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,
@@ -304,57 +308,36 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   [],[],[],
   [],[Si verifica che il giocatore possa prendere un oggetto],[]))
 
-=== Test di sistema
-#figure(caption: [Test di accettazione], table(
+== Test di sistema
+#figure(caption: [Test di sistema], table(
   columns: (0.4fr, 1fr, 0.3fr),
   inset: 8pt,
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [],[],[]))
-=== Test di accettazione
-#figure(caption: [Test di accettazione], table(
-  columns: (0.4fr, 1fr, 0.3fr),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [],[],[]))
-
-=== Test di compatibilità
-#figure(caption: [Test di compatibilità], table(
-  columns: (0.4fr, 1fr, 0.3fr),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [TC-01],[Si verifica che il gioco funzioni nel sistema operativo Ubuntu 22.04],[],
-  [TC-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[]))
-
-
-=== Test sulle prestazioni
-I test sulle prestazioni sono utilizzati per verificare le prestazioni del prodotto software, come ad esempio la velocità di esecuzione, l'utilizzo della memoria e delle risorse di sistema.\
-I test sulle prestazioni sono eseguiti durante lo sviluppo del prodotto, e sono utilizzati per identificare eventuali problemi o aree di miglioramento delle prestazioni del gioco.\
-Verranno utilizzati gli strumenti forniti da Godot, per misurare gli #gloss[fps], gli oggetti presenti nella scena e renderizzati, etc...
-Tutti questi test sono eseguiti con le impostazioni grafiche al massimo.
-#figure(caption: [Test sulle prestazioni], table(
-  columns: (0.4fr, 1fr, 0.3fr),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  "TP-01",
+  [],[Si verifica che il gioco funzioni nel sistema operativo Ubuntu 22.04],[],
+  [],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[],
+   "",
   "Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
   "\u{2713}",
-  "T-02","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
+  "","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
   "",
-  "T-03","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
-  "T-04","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
-  "T-05","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
-  "T-06","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
-  "T-07","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
-  "T-08","Si verifica che non siano presenti nodi non utilizzati nella scena","",
-))
+  "","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
+  "","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
+  "","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
+  "","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
+  "","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
+  "","Si verifica che non siano presenti nodi non utilizzati nella scena","",))
+
+== Test di accettazione
+#figure(caption: [Test di accettazione], table(
+  columns: (0.4fr, 1fr, 0.3fr),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  [],[],[]))
+
 = Cruscotto di valutazione delle metriche
 == Forniture
 === MPC-CT
@@ -364,17 +347,22 @@ Inserire il grafico del tempo di lavoro durante le settimane.
 === 
 == Grafica 3D
 === MPC-MTC - Model Tris Count
-#align(figure(caption: [Modello 3D con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))
+#align(figure(caption: [Modello 3D del giocatore con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))
+#align(figure(caption: [Modello 3D dell'NPC con statistiche sul numero di vertici, facce e triangoli], image("imgs/npc-triangles.png", width: 80%)))
 Dall'immagine si può vedere che il numero totale di triangoli del modello ammonta a 2.074. Ogni volta che il modello presentava forme simili a un cilindro, si è cercato di mantenere otto facce laterali.
+Il modello dell'NPC invece presenta un numero di triangoli leggermente superiore: 2.160, dovuto al fatto che che sono stati aggiunti accessori come il cappello ed il fischietto.\
+
 === MPC-MBC - Model Bones Count
-#align(figure(caption: [Modello 3D con statistiche sul numero di ossa], image("imgs/numero-ossa.png", width: 85%)))
+#align(figure(caption: [Modello 3D del giocatore con statistiche sul numero di ossa], image("imgs/numero-ossa.png", width: 85%)))
 Dall'immagine si può vedere che il numero totale di ossa (ossa IK incluse) ammonta a 36. Sono state richieste più ossa per dare un effetto "curva" agli arti del modello.
-Inoltre sono state aggiunte tre ossa per animare l'antenna sulla testa.
+Inoltre sono state aggiunte tre ossa per animare l'antenna sulla testa.\
+Sia giocatore che NPC hanno lo stesso numero di ossa, visto che sono stati creati con la stessa armatura e le stesse animazioni.
 === MPC-UIC - UV Islands Count
 #figure(caption: [UV del modello del giocatore], image("imgs/uv-mapping.png", width: 80%))
-Dall'immagine è possibile vedere anche il numero di isole UV (22) e l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
+#figure(caption: [UV del modello dell'NPC], image("imgs/uv-npc.png", width: 90%))
+Dall'immagine è possibile vedere anche il numero di isole UV del giocatore (22) e dell'NPC (18 + 5 posizionate sopra altre isole UV). Inoltre, è possibile notare l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
 
 === MPC-UIS - UV Islands Space
-Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato è pari al 68%.\
-Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente u blender, è stato utilizzato uno script di Python esterno.
+Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%, mentre quello occupato dalle isole UV dell'NPC è pari al 79,7%.\
+Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente in Blender, è stato utilizzato uno script di Python esterno.
 //= Automiglioramento

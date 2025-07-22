@@ -89,13 +89,15 @@ da cambiare\
   [Typst],[Linguaggio utilizzato per la stesura dei documenti],[],
   table.cell([*Softwares*], colspan: 3),
   [Godot],[Il motore di gioco open source per lo sviluppo del videogioco.],[4.5-beta3-mono],
-  [Blender],[Software di modellazone ed animazione 3D usato per creare i modelli 3D del gioco],[4.4.3],
+  [Blender],[Software di modellazione ed animazione 3D usato per creare i modelli 3D del gioco],[4.4.3],
   [GIMP],[Software di modifica di immagini, usato per modificare le textures del gioco],[3.0.4],
-  table.cell([*Strumenti e serivzi*], colspan: 3),
+  table.cell([*Strumenti e servizi*], colspan: 3),
   [Git],[],[2.50.1],
-  [GitHub Actions],[],[-],
-  [\u{002A}.csv],["Comma seprated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
-  [\u{002A}.ini],[Tipo d file "plain-text" utilizzato per salvare i dati del gioco],[-],
+  [GitHub Actions],[Servizio di integrazione continua e distribuzione continua (CI/CD), utilizzato per compilare i documenti ad ogni push],[-],
+  table.cell([*Tipi di files non generati dagli strumenti elencati sopra*], colspan: 3),
+  [\u{002A}.csv],["Comma separated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
+  [\u{002A}.ini],[Tipo di file "plain-text" utilizzato per salvare i dati del gioco],[-],
+  [\u{002A}.glb],["GLTF Binary", file utilizzato per memorizzare i modelli 3D e le loro animazioni in formato binario, in modo da risparmiare spazio e migliorare le prestazioni],[2.0.1]
 ))
 
 = Premessa

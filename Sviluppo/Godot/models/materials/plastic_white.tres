@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://mdrej4jyoev8"]
+
+[resource]
+metallic_specular = 1.0
+roughness = 0.23
+ao_enabled = true
+ao_light_affect = 1.0

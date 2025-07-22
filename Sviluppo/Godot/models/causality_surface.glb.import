@@ -38,6 +38,18 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"cobblestone": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/pattern_cobblestone.tres",
+"use_external/path": "uid://deuhkxqk2fb06"
+},
+"wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/materials/stone_brick_wall.tres",
+"use_external/path": "uid://dpeqjmykiavq2"
+}
+},
 "nodes": {
 "PATH:Cube_006": {
 "generate/physics": true,
