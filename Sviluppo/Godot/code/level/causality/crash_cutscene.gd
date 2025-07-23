@@ -11,7 +11,6 @@ var cutscene_handler : CutscenesHandler
 
 signal start_cutscene()
 signal change_values()
-signal start_following(value: bool)
 
 func start(play_cutscene: bool)->void:
 	if !play_cutscene:
@@ -23,7 +22,6 @@ func start(play_cutscene: bool)->void:
 	camera.current = true
 	fade.play_fade(true)
 	await get_tree().create_timer(1.0).timeout
-	start_following.emit(true)
 	timer.start()
 
 func _on_timer_timeout() -> void:

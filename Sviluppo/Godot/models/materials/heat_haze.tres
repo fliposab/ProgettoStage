@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cos3dvlhepbyq"]
+
+[ext_resource type="Shader" uid="uid://sbvyllj7y88t" path="res://models/materials/heat_haze.gdshader" id="1_ecdhl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ecdhl")
+shader_parameter/max_shift = 2.5
+shader_parameter/speed = 0.03
+shader_parameter/min_heathaze_dist = 0.99

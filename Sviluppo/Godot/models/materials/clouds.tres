@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d3hwaeuokoxpr"]
+
+[ext_resource type="Shader" uid="uid://k4ejb7np7g22" path="res://models/materials/clouds.gdshader" id="1_rb4uv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rb4uv")
+shader_parameter/noise_scale = 15.0
+shader_parameter/speed = 0.10000000000582077
+shader_parameter/darkness_amount = 30.0
+shader_parameter/detail = 5.0
+shader_parameter/concentration = 0.0
+shader_parameter/amount = -2.0
+shader_parameter/bloom = 1.0
+shader_parameter/alpha = 8.0
+shader_parameter/cloud_tint = Color(1, 1, 1, 1)
+shader_parameter/edge_fade = -0.035
+shader_parameter/rotation_matrix = Transform2D(1.6, -1.2, 1.2, 1.6, 0, 0)

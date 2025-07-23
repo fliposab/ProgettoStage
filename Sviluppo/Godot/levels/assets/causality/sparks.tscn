@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmy46uno0waly"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1rqb7"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 22.0
+initial_velocity_max = 22.0
+scale_min = 0.19999999
+scale_max = 0.29999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crxcg"]
+emission_enabled = true
+emission = Color(1, 0.9668918, 0.4529153, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_nse4l"]
+material = SubResource("StandardMaterial3D_crxcg")
+radius = 0.3
+height = 1.625
+radial_segments = 16
+rings = 8
+
+[node name="SparksParticles" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1rqb7")
+draw_pass_1 = SubResource("SphereMesh_nse4l")

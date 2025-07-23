@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=39 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
+[ext_resource type="Script" uid="uid://bx1e0k48pb2xq" path="res://code/level/causality/crash_cutscene_camera.gd" id="2_jjsnk"]
 [ext_resource type="PackedScene" uid="uid://byfairg6arrbl" path="res://levels/assets/path_npc.tscn" id="3_uxx2u"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="4_7pag3"]
 [ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="5_uxx2u"]
@@ -24,6 +25,89 @@
 [ext_resource type="PackedScene" uid="uid://c716gvo1oko3x" path="res://levels/assets/causality/apartment.tscn" id="21_ld2kx"]
 [ext_resource type="PackedScene" uid="uid://b0qlquffbxcro" path="res://models/apartment.glb" id="22_qe2tm"]
 [ext_resource type="PackedScene" uid="uid://c3a27euortneh" path="res://models/apartment2.glb" id="22_vsukt"]
+[ext_resource type="PackedScene" uid="uid://cexkn22e7qac6" path="res://models/power_plant.glb" id="25_0n56n"]
+[ext_resource type="PackedScene" uid="uid://d2x3dd4k6fl3" path="res://particles/smoke.tscn" id="26_jldg7"]
+[ext_resource type="Script" uid="uid://bt6d8lnn4c5hd" path="res://code/level/causality/cutscene_power_plant.gd" id="26_vcixb"]
+[ext_resource type="PackedScene" uid="uid://cmy46uno0waly" path="res://levels/assets/causality/sparks.tscn" id="27_ixsgq"]
+[ext_resource type="Script" uid="uid://f8cfcuab6nr7" path="res://code/level/causality/sparks_particles.gd" id="28_v1nnb"]
+
+[sub_resource type="Animation" id="Animation_jjsnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-38.877144, 13.800546, 22.781137)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.7658854, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v1nnb"]
+resource_name = "start"
+length = 4.0000033
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-38.877144, 23.972557, -6.372099), Vector3(-38.877144, 13.800546, 22.781137)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.20943952, 2.0315633, 0), Vector3(-0.30543262, -0.7661995, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.53333336, 2.3166666),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_sparks_particles"
+}, {
+"args": [],
+"method": &"npc_start_following"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jy0h6"]
+_data = {
+&"RESET": SubResource("Animation_jjsnk"),
+&"start": SubResource("Animation_v1nnb")
+}
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7pag3"]
 radius = 8.12483
@@ -61,8 +145,15 @@ expand_margin_bottom = 10.0
 script = ExtResource("1_l1q60")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.70493144, 0.27142802, -0.6552852, 1.1978399e-08, 0.92387956, 0.38268346, 0.7092756, -0.2697656, 0.6512717, -32.574158, 13.800546, 15.171474)
+transform = Transform3D(0.7207688, 0, -0.6931754, 0, 1, 0, 0.6931754, 0, 0.7207688, -38.877144, 13.800546, 22.781137)
 fov = 50.0
+script = ExtResource("2_jjsnk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jy0h6")
+}
 
 [node name="AreaStopFollow" type="Area3D" parent="."]
 transform = Transform3D(-0.987498, 0, 0.15761, 0, 1, 0, -0.15761, 0, -0.987498, -29.8471, 0, 15.3808)
@@ -134,7 +225,7 @@ transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501
 transform = Transform3D(-0.987501, 0, 0.157609, 0, 1, 0, -0.157609, 0, -0.987501, 55.630116, 1.83017, 5.0424156)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 12.0
 one_shot = true
 
 [node name="Fade" parent="." instance=ExtResource("4_7pag3")]
@@ -419,21 +510,67 @@ load_blue = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0817046, 0)
 
 [node name="apartment" parent="Apartment" instance=ExtResource("22_qe2tm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0051231384, 0)
 
 [node name="Apartment2" parent="." instance=ExtResource("21_ld2kx")]
 transform = Transform3D(0.5948369, 0, -0.80384654, 0, 1, 0, 0.80384654, 0, 0.5948369, 16.903309, 0.6169348, 41.803528)
 
 [node name="apartment" parent="Apartment2" instance=ExtResource("22_vsukt")]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0, -0.0051231384, 0)
+
+[node name="power_plant" parent="." instance=ExtResource("25_0n56n")]
+transform = Transform3D(-3.4969112e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, -3.4969112e-08, -77.86743, 15.47459, 11.370587)
+script = ExtResource("26_vcixb")
+
+[node name="SmokeParticles" type="Node3D" parent="power_plant"]
+visible = false
+
+[node name="GPUParticles3D" parent="power_plant/SmokeParticles" instance=ExtResource("26_jldg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.536743e-06, 6.0629025, 1.1539764)
+
+[node name="GPUParticles3D2" parent="power_plant/SmokeParticles" instance=ExtResource("26_jldg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.663708, 6.0629025, 1.1539764)
+
+[node name="GPUParticles3D3" parent="power_plant/SmokeParticles" instance=ExtResource("26_jldg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.82368, 6.0629025, 1.1539764)
+
+[node name="GPUParticles3D4" parent="power_plant/SmokeParticles" instance=ExtResource("26_jldg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46694, 6.0629025, 17.205055)
+
+[node name="SparksParticles" type="Node3D" parent="power_plant"]
+visible = false
+script = ExtResource("28_v1nnb")
+
+[node name="GPUParticles3D" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23200607, 6.434063, 1.687851)
+
+[node name="GPUParticles3D2" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.291525, 6.434063, 1.687851)
+
+[node name="GPUParticles3D3" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.222736, 6.434063, 1.687851)
+
+[node name="GPUParticles3D4" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.713153, 6.434063, 1.687851)
+
+[node name="GPUParticles3D5" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.539801, 6.434063, 15.931625)
+
+[node name="GPUParticles3D6" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.654896, 6.434063, 2.1081238)
 
 [connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCBehaviour" method="change_text_and_behaviour"]
 [connection signal="change_values" from="." to="Apartment" method="already_open"]
 [connection signal="change_values" from="." to="Apartment2" method="already_open"]
-[connection signal="start_cutscene" from="." to="Apartment" method="play_open"]
-[connection signal="start_cutscene" from="." to="Apartment2" method="play_open"]
-[connection signal="start_following" from="." to="PathNPC/PathFollow3D" method="start"]
-[connection signal="start_following" from="." to="PathNPC2/PathFollow3D" method="start"]
+[connection signal="change_values" from="." to="power_plant" method="emit_smoke"]
+[connection signal="start_cutscene" from="." to="Camera3D" method="play_anim"]
+[connection signal="open_doors" from="Camera3D" to="Apartment" method="play_open"]
+[connection signal="open_doors" from="Camera3D" to="Apartment2" method="play_open"]
+[connection signal="sparks_particles" from="Camera3D" to="power_plant" method="emit_sparks"]
+[connection signal="start_following" from="Camera3D" to="PathNPC/PathFollow3D" method="start"]
+[connection signal="start_following" from="Camera3D" to="PathNPC2/PathFollow3D" method="start"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
