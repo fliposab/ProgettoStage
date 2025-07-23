@@ -4,6 +4,7 @@ class_name FollowNPC
 @export_range(150,300) var speed : float = 200
 
 @onready var _anim_player: AnimationPlayer = $Model/AnimationPlayer
+@onready var footstep_sounds : FootStepsSound = $FootstepSounds
 
 var _is_following : bool = false
 var _stopped : bool = false
@@ -29,7 +30,9 @@ func fix_rotation()->void:
 	rotation.z = 0.0
 
 func start_following()->void:
+	await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
 	_is_following = true
+	footstep_sounds.start()
 
 func follow_target(delta)->void:
 	if !_is_following:
@@ -50,6 +53,7 @@ func stop_following(delta)->void:
 	velocity = Vector3(speed*delta*direction.x,0.0,speed*delta*direction.z)
 
 func stop()->void:
+	footstep_sounds.stop()
 	velocity = Vector3.ZERO
 	_anim_player.play("idle")
 	stopped_following.emit(self)

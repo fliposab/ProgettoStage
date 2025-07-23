@@ -7,13 +7,13 @@
 [node name="FootstepSounds" type="Node"]
 script = ExtResource("1_oh0xr")
 
-[node name="Footsteps1" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps1" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_lsq46")
-volume_db = -5.0
+unit_size = 20.0
 
-[node name="Footsteps2" type="AudioStreamPlayer" parent="."]
+[node name="Footsteps2" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_4hot2")
-volume_db = -5.0
+unit_size = 20.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

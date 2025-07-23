@@ -274,11 +274,22 @@ Durante la quarta settimana, sono stati sviluppati i componenti principali del t
 #pagebreak()
 == Settimana 5 | 14/07 - 18/07
 #pseudoheading[*Retropsettiva*]
+Durante la quinta settimana, sono stati effettuati miglioramenti e ottimizzazioni al codice esistente, con particolare attenzione alla pulizia e alla riorganizzazione del progetto.
+Inoltre è stato completato lo sviluppo del terzo livello del gioco, a tema "Causality".
 #pseudoheading[*Attività svolte*]
-- refactoring
+- Refactoring del codice esistente per migliorare la leggibilità e la manutenibilità.
+- Aggiunti i materiali al livello "Causality".
+- Completamento dello sviluppo del terzo livello, a tema "Causality", con i seguenti componenti, sviluppati nelle settimane scorse:
+  - modelli 3D per gli oggetti presenti nel livello;
+  - aggiunta degli oggetti interagibili del livello;
+  - aggiunta dei personaggi non giocabili con i loro rispettivi dialoghi;
+  - aggiunte classi per controllare e cambiare il comportamento dei personaggi non giocabili prima e dopo la scena di intermezzo.
+#figure( caption: "Livello Causalità dopo la cena di intermezzo (settimana 5)", image("imgs/settimana-5.png", width: 100%))
 == Settimana 6 | 21/07 - 25/07
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]
+- suoni
+- effetti
 == Settimana 7 | 28/07 - 01/08
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]

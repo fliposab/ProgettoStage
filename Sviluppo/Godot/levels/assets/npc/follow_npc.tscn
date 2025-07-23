@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpnlgkhyx40db"]
+[gd_scene load_steps=5 format=3 uid="uid://dpnlgkhyx40db"]
 
 [ext_resource type="Script" uid="uid://db8ne3re5o40l" path="res://code/level/causality/follow_npc.gd" id="1_hn3pn"]
 [ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="2_swiuw"]
+[ext_resource type="PackedScene" uid="uid://eriir7hsqfbk" path="res://sounds/footstep_sounds.tscn" id="3_bdulq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxx2u"]
 
@@ -11,6 +12,7 @@ top_level = true
 collision_layer = 32
 collision_mask = 32
 wall_min_slide_angle = 0.785398
+floor_constant_speed = true
 script = ExtResource("1_hn3pn")
 
 [node name="Model" parent="." instance=ExtResource("2_swiuw")]
@@ -60,5 +62,7 @@ shape = SubResource("CapsuleShape3D_uxx2u")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34526, 0)
 target_position = Vector3(0, 0, -5)
+
+[node name="FootstepSounds" parent="." instance=ExtResource("3_bdulq")]
 
 [editable path="Model"]

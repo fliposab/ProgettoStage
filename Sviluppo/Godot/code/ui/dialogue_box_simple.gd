@@ -14,13 +14,13 @@ func show_text_box()->void:
 
 func hide_text_box()->void:
 	hide()
+	$MenuScrollSound.play()
 	if one_shot:
 		queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and visible:
 		_on_interact_button_pressed()
-		
 
 func _on_interact_button_pressed()->void:
 	dialogue_handler.next_text()

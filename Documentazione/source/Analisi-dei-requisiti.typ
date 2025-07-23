@@ -58,7 +58,7 @@ I casi d'uso sono organizzati in modo da rappresentare le azioni che il giocator
 == Attori
 Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
 #figure(image("imgs/giocatore.png", width: auto), caption: "Attore principale")
-
+#set heading(numbering: none)
 // UC1 - Movimento
 == UC1 - Movimento
 #figure(image("imgs/uc-movimento.png", width: auto), caption: "Movimento")
@@ -77,8 +77,8 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Rotazione telecamera automatica.
 *Generalizzazioni*:\
 - Movimento con oggetto.
-*Estensioni*:\
-- Salto.
+*Inclusioni*:\
+- Rotazione telecamera automatica.
 
 === UC1.1 - Movimento con oggetto
 *Attori principali*:\ 
@@ -94,8 +94,6 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:\
 - Il giocatore preme il tasto o muove la levetta nel #gloss[controller].
 - Il personaggio si muove nella direzione desiderata insieme all'oggetto.
-*Estensioni*:\
-- Lasciare un oggetto.
 
 // UC2 - Salto
 == UC2 - Salto
@@ -308,8 +306,9 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore si avvicina a un personaggio non giocabile.
 - Il personaggio non giocabile mostra l'input da premere per interagire.
 - Il giocatore preme l'input.
-*Estensioni*:
-- Visualizzazion dialogo.
+*Inclusioni*:
+- Visualizzazione dialogo.
+
 === UC8.1 - Visualizzazione dialogo
 *Attori principali*: 
 - Giocatore.
@@ -322,26 +321,8 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore non può muoversi.
 *Scenario principale*:
 - Il giocatore visualizza il il dialogo
-*Estensioni*:
-- Avanti nel dialogo.
-- Scelta opzione dialogo.
 
-=== UC8.2 - Avanti nel dialogo
-*Attori principali*: 
-- Giocatore.
-*Descrizione*:
-- Il giocatore vuole continuare il dialogo.
-*Precondizioni*:
-- Il giocatore ha premuto l'input per andare avanti nel dialogo.
-*Postcondizioni*:
-- Viene mostrato il messaggio successivo del dialogo.
-*Scenario principale*:
-- Il giocatore preme l'input per andare avanti nel dialogo.
-- Il giocatore visualizza il messaggio successivo.
-*Estensioni*:
-- Fine interazione.
-
-=== UC8.3 - Scelta opzione dialogo
+=== UC8.2 - Scelta opzione dialogo
 *Attori principali*: 
 - Giocatore.
 *Descrizione*:
@@ -355,8 +336,23 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore preme l'input per scegliere l'opzione.
 - Viene eseguita l'opzione scelta.
-*Estensioni*:
+*Inclusioni*:
 - Avanti nel dialogo.
+
+=== UC8.3 - Avanti nel dialogo
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Il giocatore vuole continuare il dialogo.
+*Precondizioni*:
+- Il giocatore ha premuto l'input per andare avanti nel dialogo.
+*Postcondizioni*:
+- Viene mostrato il messaggio successivo del dialogo.
+*Scenario principale*:
+- Il giocatore preme l'input per andare avanti nel dialogo.
+- Il giocatore visualizza il messaggio successivo.
+*Estensioni*:
+- Fine interazione.
 
 === UC8.4 - Fine interazione
 #figure(image("imgs/uc-fine_interazione.png", width: auto), caption: "Fine interazione")
@@ -389,8 +385,6 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore si avvicina all'oggetto con cui può interagire.
 - Il giocatore interagisce con l'oggetto.
-*Inclusione*:
-- Movimento con un oggetto
 
 // UC10 - Lasciare un oggetto
 == UC10 - Lasciare un oggetto
@@ -408,8 +402,8 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore preme lo stesso tasto con cui ha raccolto l'oggetto
 - Il giocatore lascia l'oggetto.
-*Inclusioni*:
-- Movimento.
+*Estensioni*:
+- Inserimento oggetto nello spazio dedicato.
 
 // UC11 - Interazione con un cartello
 == UC11 - Interazione con un cartello
@@ -425,11 +419,26 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore preme il tasto per interagire con il cartello.
 - Il giocatore visualizza il messaggio del cartello.
-*Estensioni*:
+*Inclusioni*:
+- Visualizzazione messaggio cartello.
+
+=== UC11.1 - Visualizzazione messaggio cartello
+*Attori principali*:
+- Giocatore.
+*Descrizione*:
+- Il giocatore visualizza il messaggio del cartello.
+*Precondizioni*:
+- Il giocatore deve aver interagito con un cartello.
+*Postcondizioni*:
+- Il giocatore visualizza il messaggio del cartello.
+*Scenario principale*:
+- Il giocatore preme il tasto per interagire con il cartello.
+- Il giocatore visualizza il messaggio del cartello.
+*Generalizzazioni*:
 - Visualizzazione classificazioni oggetti scoperti.
 - Visualizzazione grafico.
 
-=== UC11.1 - Visualizzazione classificazioni oggetti scoperti
+=== UC11.2 - Visualizzazione classificazioni oggetti scoperti
 *Attori principali*: 
 - Giocatore.
 *Descrizione*:
@@ -444,7 +453,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Estensioni*:
 - Fine interazione
 
-=== UC11.2 - Visualizzazione grafico
+=== UC11.3 - Visualizzazione grafico
 *Attori principali*: 
 - Giocatore.
 *Descrizione*:
@@ -457,6 +466,19 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore visualizza il grafico.
 *Estensioni*:
 - Fine interazione
+
+=== UC11.4 - Aggiornamento dato di un cartello
+*Attori principali*: 
+- Giocatore.
+*Descrizione*:
+- Un dato di un cartello può essere modificato in base a determinate azioni del giocatore all'interno del livello.
+*Precondizioni*:
+- Il giocatore ed il cartello devono essere nello stesso livello.
+*Postcondizioni*:
+- Il dato del cartello viene aggiornato.
+*Scenario principale*:
+- Il giocatore svolge una determinata azione che modifica il dato del cartello.
+- Il dato nel cartello viene modificato.
 
 // UC12 - Interazione con zona di transizione
 == UC12 - Interazione con zona di transizione
@@ -490,7 +512,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC13 - Interazione con macchina LR
 == UC13 - Interazione con macchina LR
-#figure(image("imgs/uc-macchina_lr.png", width: auto), caption: "Interazione la macchina LR")
+#figure(image("imgs/uc-macchina_lr.png", width: auto), caption: "Interazione con macchina LR")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -503,10 +525,6 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore entra in una zona per interagire con la macchina.
 - Il giocatore preme il tasto "interagisci".
 - Il giocatore usa la macchina.
-*Estensioni*:
-- Inserimento punto nel grafico LR
-- Reset dei punti aggiunti al grafico LR
-- Disinterazione con macchina LR
 
 // UC14 - Inserimento punto nel grafico LR
 == UC14 - Inserimento punto nel grafico LR
@@ -538,7 +556,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - I punti aggiunti dal giocatore vengono tolti e la retta del grafico viene aggiornata.
 
 == UC16 - Posizionamento sopra un nodo dell'albero di decisione
-#figure(image("imgs/uc-decision_tree.png", width: auto), caption: "Scelte albero di decisione")
+#figure(image("imgs/uc-nodo_albero.png", width: auto), caption: "Scelte albero di decisione")
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -551,10 +569,10 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore si muove verso il nodo scelto.
 - Il giocatore si posiziona sopra il nodo
-*Inclusioni*:
-- Visualizzazione delle scelte sull'albero di decisione.
+*Estensioni*:
+- Visualizzazione delle scelte sul nodo.
 
-=== UC16.1 - Visualizzazione scelte sull'albero di decisione
+=== UC16.1 - Visualizzazione scelte sul nodo
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -570,6 +588,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 // UC17 - Inserimento dell’oggetto nello spazio dedicato
 == UC17 - Inserimento dell’oggetto nello spazio dedicato
+#figure(image("imgs/uc-inserimento_spazio.png", width: auto), caption: "Inserimento dell’oggetto nello spazio dedicato")
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
@@ -580,10 +599,36 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Se l'oggetto è giusto, il nuovo oggetto viene mostrato nella visualizzazione delle classificazioni degli oggetti scoperti.
 *Scenario principale*:
 - Il giocatore lascia l'oggetto in una zona speciale.
+*Generalizzazioni*:
+- Inserimento nello spazio corretto.
+- Inserimento nello spazio sbagliato.
+
+=== UC17.1 - Inserimento nello spazio corretto
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore posiziona l'oggetto nello spazio corretto.
+*Precondizioni*:
+- Il giocatore deve portare un oggetto.
+*Postcondizioni*:
+- L'oggetto viene mostrato nella visualizzazione delle classificazioni degli oggetti scoperti.
+*Scenario principale*:
+- Il giocatore lascia l'oggetto nello spazio corretto.
 *Inclusioni*:
 - Salvataggio.
 
-// UC18 - Salvataggio
+=== UC17.2 - Inserimento nello spazio sbagliato
+*Attori principali*: 
+- Giocatore
+*Descrizione*:
+- Il giocatore posiziona l'oggetto nello spazio sbagliato.
+*Precondizioni*:
+- Il giocatore deve portare un oggetto.
+*Postcondizioni*:
+- L'oggetto non viene mostrato nella visualizzazione delle classificazioni degli oggetti scoperti.
+*Scenario principale*:
+- Il giocatore lascia l'oggetto nello spazio sbagliato.
+
 == UC18 - Salvataggio
 *Attori principali*: 
 - Giocatore
@@ -711,9 +756,11 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco deve essere avviato e il menu principale deve essere visualizzato.
 - Il gioco non ha dati di salvataggio esistenti
 *Postcondizioni*:
+- Il gioco viene resettato.
 - Il gioco inizia e il giocatore viene portato al livello base.
 *Scenario principale*:
 - Il giocatore seleziona l'opzione "Nuova partita" dal menu principale.
+- I salvataggi vengono cancellati.
 - Il gioco inizia e il giocatore viene portato al livello base.
 
 // UC27 - Modifica modalità finestra
@@ -833,10 +880,12 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il gioco salva le opzioni.
 - Il gioco applica le opzioni.
 - Il menu di opzioni viene chiuso.
+*Inclusioni*:
+- Salvataggio.
 
 // UC35 - Accensione unità esterna condizionatore
 == UC35 - Accensione unità esterna condizionatore
-#figure(image("imgs/uc-accensione_condizionatore.png", width: auto), caption: "Accensione unità esterna condizionatore")
+#figure(image("imgs/uc-ac.png", width: auto), caption: "Accensione unità esterna condizionatore")
 *Attori principali*:
 - Giocatore
 *Descrizione*:
@@ -849,6 +898,11 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore si avvicina all'entità.
 - Il giocatore preme l'input per accendere l'unità esterna del condizionatore.
+*Inclusioni*:
+- Aggiornamento dato di un cartello.
+- Salvataggio.
+*Estensioni*:
+- Visualizzazione scena di intermezzo.
 
 // UC36 - Visualizzazione scena di intermezzo
 == UC36 - Visualizzazione scena di intermezzo
@@ -866,7 +920,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore visualizza la scena di intermezzo.
 - Il giocatore può tornare a muoversi.
 
-
+#set heading(numbering: "1.")
 = Requisiti
 In questa sezione vengono elencati i requisiti del capitolato, individuati durante la fase di analisi. Ogni #gloss[requisito] viene
 identificato da un codice, scelto in base ai seguenti parametri:
@@ -1158,9 +1212,9 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
   ),
 )
 = Riepilogo 
-== Tracciamento dei requisiti
+== Totale requisiti
 #figure(
-  caption: [Tracciamento requisiti],
+  caption: [Totale requisiti],
   table(
     columns: (1.2fr, 0.8fr, 0.8fr, 0.5fr),
     inset: 8pt,

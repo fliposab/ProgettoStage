@@ -6,6 +6,7 @@ var falling : bool = false
 func enter(previous_state_path, _msg:={})->void :
 	falling = false
 	if _msg.has("jump"):
+		$JumpSound.play()
 		player.particle_emitter.load_jump_particles()
 		player.velocity.y += player.jump
 		if player.grab_item.is_holding:

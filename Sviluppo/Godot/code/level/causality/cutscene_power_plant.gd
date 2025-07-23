@@ -5,6 +5,7 @@ class_name CutsceneEmitParticles
 @onready var sparks_particles : Node3D = $SparksParticles
 
 func emit_sparks()->void:
+	$ElectricShock.play()
 	sparks_particles.show()
 	sparks_particles.emit_particles()
 	await get_tree().create_timer(0.2).timeout

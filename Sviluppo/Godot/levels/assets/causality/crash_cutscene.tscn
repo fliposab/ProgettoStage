@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=40 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://bt6d8lnn4c5hd" path="res://code/level/causality/cutscene_power_plant.gd" id="26_vcixb"]
 [ext_resource type="PackedScene" uid="uid://cmy46uno0waly" path="res://levels/assets/causality/sparks.tscn" id="27_ixsgq"]
 [ext_resource type="Script" uid="uid://f8cfcuab6nr7" path="res://code/level/causality/sparks_particles.gd" id="28_v1nnb"]
+[ext_resource type="AudioStream" uid="uid://xpuff2i81oyc" path="res://sounds/electric_shock.wav" id="31_jy0h6"]
 
 [sub_resource type="Animation" id="Animation_jjsnk"]
 length = 0.001
@@ -558,6 +559,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.539801, 6.434063, 15.931625
 
 [node name="GPUParticles3D6" parent="power_plant/SparksParticles" instance=ExtResource("27_ixsgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.654896, 6.434063, 2.1081238)
+
+[node name="ElectricShock" type="AudioStreamPlayer" parent="power_plant"]
+stream = ExtResource("31_jy0h6")
+volume_db = -10.0
 
 [connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]

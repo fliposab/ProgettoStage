@@ -4,5 +4,6 @@
 [ext_resource type="Script" uid="uid://cp0jsjrdmkhx6" path="res://code/sounds/menu_scroll_sound.gd" id="2_shty3"]
 
 [node name="MenuScrollSound" type="AudioStreamPlayer"]
+process_mode = 1
 stream = ExtResource("1_818yv")
 script = ExtResource("2_shty3")

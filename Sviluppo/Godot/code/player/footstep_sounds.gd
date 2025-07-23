@@ -5,6 +5,7 @@ class_name FootStepsSound
 var sound_index : int = 0
 
 func start()->void:
+	sound_index = randi()%2
 	timer.start()
 
 func stop()->void:

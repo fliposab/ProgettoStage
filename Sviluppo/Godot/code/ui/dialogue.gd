@@ -2,7 +2,6 @@ extends Control
 class_name Dialogue
 
 var index : int = 0
-
 signal dialogue_ended
 signal dialogue_ended_correct
 
@@ -11,6 +10,7 @@ func _ready()->void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
 func start_dialogue()->void:
+	$MenuScrollSound.play()
 	reposition_camera(true)
 	process_mode = Node.PROCESS_MODE_INHERIT
 	index = 0
@@ -19,8 +19,9 @@ func start_dialogue()->void:
 func hide_all()->void:
 	index = 0
 	for i in get_child_count():
-		get_child(i).hide_text_box()
-		get_child(i).dialogue_handler = self
+		if get_child(i) is DialogueBoxSimple:
+			get_child(i).hide()
+			get_child(i).dialogue_handler = self
 	process_mode = Node.PROCESS_MODE_DISABLED
 
 func next_text()->void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bavgupsqvucrs"]
+[gd_scene load_steps=30 format=3 uid="uid://bavgupsqvucrs"]
 
 [ext_resource type="Script" uid="uid://bono654lxr265" path="res://code/player.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://bnne6rsf4vd73" path="res://code/state_machine/states/player_ground_state.gd" id="2_b0kkn"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://eriir7hsqfbk" path="res://sounds/footstep_sounds.tscn" id="16_7db53"]
 [ext_resource type="PackedScene" uid="uid://l6t1uan5ppyr" path="res://entities/shadow_decal.tscn" id="17_8rie4"]
 [ext_resource type="PackedScene" uid="uid://bq5ldbsphh7ei" path="res://entities/Player/grab_area.tscn" id="18_dp3pk"]
+[ext_resource type="AudioStream" uid="uid://cln3yd37wq8bk" path="res://sounds/jump_sound.wav" id="18_plaij"]
 [ext_resource type="Script" uid="uid://b32ilixwbxmsw" path="res://code/ui/player_ui.gd" id="22_fruft"]
 [ext_resource type="Texture2D" uid="uid://b0m18wfd46ybp" path="res://ui/green_collectible_icon.png" id="25_slxql"]
 [ext_resource type="Texture2D" uid="uid://dgnf2ny0krebv" path="res://ui/blue_collectible_icon.png" id="26_evlff"]
@@ -163,6 +164,9 @@ script = ExtResource("10_q0i8f")
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_rfe5m")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="StateMachine/Air"]
+stream = ExtResource("18_plaij")
 
 [node name="Interact" type="Node" parent="StateMachine"]
 script = ExtResource("12_oprnr")
