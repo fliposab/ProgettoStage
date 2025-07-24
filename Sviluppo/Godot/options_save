@@ -1,9 +1,9 @@
 [common]
 
-window_mode=2
+window_mode=1
 window_resolution=1
-resolution_scale=1.0
-anti_aliasing=4
+resolution_scale=0.7
+anti_aliasing=3
 shadows_quality=2
 max_fps=2
 language="Italiano"

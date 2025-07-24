@@ -14,8 +14,11 @@ func _ready()->void:
 	await get_tree().process_frame
 	if all_units_already_on:
 		return
+	set_units_array()
+
+func set_units_array()->void:
 	for i in get_child_count():
-		units.append(false)
+		units.append(get_child(i).on)
 		get_child(i).index = i
 
 func activate_unit(index: int)->void:

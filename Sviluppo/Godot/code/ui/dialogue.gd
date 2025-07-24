@@ -10,7 +10,6 @@ func _ready()->void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 	
 func start_dialogue()->void:
-	$MenuScrollSound.play()
 	reposition_camera(true)
 	process_mode = Node.PROCESS_MODE_INHERIT
 	index = 0

@@ -64,3 +64,6 @@ func start_timer()->void:
 	var wait : float = randf_range(1.5, 2.0)
 	await get_tree().create_timer(wait).timeout 
 	stop()
+
+func save_position()->void:
+	stopped_following.emit(self)

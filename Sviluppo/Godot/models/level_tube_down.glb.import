@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b48g5a7t4of1e"
-path="res://.godot/imported/tree_nature.glb-54ed98b4c3776ba9420d6212b2e2da7a.scn"
+uid="uid://dgoa6uu7tksom"
+path="res://.godot/imported/level_tube_down.glb-a80253a3016f80fed89ea22b7b56c57f.scn"
 
 [deps]
 
-source_file="res://models/tree_nature.glb"
-dest_files=["res://.godot/imported/tree_nature.glb-54ed98b4c3776ba9420d6212b2e2da7a.scn"]
+source_file="res://models/level_tube_down.glb"
+dest_files=["res://.godot/imported/level_tube_down.glb-a80253a3016f80fed89ea22b7b56c57f.scn"]
 
 [params]
 
@@ -39,21 +39,21 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"leaves": {
+"black": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/materials/tree_leaves.tres",
-"use_external/path": "uid://bqllcxiqynttw"
+"use_external/fallback_path": "res://models/materials/black_unshaded.tres",
+"use_external/path": "uid://dk7kjkhvyjb1y"
 },
-"wood": {
+"tube": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/materials/wood_tree.tres",
-"use_external/path": "uid://6us3q6nolbg5"
+"use_external/fallback_path": "res://models/materials/green.tres",
+"use_external/path": "uid://bblnhbvfyqhwo"
 }
 },
 "nodes": {
-"PATH:tree": {
+"PATH:tube": {
 "generate/physics": true,
-"physics/shape_type": 2
+"physics/shape_type": 1
 }
 }
 }

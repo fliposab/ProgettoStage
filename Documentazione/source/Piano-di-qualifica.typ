@@ -289,11 +289,13 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TU-01],[Si verifica che il personaggio principale venga caricato],[],
   [TU-02],[Si verifica che il personaggio principale possa muoversi],[],
   [TU-03],[Si verifica che il personaggio principale possa saltare],[],
-  [TU-04],[Si verifica che la macchina di stati cambi stato quando il personaggio principale inizia a cadere],[],
+  [],[Si verifica che la macchina di stati cambi stato quando il personaggio principale inizia a cadere],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di _idle_ quando non si muove],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di corsa quando viene premuto l'input],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di caduta quando inizia a cadere],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di salto quando salta],[],
+  //Causality
+  [],[Si verifica che gli NPC caricati con il livello già completato, si girino verso la gelateria],[],
 ))
 
 == Test di integrazione
@@ -303,10 +305,30 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [],[Si verifica che un NPC mostri il messaggio quando il giocatore si avvicina],[],
-  [],[],[],
-  [],[],[],
-  [],[Si verifica che il giocatore possa prendere un oggetto],[]))
+  //Generali
+  [],[Si verifica che un NPC o un oggetto mostri il messaggio quando il giocatore si trova dentro l'area di interazione],[],
+  [],[Si verifica che un collezionabile venga preso dal giocatore quando si avvicina],[],
+  [],[Si verifica che il dialogo di un NPC venga mostrato quando il giocatore preme il tasto dentro l'area di interazione],[],
+  [],[Si verifica che il cartello mostri il contenuto quando un giocatore preme il tasto nell'area di interazione],[],
+  //Pausa
+  //Menu Principale
+  //LR
+  [],[Si verifica che il giocatore possa interagire con il cannone LR],[],
+  [],[Si verifica che il cannone LR possa posizionare nuovi dati nel grafico a lui assegnato],[],
+  [],[Si verifica che il grafico venga resettato al suo stato iniziale quando il giocatore preme il rispettivo tasto],[],//UT?
+  [],[Si verifica che il giocatore possa smettere di interagire con il cannone LR],[],
+  [],[Si verifica che il giocatore possa camminare sopra la linea del grafico],[],                                                      
+  //DT
+  [],[Si verifica che il giocatore possa prendere un oggetto in mano e trasportarlo],[],
+  [],[Si verifica che il giocatore possa lasciare l'oggetto e farlo rimanere in quella posizione],[],
+  //Causality
+  [],[Si verifica che le unità esterne dei condizionatori si attivino in base all'array presente nel salvataggio],[],
+  [],[Si verifica che la scena di intermezzo inizi quando tutte le unità dei condizionatori sono state attivate],[],
+  [],[Si verifica che le porte degli appartamenti siano già aperte quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
+  [],[Si verifica che il dialogo ed il comportamento dell'NPC scienziato vengano cambiati quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
+  [],[Si verifica che il dialogo dell'NPC gelataio venga cambiato quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
+  [],[Si verifica che il grafico dei condizionatori in uso si aggiorni quando ne viene acceso uno],[],
+  [],[Si verifica che alcuni NPC vengano caricati solo se il livello viene caricato con salvataggi già completati],[]))
 
 == Test di sistema
 #figure(caption: [Test di sistema], table(
@@ -315,8 +337,6 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [],[Si verifica che il gioco funzioni nel sistema operativo Ubuntu 22.04],[],
-  [],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[],
    "",
   "Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
   "\u{2713}",
@@ -336,7 +356,8 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  [],[],[]))
+    [],[Si verifica che il gioco funzioni nel sistema operativo Linux],[],
+  [],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[],))
 
 = Cruscotto di valutazione delle metriche
 == Forniture
@@ -363,6 +384,6 @@ Sia giocatore che NPC hanno lo stesso numero di ossa, visto che sono stati creat
 Dall'immagine è possibile vedere anche il numero di isole UV del giocatore (22) e dell'NPC (18 + 5 posizionate sopra altre isole UV). Inoltre, è possibile notare l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
 
 === MPC-UIS - UV Islands Space
-Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%, mentre quello occupato dalle isole UV dell'NPC è pari al 79,7%.\
+Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%, mentre quello occupato dalle isole UV dell'NPC è pari al --%.\
 Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente in Blender, è stato utilizzato uno script di Python esterno.
 //= Automiglioramento

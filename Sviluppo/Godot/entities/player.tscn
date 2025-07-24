@@ -37,6 +37,7 @@ height = 1.43323
 collision_layer = 2
 collision_mask = 49
 wall_min_slide_angle = 0.785398
+safe_margin = 0.01
 script = ExtResource("1_merdl")
 speed = 400.0
 jump = 14.0

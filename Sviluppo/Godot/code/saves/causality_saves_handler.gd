@@ -9,3 +9,9 @@ func set_save_node()->void:
 func _on_ac_units_unit_turned_on(array: Array[bool]) -> void:
 	data["ac_on"] = array
 	save_data()
+
+func check_array()->bool:
+	for i in data["ac_on"].size():
+		if !data["ac_on"][i]:
+			return false
+	return true

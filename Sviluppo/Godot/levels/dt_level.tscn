@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=33 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
@@ -14,22 +14,32 @@
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="8_ydd6s"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="9_2sipj"]
 [ext_resource type="ArrayMesh" uid="uid://c5o5ro4aq0xfp" path="res://models/npc_hat.res" id="9_iqyt4"]
-[ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/dog_line.tscn" id="9_yev1y"]
+[ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/decision_tree/dog_line.tscn" id="9_yev1y"]
 [ext_resource type="ArrayMesh" uid="uid://djpx2tdr5oqpk" path="res://models/npc_whistle.res" id="10_2sipj"]
 [ext_resource type="PackedScene" uid="uid://4fm5js5aotam" path="res://models/tree.glb" id="10_kqcum"]
 [ext_resource type="Script" uid="uid://ec2hunhnr8e8" path="res://code/level/assets/change_dog_npc_behaviour.gd" id="12_2sipj"]
 [ext_resource type="PackedScene" uid="uid://ckw50h418clhq" path="res://levels/assets/collectible_spawner.tscn" id="12_pniec"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="13_1ij4e"]
+[ext_resource type="PackedScene" uid="uid://bwothc000fkjg" path="res://levels/assets/decision_tree/fence.tscn" id="14_a0hj5"]
+[ext_resource type="Material" uid="uid://d3hwaeuokoxpr" path="res://models/materials/clouds.tres" id="14_pnudu"]
+[ext_resource type="PackedScene" uid="uid://b48g5a7t4of1e" path="res://models/tree_nature.glb" id="17_a0hj5"]
+[ext_resource type="PackedScene" uid="uid://csielvqc7kkcr" path="res://models/dt_surface.glb" id="21_6ud3g"]
+[ext_resource type="PackedScene" uid="uid://dgoa6uu7tksom" path="res://models/level_tube_down.glb" id="24_s4wd4"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46lwt"]
-sky_top_color = Color(0.144385, 0.486407, 0.634264, 1)
-sky_horizon_color = Color(0.839186, 0.601855, 0.300063, 1)
-sky_curve = 0.0477961
-ground_bottom_color = Color(0.581033, 0.581033, 0.581033, 1)
-ground_horizon_color = Color(0.959916, 0.52495, 0.147801, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0hj5"]
+material = ExtResource("14_pnudu")
+flip_faces = true
+size = Vector2(600, 600)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s4wd4"]
+sky_top_color = Color(0.71248466, 0.9037968, 0.94534236, 1)
+sky_horizon_color = Color(0.40991762, 0.70018417, 0.81230146, 1)
+ground_bottom_color = Color(0.12112529, 0.12704778, 0.26126, 1)
+ground_horizon_color = Color(0.4117647, 0.7019608, 0.8117647, 1)
+ground_curve = 0.11712682
 
 [sub_resource type="Sky" id="Sky_x25rp"]
-sky_material = SubResource("ProceduralSkyMaterial_46lwt")
+sky_material = SubResource("ProceduralSkyMaterial_s4wd4")
 
 [sub_resource type="Environment" id="Environment_8vxcw"]
 background_mode = 2
@@ -39,12 +49,6 @@ ssao_radius = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8g85a"]
 size = Vector3(100, 1, 100)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8vxcw"]
-size = Vector3(50, 50, 50)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8g85a"]
-size = Vector3(45, 50, 45)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0itir"]
 _surfaces = [{
@@ -119,7 +123,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 1.
 script = ExtResource("5_8u3fi")
 
 [node name="CollectibleSpawner" parent="DogBreedSign/Reward" index="0" instance=ExtResource("12_pniec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.125, 1.47027, -3.53421)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.125, 2.902289, -3.53421)
 load_red = false
 load_green = true
 
@@ -151,9 +155,35 @@ text = "DOGS_BREED_RESET"
 text = "DOGS_BREED_DO_NOTHING"
 
 [node name="Skeleton3D" parent="NPCDialogue/Model/Armature" index="0"]
-bones/15/scale = Vector3(1, 1, 1.00001)
-bones/23/rotation = Quaternion(0.707106, 0.001093, 0.001093, 0.707106)
-bones/27/rotation = Quaternion(0.707106, -0.001093, -0.001093, 0.707106)
+bones/1/position = Vector3(0, 4.0972776, 0)
+bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
+bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
+bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
+bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
+bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
+bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
+bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
+bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
+bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
+bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
+bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
+bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
+bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
+bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
+bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
+bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
+bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
+bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
+bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
+bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
+bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
+bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
+bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
+bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
+bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
+bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NPCDialogue/Model/Armature/Skeleton3D" index="2"]
 mesh = ExtResource("9_iqyt4")
@@ -166,14 +196,31 @@ script = ExtResource("12_2sipj")
 
 [node name="Fade" parent="NPCDialogue/Behaviour" index="0" instance=ExtResource("13_1ij4e")]
 
+[node name="Node3D" parent="Models" index="0" instance=ExtResource("14_a0hj5")]
+
+[node name="Clouds" type="MeshInstance3D" parent="Models" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.878212, 0)
+gi_mode = 0
+mesh = SubResource("PlaneMesh_a0hj5")
+skeleton = NodePath("../../DirectionalLight3D")
+
+[node name="dt_surface" parent="Models" index="2" instance=ExtResource("21_6ud3g")]
+
+[node name="tree_nature" parent="Models" index="3" instance=ExtResource("17_a0hj5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.350883, 0, -17.045145)
+
+[node name="tree_nature2" parent="Models" index="4" instance=ExtResource("17_a0hj5")]
+transform = Transform3D(0.4780698, 0, -0.39477748, 0, 0.62, 0, 0.39477748, 0, 0.4780698, 20.971853, 0, -18.66769)
+
 [node name="DirectionalLight3D" parent="." index="5"]
 transform = Transform3D(-0.967801, 0.246593, 0.0505244, 0.0384467, -0.0535525, 0.997825, 0.248763, 0.967638, 0.0423474, 0, 2.06607, 2.43376)
+shadow_opacity = 0.6
 
 [node name="WorldEnvironment" parent="." index="6"]
 environment = SubResource("Environment_8vxcw")
 
 [node name="PlayerSpawn" parent="." index="8"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.8692, 6.32272, -4.04169)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
 [node name="FallArea" parent="." index="9" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
@@ -190,31 +237,27 @@ breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, 
 script = ExtResource("7_1c2ks")
 save_path = "./decision_tree_save.ini"
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="11"]
-operation = 1
-use_collision = true
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.89144, 0)
-mesh = SubResource("BoxMesh_8vxcw")
-
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.9171, 0)
-operation = 2
-mesh = SubResource("BoxMesh_8g85a")
-
-[node name="LevelTube3" parent="." index="12" instance=ExtResource("5_8g85a")]
+[node name="LevelTube3" parent="." index="11" instance=ExtResource("5_8g85a")]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 4.54911, 0, -4.10791)
 load_level_path = "res://levels/hub_level.tscn"
 
+[node name="level_tube" parent="LevelTube3/LevelTube" index="0"]
+visible = false
+
 [node name="tube" parent="LevelTube3/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_yev1y")
+
+[node name="CollisionShape3D" parent="LevelTube3/LevelTube/level_tube/tube/StaticBody3D" index="0"]
+disabled = true
+
+[node name="level_tube_down" parent="LevelTube3/LevelTube" index="1" instance=ExtResource("24_s4wd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 0.145576, -15.783285)
 
 [node name="Label" parent="LevelTube3/Control/VBoxContainer" index="0"]
 text = "E: BACK_TO_HUB"
 horizontal_alignment = 1
 
-[node name="DogLine" parent="." index="13" instance=ExtResource("9_yev1y")]
+[node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
 
 [connection signal="ready" from="." to="DogBreedSign" method="check_save_unlocked"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=44 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" uid="uid://bphr6yyf13k13" path="res://code/level/assets/change_npc_icecream_behaviour.gd" id="8_vsukt"]
 [ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="8_w0vt1"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="9_0nrrl"]
+[ext_resource type="Script" uid="uid://dox7qnn7qmaln" path="res://code/level/causality/npcs_ice_cream_save.gd" id="11_1dgn7"]
 [ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="11_7pcub"]
+[ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="12_4hm7i"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
+[ext_resource type="Script" uid="uid://b82baq35oa1s0" path="res://code/level/assets/npc_model.gd" id="13_4cuvp"]
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
 [ext_resource type="Script" uid="uid://pqf5fgffhfkp" path="res://code/level/assets/sign.gd" id="14_i5tty"]
 [ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_scientist_npc_behaviour.gd" id="15_0nrrl"]
@@ -119,6 +122,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hlpw"]
+height = 1.5246
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
 size = Vector3(4.83423, 3.91901, 4.24918)
@@ -309,6 +315,730 @@ text = "ICE_CREAM_CRASH_TEXT_1"
 [node name="Text2" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
 layout_mode = 1
 text = "ICE_CREAM_CRASH_TEXT_2"
+
+[node name="NPCsIceCreamSave" type="Node3D" parent="ice_cream_shop"]
+transform = Transform3D(-1.6098759, 0, -0.4313633, 0, 1.6666666, 0, 0.4313633, 0, -1.6098759, 11.540894, 1.0752816, 1.931778)
+script = ExtResource("11_1dgn7")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8298187, -0.3435601, 0.20064354)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D7" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.121992, -0.3435601, -0.93343735)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D8" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.157093, -0.3435601, 2.6547823)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D9" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4657402, -0.3435601, -2.281745)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D10" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47307587, -0.3435601, -1.1113672)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D11" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98545074, -0.3435601, 1.007411)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D12" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50888443, -0.3435601, 2.7557)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D13" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4745369, -0.3435601, -1.7962475)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D14" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9242516, -0.3435601, -1.7618513)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D15" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5716877, -0.3435601, 2.0979576)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D16" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94491, -0.3435601, -2.9113302)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9366455, -0.3435601, 3.0408401)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D3" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4998722, -0.3435601, 0.74000835)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D4" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57458496, -0.3435601, -0.55018616)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D5" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19409943, -0.3435601, 0.1471405)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model" index="1"]
+autoplay = "idle"
+
+[node name="CharacterBody3D6" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13780975, -0.3435601, 1.3614492)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
+shape = SubResource("CapsuleShape3D_2hlpw")
+
+[node name="Model" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6" instance=ExtResource("12_4hm7i")]
+transform = Transform3D(-0.15, 0, -1.3113417e-08, 0, 0.15, 0, 1.3113417e-08, 0, -0.15, 0, 0, 0)
+script = ExtResource("13_4cuvp")
+
+[node name="Skeleton3D" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.03612, 0)
+bones/1/rotation = Quaternion(-0.00776203, -1.03401e-25, 1.72352e-18, 0.99997)
+bones/2/rotation = Quaternion(0.00776203, 1.02189e-25, -1.72352e-18, 0.99997)
+bones/7/rotation = Quaternion(0.0537756, 0.334557, -0.90314, 0.263664)
+bones/8/rotation = Quaternion(0.150995, -1.16616e-08, -5.00213e-08, 0.988535)
+bones/9/rotation = Quaternion(0.21481, -1.09227e-08, -5.57592e-08, 0.976656)
+bones/10/rotation = Quaternion(-0.0189106, -0.00404003, -0.124737, 0.992001)
+bones/11/rotation = Quaternion(0.07276, -0.268162, 0.925029, 0.259068)
+bones/12/rotation = Quaternion(-0.0095818, -2.7942e-09, 1.00353e-08, 0.999954)
+bones/13/rotation = Quaternion(0.318808, 4.20909e-09, 1.41081e-07, 0.947819)
+bones/14/rotation = Quaternion(-0.0378666, 0.0040397, 0.124728, 0.99146)
+bones/15/rotation = Quaternion(0.98349, 0.0390792, -0.0948617, 0.149069)
+bones/16/rotation = Quaternion(0.132916, 8.41101e-09, 0.000410812, 0.991127)
+bones/17/rotation = Quaternion(0.1974, 4.4538e-08, 0.000610024, 0.980323)
+bones/18/rotation = Quaternion(-0.171944, 0.102305, 0.00424069, 0.979771)
+bones/19/rotation = Quaternion(0.991838, -0.0317217, 0.0974576, 0.0758548)
+bones/20/rotation = Quaternion(-0.0154705, -8.87303e-08, 4.81448e-05, 0.99988)
+bones/21/rotation = Quaternion(0.28643, -6.1973e-08, -0.000885031, 0.958101)
+bones/22/rotation = Quaternion(-0.188695, -0.102368, -0.00243657, 0.976683)
+bones/23/position = Vector3(0.973042, 2.18657, -3.93359e-08)
+bones/26/position = Vector3(1.19363, 3.19957, 1.31322)
+bones/27/position = Vector3(-0.973042, 2.18657, -3.93359e-08)
+bones/30/position = Vector3(-1.19363, 3.19957, 1.31322)
+bones/31/position = Vector3(2.68041, 4.60663, -0.657404)
+bones/31/rotation = Quaternion(-1.49111e-07, -1.02005e-07, -0.625419, 0.780289)
+bones/33/position = Vector3(2.65074, 6.18134, -3.18668)
+bones/34/position = Vector3(-2.68041, 4.60663, -0.657404)
+bones/34/rotation = Quaternion(-1.49111e-07, 1.02005e-07, 0.625419, 0.780289)
+bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
+
+[node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model" index="1"]
+autoplay = "idle"
 
 [node name="GraphSign" type="Node3D" parent="."]
 process_mode = 3
@@ -564,6 +1294,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.654896, 6.434063, 2.10812
 stream = ExtResource("31_jy0h6")
 volume_db = -10.0
 
+[connection signal="change_specific_values" from="." to="ice_cream_shop/NPCsIceCreamSave" method="_on_crash_cutscene_change_specific_values"]
 [connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCBehaviour" method="change_text_and_behaviour"]
@@ -599,6 +1330,22 @@ volume_db = -10.0
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
 [editable path="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model"]
+[editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model"]
 [editable path="GraphSign/sign"]
 [editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
 [editable path="NPCScientist"]

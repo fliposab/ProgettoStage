@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b48g5a7t4of1e"
-path="res://.godot/imported/tree_nature.glb-54ed98b4c3776ba9420d6212b2e2da7a.scn"
+uid="uid://csielvqc7kkcr"
+path="res://.godot/imported/dt_surface.glb-275ab95e1f34d67f66ef4a829c46230f.scn"
 
 [deps]
 
-source_file="res://models/tree_nature.glb"
-dest_files=["res://.godot/imported/tree_nature.glb-54ed98b4c3776ba9420d6212b2e2da7a.scn"]
+source_file="res://models/dt_surface.glb"
+dest_files=["res://.godot/imported/dt_surface.glb-275ab95e1f34d67f66ef4a829c46230f.scn"]
 
 [params]
 
@@ -39,21 +39,21 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"leaves": {
+"dirt": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/materials/tree_leaves.tres",
-"use_external/path": "uid://bqllcxiqynttw"
+"use_external/fallback_path": "res://models/materials/dirt.tres",
+"use_external/path": "uid://bchq06c4bap4r"
 },
-"wood": {
+"grass": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://models/materials/wood_tree.tres",
-"use_external/path": "uid://6us3q6nolbg5"
+"use_external/fallback_path": "res://models/materials/grass_floor.tres",
+"use_external/path": "uid://5vgv6s447bpc"
 }
 },
 "nodes": {
-"PATH:tree": {
+"PATH:Cube": {
 "generate/physics": true,
-"physics/shape_type": 2
+"physics/shape_type": 1
 }
 }
 }

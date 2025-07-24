@@ -1,7 +1,7 @@
 extends InteractableArea
 class_name ACUnit
 
-var on : bool = false
+@export var on : bool = false
 var index : int 
 signal turned_on(index: int)
 

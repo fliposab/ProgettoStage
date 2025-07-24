@@ -11,6 +11,7 @@ var cutscene_handler : CutscenesHandler
 
 signal start_cutscene()
 signal change_values()
+signal change_specific_values()
 
 func start(play_cutscene: bool)->void:
 	if !play_cutscene:
@@ -31,4 +32,8 @@ func _on_timer_timeout() -> void:
 
 func emit_change_values() -> void:
 	change_values.emit()
-	
+
+func emit_change_specific_values(save_handler: SavesHandler) -> void:
+	if save_handler is CausalitySavesHandler\
+	and save_handler.check_array():
+		change_specific_values.emit()
