@@ -6,7 +6,7 @@ var _items : Array[Control]
 func _ready()->void:
 	process_mode = Node.PROCESS_MODE_DISABLED
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	for i in _items.size():
 		_items[i].position = owner.unproject_position(_items[i].owner.ui_position.global_position)
 

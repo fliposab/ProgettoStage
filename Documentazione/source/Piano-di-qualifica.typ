@@ -279,6 +279,7 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
 - *test di integrazione*: test che verificano il corretto funzionamento dell'interazione tra più unità del codice, sono svolti manualmente;\
 - *test di sistema*: test che verificano il corretto funzionamento del sistema nel suo complesso, inclusi i requisiti funzionali e non funzionali, comprendono anche test sulle prestazioni, e sono svolti utilizzando gli strumenti forniti da Godot;\
 - *test di accettazione*: test che verificano se il prodotto è pronto per essere rilasciato.
+
 == Test di unità
 #figure(caption: [Test di unità], table(
   columns: (0.4fr, 1fr, 0.3fr),
@@ -286,16 +287,41 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
+  //Giocatore
   [TU-01],[Si verifica che il personaggio principale venga caricato],[],
-  [TU-02],[Si verifica che il personaggio principale possa muoversi],[],
-  [TU-03],[Si verifica che il personaggio principale possa saltare],[],
-  [],[Si verifica che la macchina di stati cambi stato quando il personaggio principale inizia a cadere],[],
+  [],[Si verifica che il personaggio principale possa stare sopra una piattaforma],[],
+  [TU-],[Si verifica che il personaggio principale possa muoversi con una determinata velocità],[],
+  [TU-],[Si verifica che il personaggio principale possa saltare con una determinata velocità],[],
+  //StateMachine
+  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio non si muove sopra una piattaforma],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio atterra],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio smette di interagire con un'entità],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Air_ quando il personaggio principale salta],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Air_ quando il personaggio principale inizia a cadere],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _GroundMove_ quando il personaggio principale si muove],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Grab_ quando il personaggio principale prende un oggetto],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Release_ quando il personaggio principale lascia un oggetto],[],
+  [],[Si verifica che la macchina di stati cambi allo stato _Interact_ quando il personaggio principale interagisce con un'entità],[],
+  //Animazioni
   [],[Si verifica che il personaggio principale carichi l'animazione di _idle_ quando non si muove],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di corsa quando viene premuto l'input],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di caduta quando inizia a cadere],[],
   [],[Si verifica che il personaggio principale carichi l'animazione di salto quando salta],[],
+  //NPC
+  [],[Si verifichi che il personaggio non giocabile venga caricato correttamente],[],
+  [],[Si verifica che l'NPC cambi animazione durante il dialogo],[],
+  //LR
+  [],[Si verifica che il grafico venga caricato nel livello],[],
+  [],[Si verifica che il grafico venga caricato con la linea],[],
+  [],[Si verifica che il grafico si aggiorni quando viene aggiunto o tolto un punto nel grafico],[],
+  //Decision Tree
+  [],[Si verifica che ogni cane vega caricato nel livello],[],
+  [],[Si verifica che l'albero venga caricato nel livello],[],
+  [],[Si verifica che l'NPC con il fischietto venga caricato nel livello],[],
   //Causality
+  [],[],[],
   [],[Si verifica che gli NPC caricati con il livello già completato, si girino verso la gelateria],[],
+  [],[],[],
 ))
 
 == Test di integrazione
@@ -306,11 +332,16 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
   //Generali
+  //NPC
   [],[Si verifica che un NPC o un oggetto mostri il messaggio quando il giocatore si trova dentro l'area di interazione],[],
+  [],[Si verifica che un NPC cambi animazione quando il giocatore entra dentro l'area di interazione],[],
   [],[Si verifica che un collezionabile venga preso dal giocatore quando si avvicina],[],
   [],[Si verifica che il dialogo di un NPC venga mostrato quando il giocatore preme il tasto dentro l'area di interazione],[],
   [],[Si verifica che il cartello mostri il contenuto quando un giocatore preme il tasto nell'area di interazione],[],
   //Pausa
+  [],[Si verifica che il menu di pausa venga caricato],[],
+  [],[Si verifica che il menu di pausa venga visualizzato quando viene premuto l'input],[],
+  [],[Si verifica che il menu di pausa sia nascosto all'inizio],[],
   //Menu Principale
   //LR
   [],[Si verifica che il giocatore possa interagire con il cannone LR],[],

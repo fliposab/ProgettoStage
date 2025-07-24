@@ -1,8 +1,8 @@
 extends State
 class_name IdleState
 
-func enter(previous_state_path, _msg:={})->void :
-	if _msg.has("reset_camera"):
+func enter(_previous_state_path, msg:={})->void :
+	if msg.has("reset_camera"):
 		player.reset_camera()
 	if player.grab_item.is_holding:
 		player.play("idle_grab")
@@ -10,7 +10,7 @@ func enter(previous_state_path, _msg:={})->void :
 		player.play("idle")
 	player.set_respawn_point()
 
-func physics_update(delta: float)->void:
+func physics_update(_delta: float)->void:
 	player.velocity.x = lerp(player.velocity.x, 0.0, 0.1)
 	player.velocity.z = lerp(player.velocity.z, 0.0, 0.1)
 	if player.is_moving():

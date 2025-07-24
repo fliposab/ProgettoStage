@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://v7xs3lei7fnu"]
+[gd_scene load_steps=8 format=3 uid="uid://v7xs3lei7fnu"]
 
 [ext_resource type="Script" uid="uid://dbxq0duiscf5i" path="res://code/level/decision_tree/decision_node_final.gd" id="1_807j0"]
 [ext_resource type="Material" uid="uid://cbnss5qliehpv" path="res://models/materials/gray.tres" id="2_40uwb"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_807j0"]
+[ext_resource type="PackedScene" uid="uid://dfp82ub4jq44p" path="res://ui/ui_answer.tscn" id="4_40uwb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_88wmp"]
 height = 0.3
@@ -63,6 +64,11 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("2_807j0")
 text = "QUESTION_1"
+
+[node name="UIAnswer" parent="." instance=ExtResource("4_40uwb")]
+
+[node name="UIPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.639894, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

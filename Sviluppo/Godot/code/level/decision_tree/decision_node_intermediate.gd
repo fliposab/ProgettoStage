@@ -18,7 +18,8 @@ func _ready()->void:
 	show_directions()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if !body is TrainingImage:
+	if body is Player:
+		player = body
 		_ui.show()
 
 func _on_area_3d_body_exited(body: Node3D) -> void:

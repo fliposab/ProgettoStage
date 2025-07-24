@@ -49,7 +49,7 @@ func release()->void:
 	is_holding = false
 
 func can_grab_item()->bool:
-	return can_grab and !is_holding
+	return can_grab and grabbable_item and !is_holding
 
 func can_release_item()->bool:
 	return is_holding

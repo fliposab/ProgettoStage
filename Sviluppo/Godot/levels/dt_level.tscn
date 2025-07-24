@@ -196,40 +196,41 @@ script = ExtResource("12_2sipj")
 
 [node name="Fade" parent="NPCDialogue/Behaviour" index="0" instance=ExtResource("13_1ij4e")]
 
-[node name="Node3D" parent="Models" index="0" instance=ExtResource("14_a0hj5")]
-
-[node name="Clouds" type="MeshInstance3D" parent="Models" index="1"]
+[node name="Clouds" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.878212, 0)
 gi_mode = 0
 mesh = SubResource("PlaneMesh_a0hj5")
-skeleton = NodePath("../../DirectionalLight3D")
+skeleton = NodePath("../DirectionalLight3D")
 
-[node name="dt_surface" parent="Models" index="2" instance=ExtResource("21_6ud3g")]
+[node name="Node3D" parent="Models" index="0" instance=ExtResource("14_a0hj5")]
 
-[node name="tree_nature" parent="Models" index="3" instance=ExtResource("17_a0hj5")]
+[node name="dt_surface" parent="Models" index="1" instance=ExtResource("21_6ud3g")]
+
+[node name="tree_nature" parent="Models" index="2" instance=ExtResource("17_a0hj5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.350883, 0, -17.045145)
 
-[node name="tree_nature2" parent="Models" index="4" instance=ExtResource("17_a0hj5")]
+[node name="tree_nature2" parent="Models" index="3" instance=ExtResource("17_a0hj5")]
 transform = Transform3D(0.4780698, 0, -0.39477748, 0, 0.62, 0, 0.39477748, 0, 0.4780698, 20.971853, 0, -18.66769)
 
-[node name="DirectionalLight3D" parent="." index="5"]
-transform = Transform3D(-0.967801, 0.246593, 0.0505244, 0.0384467, -0.0535525, 0.997825, 0.248763, 0.967638, 0.0423474, 0, 2.06607, 2.43376)
+[node name="DirectionalLight3D" parent="." index="6"]
+transform = Transform3D(0.7775893, -0.5938583, -0.20660909, 0.06433579, -0.2517219, 0.965659, -0.6254727, -0.7641784, -0.15752985, -0.32009506, 2.06607, 2.43376)
+light_bake_mode = 1
 shadow_opacity = 0.6
 
-[node name="WorldEnvironment" parent="." index="6"]
+[node name="WorldEnvironment" parent="." index="7"]
 environment = SubResource("Environment_8vxcw")
 
-[node name="PlayerSpawn" parent="." index="8"]
+[node name="PlayerSpawn" parent="." index="9"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
-[node name="FallArea" parent="." index="9" instance=ExtResource("4_8vxcw")]
+[node name="FallArea" parent="." index="10" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
 
 [node name="CollisionShape3D" parent="FallArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4995, 0, 0)
 shape = SubResource("BoxShape3D_8g85a")
 
-[node name="SavesHandler" parent="." index="10"]
+[node name="SavesHandler" parent="." index="11"]
 script = ExtResource("6_yev1y")
 breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
@@ -237,7 +238,7 @@ breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, 
 script = ExtResource("7_1c2ks")
 save_path = "./decision_tree_save.ini"
 
-[node name="LevelTube3" parent="." index="11" instance=ExtResource("5_8g85a")]
+[node name="LevelTube3" parent="." index="12" instance=ExtResource("5_8g85a")]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 4.54911, 0, -4.10791)
 load_level_path = "res://levels/hub_level.tscn"
 
@@ -257,8 +258,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 0.145576, -15.7
 text = "E: BACK_TO_HUB"
 horizontal_alignment = 1
 
-[node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
+[node name="DogLine" parent="." index="13" instance=ExtResource("9_yev1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
+
+[node name="GoldenRetriever" parent="DogLine" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12998, 0, 2.5466557)
+
+[node name="GoldenRetriever3" parent="DogLine" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8753033, 0, -2.9592276)
+
+[node name="GoldenRetriever6" parent="DogLine" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.521837, 0, -0.52267456)
+
+[node name="GoldenRetriever7" parent="DogLine" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2344065, 0, -2.247756)
+
+[node name="GoldenRetriever8" parent="DogLine" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7774997, 0, -0.33751488)
+
+[node name="GoldenRetriever9" parent="DogLine" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2280099, 0, 2.5524712)
+
+[node name="GoldenRetriever10" parent="DogLine" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7804885, 0, -2.8876371)
+
+[node name="GoldenRetriever12" parent="DogLine" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.286063, 0, -3.7876787)
+
+[node name="GoldenRetriever13" parent="DogLine" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.496458, 0, 3.0774965)
+
+[node name="GoldenRetriever14" parent="DogLine" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5753884, 0, -1.8375874)
+
+[node name="GoldenRetriever15" parent="DogLine" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0516586, 0, -3.072795)
 
 [connection signal="ready" from="." to="DogBreedSign" method="check_save_unlocked"]
 [connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign/Reward/CheckUnlocked" method="_on_decision_tree_new_breed_unlocked"]
@@ -276,3 +310,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
 [editable path="LevelTube3"]
 [editable path="LevelTube3/LevelTube"]
 [editable path="LevelTube3/LevelTube/level_tube"]
+[editable path="DogLine"]
+[editable path="DogLine/GoldenRetriever"]
+[editable path="DogLine/GoldenRetriever2"]
+[editable path="DogLine/GoldenRetriever3"]
+[editable path="DogLine/GoldenRetriever4"]
+[editable path="DogLine/GoldenRetriever5"]
+[editable path="DogLine/GoldenRetriever6"]
+[editable path="DogLine/GoldenRetriever7"]
+[editable path="DogLine/GoldenRetriever8"]
+[editable path="DogLine/GoldenRetriever9"]
+[editable path="DogLine/GoldenRetriever10"]
+[editable path="DogLine/GoldenRetriever11"]
+[editable path="DogLine/GoldenRetriever12"]
+[editable path="DogLine/GoldenRetriever13"]
+[editable path="DogLine/GoldenRetriever14"]
+[editable path="DogLine/GoldenRetriever15"]

@@ -1,10 +1,10 @@
 extends State
 
-func enter(previous_state_path, _msg:={})->void :
+func enter(_previous_state_path, _msg:={})->void :
 	player.lock_camera(true)
 	player.play("idle")
 
-func physics_update(delta: float)->void:
+func physics_update(_delta: float)->void:
 	player.velocity = Vector3.ZERO
 
 func exit()->void:

@@ -3,9 +3,9 @@ class_name InteractState
 
 var falling : bool = false
 
-func enter(previous_state_path, _msg:={})->void :
+func enter(_previous_state_path, msg:={})->void :
 	falling = false
-	if _msg.has("jump"):
+	if msg.has("jump"):
 		$JumpSound.play()
 		player.particle_emitter.load_jump_particles()
 		player.velocity.y += player.jump

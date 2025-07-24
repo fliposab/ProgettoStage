@@ -3,7 +3,7 @@ class_name GroundMoveState
 
 @onready var footseps_sounds : FootStepsSound = $FootstepSounds
 
-func enter(previous_state_path, _msg:={})->void :
+func enter(_previous_state_path, _msg:={})->void :
 	footseps_sounds.start()
 	player.particle_emitter.start_run_particles()
 	if player.grab_item.is_holding:

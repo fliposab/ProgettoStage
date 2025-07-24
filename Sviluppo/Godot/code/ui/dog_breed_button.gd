@@ -4,8 +4,8 @@ class_name DogBreedButton
 @export var breed_name : String 
 @export var image_unlocked: Texture2D
 @export var image_locked: Texture2D
-@onready var text_rect : TextureRect = $TextureRect
-@onready var label : Label = $Label
+@onready var text_rect : TextureRect = $VBoxContainer/TextureRect
+@onready var label : Label = $VBoxContainer/Label
 
 var _unlocked : bool = false
 

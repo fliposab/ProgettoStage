@@ -1,11 +1,11 @@
 extends State
 class_name ReleaseState
 
-func enter(previous_state_path, _msg:={})->void :
+func enter(_previous_state_path, _msg:={})->void :
 	player.play("release")
 	$Timer.start()
 
-func physics_update(delta: float)->void:
+func physics_update(_delta: float)->void:
 	player.velocity = Vector3.ZERO
 
 func _on_timer_timeout() -> void:

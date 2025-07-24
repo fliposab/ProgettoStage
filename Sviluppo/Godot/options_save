@@ -5,5 +5,5 @@ window_resolution=1
 resolution_scale=0.7
 anti_aliasing=3
 shadows_quality=2
-max_fps=2
+max_fps=1
 language="Italiano"
