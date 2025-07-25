@@ -2,7 +2,7 @@ extends Area3D
 class_name FallArea
 
 @onready var timer : Timer = $Timer
-@onready var anim_player : AnimationPlayer = $Control/AnimationPlayer
+#@onready var anim_player : AnimationPlayer = $Control/AnimationPlayer
 @onready var fade : Control = $Fade
 
 func _on_body_entered(body: Node3D) -> void:

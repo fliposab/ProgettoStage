@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dequljgc3xql1" path="res://particles/smoke_05.png" id="3_pmhp8"]
 [ext_resource type="PackedScene" uid="uid://d2x3dd4k6fl3" path="res://particles/smoke.tscn" id="4_j5rfs"]
-[ext_resource type="Texture2D" uid="uid://drspu4vmp6f2h" path="res://checker.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://drspu4vmp6f2h" path="res://models/materials/textures/checker.png" id="14"]
 [ext_resource type="Script" uid="uid://cqbsmcf5oxwjq" path="res://particle_test.gd" id="18"]
 
 [sub_resource type="ProceduralSkyMaterial" id="9"]

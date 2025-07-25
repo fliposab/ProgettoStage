@@ -14,6 +14,7 @@ func _ready()->void:
 func _on_interact_button_pressed()->void:
 	cannon_mesh.process_mode = Node.PROCESS_MODE_INHERIT
 	graph.process_mode = Node.PROCESS_MODE_INHERIT
+	$ConfirmSound.play()
 	graph.resize_line(0.05)
 	camera.current = true
 	player.change_state("Interact")
@@ -21,7 +22,9 @@ func _on_interact_button_pressed()->void:
 	ui.hide()
 
 func _on_cannon_add_point(point_position: Vector3) -> void:
+	$PlacePointGraphSound.play()
 	graph.add_point(point_position)
+	cannon_mesh.rand_rotation()
 
 func _on_cannon_exit() -> void:
 	camera.current = false
@@ -32,8 +35,10 @@ func _on_cannon_exit() -> void:
 	player.global_position = Vector3(global_position.x, global_position.y + 0.4, global_position.z)
 	player.change_state("Idle", {"reset_camera" : true})
 	_lr_scope_ui.hide()
+	$ConfirmSound.play()
 	graph.process_mode = Node.PROCESS_MODE_DISABLED
 	cannon_mesh.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_cannon_reset_graph() -> void:
 	graph.reset_points()
+	$ResetGraphSound.play()

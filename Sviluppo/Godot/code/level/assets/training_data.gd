@@ -1,4 +1,4 @@
-@tool
+@tool 
 extends CharacterBody3D
 class_name TrainingData
 
@@ -18,3 +18,10 @@ func _physics_process(delta: float) -> void:
 
 func activate_gravity()->void:
 	physics_enabled = true
+
+func collect()->void:
+	$CollisionShape3D.disabled = true
+	$Model.hide()
+	$GPUParticles3D.emitting = true
+	await get_tree().create_timer(0.7).timeout
+	queue_free()

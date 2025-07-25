@@ -19,8 +19,10 @@ func rotate_on_input(delta: float)-> void:
 		rotation.x -= -(Input.get_action_strength("rotate_camera_down")\
 		- Input.get_action_strength("rotate_camera_up")) * delta * speed.x
 
-func rotate_automatically(delta: float, target_rotation: float)->void:
-	global_rotation.y = lerp_angle(global_rotation.y, target_rotation, 0.007)
+func rotate_automatically(_delta: float, target_rotation: float)->void:
+	var angle_diff = abs(global_rotation.y - target_rotation) #Worst case : 2PI
+	angle_diff= max(angle_diff,0.1) #cannot divide by 0 later
+	global_rotation.y = lerp_angle(global_rotation.y, target_rotation, 0.005*(1/angle_diff))
 	rotation.x = clampf(rotation.x, -tilt_limit, tilt_limit)
 	
 func respawn(point: Vector3)->void:

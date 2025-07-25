@@ -12,6 +12,7 @@ material = ExtResource("3_w72ej")
 size = Vector3(30, 0.5, 30)
 
 [node name="LRGraph" type="Node3D"]
+process_mode = 4
 script = ExtResource("1_x2yja")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]

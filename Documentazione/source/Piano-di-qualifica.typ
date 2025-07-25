@@ -292,6 +292,9 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [],[Si verifica che il personaggio principale possa stare sopra una piattaforma],[],
   [TU-],[Si verifica che il personaggio principale possa muoversi con una determinata velocità],[],
   [TU-],[Si verifica che il personaggio principale possa saltare con una determinata velocità],[],
+  [],[Si verifica che il numero di collezionabili rossi sia visualizzato correttamente],[],
+  [],[Si verifica che il numero di collezionabili verdi sia visualizzato correttamente],[],
+  [],[Si verifica che il numero di collezionabili blu sia visualizzato correttamente],[],
   //StateMachine
   [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio non si muove sopra una piattaforma],[],
   [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio atterra],[],
@@ -310,6 +313,10 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   //NPC
   [],[Si verifichi che il personaggio non giocabile venga caricato correttamente],[],
   [],[Si verifica che l'NPC cambi animazione durante il dialogo],[],
+  //Assets generali
+  [],[Si verifica che una zona di transizione venga caricata correttamente],[],
+  [],[Si verifica che la transizione di un livello venga avviata correttamente],[],
+  [],[Si verifica che la transizione di un livello venga conclusa correttamente],[],
   //LR
   [],[Si verifica che il grafico venga caricato nel livello],[],
   [],[Si verifica che il grafico venga caricato con la linea],[],

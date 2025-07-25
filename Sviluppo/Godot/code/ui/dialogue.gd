@@ -2,6 +2,7 @@ extends Control
 class_name Dialogue
 
 var index : int = 0
+
 signal dialogue_ended
 signal dialogue_ended_correct
 
@@ -14,6 +15,7 @@ func start_dialogue()->void:
 	process_mode = Node.PROCESS_MODE_INHERIT
 	index = 0
 	get_child(index).show_text_box()
+	get_child(index).play_sound()
 
 func hide_all()->void:
 	index = 0

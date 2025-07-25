@@ -27,3 +27,7 @@ func _input(event: InputEvent) -> void:
 		exit.emit()
 	elif event.is_action_pressed("interact_reset"):
 		reset_graph.emit()
+
+func rand_rotation()->void:
+	rotation.y += randf_range(-0.1,0.1)
+	rotation.x += randf_range(-0.1,0.1)

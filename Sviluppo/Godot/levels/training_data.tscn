@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://mpehb7022ba4"]
+[gd_scene load_steps=9 format=3 uid="uid://mpehb7022ba4"]
 
 [ext_resource type="Script" uid="uid://4svrrvl1uo71" path="res://code/level/assets/training_data.gd" id="1_mj52n"]
+[ext_resource type="PackedScene" uid="uid://ccikxxq6nrdse" path="res://particles/bubbles_up.tscn" id="2_fublw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj52n"]
 albedo_color = Color(0, 0.620085, 0.832109, 1)
@@ -32,7 +33,7 @@ collision_layer = 0
 script = ExtResource("1_mj52n")
 
 [node name="Model" type="Node3D" parent="."]
-transform = Transform3D(0.406752, 0, 0.913575, 0, 1, 0, -0.913575, 0, 0.406752, 0, 0, 0)
+transform = Transform3D(0.7433453, 0, 0.6692916, 0, 1, 0, -0.6692916, 0, 0.7433453, 0, 0, 0)
 
 [node name="Coin" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(0.500044, 0, 0, 0, -2.18576e-08, -0.5, 0, 0.500044, -2.18557e-08, 0, 0, 0)
@@ -53,3 +54,5 @@ shape = SubResource("SphereShape3D_mj52n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fublw")
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("2_fublw")]

@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmt038lejs3fo"]
+[gd_scene load_steps=12 format=3 uid="uid://cmt038lejs3fo"]
 
 [ext_resource type="Script" uid="uid://bur1k14aqy6v1" path="res://code/level/assets/lr_cannon.gd" id="1_kywae"]
 [ext_resource type="PackedScene" uid="uid://xrba7x0hpxe" path="res://models/cannon_lr.glb" id="2_syu20"]
 [ext_resource type="Script" uid="uid://bbpi7ecf7ovl4" path="res://code/level/assets/cannon_camera.gd" id="3_afgnj"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="4_yov1f"]
 [ext_resource type="PackedScene" uid="uid://d0j4e88o3bouh" path="res://ui/lr_scope.tscn" id="5_syu20"]
+[ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="6_afgnj"]
+[ext_resource type="AudioStream" uid="uid://bbdugi5s6yhhe" path="res://sounds/reset_graph_sound.wav" id="7_yov1f"]
+[ext_resource type="AudioStream" uid="uid://ce4imwv8iaqup" path="res://sounds/place_point_graph_sound.wav" id="8_xnyua"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ptx6a"]
 size = Vector3(4.29004, 1.21973, 3.47241)
@@ -81,6 +84,15 @@ theme_override_styles/normal = ExtResource("4_yov1f")
 text = "E: USE_CANNON"
 
 [node name="LRScope" parent="." instance=ExtResource("5_syu20")]
+
+[node name="ConfirmSound" parent="." instance=ExtResource("6_afgnj")]
+
+[node name="ResetGraphSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yov1f")
+volume_db = -20.0
+
+[node name="PlacePointGraphSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xnyua")
 
 [connection signal="add_point" from="cannon_lr/cannon" to="." method="_on_cannon_add_point"]
 [connection signal="exit" from="cannon_lr/cannon" to="." method="_on_cannon_exit"]

@@ -9,6 +9,9 @@ signal next_message()
 func _ready()->void:
 	pass
 
+func play_sound()->void:
+	$MenuScrollSound.play()
+
 func show_text_box()->void:
 	show()
 

@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 func add_point(new_point_position: Vector3)->void:
 	var new_point : GraphPoint = preload("res://levels/assets/graph_point.tscn").instantiate()
 	points.add_child(new_point)
+	new_point.emit_particles()
 	new_point.custom = true
 	new_point.global_position = new_point_position
 	calculate_a_b()

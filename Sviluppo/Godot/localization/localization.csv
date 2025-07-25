@@ -118,3 +118,11 @@ SCIENTIST_END_TEXT,"Quasi quasi vado anch'io a prendere un gelato...","Maybe I s
 GRAPH_NOT_YET_AVAILABLE,Grafico non ancora disponibile,"Graph not yet available"
 ICE_CREAM_CRASH_TEXT_1,"Wow, hai visto tutte queste persone. Tutto grazie a te!","Wow, look at all these people. ALl thanks to you!"
 ICE_CREAM_CRASH_TEXT_2,"Ora però devo sbrigarmi perché per qualche motivo è appena saltata la corrente e il gelato si sta sciogliendo!","Now I have to hurry, I don't know why but the power just ran out and the ice-crea is melting!"
+DOG_NPC_TEXT_1,
+DOG_NPC_TEXT_2,
+LR_MESSAGE_1,"Ciao e benvenuto nel livello della Regressione lineare!",
+LR_MESSAGE_2,"Ciò che dovrai fare qui è molto semplice.",
+LR_MESSAGE_3,"Vedi quel cannone vicino? Puoi usarlo per aggiungere nuovi punti per modificare la direzione di quella linea.",
+LR_MESSAGE_4,"Fai pure una prova, nel caso tu ti veda bloccato puoi sempre resettare la linea!",
+LR_QUICK_MESSAGE_1,"Congratulazioni! Ora prova questo!",
+LR_QUICK_MESSAGE_2,"Sei proprio bravo!","You're pretty good!"

@@ -3,15 +3,6 @@
 
 #show: doc => documento(titolo: "Norme di progetto",
 doc)
-#set page(numbering: "I")
-#counter(page).update(3)
-#show heading: i-figured.reset-counters.with(level: 0)
-#show figure: i-figured.show-figure.with(level: 0)
-#i-figured.outline(title: "Lista di immagini")
-#i-figured.outline(target-kind: table, title: [Lista di tabelle])
-#pagebreak()
-#set page(numbering: "1")
-#counter(page).update(1)
 
 = Introduzione
 == Scopo del documento
@@ -76,22 +67,13 @@ Il tutor aziendale viene contattato in due modalità:
   comunicazioni via email per condividere documenti, report di avanzamento e richieste di chiarimenti.
 
 === Documentazione
-Il processo di fornitura deve essere documentato in modo dettagliato, in modo da garantire la tracciabilità delle attività svolte e delle decisioni prese.\
-
-=== Analisi dei requisiti
-Nel documento _Analisi dei requisiti_ sono stati definiti tutti gli #gloss[use case] e i requisiti funzionali del progetto. Questi sono stati raccolti in collaborazione con il tutor aziendale e sono stati utilizzati come base per la progettazione e lo sviluppo del software.
-
-=== Piano di progetto
-Il _Piano di progetto_ è un documento che definisce le attività da svolgere e i tempi previsti per lo sviluppo del software.\
-Viene descritto in dettaglio ogni periodo di sviluppo, con una retropsettiva delle attività svolte e una pianificazione delle attività future.\
-
-=== Piano di qualifica
-Nel documento _Piano di qualifica_ sono definite le metriche che vengono usate per garantire la qualità del prodotto software. Vengono inoltre scritte le modalità di test e verifica del software, in modo da garantire che il prodotto soddisfi i requisiti stabiliti.
-
-=== Specifica tecnica
-La _Specifica tecnica_ è un documento che descrive in dettaglio l'architettura del sistema, i componenti software e le loro interazioni.\
-=== Manuale utente
-Il _Manuale utente_ è un documento che fornisce istruzioni dettagliate su come utilizzare il software e garantirne il corretto funzionamento.\
+Il processo di fornitura deve essere documentato in modo dettagliato, in modo da garantire la tracciabilità delle attività svolte e delle decisioni prese.
+I documenti che il progetto presenta sono:
+- *Analisi dei requisiti*: nel documento _Analisi dei requisiti_ sono stati definiti tutti gli #gloss[use case] e i requisiti funzionali del progetto. Questi sono stati raccolti in collaborazione con il tutor aziendale e sono stati utilizzati come base per la progettazione e lo sviluppo del software;
+- *Piano di progetto*: il _Piano di progetto_ è un documento che definisce le attività da svolgere e i tempi previsti per lo sviluppo del software, viene descritto in dettaglio ogni periodo di sviluppo, con una retropsettiva delle attività svolte e una pianificazione delle attività future;\
+- *Piano di qualifica*: nel documento _Piano di qualifica_ sono definite le metriche che vengono usate per garantire la qualità del prodotto software. Vengono inoltre scritte le modalità di test e verifica del software, in modo da garantire che il prodotto soddisfi i requisiti stabiliti;
+- *Specifica tecnica*: la _Specifica tecnica_ è un documento che descrive in dettaglio l'architettura del sistema, i componenti software e le loro interazioni;
+- *Manuale utente*: il _Manuale utente_ è un documento che fornisce istruzioni dettagliate su come utilizzare il software e garantirne il corretto funzionamento.\
 
 == Strumenti utilizzati
 Gli strumenti utilizzati per lo sviluppo del software sono i seguenti:
@@ -196,7 +178,9 @@ Di norma, 1024 pixels corrispondono a 1 metro.
 - *GIMP*: software di modifica delle immagini utilizzato per la modifica occasionale di #gloss[texture] o e delle immagini del videogioco.
 - *#gloss[Gamescope]*: strumento che fornisce un overlay durante il gioco, mostrando le varie statistiche come fps, #gloss[latenza], etc...
 
+
 = Processi di supporto
+
 == Documentazione
 === Scopo e descrizione
 Il processo di documentazione ha lo scopo di garantire che tutta la documentazione necessaria per il progetto sia creata e mantenuta aggiornata.\
@@ -211,10 +195,8 @@ Il processo di documentazione comprende le seguenti attività:
 - *Aggiornamento*: comprende le seguenti attività:
   - *push*: i documenti vengono caricati nell #gloss[repository] di #gloss[GitHub];
   - *compilazione*: modifica dei documenti in base alle esigenze del progetto, in modo da garantire la coerenza tra i vari documenti.
-
 === Struttura dei documenti
 Ci sono diversi tipi di documenti e generalmente sono organizzati nelle seguenti sezioni:
-
 ==== Intestazione
 La prima pagina è l'intestazione del documento ed è composta generalmente dalle seguenti informazioni:
 - *logo azienda*: logo dell'azienda ospitante;
@@ -222,13 +204,10 @@ La prima pagina è l'intestazione del documento ed è composta generalmente dall
 - *titolo*: titolo del documento e nome del file;
 - *autore*: lo studente autore del documento;
 - *data*: data dell'ultima modifica del documento, in DD/MM/YYYY.
-
 ==== Indice
 La terza pagina, e se necessario le seguenti, è riservata all'indice del documento che elenca le sezioni di cui è composto i documento.\
-
 ==== Corpo del documento
 Il corpo del documento è strutturato in capitoli, ciascuno dei quali può essere suddiviso in sottocapitoli, che a loro volta possono contenere ulteriori suddivisioni.\
-
 === Documenti del progetto
 Verranno prodotti i seguenti documenti:
 - *#gloss[Norme di Progetto]*;
@@ -238,37 +217,44 @@ Verranno prodotti i seguenti documenti:
 - *#gloss[Manuale Utente]*;
 - *#gloss[Specifica tecnica]*; 
 - *Glossario*;
-
 === Elenchi puntati
-Ogni voce di un elenco puntato finisce con ";".
-
+Ogni voce di un elenco puntato finisce con ";", eccetto l'ultima che finisce con un punto.
 === Diagrammi Use Case
-Per produrre i diagrammi uml degli use case il team ha usato il seguente sito : #link("https://app.diagrams.net/#G1kdbwjlMBb1ySHratfEgKb-PqIMNOqlVq#%7B%22pageId%22%3A%22Q5CIVrjjWraXMqxVwAuv%22%7D")[draw.io].
+Per produrre i diagrammi uml degli use case, è stato utilizzato il seguente sito : #link("https://app.diagrams.net")[app.diagrams.net].
 Successivamente vengono inseriti nei documenti opportuni come immagini.
-
 === Composizione tipografica
 Per la composizione tipografica dei documenti si è deciso di usare #gloss[Typst] per i seguenti motivi:
 - semplicità degli strumenti utilizzati per la stesura;
 - sintassi semplice;
 - compilazione immediata;
 Grazie a Typst si riesce facilmente a creare e mantenere un documento anche partendo da un template comune.
-
 === Strumenti
 - *VS Code*: Editor di testo usato per scrivere i documenti;
 - *Typst*: Linguaggio usato per la stesura dei documenti;
 - *Github*: Servizio di hosting per il repository;
 
 == Gestione della configurazione
+=== Scopo e descrizione
+La gestione della configurazione è il processo utilizzato per mantenere software in un determinato
+stato coerente, con il fine di assicurare che il sistema funzioni nel modo previsto nonostante
+modifiche che potrebbero venir apportate durante il tempo.
+Possibili problemi nella configurazione potrebbero essere la causa di incoerenza o problemi di
+conformità che influenzano negativamente le operazioni.
 === Repository
-Nella repository si possono trovare diverse cartelle che servono per organizzare e dividere i vari tipi di documenti e codice, in particolare:
+La documentazione ed i file del progetto si possono trovare al seguente link:\
+#link("https://github.com/fliposab/ProgettoStage").\
+Nella repository si possono trovare diverse cartelle che servono per organizzare e dividere i documenti ed il codice, in particolare:
 - in *Documentazione* si trovano i documenti relativi al progetto;
 - in *Sviluppo* si trovano i vari file usati per la creazione dell'applicazione.
+
+Nella sezione "Release" inoltre è possibile scaricare l'MVP ed il PoC, disponibili con le seguenti versioni:
+- v1.0-MVP: versione dell'MVP;
+- v0.1-PoC: versione del PoC.
 
 == Gestione della qualità
 === Scopo e descrizione
 Il processo di gestione della qualità ha come obiettivo quello di garantire che il software, la documentazione e tutto ciò che viene prodotto sia conforme ai requisiti di qualità specificati e richiesti.
 Gli obiettivi e gli standard di qualità richiesti e che devono essere soddisfatti sono indicati nel documento _Piano di qualifica_.
-
 === Attività
 Seguendo lo standard ISO/IEC 12207:1995, le attività previste per questo processo sono:
 - *implementazione*: in cui vengono realizzati gli strumenti necessari, per esempio i test, per poter attuare correttamente l'attività successiva di verifica, rivelando le varie problematiche e i metodi per mitigarle;
@@ -276,8 +262,18 @@ Seguendo lo standard ISO/IEC 12207:1995, le attività previste per questo proces
 Quindi è l'attività che mette in pratica ciò che è stato individuato e realizzato durante l'attività di implementazione.
 
 == Verifica
+=== Scopo e descrizione
+Il processo di verifica ha lo scopo di garantire che il software sviluppato soddisfi i requisiti stabiliti e che sia conforme agli standard di qualità richiesti.\
+Viene eseguito durante tutto il processo di sviluppo, in modo da individuare eventuali problemi e risolverli tempestivamente.\
+=== Strumenti
+=== Tipi di verifica
+==== Analisi statica
+==== Analisi dinamica
+=== Denominazione dei test
 
 == Validazione
+=== Scopo e descrizione
+
 
 = Processi organizzativi
 == Gestione dei processi
@@ -288,13 +284,13 @@ Tutti i processi organizzativi sono composti dalle seguenti attvità
 - *individuazione di un compito da svolgere*:
 - *esecuzione*:
 - *verifica*:
-
 === Strumenti usati
 - *Github*: per gestire tutta la documentazione e il codice per il progetto in un repository;
 - *Notion*: per la gestione delle attività e la pianificazione del progetto.
-
 == Miglioramento
+=== Scopo e descrizione
 Le attività di miglioramento hanno lo scopo di garantire che il processo di sviluppo del software sia continuamente migliorato e ottimizzato.
+
 
 = Metriche e standard per la qualità
 Per  migliorare e avere uno standard di qualità da cui attingere se è deciso di utilizzare degli standard riconosciuti a livello internazionale. 

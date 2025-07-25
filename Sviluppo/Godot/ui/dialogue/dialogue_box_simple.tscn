@@ -19,4 +19,3 @@ autowrap_mode = 2
 script = ExtResource("2_4c4hg")
 
 [node name="MenuScrollSound" parent="." instance=ExtResource("3_4c4hg")]
-process_mode = 1

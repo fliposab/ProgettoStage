@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 func add_point(new_point_position: Vector3)->void:
 	var new_point : GraphPoint = preload("res://levels/assets/graph_point.tscn").instantiate()
 	points.add_child(new_point)
+	new_point.emit_particles()
 	new_point.custom = true
 	new_point.global_position = new_point_position
 	new_point.global_position.y = global_position.y
@@ -35,7 +36,6 @@ func calculate_a_b()->void:
 	var sum_x : float = 0.0
 	var sum_x2 : float = 0.0
 	var sum_y : float = 0.0
-	var sum_y2 : float = 0.0
 	var sum_xy : float = 0.0
 	var num : float = 0.0
 	
@@ -44,7 +44,6 @@ func calculate_a_b()->void:
 		sum_x += points.get_child(i).global_position.x
 		sum_y += points.get_child(i).global_position.z
 		sum_x2 += (points.get_child(i).global_position.x)**2
-		sum_y2 += (points.get_child(i).global_position.z)**2
 		sum_xy += (points.get_child(i).global_position.z)*(points.get_child(i).global_position.x)
 	var a = (sum_y*sum_x2 - sum_x*sum_xy)/(num*(sum_x2) - (sum_x)**2)
 	var b = (num*(sum_xy)-sum_x*sum_y)/(num*(sum_x2)-(sum_x)**2)
