@@ -257,6 +257,9 @@ omni_range = 29.1487
 transform = Transform3D(0.183342, -0.982863, -0.0191274, 0.251472, 0.0280817, 0.967457, -0.950341, -0.182186, 0.252311, 0, 5.88263, 7.91173)
 light_energy = 0.1
 shadow_enabled = true
+directional_shadow_split_1 = 0.595
+directional_shadow_split_2 = 0.86
+directional_shadow_split_3 = 1.0
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_6wf1f")]
 transform = Transform3D(-0.31853, 0, 0.947913, 0, 1, 0, -0.947913, 0, -0.31853, 9.57765, 0.477163, -5.35684)

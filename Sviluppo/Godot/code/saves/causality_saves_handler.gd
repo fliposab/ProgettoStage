@@ -11,7 +11,7 @@ func _on_ac_units_unit_turned_on(array: Array[bool]) -> void:
 	save_data()
 
 func check_array()->bool:
-	if !data["ac_on"]:
+	if !data.has("ac_on"):
 		return false
 	for i in data["ac_on"].size():
 		if !data["ac_on"][i]:

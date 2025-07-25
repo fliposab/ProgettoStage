@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccikxxq6nrdse"]
 
 [sub_resource type="Curve" id="Curve_4f4kr"]
-_data = [Vector2(0, 0.6494608), 0.0, 0.0, 0, 0, Vector2(0.49224806, 0.6494608), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.3146068), 0.0, 0.0, 0, 0, Vector2(0.47085205, 0.32584274), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_8i2n2"]
@@ -11,7 +11,7 @@ curve = SubResource("Curve_4f4kr")
 emission_shape = 1
 emission_sphere_radius = 0.15
 direction = Vector3(0, 1, 0)
-spread = 30.0
+spread = 10.0
 initial_velocity_min = 2.0
 initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
@@ -31,7 +31,7 @@ rings = 8
 
 [node name="GPUParticles3D" type="GPUParticles3D"]
 emitting = false
-lifetime = 0.7000000000000001
+lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_aiwnh")

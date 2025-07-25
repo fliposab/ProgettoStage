@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dcv0wdbl3113i"]
+[gd_scene load_steps=47 format=4 uid="uid://dcv0wdbl3113i"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_kxjkn"]
 [ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_0djvo"]
@@ -30,8 +30,10 @@
 [ext_resource type="Script" uid="uid://c60cp56npybko" path="res://code/saves/causality_saves_handler.gd" id="19_a46fx"]
 [ext_resource type="PackedScene" uid="uid://b48g5a7t4of1e" path="res://models/tree_nature.glb" id="20_p6bnd"]
 [ext_resource type="Material" uid="uid://d3hwaeuokoxpr" path="res://models/materials/clouds.tres" id="22_pa6ei"]
+[ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="33_dc672"]
 [ext_resource type="Script" uid="uid://cr78xrn1vow5y" path="res://addons/curvemesh3d/curvemesh3d.gd" id="33_pa6ei"]
 [ext_resource type="PackedScene" uid="uid://fi6fig5wqwya" path="res://models/grass_floor.glb" id="34_dc672"]
+[ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="34_ifhsw"]
 
 [sub_resource type="Curve3D" id="Curve3D_pa6ei"]
 bake_interval = 0.1
@@ -89,6 +91,9 @@ ambient_light_color = Color(1, 0.7921569, 0, 1)
 ssao_enabled = true
 ssao_radius = 2.0
 glow_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0itir"]
 _surfaces = [{
@@ -280,7 +285,7 @@ material = ExtResource("11_my6ir")
 metadata/_custom_type_script = "uid://cr78xrn1vow5y"
 
 [node name="Clouds" type="MeshInstance3D" parent="Models" index="26"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66054153, 47.968132, -0.040016174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66054153, 50.51104, -0.040016174)
 gi_mode = 0
 mesh = SubResource("PlaneMesh_dc672")
 
@@ -323,13 +328,22 @@ transform = Transform3D(-0.169693, 0, 0.985497, 0, 1, 0, -0.985497, 0, -0.169693
 [node name="CollectLine2" parent="Entities" index="1" instance=ExtResource("13_svhef")]
 transform = Transform3D(0.963031, 0, -0.269391, 0, 1, 0, 0.269391, 0, 0.963031, -35.944965, 7.2187, -35.850574)
 
-[node name="TrainingData3" parent="Entities" index="2" instance=ExtResource("15_gqdlx")]
+[node name="CollectLine5" parent="Entities" index="2" instance=ExtResource("13_svhef")]
+transform = Transform3D(0.963031, 0, -0.269391, 0, 1, 0, 0.269391, 0, 0.963031, -26.850368, 14.916702, -33.31172)
+
+[node name="CollectLine3" parent="Entities" index="3" instance=ExtResource("13_svhef")]
+transform = Transform3D(0.32982194, 0, -0.9440433, 0, 1, 0, 0.9440433, 0, 0.32982194, 26.690426, 6.0018473, -3.4892693)
+
+[node name="CollectLine4" parent="Entities" index="4" instance=ExtResource("13_svhef")]
+transform = Transform3D(0.32982194, 0, -0.9440433, 0, 1, 0, 0.9440433, 0, 0.32982194, 26.690426, 14.260058, -3.4892693)
+
+[node name="TrainingData3" parent="Entities" index="5" instance=ExtResource("15_gqdlx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.2466, 0.3, 11.0712)
 
-[node name="TrainingData2" parent="Entities" index="3" instance=ExtResource("15_gqdlx")]
+[node name="TrainingData2" parent="Entities" index="6" instance=ExtResource("15_gqdlx")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -31.8729, 0.3, 13.8457)
 
-[node name="GraphSign" parent="Entities" index="4" instance=ExtResource("11_xeixa")]
+[node name="GraphSign" parent="Entities" index="7" instance=ExtResource("11_xeixa")]
 transform = Transform3D(-0.96592575, 0, 0.25881946, 0, 1, 0, -0.25881946, 0, -0.96592575, -25.86669, 0.46087718, 14.892511)
 
 [node name="ChangeGraphSignUI" type="Node" parent="Entities/GraphSign" index="5"]
@@ -466,6 +480,23 @@ transform = Transform3D(0.92186326, 0, -0.38751566, 0, 1, 0, 0.38751566, 0, 0.92
 [node name="grass_floor2" parent="." index="15" instance=ExtResource("34_dc672")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.898468, -1.1646748, -87.52703)
 
+[node name="NPCDialogue" parent="." index="16" instance=ExtResource("33_dc672")]
+transform = Transform3D(0.2752011, 0, -0.9613867, 0, 1, 0, 0.9613867, 0, 0.2752011, -54.64501, -0.40862823, 8.06044)
+
+[node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
+text = "CAUSALITY_NPC_MESSAGE_1"
+
+[node name="Text2" parent="NPCDialogue/Dialogue" index="1"]
+text = "CAUSALITY_NPC_MESSAGE_2"
+
+[node name="Text3" parent="NPCDialogue/Dialogue" index="2" instance=ExtResource("34_ifhsw")]
+layout_mode = 1
+text = "CAUSALITY_NPC_MESSAGE_3"
+
+[node name="Text4" parent="NPCDialogue/Dialogue" index="3" instance=ExtResource("34_ifhsw")]
+layout_mode = 1
+text = "CAUSALITY_NPC_MESSAGE_4"
+
 [connection signal="all_units_turned_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_turned_on"]
 [connection signal="unit_turned_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_unit_turned_on"]
 [connection signal="unit_turned_on" from="ACUnits" to="Entities/GraphSign/ChangeGraphSignUI" method="increase_number"]
@@ -488,3 +519,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.
 [editable path="NPC/Model"]
 [editable path="NPC2"]
 [editable path="NPC2/Model"]
+[editable path="NPCDialogue"]
+[editable path="NPCDialogue/Control"]
+[editable path="NPCDialogue/Dialogue"]
+[editable path="NPCDialogue/Model"]

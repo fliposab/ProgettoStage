@@ -5,3 +5,6 @@ var custom : bool = false
 
 func emit_particles()->void:
 	$GPUParticles3D.emitting = true
+
+func hide_particles()->void:
+	$GPUParticles3D.hide()

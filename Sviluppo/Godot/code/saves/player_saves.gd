@@ -15,4 +15,4 @@ func load_data() -> void:
 		return
 	
 	config.load(save_path)
-	config.get_value("level","data", stats.data)
+	stats.data = config.get_value("level","data", stats.data)

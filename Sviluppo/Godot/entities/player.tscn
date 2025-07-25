@@ -57,9 +57,7 @@ settings/0/root_bone_name = "antenna1"
 settings/0/root_bone = 4
 settings/0/end_bone_name = "antenna3"
 settings/0/end_bone = 6
-settings/0/extend_end_bone = true
-settings/0/end_bone/direction = 6
-settings/0/end_bone/length = 0.0
+settings/0/extend_end_bone = false
 settings/0/center_from = 0
 settings/0/individual_config = false
 settings/0/rotation_axis = 3
@@ -91,18 +89,6 @@ distance_fade_enabled = true
 [node name="Collectibles" type="Node" parent="Misc"]
 script = ExtResource("2_qsoyl")
 
-[node name="PlayerSaveHandler" parent="Misc" instance=ExtResource("3_ef06p")]
-script = ExtResource("4_tjdhl")
-data = {
-"blue_training_data_count": 0,
-"green_training_data_count": 0,
-"red_training_data_count": 0
-}
-
-[node name="PlayerSaves" type="Node" parent="Misc/PlayerSaveHandler"]
-script = ExtResource("9_hj0ki")
-save_path = "./player_save.ini"
-
 [node name="Movement" type="Node" parent="Misc"]
 script = ExtResource("5_x08pd")
 
@@ -113,6 +99,18 @@ script = ExtResource("11_cicqb")
 
 [node name="RunDustTimer" type="Timer" parent="Misc/ParticleEmitter"]
 wait_time = 0.3
+
+[node name="PlayerSaveHandler" parent="Misc" instance=ExtResource("3_ef06p")]
+script = ExtResource("4_tjdhl")
+data = {
+"blue_count": 0,
+"green_count": 0,
+"red_count": 0
+}
+
+[node name="PlayerSaves" type="Node" parent="Misc/PlayerSaveHandler"]
+script = ExtResource("9_hj0ki")
+save_path = "./player_save.ini"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.689824, 0)
@@ -162,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6359067, 0)
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="CollectArea"]
 stream = ExtResource("25_ib8tg")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="PlayerUI" type="Control" parent="."]
 layout_mode = 3
@@ -192,7 +190,7 @@ texture = ExtResource("25_slxql")
 
 [node name="BlueCollectiblesContainer" parent="PlayerUI/HBoxContainer" instance=ExtResource("7_6nm46")]
 layout_mode = 2
-max_value = 20
+max_value = 35
 
 [node name="TextureRect" parent="PlayerUI/HBoxContainer/BlueCollectiblesContainer/HBoxContainer" index="0"]
 texture = ExtResource("26_evlff")
@@ -205,8 +203,8 @@ texture = ExtResource("26_evlff")
 [connection signal="changed_green" from="Misc/Collectibles" to="PlayerUI" method="_on_collectibles_changed_green"]
 [connection signal="changed_red" from="Misc/Collectibles" to="Misc/PlayerSaveHandler" method="set_red_training_data"]
 [connection signal="changed_red" from="Misc/Collectibles" to="PlayerUI" method="_on_collectibles_changed_red"]
-[connection signal="td_changed" from="Misc/PlayerSaveHandler" to="Misc/Collectibles" method="_on_player_save_handler_td_changed"]
 [connection signal="timeout" from="Misc/ParticleEmitter/RunDustTimer" to="Misc/ParticleEmitter" method="load_run_particles"]
+[connection signal="data_loaded" from="Misc/PlayerSaveHandler" to="Misc/Collectibles" method="_on_player_save_handler_data_loaded"]
 [connection signal="timeout" from="StateMachine/Grab/Timer" to="StateMachine/Grab" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Release/Timer" to="StateMachine/Release" method="_on_timer_timeout"]
 

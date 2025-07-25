@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=35 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://dik6hbqhos7c7" path="res://code/level/assets/check_unlocked.gd" id="7_w5hcv"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="8_ydd6s"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="9_2sipj"]
+[ext_resource type="AudioStream" uid="uid://b8nffgagyx52w" path="res://sounds/referee_whistle.wav" id="9_8ebu2"]
+[ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="9_du0v4"]
 [ext_resource type="ArrayMesh" uid="uid://c5o5ro4aq0xfp" path="res://models/npc_hat.res" id="9_iqyt4"]
 [ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/decision_tree/dog_line.tscn" id="9_yev1y"]
 [ext_resource type="ArrayMesh" uid="uid://djpx2tdr5oqpk" path="res://models/npc_whistle.res" id="10_2sipj"]
@@ -46,6 +48,9 @@ background_mode = 2
 sky = SubResource("Sky_x25rp")
 ssao_enabled = true
 ssao_radius = 5.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8g85a"]
 size = Vector3(100, 1, 100)
@@ -131,7 +136,7 @@ load_green = true
 script = ExtResource("7_w5hcv")
 
 [node name="NPCDialogue" parent="." index="2" instance=ExtResource("8_ydd6s")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.282, -0.0828989, -9.12746)
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, 11.834901, -0.0828989, -0.12745953)
 
 [node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
 text = "NPC_DOG_MESSAGE_1"
@@ -139,14 +144,17 @@ text = "NPC_DOG_MESSAGE_1"
 [node name="Text2" parent="NPCDialogue/Dialogue" index="1"]
 text = "NPC_DOG_MESSAGE_2"
 
-[node name="TextOptions" parent="NPCDialogue/Dialogue" index="2" instance=ExtResource("9_2sipj")]
-visible = false
+[node name="Text3" parent="NPCDialogue/Dialogue" index="2" instance=ExtResource("9_du0v4")]
+layout_mode = 1
+text = "NPC_DOG_MESSAGE_3"
+
+[node name="TextOptions" parent="NPCDialogue/Dialogue" index="3" instance=ExtResource("9_2sipj")]
 layout_mode = 1
 correct_text = "DOG_BREEDS_RESET_TEXT"
 wrong_text = "DOG_BREEDS_DO_NOTHING_TEXT"
 
 [node name="Label" parent="NPCDialogue/Dialogue/TextOptions/VBoxContainer" index="0"]
-text = "NPC_DOG_MESSAGE_3"
+text = "NPC_DOG_MESSAGE_4"
 
 [node name="Button" parent="NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
 text = "DOGS_BREED_RESET"
@@ -195,6 +203,10 @@ mesh = ExtResource("10_2sipj")
 script = ExtResource("12_2sipj")
 
 [node name="Fade" parent="NPCDialogue/Behaviour" index="0" instance=ExtResource("13_1ij4e")]
+
+[node name="RefereeWhistle" type="AudioStreamPlayer" parent="NPCDialogue/Behaviour" index="1"]
+stream = ExtResource("9_8ebu2")
+volume_db = -10.0
 
 [node name="Clouds" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.878212, 0)

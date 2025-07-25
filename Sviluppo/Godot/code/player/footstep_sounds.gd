@@ -2,7 +2,7 @@ extends Node
 class_name FootStepsSound
 
 @onready var timer : Timer = $Timer
-var sound_index : int = 0
+var sound_index : int
 
 func start()->void:
 	sound_index = randi()%2
@@ -12,7 +12,7 @@ func stop()->void:
 	timer.stop()
 
 func check_sound()->void:
-	if get_child(sound_index) is AudioStreamPlayer:
+	if get_child(sound_index) is AudioStreamPlayer3D:
 		play_sound()
 	else:
 		sound_index = 0

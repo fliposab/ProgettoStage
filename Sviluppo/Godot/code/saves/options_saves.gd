@@ -14,6 +14,7 @@ func save_data()->void:
 	config.set_value("common", "shadows_quality", stats.shadows_quality)
 	config.set_value("common", "max_fps", stats.max_fps)
 	config.set_value("common", "language", stats.language)
+	config.set_value("common", "volume", stats.volume)
 	
 	config.save(save_path)
 
@@ -34,3 +35,4 @@ func load_data() -> void:
 	stats.shadows_quality = config.get_value("common", "shadows_quality", stats.shadows_quality)
 	stats.max_fps = config.get_value("common", "max_fps", stats.max_fps)
 	stats.language = config.get_value("common", "language", stats.language)
+	stats.volume = config.get_value("common", "volume", stats.volume)

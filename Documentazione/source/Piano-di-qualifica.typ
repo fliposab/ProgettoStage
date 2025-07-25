@@ -275,8 +275,8 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
 
 = Metodologie di testing
 Di seguito sono elencate le metodologie di testing che verranno utilizzate per verificare e validare il prodotto software. Le metodologie di testing sono suddivise in quattro categorie:
-- *test di unità*: test che verificano il corretto funzionamento di singole unità del codice, questi test sono stati svolti con l'addon della community "GUT - Godot Unit Test";\
-- *test di integrazione*: test che verificano il corretto funzionamento dell'interazione tra più unità del codice, sono svolti manualmente;\
+- *test di unità*: test che verificano il corretto funzionamento di singole unità del codice, questi test sono stati svolti con l'add-on della community "GUT - Godot Unit Test";\
+- *test di integrazione*: test che verificano il corretto funzionamento dell'interazione tra più unità del codice, anche questi svolti con l'add-on GUT;\
 - *test di sistema*: test che verificano il corretto funzionamento del sistema nel suo complesso, inclusi i requisiti funzionali e non funzionali, comprendono anche test sulle prestazioni, e sono svolti utilizzando gli strumenti forniti da Godot;\
 - *test di accettazione*: test che verificano se il prodotto è pronto per essere rilasciato.
 
@@ -313,6 +313,7 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   //NPC
   [],[Si verifichi che il personaggio non giocabile venga caricato correttamente],[],
   [],[Si verifica che l'NPC cambi animazione durante il dialogo],[],
+  [],[Si verifica che alla scelta di un'opzione del dialogo, viene caricato un nuovo messaggio],[],
   //Assets generali
   [],[Si verifica che una zona di transizione venga caricata correttamente],[],
   [],[Si verifica che la transizione di un livello venga avviata correttamente],[],
@@ -375,7 +376,8 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-   "",
+  "TS-01","Si verifica che il gioco ricevi input dalla tastiera","\u{2713}",
+  "TS-02","Si verifica che il gioco riceva input da un joystick generico","","",
   "Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
   "\u{2713}",
   "","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",

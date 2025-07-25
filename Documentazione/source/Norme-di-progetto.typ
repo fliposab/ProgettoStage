@@ -165,10 +165,10 @@ Le animazioni sono incluse nel modello durante l'esportazione. Per semplificare 
 \
 - *Textures*:\
 Le textures sono salvate come semplici immagini di tipo _#gloss[.png]_. Entrambe le dimensioni della texture (larghezza e altezza)  devono essere una potenza di 2. Risoluzioni esempio: 
-  - 256x256 
-  - 512x512
-  - 1024x1024 (1K)
-  - 2048x2048 (2K)
+  - 256x256; 
+  - 512x512;
+  - 1024x1024 (1K);
+  - 2048x2048 (2K).
 Di norma, 1024 pixels corrispondono a 1 metro.
 //da aggiungere testing
 === Strumenti usati
@@ -176,7 +176,6 @@ Di norma, 1024 pixels corrispondono a 1 metro.
 - *Godot*: motore di gioco utilizzato per lo sviluppo del videogioco.
 - *Blender*: software di modellazione 3D utilizzato per la creazione dei modelli, delle animazioni e delle texture del videogioco.
 - *GIMP*: software di modifica delle immagini utilizzato per la modifica occasionale di #gloss[texture] o e delle immagini del videogioco.
-- *#gloss[Gamescope]*: strumento che fornisce un overlay durante il gioco, mostrando le varie statistiche come fps, #gloss[latenza], etc...
 
 
 = Processi di supporto

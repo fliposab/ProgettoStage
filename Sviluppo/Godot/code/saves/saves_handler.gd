@@ -16,8 +16,8 @@ func load_data():
 		_save_node.load_data()
 	data_loaded.emit(self)
 
-func change_var(name: String, value):
-	set(name, value)
+func change_var(var_name: String, value):
+	set(var_name, value)
 
 func _ready()->void:
 	set_save_node()

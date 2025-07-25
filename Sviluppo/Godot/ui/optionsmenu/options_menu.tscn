@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://w6eib3vcwsmx"]
+[gd_scene load_steps=19 format=3 uid="uid://w6eib3vcwsmx"]
 
 [ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_81kbp"]
 [ext_resource type="Script" uid="uid://n4f6oxbbrpxg" path="res://ui/optionsmenu/options_menu.gd" id="1_w2tto"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/optionsmenu/window_resolution_button.tscn" id="3_1vgp6"]
 [ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/optionsmenu/resolution_scale_button.tscn" id="4_w2tto"]
 [ext_resource type="PackedScene" uid="uid://c4dyj3jfhscxw" path="res://ui/optionsmenu/anti_aliasing_button.tscn" id="5_ct80g"]
+[ext_resource type="Script" uid="uid://1kwevn1temsc" path="res://code/ui/volume_button.gd" id="6_5nbgd"]
 [ext_resource type="PackedScene" uid="uid://bqlcgvv5xki45" path="res://ui/optionsmenu/max_fps_button.tscn" id="6_8akq8"]
 [ext_resource type="PackedScene" uid="uid://3yk8dha5e83y" path="res://ui/optionsmenu/language_button.tscn" id="6_weaq7"]
 [ext_resource type="PackedScene" uid="uid://by03k0i31uo5u" path="res://ui/optionsmenu/shadows_quality_button.tscn" id="8_ct80g"]
@@ -90,8 +91,26 @@ layout_mode = 2
 
 [node name="Button" parent="VBoxContainer/ButtonsContainer/ResolutionScale" index="1"]
 focus_neighbor_top = NodePath("../../WindowResolution/OptionButton")
+focus_neighbor_bottom = NodePath("../../Volume/Button")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8akq8")
+
+[node name="Volume" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("4_w2tto")]
+layout_mode = 2
+script = ExtResource("6_5nbgd")
+description = "VOLUME_DESCRIPTION"
+
+[node name="Label" parent="VBoxContainer/ButtonsContainer/Volume" index="0"]
+text = "VOLUME"
+
+[node name="Button" parent="VBoxContainer/ButtonsContainer/Volume" index="1"]
+focus_neighbor_top = NodePath("../../ResolutionScale/Button")
 focus_neighbor_bottom = NodePath("../../MaxFPS/OptionButton")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8akq8")
+
+[node name="OptionButton" parent="VBoxContainer/ButtonsContainer/Volume" index="3"]
+min_value = 0.0
+step = 0.010000000009313226
+value = 0.8000000007450581
 
 [node name="MaxFPS" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("6_8akq8")]
 layout_mode = 2
@@ -150,6 +169,7 @@ script = ExtResource("9_weaq7")
 [connection signal="focus_entered" from="VBoxContainer/ButtonsContainer/WindowResolution" to="VBoxContainer/ButtonsContainer/WindowResolution" method="_on_focus_entered"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/WindowResolution" to="OptionSavesHandler" method="change_var"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/ResolutionScale" to="OptionSavesHandler" method="change_var"]
+[connection signal="pass_value" from="VBoxContainer/ButtonsContainer/Volume" to="OptionSavesHandler" method="change_var"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/MaxFPS" to="OptionSavesHandler" method="change_var"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/AntiAliasing" to="OptionSavesHandler" method="change_var"]
 [connection signal="pass_value" from="VBoxContainer/ButtonsContainer/ShadowsQuality" to="OptionSavesHandler" method="change_var"]
@@ -158,4 +178,5 @@ script = ExtResource("9_weaq7")
 
 [editable path="VBoxContainer/ButtonsContainer/WindowResolution"]
 [editable path="VBoxContainer/ButtonsContainer/ResolutionScale"]
+[editable path="VBoxContainer/ButtonsContainer/Volume"]
 [editable path="VBoxContainer/ButtonsContainer/MaxFPS"]

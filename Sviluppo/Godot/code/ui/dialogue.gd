@@ -21,7 +21,7 @@ func hide_all()->void:
 	index = 0
 	for i in get_child_count():
 		if get_child(i) is DialogueBoxSimple:
-			get_child(i).hide()
+			get_child(i).hide_text_box()
 			get_child(i).dialogue_handler = self
 	process_mode = Node.PROCESS_MODE_DISABLED
 

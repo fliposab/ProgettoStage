@@ -31,7 +31,7 @@ func on_wrong_option_pressed()->void:
 ##Adds the new text box and sets it as one shot
 func add_new_text_box(new_text_box: DialogueBoxSimple, text: String):
 	get_parent().add_text_box(new_text_box)
-	new_text_box.text = text
+	new_text_box.text = tr(text)
 	get_parent().next_text()
 	new_text_box.dialogue_handler = get_parent()
 	new_text_box.remove_after_finished()
