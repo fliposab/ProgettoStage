@@ -2,7 +2,7 @@ extends Saves
 class_name OptionsSave
 
 func _ready()->void:
-	save_path ="./options_save"
+	save_path ="./options_save.ini"
 
 func save_data()->void:
 	var config := ConfigFile.new()

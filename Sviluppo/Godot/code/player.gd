@@ -18,6 +18,10 @@ class_name Player
 @onready var grab_item : GrabItem = $Misc/GrabItem
 @onready var _ui : Control = $PlayerUI
 @onready var saves_handler : SavesHandler = $Misc/PlayerSaveHandler
+@onready var _anim_player : AnimationPlayer = $Model/AnimationPlayer
+
+func _ready() -> void:
+	return
 
 func _physics_process(delta: float) -> void:
 	check_if_on_floor(delta)
@@ -91,6 +95,9 @@ func show_collectibles_count(red: bool, green: bool, blue: bool)->void:
 
 func reset_collectibles_count()->void:
 	_collectibles.reset_count()
+
+func get_current_animation_name()->String:
+	return _anim_player.current_animation
 
 func reposition_camera(target = self) -> void:
 	if target is Player:

@@ -2,6 +2,8 @@ extends Node
 class_name LevelTransition
 
 var current_level : Node
+var changing : bool = false
+var to_change : String
 @onready var fade_transition : FadeTransition = $Fade
 
 func _ready():
@@ -11,6 +13,8 @@ func _ready():
 			break
 
 func switch_level(new_level_path: String):
+	to_change = new_level_path
+	changing = true
 	if current_level is Level and current_level.saves_handler:
 		current_level.saves_handler.save_data()
 	fade_transition.play_fade()
@@ -24,6 +28,7 @@ func switch_level(new_level_path: String):
 	if current_level.saves_handler:
 		current_level.saves_handler.debug_mode = false
 	fade_transition.play_fade(true)
+	changing = false
 
 func load_last_level():
 	fade_transition.play_fade()

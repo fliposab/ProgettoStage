@@ -12,3 +12,4 @@ func _on_pressed() -> void:
 func load_main_menu()->void:
 	var main_menu : MainMenu = preload("res://ui/main_menu.tscn").instantiate()
 	get_tree().get_root().add_child(main_menu)
+	main_menu.name = "MainMenu"

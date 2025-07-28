@@ -4,6 +4,7 @@ class_name OptionsButtons
 @onready var description : RichTextLabel = $Description
 
 func _on_visibility_changed() -> void:
+	await get_tree().process_frame
 	if visible:
 		get_child(0).grab_button_focus()
 

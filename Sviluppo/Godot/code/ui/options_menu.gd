@@ -8,7 +8,8 @@ class_name OptionsMenu
 @onready var save_button : Button = $Save
 
 func _ready():
-	hide()
+	if option_button:
+		hide()
 	check_settings()
 	
 func _input(event: InputEvent) -> void:
@@ -21,9 +22,10 @@ func hide_menu():
 
 func save_settings():
 	saves_handler.save_data()
-	hide_menu()
-	await get_tree().process_frame
-	owner.exit_options.emit()
+	if option_button:
+		hide_menu()
+		await get_tree().process_frame
+		owner.grab_button_focus.exit_options.emit()
 	
 func check_settings():
 	for i in buttons_container.get_child_count():

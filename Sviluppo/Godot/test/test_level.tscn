@@ -88,12 +88,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.32982, 0)
 shape = SubResource("BoxShape3D_o6mel")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_o6mel")]
-transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 5.82758, -1.85746)
+transform = Transform3D(0.976785, 0, 0.214224, 0, 1, 0, -0.214224, 0, 0.976785, -3.85213, 2.1629913, -1.85746)
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_o6mel")]
 
 [node name="LRGraph" parent="." instance=ExtResource("7_ur00s")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8082, 1.41267, 24.3378)
 
 [node name="LRGraph2" parent="." instance=ExtResource("2_4n8tn")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://w6eib3vcwsmx"]
 
 [ext_resource type="Script" uid="uid://nppk0oeaiv34" path="res://code/ui/buttons_container.gd" id="1_81kbp"]
-[ext_resource type="Script" uid="uid://n4f6oxbbrpxg" path="res://ui/optionsmenu/options_menu.gd" id="1_w2tto"]
+[ext_resource type="Script" uid="uid://n4f6oxbbrpxg" path="res://code/ui/options_menu.gd" id="1_w2tto"]
 [ext_resource type="PackedScene" uid="uid://yhnrvh21spol" path="res://ui/optionsmenu/options_check_button.tscn" id="2_to3ov"]
 [ext_resource type="PackedScene" uid="uid://yo158tiy48r4" path="res://ui/optionsmenu/window_resolution_button.tscn" id="3_1vgp6"]
 [ext_resource type="PackedScene" uid="uid://cj5dtedl1pkls" path="res://ui/optionsmenu/resolution_scale_button.tscn" id="4_w2tto"]
@@ -109,8 +109,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8akq8")
 
 [node name="OptionButton" parent="VBoxContainer/ButtonsContainer/Volume" index="3"]
 min_value = 0.0
-step = 0.010000000009313226
-value = 0.8000000007450581
+step = 0.01000000000931322
+value = 0.8000000007450576
 
 [node name="MaxFPS" parent="VBoxContainer/ButtonsContainer" instance=ExtResource("6_8akq8")]
 layout_mode = 2

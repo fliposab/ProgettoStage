@@ -284,12 +284,22 @@ Inoltre è stato completato lo sviluppo del terzo livello del gioco, a tema "Cau
   - aggiunta degli oggetti interagibili del livello;
   - aggiunta dei personaggi non giocabili con i loro rispettivi dialoghi;
   - aggiunte classi per controllare e cambiare il comportamento dei personaggi non giocabili prima e dopo la scena di intermezzo.
-#figure( caption: "Livello Causalità dopo la cena di intermezzo (settimana 5)", image("imgs/settimana-5.png", width: 100%))
+#figure( caption: "Livello Causalità dopo la scena di intermezzo (settimana 5)", image("imgs/settimana-5.png", width: 100%))
 == Settimana 6 | 21/07 - 25/07
 #pseudoheading[*Retropsettiva*]
+La maggior parte dell'applicazione durante questo periodo è stata ù
+completata. Si è posta più concentrazione verso gli elementi di 
+presentazione come i suoni e gli effetti grafici, per migliorare 
+l'esperienza di gioco.\
+Inoltre, è stata migliorata la presentazione dei vecchi livelli, aggiungendo materiali e suoni.\
+Infine sono stati inoltre corretti alcuni bug presenti nell'applicazione ed è stata aggiornata la documentazione.
 #pseudoheading[*Attività svolte*]
-- suoni
-- effetti
+- Aggiunti effetti sonori nell'applicazione.
+- Aggiunti effetti visivi per la corsa, salto ed altro.
+- Aggiunti materiali e suoni ai vecchi livelli.
+- Correzione di bug presenti nell'applicazione.
+- Inizio sviluppo dei test.
+#figure( caption: [Livello "Albero di decisione" (settimana 6)], image("imgs/settimana-6.png", width: 100%))
 == Settimana 7 | 28/07 - 01/08
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]
