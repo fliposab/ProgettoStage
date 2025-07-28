@@ -12,6 +12,7 @@ material = ExtResource("4_quku2")
 size = Vector3(30, 0.5, 30)
 
 [node name="LRGraphVertical" type="Node3D"]
+process_mode = 4
 transform = Transform3D(1.91069e-15, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_v80qp")
 

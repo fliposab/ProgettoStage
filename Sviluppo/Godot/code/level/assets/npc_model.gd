@@ -29,3 +29,6 @@ func _physics_process(delta: float) -> void:
 	global_rotation.y += PI #?
 	global_rotation.x = 0.0
 	global_rotation.z = 0.0
+
+func get_current_animation_name()->String:
+	return $AnimationPlayer.current_animation

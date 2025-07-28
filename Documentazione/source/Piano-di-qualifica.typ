@@ -287,48 +287,60 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  //Giocatore
-  [TU-01],[Si verifica che il personaggio principale venga caricato],[],
-  [],[Si verifica che il personaggio principale possa stare sopra una piattaforma],[],
-  [TU-],[Si verifica che il personaggio principale possa muoversi con una determinata velocità],[],
-  [TU-],[Si verifica che il personaggio principale possa saltare con una determinata velocità],[],
-  [],[Si verifica che il numero di collezionabili rossi sia visualizzato correttamente],[],
-  [],[Si verifica che il numero di collezionabili verdi sia visualizzato correttamente],[],
-  [],[Si verifica che il numero di collezionabili blu sia visualizzato correttamente],[],
-  //StateMachine
-  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio non si muove sopra una piattaforma],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio atterra],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Idle_ quando il personaggio smette di interagire con un'entità],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Air_ quando il personaggio principale salta],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Air_ quando il personaggio principale inizia a cadere],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _GroundMove_ quando il personaggio principale si muove],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Grab_ quando il personaggio principale prende un oggetto],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Release_ quando il personaggio principale lascia un oggetto],[],
-  [],[Si verifica che la macchina di stati cambi allo stato _Interact_ quando il personaggio principale interagisce con un'entità],[],
-  //Animazioni
-  [],[Si verifica che il personaggio principale carichi l'animazione di _idle_ quando non si muove],[],
-  [],[Si verifica che il personaggio principale carichi l'animazione di corsa quando viene premuto l'input],[],
-  [],[Si verifica che il personaggio principale carichi l'animazione di caduta quando inizia a cadere],[],
-  [],[Si verifica che il personaggio principale carichi l'animazione di salto quando salta],[],
+  //Personaggio principale
+  [TU-01],[Si verifica che il personaggio principale stia su una piattaforma con velocità pari a zero],[\u{2713}],
+  [TU-02],[Si verifica che se il personaggio principale è fermo su una piattaforma, il suo stato nella macchina di stati è "Idle"],[\u{2713}],
+  [TU-03],[Si verifica che quando il personaggio principale è fermo su una piattaforma, utilizza l'animazione "idle"],[\u{2713}],
+  [TU-04],[Si verifica che la rotazione iniziale sull'asse y della telecamera è la stessa del personaggio principale],[\u{2713}],
+  [TU-05],[Si verifica che la telecamera ruoti intorno al personaggio principale quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-06],[Si verifica che il personaggio principale si muovi ad una determinata velocità quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-07],[Si verifica che se il personaggio principale si muove su una piattaforma, il suo stato nella macchina di stati è "GroundMove"],[\u{2713}],
+  [TU-08],[Si verifica che quando il personaggio principale si muove su una piattaforma, utilizza l'animazione della corsa],[\u{2713}],
+  [TU-09],[Si verifica che quando il personaggio principale si muove, la telecamera ruota automaticamente],[\u{2713}],
+  [TU-10],[Si verifica che quando il personaggio principale salti quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-11],[Si verifica che quando il personaggio principale salta, lo stato nella macchina di stati cambia a "Air"],[\u{2713}],
+  [TU-12],[Si verifica che quando il personaggio principale salta utilizza l'animazione del salto],[\u{2713}],
+  [TU-13],[Si verifica che quando il personaggio principale cade da una piattaforma, con velocità verticale negativa, lo stato nella macchina di stati sia "Air"],[\u{2713}],
+  [TU-14],[Si verifica che quando il personaggio principale cade da una piattaforma, con velocità verticale negativa, utilizzi l'animazione della caduta],[\u{2713}],
+  //Pausa
+  [TU-15],[Si verifica che il menu di pausa venga visualizzato quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-16],[Si verifica che quando viene aperto il menu di pausa, l'applicazione viene messa in pausa],[\u{2713}],
+  [TU-17],[Si verifica che quando viene premuto il tasto "riprendi", il menu di pausa viene nascosto e viene ripresa l'esecuzione],[\u{2713}],
+  [TU-18],[Si verifica che quando viene premuto lo stesso tasto quando il menu di pausa è aperto, questo viene nascosto e viene ripresa l'esecuzione],[\u{2713}],
+  [TU-19],[Si verifica che quando viene premuto il tasto delle opzioni, venga aperto il menu di opzioni],[\u{2713}],
+  [TU-20],[Si verifica che quando viene premuto il tasto "Ritorna alla hub", il giocatore viene riportato al livello Hub],[\u{2713}],
+  [TU-21],[Si verifica che quando viene premuto il tasto del menu principale, il giocatore viene riportato al menu principale],[\u{2713}],
+  [TU-22],[Si verifica che il gioco venga chiuso quando viene premuto il bottone "Esci dal gioco"],[\u{2713}],
+  //Opzioni
+  [TU-23],[Si verifica che viene cambiata la modalità della finestra quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-24],[Si verifica che viene cambiata la risoluzione della finestra quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-25],[Si verifica che viene cambiata la scala di risoluzione quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-26],[Si verifica che viene cambiato il valore del volume quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-27],[Si verifica che viene cambiato il valore massimo degli FPS quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-28],[Si verifica che viene cambiato il metodo di Anti Aliasing quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-29],[Si verifica che viene cambiata la qualità/risoluzione delle ombre quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-30],[Si verifica che viene cambiata la lingua del gioco quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  [TU-31],[Si verifica che vengano salvati i nuovi valori delle opzioni quando viene premuto il rispettivo bottone nel menu opzioni],[\u{2713}],
+  //Menu principale
+  [TU-32],[Si verifica che venga caricato il gioco con i salvataggi esistenti quando viene premuto il bottone "Carica partita"],[\u{2713}],
+  [TU-33],[Si verifica che venga caricata una nuova partita, cancellando i dati di salvataggio esistenti, quando viene premuto il bottone "Nuova partita"],[\u{2713}],
   //NPC
-  [],[Si verifichi che il personaggio non giocabile venga caricato correttamente],[],
-  [],[Si verifica che l'NPC cambi animazione durante il dialogo],[],
-  [],[Si verifica che alla scelta di un'opzione del dialogo, viene caricato un nuovo messaggio],[],
-  //Assets generali
-  [],[Si verifica che una zona di transizione venga caricata correttamente],[],
-  [],[Si verifica che la transizione di un livello venga avviata correttamente],[],
-  [],[Si verifica che la transizione di un livello venga conclusa correttamente],[],
+  //
+  [TU-34],[Si verifica che il personaggio non giocabile mostri il messaggio quando il personaggio principale si avvicina],[\u{2713}],
+  [TU-35],[Si verifica che il personaggio non giocabile senza dialogo usi l'animazione per parlare quando il personaggio principale is avvicina],[\u{2713}],
+  [TU-36],[Si verifica che il personaggio non giocabile con il dialogo usi l'animazione per salutare quando il personaggio principale is avvicina],[\u{2713}],
+  //
+  [TU-37],[Si verifica che il messaggio del personaggio non giocabile venga nascosto quando il personaggio principale non è vicino],[\u{2713}],
+  [TU-38],[Si verifica che il personaggio non giocabile, sia con dialogo che senza dialogo, usi l'animazione "idle" quando il personaggio principale non è vicino],[\u{2713}],
   //LR
-  [],[Si verifica che il grafico venga caricato nel livello],[],
-  [],[Si verifica che il grafico venga caricato con la linea],[],
-  [],[Si verifica che il grafico si aggiorni quando viene aggiunto o tolto un punto nel grafico],[],
+  [TU-39],[Si verifica che il grafico orizzontale venga caricato con la giusta rotazione],[\u{2713}],
+  [TU-40],[Si verifica che la linea del grafico orizzontale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
+  [TU-41],[Si verifica che il grafico verticale venga caricato con la giusta rotazione],[\u{2713}],
+  [TU-42],[Si verifica che la linea del grafico verticale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
   //Decision Tree
-  [],[Si verifica che ogni cane vega caricato nel livello],[],
-  [],[Si verifica che l'albero venga caricato nel livello],[],
-  [],[Si verifica che l'NPC con il fischietto venga caricato nel livello],[],
+  [],[Si verifica che un cane possa ritornare alla sua posizione iniziale],[],
   //Causality
-  [],[],[],
-  [],[Si verifica che gli NPC caricati con il livello già completato, si girino verso la gelateria],[],
+  [],[Si verifica che l'NPC che esce dall'appartamento corra verso l'obiettivo],[],
   [],[],[],
 ))
 
@@ -340,34 +352,13 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
   //Generali
-  //NPC
-  [],[Si verifica che un NPC o un oggetto mostri il messaggio quando il giocatore si trova dentro l'area di interazione],[],
-  [],[Si verifica che un NPC cambi animazione quando il giocatore entra dentro l'area di interazione],[],
-  [],[Si verifica che un collezionabile venga preso dal giocatore quando si avvicina],[],
-  [],[Si verifica che il dialogo di un NPC venga mostrato quando il giocatore preme il tasto dentro l'area di interazione],[],
-  [],[Si verifica che il cartello mostri il contenuto quando un giocatore preme il tasto nell'area di interazione],[],
+  [],[],[],
   //Pausa
-  [],[Si verifica che il menu di pausa venga caricato],[],
-  [],[Si verifica che il menu di pausa venga visualizzato quando viene premuto l'input],[],
-  [],[Si verifica che il menu di pausa sia nascosto all'inizio],[],
   //Menu Principale
-  //LR
-  [],[Si verifica che il giocatore possa interagire con il cannone LR],[],
-  [],[Si verifica che il cannone LR possa posizionare nuovi dati nel grafico a lui assegnato],[],
-  [],[Si verifica che il grafico venga resettato al suo stato iniziale quando il giocatore preme il rispettivo tasto],[],//UT?
-  [],[Si verifica che il giocatore possa smettere di interagire con il cannone LR],[],
-  [],[Si verifica che il giocatore possa camminare sopra la linea del grafico],[],                                                      
+  //LR                                                   
   //DT
-  [],[Si verifica che il giocatore possa prendere un oggetto in mano e trasportarlo],[],
-  [],[Si verifica che il giocatore possa lasciare l'oggetto e farlo rimanere in quella posizione],[],
   //Causality
-  [],[Si verifica che le unità esterne dei condizionatori si attivino in base all'array presente nel salvataggio],[],
-  [],[Si verifica che la scena di intermezzo inizi quando tutte le unità dei condizionatori sono state attivate],[],
-  [],[Si verifica che le porte degli appartamenti siano già aperte quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
-  [],[Si verifica che il dialogo ed il comportamento dell'NPC scienziato vengano cambiati quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
-  [],[Si verifica che il dialogo dell'NPC gelataio venga cambiato quando il livello "Causality" viene caricato con i condizionatori già accesi],[],
-  [],[Si verifica che il grafico dei condizionatori in uso si aggiorni quando ne viene acceso uno],[],
-  [],[Si verifica che alcuni NPC vengano caricati solo se il livello viene caricato con salvataggi già completati],[]))
+  ))
 
 == Test di sistema
 #figure(caption: [Test di sistema], table(

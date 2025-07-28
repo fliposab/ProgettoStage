@@ -24,3 +24,6 @@ func remove_item(item: Control)->void:
 
 func project_items()->void:
 	pass
+
+func get_items()-> Array[Control]:
+	return _items

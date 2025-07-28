@@ -42,3 +42,6 @@ func model_area_exited():
 func connect_signals()->void:
 	area.body_entered.connect(ui.on_area_3d_body_entered)
 	area.body_exited.connect(ui.on_area_3d_body_exited)
+
+func get_model():
+	return _model

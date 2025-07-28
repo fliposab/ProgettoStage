@@ -23,10 +23,12 @@ func after_each():
 	_sender.release_all()
 	_sender.clear()
 
+##
 func test_load_pause()->void:
 	assert_eq(_pause_menu.visible, true)
 	assert_eq(get_tree().paused, true)
 
+##
 func test_resume_button():
 	await get_tree().create_timer(0.2).timeout
 	_sender.action_down("ui_accept").hold_for(0.1)
