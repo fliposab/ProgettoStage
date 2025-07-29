@@ -1,4 +1,7 @@
 # ProgettoStage
+![gut](https://github.com/fliposab/ProgettoStage/workflows/gut/badge.svg) 
+![pre-commit](https://github.com/fliposab/ProgettoStage/workflows/pre-commit/badge.svg)
+
 Progetto di tirocinio a tema di Game Design.
 
 ## Istruzioni
