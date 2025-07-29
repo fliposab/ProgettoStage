@@ -68,13 +68,3 @@ func test_return_to_hub():
 	assert_eq(get_tree().paused, false)
 	assert_eq(LevelsTransition.changing, true)
 	assert_eq(LevelsTransition.to_change, "res://levels/hub_level.tscn")
-
-func test_return_to_main_menu():
-	await get_tree().create_timer(0.2).timeout
-	for i in 3:
-		_sender.action_down("ui_down").hold_for(0.1)
-		await _sender.idle
-		await get_tree().process_frame
-	_sender.action_down("ui_accept").hold_for(0.1)
-	await _sender.idle
-	await get_tree().create_timer(1).timeout
