@@ -163,8 +163,8 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "0",
 ))
 === Verifica
-- *MPC-CCO - Code coverage*: quantità di codice eseguito durante i test.\ Viene utilizzato per valutare la qualità dei test e garantire che il codice sia stato adeguatamente testato. Un alto livello indica che il codice è stato eseguito in molti contesti e scenari diversi con diverse parti di codice. In altre parole, indica quanto codice è stato sottoposto ai test.
-
+/*- *MPC-CCO - Code coverage*: quantità di codice eseguito durante i test.\ Viene utilizzato per valutare la qualità dei test e garantire che il codice sia stato adeguatamente testato. Un alto livello indica che il codice è stato eseguito in molti contesti e scenari diversi con diverse parti di codice. In altre parole, indica quanto codice è stato sottoposto ai test.
+*/
 - *MPC-TSP - Test superati in percentuale*: indica la proporzione di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti. Viene espressa come una percentuale e serve a misurare quanto dell'applicazione in fase di sviluppo è stato verificato con successo tramite i test. Una percentuale alta di test superati indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.\ In altre parole, indica quanti test sono stati superati.
 #figure(caption: [Valori per misurare la qualità del processo di verifica], table(
   columns: (auto, auto, auto, auto),
@@ -172,10 +172,10 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPC-CCO",
-  "Code coverage",
-  "\u{2265}98%",
-  "100%",
+//  "MPC-CCO",
+//  "Code coverage",
+//  "\u{2265}98%",
+//  "100%",
   "MPC-TSP",
   "Test superati in percentuale",
   "100%",
@@ -218,6 +218,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "\u{2265}50%",
   "100%",
 ))
+/*
 === Affidabilità
 - *MPD-CC - Code coverage*: indica la percentuale di codice coperto dai test. Un valore alto indica che il codice è stato testato in modo approfondito e che è meno probabile che contenga errori.
 
@@ -231,7 +232,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "Code coverage",
   "\u{2265}80%",
   "100%",
-))
+))*/
 
 //=== Usabilità
 
@@ -350,26 +351,32 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TI-01],[Si verifica che il personaggio non giocabile mostri il messaggio quando il giocatore si avvicina],[\u{2713}],
   [TI-02],[Si verifica che il personaggio non giocabile senza dialogo usi l'animazione per parlare quando il giocatore is avvicina],[\u{2713}],
   [TI-03],[Si verifica che il personaggio non giocabile con il dialogo usi l'animazione per salutare quando il giocatore is avvicina],[\u{2713}],
-  [],[Si verifica che quando il giocatore preme il rispettivo input vicino a un cartello, ne visualizzi i contenuti],[],
-  [],[Si verifica che quando il giocatore preme lo stesso input durante un'interazione, smette di interagire con l'entità],[],
-  [],[Si verifica che quando il giocatore preme il rispettivo input vicino a un personaggio con un dialogo, il giocatore si ferma e visualizza il dialogo del personaggio],[],
-  [],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, va avanti se esiste un messaggio successivo],[],
-  [],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, finisce se non esiste un messaggio successivo],[],
+  [TI-04],[Si verifica che quando il giocatore preme il rispettivo input vicino ad un'entità con cui può interagire, lo stato nella macchina di stati passi a "Interact"],[\u{2713}],
+  [TI-05],[Si verifica che quando il giocatore preme il rispettivo input vicino a un cartello, ne visualizzi i contenuti],[\u{2713}],
+  [TI-06],[Si verifica che quando il giocatore preme lo stesso input durante un'interazione, smette di interagire con l'entità],[\u{2713}],
+  [TI-07],[Si verifica che quando il giocatore preme il rispettivo input vicino a un personaggio con un dialogo, il giocatore si ferma e visualizza il dialogo del personaggio],[\u{2713}],
+  [TI-08],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, va avanti se esiste un messaggio successivo],[\u{2713}],
+  [TI-09],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, finisce se non esiste un messaggio successivo],[\u{2713}],
+  [TI-10],[Si verifica che quando il giocatore preme il rispettivo input durante la scelta di un'opzione del dialogo, questa viene scelta ed il dialogo procede con il prossimo messaggio],[\u{2713}],
+  [TI-11],[Si verifica che quando il giocatore smette di interagire con un'entità, lo stato nella macchina di stati del giocatore torna a "Idle"],[\u{2713}],
   //LR  
-  [],[Si verifica che il prompt dell'input da premere appaia quando il giocatore si posiziona sopra la piattaforma del cannone LR],[],
-  [],[Si verifica che il giocatore interagisca con il cannone LR quando preme il rispettivo tasto sopra la piattaforma],[],
-  [],[Si verifica che il giocatore possa posizionare un punto sul grafico LR],[], 
-  [],[Si verifica che il giocatore possa interrompere l'interazione con il cannone LR],[],                                              
+  [TI-12],[Si verifica che il prompt dell'input da premere appaia quando il giocatore si posiziona sopra la piattaforma del cannone LR],[\u{2713}],
+  [TI-13],[Si verifica che il giocatore interagisca con il cannone LR quando preme il rispettivo tasto sopra la piattaforma],[\u{2713}],
+  [TI-14],[Si verifica che il giocatore possa posizionare un punto sul grafico LR],[\u{2713}], 
+  [TI-15],[Si verifica che il giocatore possa interrompere l'interazione con il cannone LR],[\u{2713}],                                              
   //DT
-  [],[Si verifica che le informazioni dei rami vengano visualizzate quando il giocatore si posiziona sopra un nodo dell'albero di decisione],[],
-  [],[Si verifica che il nodo riconosca se il cane posizionato sopra è corretto],[],
-  [],[Si verifica che il nodo riconosca se il cane posizionato sopra è sbagliato],[],
-  [],[Si verifica che il cartello con le razze di cani indovinate si aggiorni quando il giocatore dà una risposta corretta],[],
+  [TI-16],[Si verifica che le informazioni dei rami vengano visualizzate quando il giocatore si posiziona sopra un nodo dell'albero di decisione],[\u{2713}],
+  [TI-17],[Si verifica che il nodo riconosca se il cane posizionato sopra è corretto],[\u{2713}],
+  [TI-18],[Si verifica che il nodo riconosca se il cane posizionato sopra è sbagliato],[\u{2713}],
+  [TI-19],[Si verifica che il cartello con le razze di cani indovinate si aggiorni quando il giocatore dà una risposta corretta],[\u{2713}],
   //Causality
-  [],[Si verifica che un'unità esterna di un condizionatore venga accesa quando il giocatore preme il rispettivo input quando è vicino],[],
-  [],[Si verifica che la scena di intermezzo inizi quando il giocatore accende tutti i condizionatori nel livello "Causalità"],[],
-  [],[Si verifica che i personaggi non giocabili che seguono un obiettivo, smettano di seguirlo quando entrano in una specifica area],[],
-  [],[Si verifica che un certo personaggio giocabile cambi dialogo quando vengono accese tutti i condizionatori nel livello "Causalità"],[],
+  [TI-20],[Si verifica che un'unità esterna di un condizionatore venga accesa quando il giocatore preme il rispettivo input quando è vicino],[],
+  [TI-21],[Si verifica che il grafico dei condizionatori usati venga aggiornato quando viene acceso un condizionatore],[],
+  [TI-22],[Si verifica che la scena di intermezzo inizi quando il giocatore accende tutti i condizionatori nel livello "Causalità"],[],
+  [TI-23],[Si verifica che i personaggi non giocabili che seguono un obiettivo, smettano di seguirlo quando entrano in una specifica area],[],
+  [TI-24],[Si verifica che il personaggio "scienziato" cambi dialogo quando vengono accese tutti i condizionatori nel livello "Causalità"],[],
+  [TI-25],[Si verifica che il personaggio "gelataio" cambi dialogo quando vengono accesi tutti i condizionatori nel livello "Causalità"],[],
+  
   ))
 
 == Test di sistema
@@ -380,17 +387,17 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
   "TS-01","Si verifica che il gioco ricevi input dalla tastiera","\u{2713}",
-  "TS-02","Si verifica che il gioco riceva input da un joystick generico","","",
-  "Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
+  "TS-02","Si verifica che il gioco riceva input da un joystick generico","",
+  "TS-03","Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
   "\u{2713}",
-  "","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
+  "TS-04","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
   "",
-  "","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
-  "","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
-  "","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
-  "","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
-  "","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
-  "","Si verifica che non siano presenti nodi non utilizzati nella scena","",))
+  "TS-05","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
+  "TS-06","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
+  "TS-07","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
+  "TS-08","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
+  "TS-09","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
+  "TS-10","Si verifica che non siano presenti nodi non utilizzati nella scena","",))
 
 == Test di accettazione
 #figure(caption: [Test di accettazione], table(

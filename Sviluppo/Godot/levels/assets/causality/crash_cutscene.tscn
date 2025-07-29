@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=37 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -8,17 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://1knebe7xk2gb" path="res://models/ice_cream_shop.glb" id="5_uxx2u"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="6_bpixg"]
 [ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="7_bpixg"]
-[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="8_580fp"]
 [ext_resource type="Script" uid="uid://bphr6yyf13k13" path="res://code/level/assets/change_npc_icecream_behaviour.gd" id="8_vsukt"]
-[ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="8_w0vt1"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="9_0nrrl"]
 [ext_resource type="Script" uid="uid://dox7qnn7qmaln" path="res://code/level/causality/npcs_ice_cream_save.gd" id="11_1dgn7"]
-[ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="11_7pcub"]
 [ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="12_4hm7i"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="12_8643j"]
 [ext_resource type="Script" uid="uid://b82baq35oa1s0" path="res://code/level/assets/npc_model.gd" id="13_4cuvp"]
 [ext_resource type="Script" uid="uid://dbrbit6fo3tbv" path="res://code/ui/replace_ui.gd" id="14_0nrrl"]
-[ext_resource type="Script" uid="uid://pqf5fgffhfkp" path="res://code/level/assets/sign.gd" id="14_i5tty"]
+[ext_resource type="PackedScene" uid="uid://c5jxv1egv5npx" path="res://levels/assets/causality/graph_sign_scientist.tscn" id="14_jjsnk"]
 [ext_resource type="Script" uid="uid://cdntui4pw6lul" path="res://code/level/assets/change_scientist_npc_behaviour.gd" id="15_0nrrl"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="16_mv20d"]
 [ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="17_7pcub"]
@@ -125,28 +121,6 @@ point_count = 7
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hlpw"]
 height = 1.5246
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
-size = Vector3(4.83423, 3.91901, 4.24918)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_580fp"]
-content_margin_left = 70.0
-content_margin_top = 50.0
-content_margin_right = 50.0
-content_margin_bottom = 30.0
-bg_color = Color(0.197937, 0.197937, 0.197937, 1)
-border_width_left = 20
-border_width_top = 20
-border_width_right = 20
-border_width_bottom = 20
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25nk2"]
-bg_color = Color(1, 1, 1, 1)
-expand_margin_left = 30.0
-expand_margin_top = 10.0
-expand_margin_right = 30.0
-expand_margin_bottom = 10.0
 
 [node name="CrashCutscene" type="Node3D"]
 script = ExtResource("1_l1q60")
@@ -1040,96 +1014,8 @@ bones/36/position = Vector3(-2.65074, 6.18134, -3.18668)
 [node name="AnimationPlayer" parent="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model" index="1"]
 autoplay = "idle"
 
-[node name="GraphSign" type="Node3D" parent="."]
-process_mode = 3
+[node name="GraphSign" parent="." instance=ExtResource("14_jjsnk")]
 transform = Transform3D(-0.553721, 0, -0.231071, 0, 0.6, 0, 0.231071, 0, -0.553721, -12.5653, -0.645169, 21.1023)
-script = ExtResource("8_580fp")
-
-[node name="Area3D" type="Area3D" parent="GraphSign"]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GraphSign/Area3D"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 7.62939e-06, 1.90149, 2.8136)
-shape = SubResource("BoxShape3D_2ngro")
-
-[node name="Control" type="Control" parent="GraphSign"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="Label" type="Label" parent="GraphSign/Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -23.0
-offset_right = 52.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("9_0nrrl")
-text = "E: READ_SIGN"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SignUI" type="Control" parent="GraphSign"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("11_7pcub")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GraphSign/SignUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 76.0
-offset_right = -64.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="GraphSign/SignUI/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_580fp")
-
-[node name="Label" type="Label" parent="GraphSign/SignUI/VBoxContainer/PanelContainer"]
-layout_mode = 2
-text = "GRAPH_NOT_YET_AVAILABLE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="GraphSign/SignUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_25nk2")
-text = "Q: CLOSE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="sign" parent="GraphSign" instance=ExtResource("8_w0vt1")]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 0, 0)
-script = ExtResource("14_i5tty")
-
-[node name="sign_001" parent="GraphSign/sign" index="1"]
-visible = false
 
 [node name="ReplaceUI" type="Node" parent="GraphSign"]
 script = ExtResource("14_0nrrl")
@@ -1312,10 +1198,6 @@ volume_db = -10.0
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_exited"]
 [connection signal="dialogue_ended" from="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="ice_cream_shop/NPCDialogue" method="_on_dialogue_dialogue_ended"]
-[connection signal="body_entered" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="GraphSign/Area3D" to="GraphSign" method="_on_area_3d_body_exited"]
-[connection signal="visibility_changed" from="GraphSign/SignUI" to="GraphSign/SignUI" method="_on_visibility_changed"]
-[connection signal="change_model" from="GraphSign/ReplaceUI" to="GraphSign/sign" method="show_paper"]
 [connection signal="visibility_changed" from="GraphSign/ReplaceUI/NewSignUI" to="GraphSign/ReplaceUI/NewSignUI" method="_on_visibility_changed"]
 [connection signal="body_entered" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_exited"]
@@ -1346,7 +1228,6 @@ volume_db = -10.0
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4/Model"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model"]
-[editable path="GraphSign/sign"]
 [editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
 [editable path="NPCScientist"]
 [editable path="NPCScientist/Control"]

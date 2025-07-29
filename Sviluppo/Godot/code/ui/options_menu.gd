@@ -18,14 +18,14 @@ func _input(event: InputEvent) -> void:
 
 func hide_menu():
 	hide()
-	option_button.get_parent().get_child(0).grab_focus()
+	#option_button.get_parent().get_child(0).grab_focus()
 
 func save_settings():
 	saves_handler.save_data()
+	hide_menu()
 	if option_button:
-		hide_menu()
 		await get_tree().process_frame
-		owner.grab_button_focus.exit_options.emit()
+		option_button.exit_options.emit()
 	
 func check_settings():
 	for i in buttons_container.get_child_count():

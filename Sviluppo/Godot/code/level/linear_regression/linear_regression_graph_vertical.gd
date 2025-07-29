@@ -74,3 +74,6 @@ func calculate_angle(point1: Vector3, point2: Vector3)->float:
 
 func resize_line(value: float)->void:
 	line.scale.x = value
+
+func get_points_count()->int:
+	return points.get_child_count()

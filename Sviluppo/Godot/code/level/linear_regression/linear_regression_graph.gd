@@ -23,3 +23,6 @@ func position_line(point1: Vector3, point2: Vector3)->void:
 
 func resize_line(value: float)->void:
 	return
+
+func get_points_count()->int:
+	return points.get_child_count()

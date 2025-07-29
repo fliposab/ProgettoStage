@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5jxv1egv5npx"]
+
+[ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_1qa5r"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_g1q8u"]
+[ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="3_o1reb"]
+[ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="4_r30ce"]
+[ext_resource type="Script" uid="uid://pqf5fgffhfkp" path="res://code/level/assets/sign.gd" id="5_fokso"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
+size = Vector3(4.83423, 3.91901, 4.24918)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_580fp"]
+content_margin_left = 70.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 30.0
+bg_color = Color(0.197937, 0.197937, 0.197937, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25nk2"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_left = 30.0
+expand_margin_top = 10.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+
+[node name="GraphSign" type="Node3D"]
+process_mode = 3
+transform = Transform3D(-0.553721, 0, -0.231071, 0, 0.6, 0, 0.231071, 0, -0.553721, 0, 0, 0)
+script = ExtResource("1_1qa5r")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 7.62939e-06, 1.90149, 2.8136)
+shape = SubResource("BoxShape3D_2ngro")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -23.0
+offset_right = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("2_g1q8u")
+text = "E: READ_SIGN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SignUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_o1reb")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SignUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 76.0
+offset_right = -64.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SignUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_580fp")
+
+[node name="Label" type="Label" parent="SignUI/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "GRAPH_NOT_YET_AVAILABLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SignUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_25nk2")
+text = "Q: CLOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sign" parent="." instance=ExtResource("4_r30ce")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 0, 0, 0)
+script = ExtResource("5_fokso")
+
+[node name="sign_001" parent="sign" index="1"]
+visible = false
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="visibility_changed" from="SignUI" to="SignUI" method="_on_visibility_changed"]
+
+[editable path="sign"]

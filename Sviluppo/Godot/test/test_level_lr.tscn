@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://wvx8fj052pq3"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_j7qak"]
+[ext_resource type="PackedScene" uid="uid://cmt038lejs3fo" path="res://levels/assets/lr_cannon.tscn" id="2_bmagd"]
+[ext_resource type="PackedScene" uid="uid://ccjwu01e7jq4t" path="res://levels/assets/lr_graph_vertical.tscn" id="3_bxrk0"]
+
+[node name="TestLevel" instance=ExtResource("1_j7qak")]
+
+[node name="LRCannon" parent="." index="7" node_paths=PackedStringArray("graph") instance=ExtResource("2_bmagd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57978225, 0)
+graph = NodePath("../LRGraphVertical")
+
+[node name="LRGraphVertical" parent="." index="8" instance=ExtResource("3_bxrk0")]
+transform = Transform3D(-1, -4.371139e-08, 4.3711395e-08, 4.37114e-08, -4.37114e-08, 1, -4.3711385e-08, 1, 4.3711402e-08, 0, 0, -17.171188)

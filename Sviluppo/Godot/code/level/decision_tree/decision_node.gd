@@ -6,7 +6,10 @@ class_name DecisionNode
 @onready var _mesh_instance : MeshInstance3D = $StaticBody3D/MeshInstance3D
 
 var player : Player
-	
+
+func get_ui() -> Control:
+	return _ui
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	return
 

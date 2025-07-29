@@ -14,6 +14,7 @@ func _on_options_pressed() -> void:
 
 func _on_options_exit_options() -> void:
 	owner.on_top = true
+	get_first_button_focus()
 
 func _on_hub_level_pressed() -> void:
 	return

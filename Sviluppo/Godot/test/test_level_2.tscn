@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bypumgpjxivdn"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_ybom6"]
+[ext_resource type="Script" uid="uid://bqoiwb6pq1qwm" path="res://code/saves/dt_saves_handler.gd" id="2_6wcuq"]
+[ext_resource type="PackedScene" uid="uid://becejkmc1y65j" path="res://levels/assets/decision_node.tscn" id="2_w3hxg"]
+[ext_resource type="Script" uid="uid://cds22lypnl04" path="res://code/saves/dt_level_save.gd" id="3_u4gye"]
+[ext_resource type="PackedScene" uid="uid://c5jxv1egv5npx" path="res://levels/assets/causality/graph_sign_scientist.tscn" id="3_w3hxg"]
+[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="4_30kk7"]
+[ext_resource type="PackedScene" uid="uid://v7xs3lei7fnu" path="res://levels/assets/decision_node_final.tscn" id="4_ldd2i"]
+[ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="6_jryok"]
+[ext_resource type="PackedScene" uid="uid://cona58iu8eeah" path="res://levels/assets/decision_tree.tscn" id="7_qixyn"]
+
+[node name="TestLevel" instance=ExtResource("1_ybom6")]
+
+[node name="PlayerSpawn" parent="." index="5"]
+transform = Transform3D(-0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0, 0.07756984, 0)
+
+[node name="SavesHandler" parent="." index="6"]
+script = ExtResource("2_6wcuq")
+breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="Node" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("3_u4gye")
+
+[node name="DecisionNode" parent="." index="7" instance=ExtResource("2_w3hxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29340184, 0)
+
+[node name="GraphSign" parent="." index="8" instance=ExtResource("3_w3hxg")]
+transform = Transform3D(-0.553721, 0, -0.231071, 0, 0.6, 0, 0.231071, 0, -0.553721, 0.6357238, -0.25412548, 0.9282272)
+
+[node name="TI" parent="." index="9" instance=ExtResource("4_30kk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9701443, 6.8572974, 7.396182)
+id = "true"
+
+[node name="TI2" parent="." index="10" instance=ExtResource("4_30kk7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2135005, -5.2883234)
+id = "true"
+
+[node name="DecisionNodeFinal2" parent="." index="11" instance=ExtResource("4_ldd2i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5163293, -5.3486767)
+id = "false"
+
+[node name="DogBreedSign" parent="." index="12" instance=ExtResource("6_jryok")]
+transform = Transform3D(0.033120252, 0, 0.9994514, 0, 1, 0, -0.9994514, 0, 0.033120252, -4.9861717, 0, 0)
+
+[node name="DecisionTree" parent="." index="13" instance=ExtResource("7_qixyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5685396, 0, 15.029179)
+
+[node name="DecisionNodeFinal15" parent="DecisionTree/Nodes" index="21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55895, 5.4836707, -7.16674)
+id = "true"
+
+[connection signal="send_data" from="DecisionTree" to="DogBreedSign" method="_on_data_received"]
+
+[editable path="DogBreedSign"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15"]
+[editable path="DecisionTree"]

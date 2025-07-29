@@ -17,6 +17,9 @@ func show_text_box()->void:
 func hide_text_box()->void:
 	hide()
 
+func _on_interact_button_pressed()->void:
+	return
+
 ##Received when the player picks the right option
 func on_correct_option_pressed()->void:
 	var new_text_box : DialogueBoxSimple = correct_text_box.instantiate()

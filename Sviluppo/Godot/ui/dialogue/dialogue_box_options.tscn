@@ -54,3 +54,5 @@ text = "Option 2"
 
 [connection signal="correct_option_selected" from="VBoxContainer/PanelContainer/VBoxContainer" to="." method="on_correct_option_pressed"]
 [connection signal="wrong_option_selected" from="VBoxContainer/PanelContainer/VBoxContainer" to="." method="on_wrong_option_pressed"]
+[connection signal="option_pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Button" to="VBoxContainer/PanelContainer/VBoxContainer" method="on_option_pressed"]
+[connection signal="option_pressed" from="VBoxContainer/PanelContainer/VBoxContainer/Button2" to="VBoxContainer/PanelContainer/VBoxContainer" method="on_option_pressed"]

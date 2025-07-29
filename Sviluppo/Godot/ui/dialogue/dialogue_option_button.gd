@@ -5,8 +5,16 @@ var index : int = 0
 signal option_pressed(index: int)
 
 func _ready()->void:
+	disabled = true
 	add_sounds()
 	pressed.connect(on_pressed)
 
 func on_pressed()->void:
 	option_pressed.emit(index)
+
+func enable_button():
+	await get_tree().create_timer(0.1).timeout
+	disabled = false
+
+func disable_button():
+	disabled = true

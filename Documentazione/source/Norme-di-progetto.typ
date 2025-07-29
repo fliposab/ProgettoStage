@@ -265,9 +265,19 @@ Quindi è l'attività che mette in pratica ciò che è stato individuato e reali
 Il processo di verifica ha lo scopo di garantire che il software sviluppato soddisfi i requisiti stabiliti e che sia conforme agli standard di qualità richiesti.\
 Viene eseguito durante tutto il processo di sviluppo, in modo da individuare eventuali problemi e risolverli tempestivamente.\
 === Strumenti
+- *GUT - Godot Unit Test*: addon di Godot che permette di svolgere test di unità e di integrazione all'interno dell'editor;
+- *Godot*:
 === Tipi di verifica
+Vi sono due tipologie di verifica, ognuna è focalizzata sulla verifica di vari aspetti dell'applicazione.
 ==== Analisi statica
+L'analisi statica comporta il controllo del codice prima della sua esecuzione.\
+Questo tipo di verifica non viene applicata solo al codice, ma anche ai documenti del progetto.
+
+Questo metodo viene applicato nei seguenti casi:
+- individuazione di bug nel codice;
+- individuazione di errori di battitura nei documenti;
 ==== Analisi dinamica
+L'analisi dinamica viene eseguita all'esecuzione del software. Viene usata per controllare se ci sono errori durante l'esecuzione dell'applicazione e dei suoi componenti.\
 === Denominazione dei test
 
 == Validazione

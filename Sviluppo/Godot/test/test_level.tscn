@@ -110,7 +110,7 @@ graph = NodePath("../LRGraph2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6614, 3.85072, -2.85473)
 
 [node name="NPCDialogue" parent="." instance=ExtResource("10_4n8tn")]
-transform = Transform3D(-0.91072, 0, 0.413025, 0, 1, 0, -0.413025, 0, -0.91072, 0.73605347, 1.49422, -0.7706082)
+transform = Transform3D(-0.91072, 0, 0.413025, 0, 1, 0, -0.413025, 0, -0.91072, 1.5550783, 1.49422, -0.75512457)
 
 [node name="TextOptions" parent="NPCDialogue/Dialogue" index="2" instance=ExtResource("11_axl34")]
 layout_mode = 1
@@ -119,7 +119,7 @@ layout_mode = 1
 transform = Transform3D(0.15, 0, 3.7252903e-09, 0, 0.15, 0, -3.7252903e-09, 0, 0.15, 0, 0, 0)
 
 [node name="NPC" parent="." instance=ExtResource("11_wkb0e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7779131, 1.5, -3.0234864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5969379, 1.5, -3.0080028)
 
 [node name="CollectibleSpawner" parent="." instance=ExtResource("12_paa45")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116922, 3.71925, -1.5524)

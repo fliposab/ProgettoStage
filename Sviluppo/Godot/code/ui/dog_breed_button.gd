@@ -7,13 +7,15 @@ class_name DogBreedButton
 @onready var text_rect : TextureRect = $VBoxContainer/TextureRect
 @onready var label : Label = $VBoxContainer/Label
 
-var _unlocked : bool = false
+var unlocked : bool = false:
+	get():
+		return unlocked
 
 func _ready() -> void:
 	text_rect.texture = image_locked
 	label.text = "???"
 	
 func unlock():
-	_unlocked = true
+	unlocked = true
 	text_rect.texture = image_unlocked
 	label.text = breed_name

@@ -21,7 +21,8 @@ func _on_interact_button_pressed():
 	player.face(self)
 	player.change_state("Interact")
 	is_grid_open = !is_grid_open
-	LevelsTransition.current_level.pause_menu.can_pause = !is_grid_open
+	if LevelsTransition.current_level:
+		LevelsTransition.current_level.pause_menu.can_pause = !is_grid_open
 	get_tree().paused = is_grid_open
 	player.change_state("Interact")
 	focus_grid.emit()
@@ -41,7 +42,8 @@ func check_save_unlocked()->void:
 
 func _on_go_back_button_pressed():
 	is_grid_open = !is_grid_open
-	LevelsTransition.current_level.pause_menu.can_pause = !is_grid_open
+	if LevelsTransition.current_level:
+		LevelsTransition.current_level.pause_menu.can_pause = !is_grid_open
 	get_tree().paused = is_grid_open
 	player.change_state("Idle")
 	grid.hide()
