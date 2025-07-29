@@ -15,7 +15,9 @@ LANG="en_US.utf8"
 GODOT_VERSION=4.5-beta3
 GODOT_BIN=Godot_v${GODOT_VERSION}_mono_linux_x86_64
 GODOT_ZIP=${GODOT_BIN}.zip
-GODOT_URL=https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${GODOT_ZIP}
+GODOT_URL=https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/${GODOT_ZIP}
+
+# https://github.com/godotengine/godot-builds/releases/download/4.5-beta3/Godot_v4.5-beta3_mono_linux_x86_64.zip
 
 if [[ -z "${GITHUB_WORKSPACE}" ]]; then
   GITHUB_WORKSPACE=$PWD
