@@ -10,6 +10,9 @@ var holding : bool = false
 var og_parent : Node
 var id_number : int = 0
 
+func get_spawn_position()->Vector3:
+	return _spawn_position
+
 func _ready()->void:
 	og_parent = get_parent()
 	_spawn_position = global_position

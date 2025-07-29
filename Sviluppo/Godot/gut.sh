@@ -24,14 +24,15 @@ GODOT_URL=https://github.com/godotengine/godot-builds/releases/download/${GODOT_
 if [[ -z "${GITHUB_WORKSPACE}" ]]; then
   GITHUB_WORKSPACE=$PWD
 fi
-
-curl -L -s -S ${GODOT_URL} --output ${GODOT_ZIP}
+echo "downloading ${GODOT_URL}..."
+curl -s -S ${GODOT_URL} --output ${GODOT_ZIP}
 
 if ! file "${GODOT_ZIP}" | grep -q 'Zip archive data'; then
   echo "Download failed or file is not a zip archive. Check GODOT_URL: $GODOT_URL"
   exit 1
 fi
 
+echo "unzipping ${GODOT_ZIP}..."
 unzip -q ${GODOT_ZIP}
 
 chmod +x ${GODOT_BIN}

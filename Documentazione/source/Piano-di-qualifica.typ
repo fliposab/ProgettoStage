@@ -287,21 +287,21 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  //Personaggio principale
-  [TU-01],[Si verifica che il personaggio principale stia su una piattaforma con velocità pari a zero],[\u{2713}],
-  [TU-02],[Si verifica che se il personaggio principale è fermo su una piattaforma, il suo stato nella macchina di stati è "Idle"],[\u{2713}],
-  [TU-03],[Si verifica che quando il personaggio principale è fermo su una piattaforma, utilizza l'animazione "idle"],[\u{2713}],
-  [TU-04],[Si verifica che la rotazione iniziale sull'asse y della telecamera è la stessa del personaggio principale],[\u{2713}],
-  [TU-05],[Si verifica che la telecamera ruoti intorno al personaggio principale quando viene premuto il rispettivo tasto],[\u{2713}],
-  [TU-06],[Si verifica che il personaggio principale si muovi ad una determinata velocità quando viene premuto il rispettivo tasto],[\u{2713}],
-  [TU-07],[Si verifica che se il personaggio principale si muove su una piattaforma, il suo stato nella macchina di stati è "GroundMove"],[\u{2713}],
-  [TU-08],[Si verifica che quando il personaggio principale si muove su una piattaforma, utilizza l'animazione della corsa],[\u{2713}],
-  [TU-09],[Si verifica che quando il personaggio principale si muove, la telecamera ruota automaticamente],[\u{2713}],
-  [TU-10],[Si verifica che quando il personaggio principale salti quando viene premuto il rispettivo tasto],[\u{2713}],
-  [TU-11],[Si verifica che quando il personaggio principale salta, lo stato nella macchina di stati cambia a "Air"],[\u{2713}],
-  [TU-12],[Si verifica che quando il personaggio principale salta utilizza l'animazione del salto],[\u{2713}],
-  [TU-13],[Si verifica che quando il personaggio principale cade da una piattaforma, con velocità verticale negativa, lo stato nella macchina di stati sia "Air"],[\u{2713}],
-  [TU-14],[Si verifica che quando il personaggio principale cade da una piattaforma, con velocità verticale negativa, utilizzi l'animazione della caduta],[\u{2713}],
+  //giocatore
+  [TU-01],[Si verifica che il giocatore stia su una piattaforma con velocità pari a zero],[\u{2713}],
+  [TU-02],[Si verifica che se il giocatore è fermo su una piattaforma, il suo stato nella macchina di stati è "Idle"],[\u{2713}],
+  [TU-03],[Si verifica che quando il giocatore è fermo su una piattaforma, utilizza l'animazione "idle"],[\u{2713}],
+  [TU-04],[Si verifica che la rotazione iniziale sull'asse y della telecamera è la stessa del giocatore],[\u{2713}],
+  [TU-05],[Si verifica che la telecamera ruoti intorno al giocatore quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-06],[Si verifica che il giocatore si muovi ad una determinata velocità quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-07],[Si verifica che se il giocatore si muove su una piattaforma, il suo stato nella macchina di stati è "GroundMove"],[\u{2713}],
+  [TU-08],[Si verifica che quando il giocatore si muove su una piattaforma, utilizza l'animazione della corsa],[\u{2713}],
+  [TU-09],[Si verifica che quando il giocatore si muove, la telecamera ruota automaticamente],[\u{2713}],
+  [TU-10],[Si verifica che quando il giocatore salti quando viene premuto il rispettivo tasto],[\u{2713}],
+  [TU-11],[Si verifica che quando il giocatore salta, lo stato nella macchina di stati cambia a "Air"],[\u{2713}],
+  [TU-12],[Si verifica che quando il giocatore salta utilizza l'animazione del salto],[\u{2713}],
+  [TU-13],[Si verifica che quando il giocatore cade da una piattaforma, con velocità verticale negativa, lo stato nella macchina di stati sia "Air"],[\u{2713}],
+  [TU-14],[Si verifica che quando il giocatore cade da una piattaforma, con velocità verticale negativa, utilizzi l'animazione della caduta],[\u{2713}],
   //Pausa
   [TU-15],[Si verifica che il menu di pausa venga visualizzato quando viene premuto il rispettivo tasto],[\u{2713}],
   [TU-16],[Si verifica che quando viene aperto il menu di pausa, l'applicazione viene messa in pausa],[\u{2713}],
@@ -325,23 +325,18 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TU-32],[Si verifica che venga caricato il gioco con i salvataggi esistenti quando viene premuto il bottone "Carica partita"],[\u{2713}],
   [TU-33],[Si verifica che venga caricata una nuova partita, cancellando i dati di salvataggio esistenti, quando viene premuto il bottone "Nuova partita"],[\u{2713}],
   //NPC
-  //
-  [TU-34],[Si verifica che il personaggio non giocabile mostri il messaggio quando il personaggio principale si avvicina],[\u{2713}],
-  [TU-35],[Si verifica che il personaggio non giocabile senza dialogo usi l'animazione per parlare quando il personaggio principale is avvicina],[\u{2713}],
-  [TU-36],[Si verifica che il personaggio non giocabile con il dialogo usi l'animazione per salutare quando il personaggio principale is avvicina],[\u{2713}],
-  //
-  [TU-37],[Si verifica che il messaggio del personaggio non giocabile venga nascosto quando il personaggio principale non è vicino],[\u{2713}],
-  [TU-38],[Si verifica che il personaggio non giocabile, sia con dialogo che senza dialogo, usi l'animazione "idle" quando il personaggio principale non è vicino],[\u{2713}],
+  [TU-34],[Si verifica che il messaggio del personaggio non giocabile venga nascosto quando il giocatore non è vicino],[\u{2713}],
+  [TU-35],[Si verifica che il personaggio non giocabile, sia con dialogo che senza dialogo, usi l'animazione "idle" quando il giocatore non è vicino],[\u{2713}],
   //LR
-  [TU-39],[Si verifica che il grafico orizzontale venga caricato con la giusta rotazione],[\u{2713}],
-  [TU-40],[Si verifica che la linea del grafico orizzontale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
-  [TU-41],[Si verifica che il grafico verticale venga caricato con la giusta rotazione],[\u{2713}],
-  [TU-42],[Si verifica che la linea del grafico verticale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
+  [TU-36],[Si verifica che il grafico orizzontale venga caricato con la giusta rotazione],[\u{2713}],
+  [TU-37],[Si verifica che la linea del grafico orizzontale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
+  [TU-38],[Si verifica che il grafico verticale venga caricato con la giusta rotazione],[\u{2713}],
+  [TU-39],[Si verifica che la linea del grafico verticale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
+  [TU-40],[Si verifica che il grafico possa eliminare i punti aggiunti, resettando la linea],[],  
   //Decision Tree
-  [],[Si verifica che un cane possa ritornare alla sua posizione iniziale],[],
+  [TU-41],[Si verifica che un cane possa ritornare alla sua posizione iniziale],[\u{2713}],
   //Causality
-  [],[Si verifica che l'NPC che esce dall'appartamento corra verso l'obiettivo],[],
-  [],[],[],
+  [TU-42],[Si verifica che l'NPC che esce dall'appartamento corra verso l'obiettivo],[\u{2713}],
 ))
 
 == Test di integrazione
@@ -351,13 +346,30 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-  //Generali
-  [],[],[],
-  //Pausa
-  //Menu Principale
-  //LR                                                   
+  //NPC
+  [TI-01],[Si verifica che il personaggio non giocabile mostri il messaggio quando il giocatore si avvicina],[\u{2713}],
+  [TI-02],[Si verifica che il personaggio non giocabile senza dialogo usi l'animazione per parlare quando il giocatore is avvicina],[\u{2713}],
+  [TI-03],[Si verifica che il personaggio non giocabile con il dialogo usi l'animazione per salutare quando il giocatore is avvicina],[\u{2713}],
+  [],[Si verifica che quando il giocatore preme il rispettivo input vicino a un cartello, ne visualizzi i contenuti],[],
+  [],[Si verifica che quando il giocatore preme lo stesso input durante un'interazione, smette di interagire con l'entità],[],
+  [],[Si verifica che quando il giocatore preme il rispettivo input vicino a un personaggio con un dialogo, il giocatore si ferma e visualizza il dialogo del personaggio],[],
+  [],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, va avanti se esiste un messaggio successivo],[],
+  [],[Si verifica che quando il giocatore preme il rispettivo input durante un dialogo, finisce se non esiste un messaggio successivo],[],
+  //LR  
+  [],[Si verifica che il prompt dell'input da premere appaia quando il giocatore si posiziona sopra la piattaforma del cannone LR],[],
+  [],[Si verifica che il giocatore interagisca con il cannone LR quando preme il rispettivo tasto sopra la piattaforma],[],
+  [],[Si verifica che il giocatore possa posizionare un punto sul grafico LR],[], 
+  [],[Si verifica che il giocatore possa interrompere l'interazione con il cannone LR],[],                                              
   //DT
+  [],[Si verifica che le informazioni dei rami vengano visualizzate quando il giocatore si posiziona sopra un nodo dell'albero di decisione],[],
+  [],[Si verifica che il nodo riconosca se il cane posizionato sopra è corretto],[],
+  [],[Si verifica che il nodo riconosca se il cane posizionato sopra è sbagliato],[],
+  [],[Si verifica che il cartello con le razze di cani indovinate si aggiorni quando il giocatore dà una risposta corretta],[],
   //Causality
+  [],[Si verifica che un'unità esterna di un condizionatore venga accesa quando il giocatore preme il rispettivo input quando è vicino],[],
+  [],[Si verifica che la scena di intermezzo inizi quando il giocatore accende tutti i condizionatori nel livello "Causalità"],[],
+  [],[Si verifica che i personaggi non giocabili che seguono un obiettivo, smettano di seguirlo quando entrano in una specifica area],[],
+  [],[Si verifica che un certo personaggio giocabile cambi dialogo quando vengono accese tutti i condizionatori nel livello "Causalità"],[],
   ))
 
 == Test di sistema
@@ -387,8 +399,8 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { center + horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
-    [],[Si verifica che il gioco funzioni nel sistema operativo Linux],[],
-  [],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[],))
+    [TA-01],[Si verifica che il gioco funzioni nel sistema operativo Linux],[\u{2713}],
+    [TA-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[\u{2713}],))
 
 = Cruscotto di valutazione delle metriche
 == Forniture
