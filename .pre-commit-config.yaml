@@ -7,7 +7,7 @@ repos:
     -   id: check-case-conflict # Check if case-insensitive filesystems would bork
     -   id: check-docstring-first # Check for if docstring was misplaced
     -   id: check-executables-have-shebangs
-    -   id: check-json # checks for vaild json
+    -   id: check-json # checks for valid json
     -   id: check-merge-conflict # checks strings that look like a committed merge conflict
     -   id: check-xml
     -   id: check-yaml # checks for valid yaml
