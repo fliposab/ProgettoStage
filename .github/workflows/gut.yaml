@@ -13,5 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Make gut.sh executable
+        run: chmod +x ./Sviluppo/Godot/gut.sh
+        
       - name: Gut (gut.sh)
         run: ./Sviluppo/Godot/gut.sh
