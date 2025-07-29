@@ -35,6 +35,4 @@ curl -s -S ${GODOT_URL} --output ${GODOT_ZIP}
 unzip -q ${GODOT_ZIP}
 
 chmod +x ${GODOT_BIN}
-./${GODOT_BIN} -d -s --path $GITHUB_WORKSPACE addons/gut/gut_cmdln.gd -gdir=res://test -ginclude_subdirs -gexit
-
-rm -f ${GODOT_BIN} ${GODOT_ZIP}
+./${GODOT_BIN} -d -s --path $GITHUB_WORKSPACE addons/gut/gut_cmdln.gd -gdir=res://test -ginclude_subdirs -gexitgit
