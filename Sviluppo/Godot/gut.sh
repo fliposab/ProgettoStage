@@ -12,8 +12,8 @@ echo "      ░    ░                             ░  ░      ░            
 echo "                                                                        ";
 
 LANG="en_US.utf8"
-GODOT_VERSION=4.4.1
-GODOT_BIN=Godot_v${GODOT_VERSION}-stable_linux_headless.64
+GODOT_VERSION=4.5-beta3
+GODOT_BIN=Godot_v${GODOT_VERSION}_mono_linux_x86_64
 GODOT_ZIP=${GODOT_BIN}.zip
 GODOT_URL=https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/${GODOT_ZIP}
 
