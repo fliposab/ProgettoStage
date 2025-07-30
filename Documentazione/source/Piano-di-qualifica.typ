@@ -66,16 +66,12 @@ Per il processo di fornitura, vengono indicate tutte le scelte operative fatte i
 In questo caso, il MPC è il valore minimo da raggiungere per essere considerato accettabile.
 - *MPC-TC (Time at Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
   - Il totale di ore previste ammonta a 304 ore.
-- *MPC-CT - Completion Time*: tempo totale previsto per completare il progetto, idealmente non deve superare quello pianificato nel Piano di lavoro.
-- *MPC-EC - Estimated at Completion*: numero di ore effettive stimate da svolgere per completare i compiti ancora da realizzare
+- *MPC-EC - Estimated at Completion*: numero di ore effettive da svolgere per completare i compiti ancora da realizzare
 - *MPC-PV - Planned Value*: attività lavorativa fino al momento calcolato
   - Il calcolo viene dato dal lavoro pianificato in percentuale moltiplicato per BAC.
 - *MPC-AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
 - *MPC-TV - Time Variance*: DIfferenza tra budget utilizzabile e quello usato effettivamente
   - Il calcolo viene dato da EV - AT.
-- *MPC-SV - Schedule Variance*: varianza (a livello di anticipo/ritardo) rispetto a quanto previsto.
-  - Il calcolo viene dato da EV - PV;
-  - Se ha valore negativo, si è in ritardo rispetto alle previsioni.
 
 #figure(caption: [Valori per misurare la qualità della fornitura], table(
   columns: (auto,auto,auto,auto),
@@ -83,19 +79,10 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
   align: (x, y) => if (x == 0 and y > 0 and y < 10) { horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPC-TC","Time at Completion","\u{2265}300","304",
-  "MPC-CT",
-  "Completion Time",
-  "\u{2264}105% EC",
-  "\u{2264}100% EC",
-  "MPC-EC",
-  "Estimated at Completion",
-  "\u{2265}95% TC",
-  "TC",
-  "MPC-PV","Planned Value","","",
-  "MPC-AT","Actual Time","","",
-  "MPC-TV","Time Variance","","",
-  "MPC-SV","Schedule Variance","","",
+  "MPC-EC","Estimated at Completion","\u{2265}95% TC","TC",
+  "MPC-PV","Planned Value","\u{2265}0","TC",
+  "MPC-AT","Actual Time","\u{2265}0","TC",
+  "MPC-TV","Time Variance","\u{00B1}5%","0%",
 ))\
 === Sviluppo
 ==== Codice
@@ -429,11 +416,12 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
     [TA-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[\u{2713}],
     [TA-03],[Si verifica che il gioco rilevi input da tastiera],[\u{2713}],))
 
-= Resoconto delle attività
+= Tracciamento delle attività
 == Fornitura
-=== MPC-CT
-Inserire il grafico del tempo di lavoro durante le settimane.
-#pagebreak()
+=== MPC-EC - Estimated at Completion
+=== MPC-PV - Planned Value
+=== MPC-AT - Actual Time
+=== MPC-TV - Time Variance
 == Codice
 == Grafica 3D
 === MPC-MTC - Model Tris Count
@@ -455,4 +443,5 @@ Dall'immagine è possibile vedere anche il numero di isole UV del giocatore (22)
 === MPC-UIS - UV Islands Space
 Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%, mentre quello occupato dalle isole UV dell'NPC è pari al --%.\
 Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente in Blender, è stato utilizzato uno script di Python esterno.
-//= Automiglioramento
+
+== Test e verifica

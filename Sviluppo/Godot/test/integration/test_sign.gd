@@ -35,5 +35,3 @@ func test_quit_interact():
 	_sender.action_down("interact_go_back").hold_for(0.1)
 	await wait_seconds(0.15)
 	assert_true(_sign.ui.visible)
-
-t

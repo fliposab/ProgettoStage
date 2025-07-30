@@ -28,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -36,21 +37,24 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -53.0
-offset_right = 160.0
+offset_left = -257.5
+offset_top = -88.0
+offset_right = 257.5
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 2
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("3_kfkwb")
 text = "E: GO_TO_LINEAR_REGRESSION"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-
 [node name="Fade" parent="." instance=ExtResource("3_ky2u7")]
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

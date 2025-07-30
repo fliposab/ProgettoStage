@@ -30,6 +30,7 @@ func switch_level(new_level_path: String):
 	fade_transition.play_fade(true)
 	changing = false
 
+"""
 func load_last_level():
 	fade_transition.play_fade()
 	get_tree().paused = false
@@ -40,7 +41,7 @@ func load_last_level():
 	#get_tree().get_root().add_child(new_level)
 	#current_level = new_level
 	fade_transition.play_fade(true)
-
+"""
 func new_game()->void:
 	fade_transition.play_fade()
 	get_tree().paused = false

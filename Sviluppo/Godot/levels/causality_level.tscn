@@ -365,7 +365,8 @@ environment = SubResource("Environment_kxjkn")
 visible = false
 
 [node name="PlayerSpawn" parent="." index="7"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.786192, 9.529503, -33.234375)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.34831, 5.043688, 12.489092)
+gizmo_extents = 4.0
 
 [node name="SavesHandler" parent="." index="8"]
 script = ExtResource("19_a46fx")

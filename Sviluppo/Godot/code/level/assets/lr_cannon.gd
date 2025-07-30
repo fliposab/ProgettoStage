@@ -6,6 +6,7 @@ class_name LRCannon
 @onready var camera : Camera3D = $cannon_lr/cannon/Camera3D
 @onready var cannon_mesh : MeshInstance3D = $cannon_lr/cannon
 @onready var _lr_scope_ui : Control = $LRScope
+@onready var animation_player : AnimationPlayer = $Control/VBoxContainer/AnimationPlayer
 
 func _ready()->void:
 	ui.hide()

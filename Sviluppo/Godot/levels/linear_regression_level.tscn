@@ -48,7 +48,6 @@ red_collectibles = true
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="LRGraphVertical" parent="Entities" instance=ExtResource("2_ue3qp")]
-process_mode = 4
 transform = Transform3D(1, -4.37114e-08, -1.91069e-15, 0, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -30.7436, 14.3418, 121.26)
 
 [node name="CollectLine" parent="Entities" instance=ExtResource("4_qijag")]

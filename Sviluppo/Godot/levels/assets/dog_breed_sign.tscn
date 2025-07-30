@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://bbtt36s8tq4n7"]
+[gd_scene load_steps=41 format=3 uid="uid://bbtt36s8tq4n7"]
 
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="1_ogk5n"]
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_wiyaj"]
 [ext_resource type="Script" uid="uid://b4sncsxcr8pu0" path="res://code/ui/scroll_container.gd" id="3_iauig"]
 [ext_resource type="PackedScene" uid="uid://dengp2laclacr" path="res://ui/dogBreed/dog_breed_button.tscn" id="3_o2xmj"]
+[ext_resource type="PackedScene" uid="uid://hb38qdytp8oo" path="res://ui/label_animation_player.tscn" id="3_pwqwt"]
 [ext_resource type="Script" uid="uid://cd0btltg2v4bf" path="res://code/ui/dog_breed_grid_container.gd" id="4_l8gk8"]
 [ext_resource type="Texture2D" uid="uid://520ojmg2nexf" path="res://models/materials/textures/australian_sheperd.png" id="5_7776e"]
 [ext_resource type="Texture2D" uid="uid://bypwwfw2tcnl6" path="res://models/materials/textures/german_sheperd.png" id="5_l8gk8"]
@@ -84,9 +85,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -23.0
-offset_right = 52.0
+offset_left = -124.0
+offset_top = 11.63501
+offset_right = 124.0
+offset_bottom = 76.63501
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
@@ -94,6 +96,8 @@ theme_override_styles/normal = ExtResource("1_ogk5n")
 text = "E: READ_SIGN"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" parent="Control" instance=ExtResource("3_pwqwt")]
 
 [node name="SignUI" type="Control" parent="."]
 process_mode = 3

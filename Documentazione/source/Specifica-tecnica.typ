@@ -12,6 +12,7 @@ doc)
 #pagebreak()
 #set page(numbering: "1")
 #counter(page).update(1)
+#show figure: set block(breakable: true)
 
 = Introduzione
 == Scopo del documento
@@ -85,6 +86,7 @@ da cambiare\
   table.header([*Nome*], [*Descrizione*], [*Versione*]),
   table.cell([*Codice*], colspan: 3),
   [GDScript],[],[(Legata a Godot)],
+  [],[],[],
   [Python],[],[],
   [Typst],[Linguaggio utilizzato per la stesura dei documenti],[],
   table.cell([*Softwares*], colspan: 3),
@@ -137,7 +139,7 @@ Le scene di consentono di strutturare il codice del gioco in qualunque modo tu v
 #figure(caption: [Scena del giocatore], 
 image("imgs/godot-scene_example.png"))
 Oltre che a comportarsi come nodi, le scene hanno anche le seguenti caratteristiche:
-- Hanno sempre un nodo radice, come il "Player" nel nostro esempio.
+- Hanno sempre un nodo _owner_ come il "Player" nel nostro esempio.
 - Si possono salvare sul disco locale e caricarle in seguito.
 - Si possono creare quante più istanze di una scena si desideri. Ad esempio, si possono avere cinque o dieci personaggi nel gioco, creati da una determinata scena.
 
@@ -149,7 +151,7 @@ Ci sono due modi per collegare un segnale ad un altro nodo:
 - tramite l'editor: selezionando il nodo che emette il segnale e trascinandolo sul nodo che deve ricevere il segnale, e selezionando il metodo che deve essere chiamato quando il segnale viene emesso;
 - tramite codice: utilizzando il metodo _signal.connect(Callable)_ del nodo che emette il segnale, passando come parametro il nome del segnale e il nodo che deve ricevere il segnale, e il metodo che deve essere chiamato quando il segnale viene emesso.
 
-== Limitazioni GDScript
+== Limitazioni di GDScript
 GDScript è un linguaggio di programmazione che, sebbene sia molto simile a Python, ha alcune limitazioni rispetto ad esso.\
 \
 - *Variabili private*\
@@ -160,9 +162,7 @@ Nei diagrammi presentati in questo documento, le variabili segnate come private 
 GDScript non presenta la possibilità di dichiarare esplicitamente una funzione come virtual, ad esempio tramite la parola chiave _virtual_ come in C\u{0023}.
 Tuttavia queste funzioni possono comunque essere sovrascritte dalle funzioni presenti nelle classi derivate.\
 \
-- *Puntatori*\
-GDScript non supporta i puntatori come in C\u{0023}, ma è possibile ottenere un comportamento simile in alcune modi.\
-Ad esempio, è possibile utilizzare le variabili di tipo _NodePath_ per fare riferimento a un nodo specifico nella scena, o utilizzare la parola chiave _\u{0040}onready_ sempre per inidcare variabili già presenti nella scena come nodi figli durante la compilazione.\
+\
 \
 - *Assenza di interfacce*\
 Tra queste limitazioni vi è l'assenza di interfacce, che sono un costrutto di\
@@ -179,27 +179,27 @@ L'applicazione è strutturata come un monolite, decisione presa per i seguenti m
 - *facilità di manutenzione*: la struttura monolitica permette di gestire più facilmente le dipendenze tra le classi, poiché tutte le classi sono contenute in un unico file e non è necessario gestire le dipendenze tra moduli diversi;
 - *migliori prestazioni*: in un videogioco le prestazioni sono fondamentali e una struttura monolitica può contribuire a ottimizzare le performance, riducendo i tempi di caricamento e migliorando la fluidità del gioco.
 === Funzioni comuni
-Molte classi del progetto presentano delle funzioni comuni, che vengono fornite dalle classi base del motore di gioco:\
+Molte classi del progetto presentano delle funzioni virtuali comuni, che vengono fornite dalle classi base del motore di gioco:\
 
--ready(): void\
+_+ready(): void_\
 Questa funzione viene chiamata quando il nodo è pronto per essere utilizzato, ovvero quando tutti i nodi figli sono stati caricati e il nodo è pronto per essere utilizzato.\
 In questa funzione è possibile inizializzare le variabili, collegare i segnali e impostare le proprietà del nodo.\
 È importante notare che questa funzione viene chiamata solo una volta, quando il nodo viene caricato per la prima volta nella scena, e non ad ogni frame del gioco.
 
--process(delta: float): void\
+_+process(delta: float): void_\
 Questa funzione viene chiamata ad ogni frame del gioco e permette di aggiornare lo stato della classe ad ogni frame. 
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame, ed è utile per gestire le animazioni e le interazioni in modo fluido e coerente.
 
--physics_process(delta: float): void\
+_+physics_process(delta: float): void_\
 Questa funzione viene chiamata ad ogni frame di fisica del gioco, che di default è fisso 60 volte al secondo, anche se il numero di frame al secondo del gioco sia inferiore.\
 Questa funzione è utile per gestire le interazioni fisiche tra gli oggetti, come ad esempio la gestione delle collisioni e la gestione della gravità.\
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame di fisica. 
 
-== Assets comuni
-Di seguito viene mostrata l'architettura degli #gloss[assets] presenti in più parti del gioco che non sono unici ad un livello specifico.
+== Asset comuni
+Di seguito viene mostrata l'architettura degli #gloss[asset] presenti in più parti del gioco che non sono unici ad un livello specifico.
 === Giocatore
 #figure(caption: [Diagramma delle classi del giocatore],image("imgs/class-player.png"))
-Il giocatore può essere considerata la classe principale di tutta l'applicazione, attraverso il quale l'utente può interagire con la maggior parte dell'applicazione.\ Nonostante ci sia solo un giocatore presente del gioco, questo non è un #gloss[singleton], poiché per implementare un singleton in Godot è richiesto che questo sia caricato come #gloss[autoload] in ogni scena, e non c'è motivo di caricare il giocatore nel menu principale all'avvio del gioco.
+Il giocatore può essere considerata la classe principale di tutta l'applicazione, attraverso il quale l'utente può interagire con la maggior parte dell'applicazione.\ Nonostante ci sia solo un giocatore presente del gioco, questo non è un #gloss[singleton], poiché per implementare un singleton in Godot è richiesto che questo sia caricato come #gloss[autoload] in ogni scena, e non c'è motivo di caricare il giocatore nel menu principale, all'avvio del gioco.
 
 Molte variabili presenti nel giocatore sono references ai suoi nodi figli presenti nella scena, queste variabili sono precedute dalla parola chiave _\u{0040}onready_ nel codice.
 Similmente, molte funzioni della classe servono solo per accedere alle variabili dei suoi nodi figli, in modo da evitare che classi esterne possano accedervi.
@@ -216,21 +216,20 @@ L'architettura del giocatore presenta diverse funzionalità:
 #figure(caption: [Diagramma delle classi della telecamera del giocatore],image("imgs/class-camera.png"))
 ==== State Machine
 #figure(caption: [Diagramma sulla struttura della macchina di stati],image("imgs/class-state_machine.png"))
-==== Collezionabili
 === Interazione
 #figure(caption: [Diagramma degli oggetti con cui il giocatore può interagire],image("imgs/class-interactable.png"))
-==== Cartelli
-==== NPC
 ==== Dialoghi
 #figure(caption: [Diagramma sul funzionamento di un dialogo],image("imgs/class-dialogue.png"))
 === Salvataggi
 #figure(caption: [Diagramma sul funzionamento dei salvataggi],image("imgs/class-saves.png"))
-=== LevelLoader
+=== LevelTransition
+#figure(caption: [Classe _LevelTransition_],image("imgs/class-level_transition.png", width: 50%))
 /*
 == Menu
 === Menu di pausa
 === Menu principale*/
 == Struttura base livello
+#figure(caption: [Diagramma di un livello base],image("imgs/class-base_level.png", width: auto))
 == Livello "Regressione lineare"
 === Cannone e grafico LR
 == Livello "Albero di decisione"

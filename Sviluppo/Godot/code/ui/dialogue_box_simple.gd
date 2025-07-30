@@ -17,7 +17,6 @@ func show_text_box()->void:
 
 func hide_text_box()->void:
 	hide()
-	$MenuScrollSound.play()
 	if one_shot:
 		queue_free()
 
