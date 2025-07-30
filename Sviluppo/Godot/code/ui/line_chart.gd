@@ -35,6 +35,8 @@ var line_rect_y
 	{'x': 7, 'y':36},
 ]
 
+var last_data : int = 0
+
 func draw_line_chart()->void:
 	# generate line and apply style
 	var line = Line2D.new()
@@ -130,7 +132,8 @@ func get_val(val, idx):
 		return val
 	return idx
 
-func update_data(new_data)->void:
+func update_data(new_data: int)->void:
 	#delete_line_chart()
 	data[6]["y"] = new_data
+	last_data = data[6]["y"]
 	#draw_line_chart()

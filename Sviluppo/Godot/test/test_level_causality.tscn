@@ -1,0 +1,238 @@
+[gd_scene load_steps=19 format=3 uid="uid://dph86hq06aaot"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_1b28s"]
+[ext_resource type="Script" uid="uid://dqb7oclmhswem" path="res://code/level/cutscene_handler.gd" id="2_ypg40"]
+[ext_resource type="PackedScene" uid="uid://d3ppn5bikqm6q" path="res://levels/assets/causality/crash_cutscene.tscn" id="3_84pc2"]
+[ext_resource type="PackedScene" uid="uid://b6u87rpxcijog" path="res://levels/assets/causality/ac_units.tscn" id="4_lek4i"]
+[ext_resource type="PackedScene" uid="uid://dddi4bepfh0lv" path="res://levels/assets/ac_unit.tscn" id="5_d8vmw"]
+[ext_resource type="PackedScene" uid="uid://cvv11jv3xai6i" path="res://models/causality_surface.glb" id="10_8o8n0"]
+[ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="23_w3x8x"]
+[ext_resource type="PackedScene" uid="uid://cpbveoquej7pl" path="res://levels/assets/causality/graph_sign.tscn" id="24_sp4gy"]
+[ext_resource type="Script" uid="uid://dhyrr3g3p5yye" path="res://code/level/assets/change_sign_graph_ui.gd" id="25_rxej4"]
+[ext_resource type="Script" uid="uid://c60cp56npybko" path="res://code/saves/causality_saves_handler.gd" id="26_fq2gq"]
+[ext_resource type="Script" uid="uid://c3cse3mpyxpji" path="res://code/saves/causality_saves.gd" id="27_c6l6g"]
+[ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="30_xxjkm"]
+[ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="31_mpduy"]
+[ext_resource type="PackedScene" uid="uid://fi6fig5wqwya" path="res://models/grass_floor.glb" id="32_ljphd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f36fp"]
+sky_top_color = Color(0.71248466, 0.9037968, 0.94534236, 1)
+sky_horizon_color = Color(0.40991762, 0.70018417, 0.81230146, 1)
+ground_bottom_color = Color(0.12112529, 0.12704778, 0.26126, 1)
+ground_horizon_color = Color(0.4117647, 0.7019608, 0.8117647, 1)
+ground_curve = 0.11712682
+
+[sub_resource type="Sky" id="Sky_p6bnd"]
+sky_material = SubResource("ProceduralSkyMaterial_f36fp")
+
+[sub_resource type="Environment" id="Environment_kxjkn"]
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_p6bnd")
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.7921569, 0, 1)
+ssao_enabled = true
+ssao_radius = 2.0
+glow_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svhef"]
+size = Vector3(364.952, 14.0747, 343.223)
+
+[node name="CausalityLevel" instance=ExtResource("1_1b28s")]
+blue_collectibles = true
+
+[node name="CutsceneHandler" type="Node" parent="." index="0"]
+script = ExtResource("2_ypg40")
+
+[node name="CrashCutscene" parent="CutsceneHandler" index="0" instance=ExtResource("3_84pc2")]
+
+[node name="ACUnits" parent="." index="1" instance=ExtResource("4_lek4i")]
+
+[node name="ACUnit" parent="ACUnits" index="0"]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -31.840899, 0.48888588, -7.9666595)
+on = true
+
+[node name="ACUnit2" parent="ACUnits" index="1" instance=ExtResource("5_d8vmw")]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -22.483986, 0.48888588, -5.7133203)
+
+[node name="causality_surface" parent="Models" index="0" instance=ExtResource("10_8o8n0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.289746, 0)
+
+[node name="TrainingData2" parent="Entities" index="0" instance=ExtResource("23_w3x8x")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -31.8729, 0.3, 13.8457)
+
+[node name="GraphSign" parent="Entities" index="1" instance=ExtResource("24_sp4gy")]
+transform = Transform3D(-0.96592575, 0, 0.25881946, 0, 1, 0, -0.25881946, 0, -0.96592575, -25.86669, 0.46087718, 14.892511)
+
+[node name="ChangeGraphSignUI" type="Node" parent="Entities/GraphSign" index="5"]
+script = ExtResource("25_rxej4")
+
+[node name="DirectionalLight3D" parent="." index="4"]
+transform = Transform3D(-0.41595495, -0.8590634, 0.29831463, 0.16532499, 0.25113785, 0.9537281, -0.894231, 0.4460268, 0.03756258, 0, 15.350531, 12.404486)
+light_energy = 1.7
+light_specular = 1.2
+shadow_opacity = 0.7
+shadow_blur = 0.7
+directional_shadow_blend_splits = true
+sky_mode = 1
+
+[node name="WorldEnvironment" parent="." index="5"]
+environment = SubResource("Environment_kxjkn")
+
+[node name="PauseMenu" parent="." index="6"]
+visible = false
+
+[node name="PlayerSpawn" parent="." index="7"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23.746195, 0.37742257, -3.1320772)
+gizmo_extents = 4.0
+
+[node name="SavesHandler" parent="." index="8"]
+script = ExtResource("26_fq2gq")
+debug_mode = true
+
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("27_c6l6g")
+save_path = "./causality_save.ini"
+
+[node name="FallArea" parent="." index="9" instance=ExtResource("30_xxjkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.02758, 0)
+
+[node name="CollisionShape3D" parent="FallArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.53735, 0)
+shape = SubResource("BoxShape3D_svhef")
+
+[node name="NPC" parent="." index="10" instance=ExtResource("31_mpduy")]
+transform = Transform3D(0.998995, 0, 0.0448225, 0, 1, 0, -0.0448225, 0, 0.998995, -42.0848, -0.40863, 13.2213)
+talk_on_enter = false
+
+[node name="Control" parent="NPC" index="2"]
+label_text = "HOT_TEXT_1"
+
+[node name="Skeleton3D" parent="NPC/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.0972776, 0)
+bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
+bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
+bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
+bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
+bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
+bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
+bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
+bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
+bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
+bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
+bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
+bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
+bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
+bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
+bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
+bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
+bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
+bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
+bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
+bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
+bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
+bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
+bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
+bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
+bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
+bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
+
+[node name="NPC2" parent="." index="11" instance=ExtResource("31_mpduy")]
+transform = Transform3D(-0.724954, 0, -0.688797, 0, 1, 0, 0.688797, 0, -0.724954, -40.4395, -0.40863, 19.2191)
+talk_on_enter = false
+
+[node name="Control" parent="NPC2" index="2"]
+label_text = "HOT_TEXT_2"
+
+[node name="Skeleton3D" parent="NPC2/Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.0972776, 0)
+bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
+bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
+bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
+bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
+bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
+bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
+bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
+bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
+bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
+bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
+bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
+bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
+bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
+bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
+bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
+bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
+bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
+bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
+bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
+bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
+bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
+bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
+bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
+bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
+bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
+bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
+bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
+
+[node name="grass_floor3" parent="." index="12" instance=ExtResource("32_ljphd")]
+transform = Transform3D(0.92186326, 0, -0.38751566, 0, 1, 0, 0.38751566, 0, 0.92186326, 69.469055, -1.1646767, 43.060627)
+
+[node name="grass_floor2" parent="." index="13" instance=ExtResource("32_ljphd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.898468, -1.1646748, -87.52703)
+
+[connection signal="all_units_turned_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_turned_on"]
+[connection signal="unit_turned_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_unit_turned_on"]
+[connection signal="value_changed" from="ACUnits" to="Entities/GraphSign/SignUI/Chart/VBoxContainer/PanelContainer/LineChart" method="update_data"]
+[connection signal="change_data" from="Entities/GraphSign/ChangeGraphSignUI" to="Entities/GraphSign/SignUI/Chart2/VBoxContainer/PanelContainer/LineChart" method="update_data"]
+[connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler" method="_on_saves_handler_data_loaded"]
+[connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler/CrashCutscene" method="emit_change_specific_values"]
+[connection signal="data_loaded" from="SavesHandler" to="ACUnits" method="_on_saves_handler_data_loaded"]
+[connection signal="data_loaded" from="SavesHandler" to="Entities/GraphSign/ChangeGraphSignUI" method="_on_saves_handler_data_loaded"]
+
+[editable path="CutsceneHandler/CrashCutscene"]
+[editable path="CutsceneHandler/CrashCutscene/PathNPC"]
+[editable path="CutsceneHandler/CrashCutscene/PathNPC2"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Control"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Dialogue"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D9/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D10/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D11/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D12/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D13/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D14/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D15/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D16/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D2/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D3/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D4/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model"]
+[editable path="CutsceneHandler/CrashCutscene/ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model"]
+[editable path="CutsceneHandler/CrashCutscene/GraphSign/ReplaceUI/NewSignUI/Chart"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist/Control"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist/Dialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist/Model"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist/ChangeNPCBehaviour/NewDialogue"]
+[editable path="CutsceneHandler/CrashCutscene/NPCScientist/ChangeNPCBehaviour/NewDialogue/TextOptions"]
+[editable path="CutsceneHandler/CrashCutscene/Apartment2"]
+[editable path="ACUnits"]
+[editable path="Entities/GraphSign"]
+[editable path="Entities/GraphSign/SignUI/Chart"]
+[editable path="Entities/GraphSign/SignUI/Chart2"]
+[editable path="FallArea"]
+[editable path="NPC"]
+[editable path="NPC/Model"]
+[editable path="NPC2"]
+[editable path="NPC2/Model"]

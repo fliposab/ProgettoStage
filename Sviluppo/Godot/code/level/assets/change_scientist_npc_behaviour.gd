@@ -3,6 +3,8 @@ class_name ChangeNPCScientistBehaviour
 
 @onready var new_dialogue : Dialogue = $NewDialogue
 @onready var new_ui : ProjectText = $NewControl
+var dialogue_changed: bool = false
+var ui_changed : bool = false
 
 func change_text()->void:
 	get_parent().get_dialogue().free()
@@ -10,6 +12,7 @@ func change_text()->void:
 	get_parent().set_dialogue(new_dialogue)
 	get_parent().get_dialogue().name = "Dialogue"
 	new_dialogue.owner = get_parent()
+	dialogue_changed = true
 
 func change_behaviour(turn: bool = false, talk: bool = false)->void:
 	get_parent().talk_on_enter = turn
@@ -28,6 +31,7 @@ func change_prompt_text()->void:
 	get_parent().get_ui().name = "Control"
 	new_ui.owner = get_parent()
 	get_parent().connect_signals()
+	ui_changed = true
 
 func _on_new_dialogue_dialogue_ended_correct() -> void:
 	change_prompt_text()

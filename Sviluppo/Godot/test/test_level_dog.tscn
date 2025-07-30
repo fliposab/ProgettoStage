@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://vfmvbj0a3k44"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_5j6qi"]
+[ext_resource type="PackedScene" uid="uid://331irxrfvw3d" path="res://levels/assets/training_images/training_image.tscn" id="2_5y6xj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5y6xj"]
+size = Vector3(9, 1, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4olx"]
+size = Vector3(9, 1, 9)
+
+[node name="TestLevel" instance=ExtResource("1_5j6qi")]
+
+[node name="PlayerSpawn" parent="." index="5"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0"]
+mesh = SubResource("BoxMesh_5y6xj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+shape = SubResource("BoxShape3D_c4olx")
+
+[node name="TI" parent="." index="8" instance=ExtResource("2_5y6xj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22093058, 0.118451595, -0.83991075)

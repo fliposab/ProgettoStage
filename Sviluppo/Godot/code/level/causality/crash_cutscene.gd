@@ -8,6 +8,8 @@ class_name CrashCutscene
 @onready var ice_cream_shop : Node3D = $ice_cream_shop
 
 var cutscene_handler : CutscenesHandler
+var started : bool = false
+var done : bool = false
 
 signal start_cutscene()
 signal change_values()
@@ -16,8 +18,11 @@ signal change_specific_values()
 func start(play_cutscene: bool)->void:
 	if !play_cutscene:
 		change_values.emit()
+		done = true
 		return
+	started = true
 	fade.play_fade()
+	emit_change_values()
 	await get_tree().create_timer(1.0).timeout
 	start_cutscene.emit()
 	camera.current = true
@@ -26,8 +31,8 @@ func start(play_cutscene: bool)->void:
 	timer.start()
 
 func _on_timer_timeout() -> void:
-	emit_change_values()
 	camera.current = false
+	started = false
 	cutscene_handler.cutscene_finish()
 
 func emit_change_values() -> void:

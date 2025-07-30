@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://qbndq2oka1ay"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_no6qg"]
+[ext_resource type="PackedScene" uid="uid://cvvn2mbuo3h5i" path="res://levels/training_data_blue.tscn" id="2_lqw5f"]
+[ext_resource type="PackedScene" uid="uid://dlopl7bms2h4h" path="res://levels/training_data_green.tscn" id="3_dcqfr"]
+[ext_resource type="PackedScene" uid="uid://ylfvr742n2e8" path="res://levels/training_data_red.tscn" id="4_13ok3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_no6qg"]
+size = Vector3(9, 1, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ljck6"]
+size = Vector3(9, 1, 9)
+
+[node name="TestLevel" instance=ExtResource("1_no6qg")]
+red_collectibles = true
+green_collectibles = true
+blue_collectibles = true
+
+[node name="PlayerSpawn" parent="." index="5"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" index="0"]
+mesh = SubResource("BoxMesh_no6qg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+shape = SubResource("BoxShape3D_ljck6")
+
+[node name="TrainingData" parent="." index="8" instance=ExtResource("2_lqw5f")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.19013572, 0.55, -2.940269)
+
+[node name="TrainingData2" parent="." index="9" instance=ExtResource("3_dcqfr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.9331899, 0.55, 0.010949552)
+
+[node name="TrainingData3" parent="." index="10" instance=ExtResource("4_13ok3")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.085814476, 0.55000025, 3.1621587)

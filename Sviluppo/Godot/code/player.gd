@@ -106,3 +106,6 @@ func reposition_camera(target = self) -> void:
 	elif target is NPC:
 		_camera_raycast.reposition_camera(target.global_position)
 		_ui.hide()
+
+func get_collectibles_node()->PlayerCollectibles:
+	return _collectibles

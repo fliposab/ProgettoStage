@@ -1181,11 +1181,11 @@ stream = ExtResource("31_jy0h6")
 volume_db = -10.0
 
 [connection signal="change_specific_values" from="." to="ice_cream_shop/NPCsIceCreamSave" method="_on_crash_cutscene_change_specific_values"]
+[connection signal="change_specific_values" from="." to="Apartment" method="already_open"]
+[connection signal="change_specific_values" from="." to="Apartment2" method="already_open"]
 [connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCBehaviour" method="change_text_and_behaviour"]
-[connection signal="change_values" from="." to="Apartment" method="already_open"]
-[connection signal="change_values" from="." to="Apartment2" method="already_open"]
 [connection signal="change_values" from="." to="power_plant" method="emit_smoke"]
 [connection signal="start_cutscene" from="." to="Camera3D" method="play_anim"]
 [connection signal="open_doors" from="Camera3D" to="Apartment" method="play_open"]

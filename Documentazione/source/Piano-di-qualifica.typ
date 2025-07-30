@@ -64,18 +64,16 @@ Le metriche di qualità di processo sono utilizzate per valutare l'efficacia e l
 === Fornitura
 Per il processo di fornitura, vengono indicate tutte le scelte operative fatte in fase di sviluppo. Viene usato l'acronimo MPC (Minimum Predictive Capability).\
 In questo caso, il MPC è il valore minimo da raggiungere per essere considerato accettabile.
-- *TAC (Time At Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
+- *MPC-TC (Time at Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
   - Il totale di ore previste ammonta a 304 ore.
 - *MPC-CT - Completion Time*: tempo totale previsto per completare il progetto, idealmente non deve superare quello pianificato nel Piano di lavoro.
 - *MPC-EC - Estimated at Completion*: numero di ore effettive stimate da svolgere per completare i compiti ancora da realizzare
-- *EV - Earned Value*: valore ottenuto fino al momento calcolato.
-  -  Il calcolo viene dato dal lavoro svolto in percentuale moltiplicato per EC.
-- *PV - Planned Value*: attività lavorativa fino al momento calcolato
+- *MPC-PV - Planned Value*: attività lavorativa fino al momento calcolato
   - Il calcolo viene dato dal lavoro pianificato in percentuale moltiplicato per BAC.
-- *AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
-- *TV - Time Variance*: DIfferenza tra budget utilizzabile e quello usato effettivamente
+- *MPC-AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
+- *MPC-TV - Time Variance*: DIfferenza tra budget utilizzabile e quello usato effettivamente
   - Il calcolo viene dato da EV - AT.
-- *SV - Schedule Variance*: varianza (a livello di anticipo/ritardo) rispetto a quanto previsto.
+- *MPC-SV - Schedule Variance*: varianza (a livello di anticipo/ritardo) rispetto a quanto previsto.
   - Il calcolo viene dato da EV - PV;
   - Se ha valore negativo, si è in ritardo rispetto alle previsioni.
 
@@ -85,15 +83,19 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
   align: (x, y) => if (x == 0 and y > 0 and y < 10) { horizon } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
+  "MPC-TC","Time at Completion","\u{2265}300","304",
   "MPC-CT",
   "Completion Time",
   "\u{2264}105% EC",
   "\u{2264}100% EC",
   "MPC-EC",
   "Estimated at Completion",
-  "\u{00B1}10% rispetto al tempo stimato nel piano di lavoro",
-  "Tempo stimato nel piano di lavoro"
-
+  "\u{2265}95% TC",
+  "TC",
+  "MPC-PV","Planned Value","","",
+  "MPC-AT","Actual Time","","",
+  "MPC-TV","Time Variance","","",
+  "MPC-SV","Schedule Variance","","",
 ))\
 === Sviluppo
 ==== Codice
@@ -333,7 +335,7 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TU-37],[Si verifica che la linea del grafico orizzontale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
   [TU-38],[Si verifica che il grafico verticale venga caricato con la giusta rotazione],[\u{2713}],
   [TU-39],[Si verifica che la linea del grafico verticale cambi correttamente con l'aggiunta di un punto],[\u{2713}],
-  [TU-40],[Si verifica che il grafico possa eliminare i punti aggiunti, resettando la linea],[],  
+  [TU-40],[Si verifica che il grafico possa eliminare i punti aggiunti, resettando la linea],[\u{2713}],  
   //Decision Tree
   [TU-41],[Si verifica che un cane possa ritornare alla sua posizione iniziale],[\u{2713}],
   //Causality
@@ -365,18 +367,35 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TI-14],[Si verifica che il giocatore possa posizionare un punto sul grafico LR],[\u{2713}], 
   [TI-15],[Si verifica che il giocatore possa interrompere l'interazione con il cannone LR],[\u{2713}],                                              
   //DT
-  [TI-16],[Si verifica che le informazioni dei rami vengano visualizzate quando il giocatore si posiziona sopra un nodo dell'albero di decisione],[\u{2713}],
-  [TI-17],[Si verifica che il nodo riconosca se il cane posizionato sopra è corretto],[\u{2713}],
-  [TI-18],[Si verifica che il nodo riconosca se il cane posizionato sopra è sbagliato],[\u{2713}],
-  [TI-19],[Si verifica che il cartello con le razze di cani indovinate si aggiorni quando il giocatore dà una risposta corretta],[\u{2713}],
+  [TI-16],[Si verifica che quando il giocatore si avvicina ad un oggetto che può raccogliere, viene mostrato sullo schermo il tasto da premere],[\u{2713}],
+  [TI-17],[Si verifica che quando il giocatore raccoglie un oggetto, lo stato nella macchina di stati passi a "Grab"],[\u{2713}],
+  [TI-18],[Si verifica che l'oggetto raccolto sia lo stesso che il giocatore sta portando],[\u{2713}],
+  [TI-19],[Si verifica che il giocatore possa muoversi con l'oggetto],[\u{2713}],
+  [TI-20],[Si verifica che il giocatore possa saltare con l'oggetto],[\u{2713}],
+  [TI-21],[Si verifica che il giocatore può lasciare l'oggetto],[\u{2713}],
+  [TI-22],[Si verifica che quando il giocatore lascia un oggetto, lo stato nella macchina di stati passi a "Release"],[\u{2713}],
+  [TI-23],[Si verifica che l'oggetto rimanga nella posizione dove è stato lasciato],[\u{2713}],
+  [TI-24],[Si verifica che le informazioni dei rami vengano visualizzate quando il giocatore si posiziona sopra un nodo dell'albero di decisione],[\u{2713}],
+  [TI-25],[Si verifica che il nodo riconosca se il cane posizionato sopra è corretto],[\u{2713}],
+  [TI-26],[Si verifica che il nodo riconosca se il cane posizionato sopra è sbagliato],[\u{2713}],
+  [TI-27],[Si verifica che il cartello con le razze di cani indovinate si aggiorni quando il giocatore dà una risposta corretta],[\u{2713}],
   //Causality
-  [TI-20],[Si verifica che un'unità esterna di un condizionatore venga accesa quando il giocatore preme il rispettivo input quando è vicino],[],
-  [TI-21],[Si verifica che il grafico dei condizionatori usati venga aggiornato quando viene acceso un condizionatore],[],
-  [TI-22],[Si verifica che la scena di intermezzo inizi quando il giocatore accende tutti i condizionatori nel livello "Causalità"],[],
-  [TI-23],[Si verifica che i personaggi non giocabili che seguono un obiettivo, smettano di seguirlo quando entrano in una specifica area],[],
-  [TI-24],[Si verifica che il personaggio "scienziato" cambi dialogo quando vengono accese tutti i condizionatori nel livello "Causalità"],[],
-  [TI-25],[Si verifica che il personaggio "gelataio" cambi dialogo quando vengono accesi tutti i condizionatori nel livello "Causalità"],[],
-  
+  [TI-28],[Si verifica che un'unità esterna di un condizionatore venga accesa quando il giocatore preme il rispettivo input quando è vicino],[\u{2713}],
+  [TI-29],[Si verifica che il grafico dei condizionatori usati venga aggiornato all'inizio del livello],[\u{2713}],
+  [TI-30],[Si verifica che il grafico dei condizionatori usati venga aggiornato quando viene acceso un condizionatore],[\u{2713}],
+  [TI-31],[Si verifica che la scena di intermezzo inizi quando il giocatore accende tutti i condizionatori nel livello "Causalità"],[\u{2713}],
+  [TI-32],[Si verifica che i personaggi non giocabili che seguono un obiettivo, smettano di seguirlo quando entrano in una specifica area],[\u{2713}],
+  [TI-33],[Si verifica che il personaggio "scienziato" cambi dialogo quando vengono accese tutti i condizionatori nel livello "Causalità"],[\u{2713}],
+  [TI-34],[Si verifica che il personaggio "gelataio" cambi dialogo quando vengono accesi tutti i condizionatori nel livello "Causalità"],[\u{2713}],
+  //Forgot
+  [TI-35],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore rosso, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
+  [TI-36],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore verde, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
+  [TI-37],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore blu, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
+  //Salvataggi
+  /*
+  [TI-],[Si verifica che il valore di training data rossi collezionati dal giocatore venga salvato ogni volta che il valore si aggiorna],[],
+  [TI-],[Si verifica che il valore di training data verdi collezionati dal giocatore venga salvato ogni volta che il valore si aggiorna],[],
+  [TI-],[Si verifica che il valore di training data blu collezionati dal giocatore venga salvato ogni volta che il valore si aggiorna],[],*/
   ))
 
 == Test di sistema
@@ -391,13 +410,13 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   "TS-03","Si verifica che il gioco mantenga almeno 30fps durante l'esecuzione (caricamenti esclusi)",
   "\u{2713}",
   "TS-04","Si verifica che il tempo tra un frame e l'altro sia minore di 33.3 millisecondi durante l'esecuzione (caricamenti esclusi)",
-  "",
-  "TS-05","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","",
-  "TS-06","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","",
-  "TS-07","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","",
-  "TS-08","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","",
-  "TS-09","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","",
-  "TS-10","Si verifica che non siano presenti nodi non utilizzati nella scena","",))
+  "\u{2713}",
+  "TS-05","Si verifica che il tempo tra un frame di fisica e l'altro rimanga costante a 16.67 millisecondi durante l'esecuzione (caricamenti esclusi)","\u{2713}",
+  "TS-06","Si verifica che l'uso della memoria video (VRAM) non superi 500MB durante tutta l'esecuzione","\u{2713}",
+  "TS-07","Si verifica che l'uso della memoria statica non superi 200MB durante tutta l'esecuzione","\u{2713}",
+  "TS-08","Si verifica che il tempo necessario alla CPU per caricare un frame sia minore di 2 millisecondi","\u{2713}",
+  "TS-09","Si verifica che il tempo necessario alla GPU per caricare un frame sia inferiore a 33.3 millisecondi","\u{2713}",
+  "TS-10","Si verifica che non siano presenti nodi non utilizzati nella scena","\u{2713}",))
 
 == Test di accettazione
 #figure(caption: [Test di accettazione], table(
@@ -407,15 +426,15 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
     [TA-01],[Si verifica che il gioco funzioni nel sistema operativo Linux],[\u{2713}],
-    [TA-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[\u{2713}],))
+    [TA-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[\u{2713}],
+    [TA-03],[Si verifica che il gioco rilevi input da tastiera],[\u{2713}],))
 
-= Cruscotto di valutazione delle metriche
-== Forniture
+= Resoconto delle attività
+== Fornitura
 === MPC-CT
 Inserire il grafico del tempo di lavoro durante le settimane.
 #pagebreak()
 == Codice
-=== 
 == Grafica 3D
 === MPC-MTC - Model Tris Count
 #align(figure(caption: [Modello 3D del giocatore con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))

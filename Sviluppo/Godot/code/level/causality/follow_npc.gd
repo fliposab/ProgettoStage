@@ -30,6 +30,8 @@ func fix_rotation()->void:
 	rotation.z = 0.0
 
 func start_following()->void:
+	if _is_following:
+		return
 	await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
 	_is_following = true
 	footstep_sounds.start()
@@ -67,3 +69,6 @@ func start_timer()->void:
 
 func save_position()->void:
 	stopped_following.emit(self)
+
+func is_following()->bool:
+	return _is_following
