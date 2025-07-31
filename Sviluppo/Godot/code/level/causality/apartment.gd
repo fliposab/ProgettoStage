@@ -7,4 +7,5 @@ func play_open()->void:
 	animation_player.play("close-open")
 
 func already_open()->void:
+	await get_tree().process_frame
 	animation_player.play("open")

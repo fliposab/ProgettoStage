@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b026f6t5ha08r"]
+[gd_scene load_steps=4 format=3 uid="uid://b026f6t5ha08r"]
 
 [ext_resource type="Script" uid="uid://cwdwg1xdxp7xi" path="res://code/ui/project_text.gd" id="1_owneb"]
+[ext_resource type="Texture2D" uid="uid://burtg020504mo" path="res://ui/input_buttons/keyboard/e_button.png" id="2_owneb"]
 [ext_resource type="StyleBox" uid="uid://qjk4p67fbpqb" path="res://ui/styles/dialogue_box_style.tres" id="2_whppd"]
 
 [node name="Control" type="Control"]
@@ -13,24 +14,35 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_owneb")
+label_text = "TEST"
 
-[node name="Label" type="Label" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -27.0
-offset_right = 49.0
-offset_bottom = 27.0
+offset_left = -89.0
+offset_top = -32.0
+offset_right = 89.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_whppd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_owneb")
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("2_whppd")
-text = "TEST_TEXT"
+theme_override_font_sizes/font_size = 22
+text = "TEST_TEXT "
 horizontal_alignment = 1
 vertical_alignment = 1
 

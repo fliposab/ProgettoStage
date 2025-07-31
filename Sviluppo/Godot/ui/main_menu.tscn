@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dda7iu4sk2hnf"]
+[gd_scene load_steps=8 format=3 uid="uid://dda7iu4sk2hnf"]
 
 [ext_resource type="PackedScene" uid="uid://lqipji8qy3t8" path="res://ui/mainmenu/main_menu_buttons.tscn" id="1_0dkrt"]
 [ext_resource type="Script" uid="uid://d3813jurg0m13" path="res://code/ui/main_menu.gd" id="1_wk0pr"]
@@ -18,14 +18,6 @@ border_width_top = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7e0r"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -78,18 +70,22 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_gl0q7")
 [node name="MainMenuButtons" parent="VBoxContainer" instance=ExtResource("1_0dkrt")]
 layout_mode = 2
 
-[node name="Copyright" type="RichTextLabel" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_top = -33.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_t7e0r")
-text = "© 2025, Filippo Sabbadin"
-fit_content = true
+alignment = 2
+
+[node name="Label" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+bbcode_enabled = true
+text = "CONFIRM"
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false

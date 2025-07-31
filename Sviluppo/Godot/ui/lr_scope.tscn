@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0j4e88o3bouh"]
+[gd_scene load_steps=5 format=3 uid="uid://d0j4e88o3bouh"]
 
 [ext_resource type="Texture2D" uid="uid://ccdncvq46pv4g" path="res://ui/scope.png" id="1_m0pyc"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_una5x"]
+[ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="2_yvvw5"]
+[ext_resource type="Texture2D" uid="uid://dl0xha7wq2kn" path="res://ui/input_buttons/keyboard/r_button.png" id="3_yvvw5"]
+[ext_resource type="Texture2D" uid="uid://bhtw4rms5axmk" path="res://ui/input_buttons/keyboard/q_button.png" id="4_epu6a"]
 
 [node name="LRScope" type="Control"]
 layout_mode = 3
@@ -29,26 +31,32 @@ anchor_bottom = 1.0
 offset_top = -170.0
 offset_right = 189.0
 grow_vertical = 0
-theme_override_constants/margin_left = 40
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 90
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Control" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_yvvw5")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("2_una5x")
-text = "E: SHOOT"
+size_flags_horizontal = 0
+size_flags_vertical = 3
+label_text = "SHOOT"
+hide_on_start = false
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Control2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_yvvw5")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("2_una5x")
-text = "R: RESET"
+size_flags_horizontal = 0
+size_flags_vertical = 3
+label_text = "RESET"
+keyboard_input = ExtResource("3_yvvw5")
+hide_on_start = false
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Control3" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_yvvw5")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("2_una5x")
-text = "Q: LEAVE"
+size_flags_horizontal = 0
+size_flags_vertical = 3
+label_text = "LEAVE"
+keyboard_input = ExtResource("4_epu6a")
+hide_on_start = false

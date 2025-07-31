@@ -77,7 +77,6 @@ shape = SubResource("CylinderShape3D_qfduj")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,9 +92,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -46.0
+offset_top = 20.0
+offset_right = 46.0
+offset_bottom = 149.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 

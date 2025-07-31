@@ -214,9 +214,8 @@ load_level_path = "res://levels/dt_level.tscn"
 [node name="tube" parent="Models/LevelTube3/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_0nv80")
 
-[node name="Label" parent="Models/LevelTube3/Control/VBoxContainer" index="0"]
-text = "E: GO_TO_DECISION_TREE"
-horizontal_alignment = 1
+[node name="Control" parent="Models/LevelTube3" index="2"]
+label_text = "GO_TO_DECISION_TREE"
 
 [node name="LevelTube2" parent="Models" instance=ExtResource("2_ftq5n")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 0, 0, 0)
@@ -225,9 +224,8 @@ load_level_path = "res://levels/causality_level.tscn"
 [node name="tube" parent="Models/LevelTube2/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_4p34j")
 
-[node name="Label" parent="Models/LevelTube2/Control/VBoxContainer" index="0"]
-text = "E: GO_TO_CAUSALITY"
-horizontal_alignment = 1
+[node name="Control" parent="Models/LevelTube2" index="2"]
+label_text = "GO_TO_CAUSALITY"
 
 [node name="base_level_main_platform" parent="Models" instance=ExtResource("2_c4aiy")]
 

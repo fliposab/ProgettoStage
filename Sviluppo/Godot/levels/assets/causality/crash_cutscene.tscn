@@ -218,6 +218,9 @@ transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.5795
 [node name="NPCDialogue" parent="ice_cream_shop" instance=ExtResource("6_bpixg")]
 transform = Transform3D(0.0930356, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930356, 1.65248, 1.81199, -0.061039)
 
+[node name="Control" parent="ice_cream_shop/NPCDialogue" index="2"]
+hide_on_start = true
+
 [node name="Dialogue" parent="ice_cream_shop/NPCDialogue" index="4"]
 offset_left = 100.0
 offset_right = -100.0
@@ -1040,6 +1043,9 @@ transform = Transform3D(-0.672393, 0, 0.740195, 0, 1, 0, -0.740195, 0, -0.672393
 turn_on_talking = false
 talk_on_enter = false
 
+[node name="Control" parent="NPCScientist" index="2"]
+hide_on_start = true
+
 [node name="Text1" parent="NPCScientist/Dialogue" index="0"]
 text = "SCIENTIST_BUSY_TEXT_1"
 
@@ -1229,6 +1235,7 @@ volume_db = -10.0
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D5/Model"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D6/Model"]
 [editable path="GraphSign/ReplaceUI/NewSignUI/Chart"]
+[editable path="GraphSign/ReplaceUI/NewSignUI/Chart/VBoxContainer/Control"]
 [editable path="NPCScientist"]
 [editable path="NPCScientist/Control"]
 [editable path="NPCScientist/Dialogue"]

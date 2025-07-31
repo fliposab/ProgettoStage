@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bps2s2y382lsu"]
+
+[ext_resource type="Script" uid="uid://doyjpb7kb66lo" path="res://code/ui/input_prompt_handler.gd" id="1_sfr5a"]
+
+[node name="InputPromptHandler" type="Node"]
+script = ExtResource("1_sfr5a")

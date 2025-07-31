@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c11n7aiqbnp6m" path="res://levels/assets/level_tube.tscn" id="1_18hex"]
 [ext_resource type="Script" uid="uid://cg1uve0raquw3" path="res://code/level/assets/level_tube_transition.gd" id="1_tawta"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_kfkwb"]
+[ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="3_kfkwb"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="3_ky2u7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tawta"]
@@ -20,38 +20,8 @@ shape = SubResource("BoxShape3D_tawta")
 
 [node name="LevelTube" parent="." instance=ExtResource("1_18hex")]
 
-[node name="Control" type="Control" parent="."]
-process_mode = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -257.5
-offset_top = -88.0
-offset_right = 257.5
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-alignment = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("3_kfkwb")
-text = "E: GO_TO_LINEAR_REGRESSION"
+[node name="Control" parent="." instance=ExtResource("3_kfkwb")]
+label_text = "GO_TO_LINEAR_REGRESSION"
 
 [node name="Fade" parent="." instance=ExtResource("3_ky2u7")]
 visible = false

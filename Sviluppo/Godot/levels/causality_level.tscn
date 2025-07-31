@@ -157,36 +157,12 @@ size = Vector3(364.952, 14.0747, 343.223)
 [node name="CausalityLevel" instance=ExtResource("1_kxjkn")]
 blue_collectibles = true
 
-[node name="CutsceneHandler" type="Node" parent="." index="0"]
-script = ExtResource("2_0djvo")
+[node name="SavesHandler" parent="." index="0"]
+script = ExtResource("19_a46fx")
 
-[node name="CrashCutscene" parent="CutsceneHandler" index="0" instance=ExtResource("3_uagpx")]
-
-[node name="ACUnits" parent="." index="1" instance=ExtResource("2_my6ir")]
-
-[node name="ACUnit" parent="ACUnits" index="0"]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -27.6569, 6.9274206, -35.628)
-
-[node name="ACUnit3" parent="ACUnits" index="1" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -36.47842, 15.19, -38.164673)
-
-[node name="ACUnit4" parent="ACUnits" index="2" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.1505184, 15.19, -30.000578)
-
-[node name="ACUnit2" parent="ACUnits" index="3" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.06446, 6.9745836, -29.9283)
-
-[node name="ACUnit6" parent="ACUnits" index="4" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 14.583944, -9.789007)
-
-[node name="ACUnit7" parent="ACUnits" index="5" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 14.583944, 18.379019)
-
-[node name="ACUnit8" parent="ACUnits" index="6" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 6.3616524, -9.789007)
-
-[node name="ACUnit9" parent="ACUnits" index="7" instance=ExtResource("5_svhef")]
-transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 6.3616524, 18.379019)
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("19_a4abp")
+save_path = "./causality_save.ini"
 
 [node name="ice_cream_platform2" parent="Models" index="0" instance=ExtResource("2_of2dn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84, 0)
@@ -349,7 +325,7 @@ transform = Transform3D(-0.96592575, 0, 0.25881946, 0, 1, 0, -0.25881946, 0, -0.
 [node name="ChangeGraphSignUI" type="Node" parent="Entities/GraphSign" index="5"]
 script = ExtResource("19_4v8wx")
 
-[node name="DirectionalLight3D" parent="." index="4"]
+[node name="DirectionalLight3D" parent="." index="3"]
 transform = Transform3D(-0.41595495, -0.8590634, 0.29831463, 0.16532499, 0.25113785, 0.9537281, -0.894231, 0.4460268, 0.03756258, 0, 15.350531, 12.404486)
 light_energy = 1.7
 light_specular = 1.2
@@ -358,23 +334,46 @@ shadow_blur = 0.7
 directional_shadow_blend_splits = true
 sky_mode = 1
 
-[node name="WorldEnvironment" parent="." index="5"]
+[node name="WorldEnvironment" parent="." index="4"]
 environment = SubResource("Environment_kxjkn")
 
-[node name="PauseMenu" parent="." index="6"]
+[node name="PauseMenu" parent="." index="5"]
 visible = false
 
-[node name="PlayerSpawn" parent="." index="7"]
+[node name="PlayerSpawn" parent="." index="6"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.34831, 5.043688, 12.489092)
 gizmo_extents = 4.0
 
-[node name="SavesHandler" parent="." index="8"]
-script = ExtResource("19_a46fx")
-debug_mode = true
+[node name="CutsceneHandler" type="Node" parent="." index="7"]
+script = ExtResource("2_0djvo")
 
-[node name="Saves" type="Node" parent="SavesHandler" index="0"]
-script = ExtResource("19_a4abp")
-save_path = "./causality_save.ini"
+[node name="CrashCutscene" parent="CutsceneHandler" index="0" instance=ExtResource("3_uagpx")]
+
+[node name="ACUnits" parent="." index="8" instance=ExtResource("2_my6ir")]
+
+[node name="ACUnit" parent="ACUnits" index="0"]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -27.6569, 6.9274206, -35.628)
+
+[node name="ACUnit3" parent="ACUnits" index="1" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -36.47842, 15.19, -38.164673)
+
+[node name="ACUnit4" parent="ACUnits" index="2" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.1505184, 15.19, -30.000578)
+
+[node name="ACUnit2" parent="ACUnits" index="3" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.06446, 6.9745836, -29.9283)
+
+[node name="ACUnit6" parent="ACUnits" index="4" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 14.583944, -9.789007)
+
+[node name="ACUnit7" parent="ACUnits" index="5" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 14.583944, 18.379019)
+
+[node name="ACUnit8" parent="ACUnits" index="6" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 6.3616524, -9.789007)
+
+[node name="ACUnit9" parent="ACUnits" index="7" instance=ExtResource("5_svhef")]
+transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 6.3616524, 18.379019)
 
 [node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.4529, -0.22402, 11.4385)
@@ -383,11 +382,8 @@ load_level_path = "res://levels/hub_level.tscn"
 [node name="tube" parent="LevelTube/LevelTube/level_tube" index="0"]
 mesh = SubResource("ArrayMesh_0djvo")
 
-[node name="VBoxContainer" parent="LevelTube/Control" index="0"]
-offset_top = -65.0
-
-[node name="Label" parent="LevelTube/Control/VBoxContainer" index="0"]
-text = "E: BACK_TO_HUB"
+[node name="Control" parent="LevelTube" index="2"]
+label_text = "BACK_TO_HUB"
 
 [node name="FallArea" parent="." index="10" instance=ExtResource("16_04wc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.02758, 0)
@@ -484,6 +480,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.
 [node name="NPCDialogue" parent="." index="16" instance=ExtResource("33_dc672")]
 transform = Transform3D(0.2752011, 0, -0.9613867, 0, 1, 0, 0.9613867, 0, 0.2752011, -54.64501, -0.40862823, 8.06044)
 
+[node name="Control" parent="NPCDialogue" index="2"]
+hide_on_start = true
+
 [node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
 text = "CAUSALITY_NPC_MESSAGE_1"
 
@@ -498,20 +497,22 @@ text = "CAUSALITY_NPC_MESSAGE_3"
 layout_mode = 1
 text = "CAUSALITY_NPC_MESSAGE_4"
 
-[connection signal="all_units_turned_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_turned_on"]
-[connection signal="unit_turned_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_unit_turned_on"]
-[connection signal="unit_turned_on" from="ACUnits" to="Entities/GraphSign/ChangeGraphSignUI" method="increase_number"]
-[connection signal="change_data" from="Entities/GraphSign/ChangeGraphSignUI" to="Entities/GraphSign/SignUI/Chart2/VBoxContainer/PanelContainer/LineChart" method="update_data"]
+[connection signal="data_loaded" from="SavesHandler" to="Entities/GraphSign/ChangeGraphSignUI" method="_on_saves_handler_data_loaded"]
 [connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler" method="_on_saves_handler_data_loaded"]
 [connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler/CrashCutscene" method="emit_change_specific_values"]
 [connection signal="data_loaded" from="SavesHandler" to="ACUnits" method="_on_saves_handler_data_loaded"]
-[connection signal="data_loaded" from="SavesHandler" to="Entities/GraphSign/ChangeGraphSignUI" method="_on_saves_handler_data_loaded"]
+[connection signal="change_data" from="Entities/GraphSign/ChangeGraphSignUI" to="Entities/GraphSign/SignUI/Chart2/VBoxContainer/PanelContainer/LineChart" method="update_data"]
+[connection signal="all_units_turned_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_turned_on"]
+[connection signal="unit_turned_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_unit_turned_on"]
+[connection signal="unit_turned_on" from="ACUnits" to="Entities/GraphSign/ChangeGraphSignUI" method="increase_number"]
 
-[editable path="ACUnits"]
 [editable path="Models/umbrella"]
 [editable path="Entities/GraphSign"]
 [editable path="Entities/GraphSign/SignUI/Chart"]
+[editable path="Entities/GraphSign/SignUI/Chart/VBoxContainer/Control"]
 [editable path="Entities/GraphSign/SignUI/Chart2"]
+[editable path="Entities/GraphSign/SignUI/Chart2/VBoxContainer/Control"]
+[editable path="ACUnits"]
 [editable path="LevelTube"]
 [editable path="LevelTube/LevelTube"]
 [editable path="LevelTube/LevelTube/level_tube"]

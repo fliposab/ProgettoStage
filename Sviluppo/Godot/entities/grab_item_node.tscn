@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs7l1h67t3t1l"]
 
 [ext_resource type="Script" uid="uid://bddgyinrqknqk" path="res://code/player/grab_item_node.gd" id="1_sc41p"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="2_k6rvr"]
 [ext_resource type="Script" uid="uid://cxrb6p1gbss1h" path="res://code/ui/grab_ui.gd" id="2_p6urq"]
+[ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="3_jh0n8"]
 
 [node name="GrabItem" type="Node"]
 script = ExtResource("1_sc41p")
@@ -16,41 +16,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_p6urq")
 
-[node name="Grab" type="Label" parent="Control"]
+[node name="Grab" parent="Control" instance=ExtResource("3_jh0n8")]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.5
-offset_top = -88.0
-offset_right = 80.5
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_k6rvr")
-text = "E: GRAB"
 
-[node name="Drop" type="Label" parent="Control"]
+[node name="Drop" parent="Control" instance=ExtResource("3_jh0n8")]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = -88.0
-offset_right = 82.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("2_k6rvr")
-text = "E: DROP"
 
 [connection signal="show_grab_ui" from="." to="Control" method="_on_grab_item_show_grab_ui"]
 [connection signal="show_hold_ui" from="." to="Control" method="_on_grab_item_show_hold_ui"]

@@ -13,7 +13,7 @@ func on_pressed()->void:
 	option_pressed.emit(index)
 
 func enable_button():
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	disabled = false
 
 func disable_button():

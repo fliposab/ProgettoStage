@@ -1,33 +1,76 @@
-[gd_scene load_steps=7 format=3 uid="uid://qkp7n7aj708b"]
+[gd_scene load_steps=13 format=3 uid="uid://qkp7n7aj708b"]
 
-[ext_resource type="PackedScene" uid="uid://bi0my7a7g7x76" path="res://levels/assets/npc/npc.tscn" id="1_l735k"]
 [ext_resource type="Script" uid="uid://4q6s4pn0s81" path="res://code/level/assets/npc_dialogue.gd" id="2_adou1"]
+[ext_resource type="PackedScene" uid="uid://co5tiyor38f11" path="res://ui/dialogue/simple_label.tscn" id="2_j6fel"]
+[ext_resource type="Texture2D" uid="uid://burtg020504mo" path="res://ui/input_buttons/keyboard/e_button.png" id="3_0fjbc"]
 [ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="3_3x6me"]
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="3_iroik"]
+[ext_resource type="Script" uid="uid://dh2u0gt2kp10n" path="res://ui/dialogue/ui_button_project_label.gd" id="3_s1rrp"]
 [ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="5_0fjbc"]
+[ext_resource type="Script" uid="uid://8e8bv2r4vmf7" path="res://code/ui/ui_button_icon.gd" id="6_bqvyi"]
+[ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="10_1p5eo"]
+[ext_resource type="Script" uid="uid://b82baq35oa1s0" path="res://code/level/assets/npc_model.gd" id="11_bh7d5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_akhyy"]
 height = 1.5246
 
-[node name="NPCDialogue" instance=ExtResource("1_l735k")]
-script = ExtResource("2_adou1")
-turn_on_talking = true
+[sub_resource type="SphereShape3D" id="SphereShape3D_b5svi"]
+radius = 5.0
 
-[node name="CollisionShape3D" parent="." index="0"]
+[node name="NPCDialogue" type="CharacterBody3D"]
+transform = Transform3D(-0.91072, 0, 0.413025, 0, 1, 0, -0.413025, 0, -0.91072, 0, 0, 0)
+script = ExtResource("2_adou1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750091, 0)
 shape = SubResource("CapsuleShape3D_akhyy")
 
-[node name="Control" parent="." index="2"]
-label_text = "E: TALK"
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_b5svi")
+
+[node name="Control" parent="." instance=ExtResource("2_j6fel")]
+script = ExtResource("3_s1rrp")
+keyboard_input = ExtResource("3_0fjbc")
+controller_input = null
 
 [node name="Label" parent="Control" index="0"]
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("3_3x6me")
+visible = false
 
-[node name="UIPosition" parent="." index="3"]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -21.5
+offset_right = 22.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_3x6me")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_0fjbc")
+script = ExtResource("6_bqvyi")
+
+[node name="Label" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "TEST"
+
+[node name="UIPosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19066, 0)
 
-[node name="Dialogue" parent="." index="4" instance=ExtResource("3_iroik")]
+[node name="Dialogue" parent="." instance=ExtResource("3_iroik")]
 anchors_preset = 15
 anchor_bottom = 1.0
 offset_left = 44.0
@@ -38,13 +81,75 @@ grow_vertical = 2
 [node name="Text1" parent="Dialogue" index="0"]
 text = "ICE_CREAM_MESSAGE_1"
 
-[node name="Text2" parent="Dialogue" index="1" instance=ExtResource("5_0fjbc")]
+[node name="Text2" parent="Dialogue" instance=ExtResource("5_0fjbc")]
 layout_mode = 1
 text = "ICE_CREAM_MESSAGE_2"
+
+[node name="Model" parent="." instance=ExtResource("10_1p5eo")]
+transform = Transform3D(0.15, 0, 3.7252903e-09, 0, 0.15, 0, -3.7252903e-09, 0, 0.15, 0, 0, 0)
+script = ExtResource("11_bh7d5")
+
+[node name="Skeleton3D" parent="Model/Armature" index="0"]
+bones/1/position = Vector3(0, 4.0361238, 0)
+bones/1/rotation = Quaternion(-0.007762035, -1.034007e-25, 1.7235178e-18, 0.9999699)
+bones/2/rotation = Quaternion(0.007762035, 1.0218897e-25, -1.7235178e-18, 0.9999699)
+bones/7/rotation = Quaternion(0.05377561, 0.33455673, -0.9031399, 0.2636636)
+bones/8/rotation = Quaternion(0.15099478, -1.166157e-08, -5.0021324e-08, 0.98853457)
+bones/9/rotation = Quaternion(0.21481042, -1.0922732e-08, -5.5759163e-08, 0.9766558)
+bones/10/rotation = Quaternion(-0.018910607, -0.004040033, -0.12473713, 0.9920014)
+bones/11/rotation = Quaternion(0.07275999, -0.26816207, 0.9250291, 0.2590681)
+bones/12/rotation = Quaternion(-0.009581802, -2.7941962e-09, 1.0035314e-08, 0.99995416)
+bones/13/rotation = Quaternion(0.31880793, 4.2090864e-09, 1.4108109e-07, 0.9478194)
+bones/14/rotation = Quaternion(-0.037866645, 0.0040396997, 0.12472759, 0.99146)
+bones/15/rotation = Quaternion(0.98349005, 0.03907924, -0.09486172, 0.14906885)
+bones/15/scale = Vector3(0.9999998, 1.0000002, 1.0000128)
+bones/16/rotation = Quaternion(0.13291626, 8.411007e-09, 0.00041081212, 0.9911272)
+bones/17/rotation = Quaternion(0.19739962, 4.453796e-08, 0.0006100241, 0.98032296)
+bones/18/rotation = Quaternion(-0.1719435, 0.10230451, 0.0042406875, 0.979771)
+bones/19/rotation = Quaternion(0.9918376, -0.031721745, 0.09745756, 0.07585477)
+bones/20/rotation = Quaternion(-0.015470456, -8.873031e-08, 4.814476e-05, 0.99988043)
+bones/21/rotation = Quaternion(0.28642973, -6.197297e-08, -0.00088503107, 0.95810086)
+bones/22/rotation = Quaternion(-0.18869483, -0.10236803, -0.0024365664, 0.9766828)
+bones/23/position = Vector3(0.9730419, 2.1865728, -3.93359e-08)
+bones/23/rotation = Quaternion(0.70710593, 0.001093005, 0.001093005, 0.70710593)
+bones/26/position = Vector3(1.193631, 3.1995726, 1.3132163)
+bones/27/position = Vector3(-0.9730419, 2.1865728, -3.93359e-08)
+bones/27/rotation = Quaternion(0.70710593, -0.001093005, -0.001093005, 0.70710593)
+bones/30/position = Vector3(-1.193631, 3.1995726, 1.3132163)
+bones/31/position = Vector3(2.6804054, 4.6066327, -0.65740377)
+bones/31/rotation = Quaternion(-1.4911147e-07, -1.0200488e-07, -0.62541896, 0.7802892)
+bones/33/position = Vector3(2.6507351, 6.1813436, -3.186679)
+bones/34/position = Vector3(-2.6804054, 4.6066327, -0.65740377)
+bones/34/rotation = Quaternion(-1.4911149e-07, 1.02004876e-07, 0.625419, 0.7802891)
+bones/36/position = Vector3(-2.6507351, 6.1813436, -3.186679)
+
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Model/Armature/Skeleton3D" index="2"]
+setting_count = 1
+settings/0/root_bone_name = "antenna1"
+settings/0/root_bone = 4
+settings/0/end_bone_name = "antenna3"
+settings/0/end_bone = 6
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 4.0
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.4
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 1.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0
 
 [node name="AnimationPlayer" parent="Model" index="1"]
 autoplay = "idle"
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="dialogue_ended" from="Dialogue" to="." method="_on_dialogue_dialogue_ended"]
 
 [editable path="Control"]

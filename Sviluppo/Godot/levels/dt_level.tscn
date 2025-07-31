@@ -12,9 +12,7 @@
 [ext_resource type="Script" uid="uid://cds22lypnl04" path="res://code/saves/dt_level_save.gd" id="7_1c2ks"]
 [ext_resource type="Script" uid="uid://dik6hbqhos7c7" path="res://code/level/assets/check_unlocked.gd" id="7_w5hcv"]
 [ext_resource type="PackedScene" uid="uid://qkp7n7aj708b" path="res://levels/assets/npc/npc_dialogue.tscn" id="8_ydd6s"]
-[ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="9_2sipj"]
 [ext_resource type="AudioStream" uid="uid://b8nffgagyx52w" path="res://sounds/referee_whistle.wav" id="9_8ebu2"]
-[ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="9_du0v4"]
 [ext_resource type="ArrayMesh" uid="uid://c5o5ro4aq0xfp" path="res://models/npc_hat.res" id="9_iqyt4"]
 [ext_resource type="PackedScene" uid="uid://di8t74vjdvr5x" path="res://levels/assets/decision_tree/dog_line.tscn" id="9_yev1y"]
 [ext_resource type="ArrayMesh" uid="uid://djpx2tdr5oqpk" path="res://models/npc_whistle.res" id="10_2sipj"]
@@ -22,6 +20,8 @@
 [ext_resource type="Script" uid="uid://ec2hunhnr8e8" path="res://code/level/assets/change_dog_npc_behaviour.gd" id="12_2sipj"]
 [ext_resource type="PackedScene" uid="uid://ckw50h418clhq" path="res://levels/assets/collectible_spawner.tscn" id="12_pniec"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="13_1ij4e"]
+[ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="13_8ebu2"]
+[ext_resource type="PackedScene" uid="uid://cfiwsy6urkant" path="res://ui/dialogue/dialogue_box_options.tscn" id="13_du0v4"]
 [ext_resource type="PackedScene" uid="uid://bwothc000fkjg" path="res://levels/assets/decision_tree/fence.tscn" id="14_a0hj5"]
 [ext_resource type="Material" uid="uid://d3hwaeuokoxpr" path="res://models/materials/clouds.tres" id="14_pnudu"]
 [ext_resource type="PackedScene" uid="uid://b48g5a7t4of1e" path="res://models/tree_nature.glb" id="17_a0hj5"]
@@ -124,6 +124,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59917, -2.45972, -6.9589)
 [node name="DogBreedSign" parent="." index="1" instance=ExtResource("2_0hd3l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 1.77638, -1.79465)
 
+[node name="SignUI" parent="DogBreedSign" index="1"]
+visible = false
+
+[node name="Control" parent="DogBreedSign/SignUI/VBoxContainer" index="2"]
+hide_on_start = false
+
 [node name="Reward" type="Node" parent="DogBreedSign" index="4"]
 script = ExtResource("5_8u3fi")
 
@@ -135,80 +141,7 @@ load_green = true
 [node name="CheckUnlocked" type="Node" parent="DogBreedSign/Reward" index="1"]
 script = ExtResource("7_w5hcv")
 
-[node name="NPCDialogue" parent="." index="2" instance=ExtResource("8_ydd6s")]
-transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, 11.834901, -0.0828989, -0.12745953)
-
-[node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
-text = "NPC_DOG_MESSAGE_1"
-
-[node name="Text2" parent="NPCDialogue/Dialogue" index="1"]
-text = "NPC_DOG_MESSAGE_2"
-
-[node name="Text3" parent="NPCDialogue/Dialogue" index="2" instance=ExtResource("9_du0v4")]
-layout_mode = 1
-text = "NPC_DOG_MESSAGE_3"
-
-[node name="TextOptions" parent="NPCDialogue/Dialogue" index="3" instance=ExtResource("9_2sipj")]
-layout_mode = 1
-correct_text = "DOG_BREEDS_RESET_TEXT"
-wrong_text = "DOG_BREEDS_DO_NOTHING_TEXT"
-
-[node name="Label" parent="NPCDialogue/Dialogue/TextOptions/VBoxContainer" index="0"]
-text = "NPC_DOG_MESSAGE_4"
-
-[node name="Button" parent="NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
-text = "DOGS_BREED_RESET"
-
-[node name="Button2" parent="NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
-text = "DOGS_BREED_DO_NOTHING"
-
-[node name="Skeleton3D" parent="NPCDialogue/Model/Armature" index="0"]
-bones/1/position = Vector3(0, 4.0972776, 0)
-bones/1/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
-bones/2/rotation = Quaternion(-3.5527137e-15, 0, 0, 1)
-bones/7/rotation = Quaternion(-0.023485, 0.023484774, -0.70671666, 0.7067167)
-bones/8/rotation = Quaternion(0.033212587, -4.9577203e-10, -1.0409501e-08, 0.9994483)
-bones/9/rotation = Quaternion(0.032371465, 1.2288283e-14, -1.40209195e-08, 0.9994759)
-bones/10/rotation = Quaternion(-0.03237141, -1.173288e-14, 1.4020891e-08, 0.9994759)
-bones/11/rotation = Quaternion(-1.8910734e-07, 3.2865138e-08, 0.70710677, 0.70710677)
-bones/12/rotation = Quaternion(-0.032978784, 2.8409405e-14, -1.4283976e-08, 0.9994561)
-bones/13/rotation = Quaternion(0.06531543, -4.6506632e-14, 2.8289795e-08, 0.99786466)
-bones/14/rotation = Quaternion(-0.032371413, 1.5981711e-14, -1.4020899e-08, 0.9994759)
-bones/15/rotation = Quaternion(0.99945974, 5.0689778e-05, 0.0015448439, 0.0328303)
-bones/16/rotation = Quaternion(0.032830182, 8.427486e-09, 0.00010148158, 0.99946094)
-bones/17/rotation = Quaternion(0.03094463, 4.4810776e-08, 9.56175e-05, 0.9995211)
-bones/18/rotation = Quaternion(-0.030944617, -2.972959e-08, -9.5633535e-05, 0.9995211)
-bones/19/rotation = Quaternion(0.9999988, 1.11059016e-07, -0.0015456234, -3.4544598e-07)
-bones/20/rotation = Quaternion(-0.02730014, -5.874308e-08, 8.445767e-05, 0.9996273)
-bones/21/rotation = Quaternion(0.058220033, -5.2821644e-08, -0.0001799367, 0.9983038)
-bones/22/rotation = Quaternion(-0.03094475, 2.9685344e-08, 9.56335e-05, 0.9995211)
-bones/23/position = Vector3(0.89659965, 2.1865728, -3.93359e-08)
-bones/26/position = Vector3(1.2698779, 3.1415749, 1.2799411)
-bones/27/position = Vector3(-0.89659965, 2.1865728, -3.93359e-08)
-bones/30/position = Vector3(-1.2698779, 3.1415749, 1.2799411)
-bones/31/position = Vector3(3.9340587, 6.578843, -2.7658018e-08)
-bones/31/rotation = Quaternion(0, -2.3841858e-07, 0, 1)
-bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
-bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
-bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
-bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NPCDialogue/Model/Armature/Skeleton3D" index="2"]
-mesh = ExtResource("9_iqyt4")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NPCDialogue/Model/Armature/Skeleton3D" index="3"]
-mesh = ExtResource("10_2sipj")
-
-[node name="Behaviour" type="Node" parent="NPCDialogue" index="6"]
-script = ExtResource("12_2sipj")
-
-[node name="Fade" parent="NPCDialogue/Behaviour" index="0" instance=ExtResource("13_1ij4e")]
-
-[node name="RefereeWhistle" type="AudioStreamPlayer" parent="NPCDialogue/Behaviour" index="1"]
-stream = ExtResource("9_8ebu2")
-volume_db = -10.0
-
-[node name="Clouds" type="MeshInstance3D" parent="." index="3"]
+[node name="Clouds" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.878212, 0)
 gi_mode = 0
 mesh = SubResource("PlaneMesh_a0hj5")
@@ -224,25 +157,70 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -20.350883, 0, -17.0451
 [node name="tree_nature2" parent="Models" index="3" instance=ExtResource("17_a0hj5")]
 transform = Transform3D(0.4780698, 0, -0.39477748, 0, 0.62, 0, 0.39477748, 0, 0.4780698, 20.971853, 0, -18.66769)
 
-[node name="DirectionalLight3D" parent="." index="6"]
+[node name="NPCDialogue" parent="Entities" index="0" instance=ExtResource("8_ydd6s")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12.531397, -0.045978546, 0.76083374)
+
+[node name="Control" parent="Entities/NPCDialogue" index="2"]
+hide_on_start = true
+
+[node name="Text1" parent="Entities/NPCDialogue/Dialogue" index="0"]
+text = "NPC_DOG_MESSAGE_1"
+
+[node name="Text2" parent="Entities/NPCDialogue/Dialogue" index="1"]
+text = "NPC_DOG_MESSAGE_2"
+
+[node name="Text3" parent="Entities/NPCDialogue/Dialogue" index="2" instance=ExtResource("13_8ebu2")]
+layout_mode = 1
+text = "NPC_DOG_MESSAGE_3"
+
+[node name="TextOptions" parent="Entities/NPCDialogue/Dialogue" index="3" instance=ExtResource("13_du0v4")]
+layout_mode = 1
+correct_text = "DOG_BREEDS_RESET_TEXT"
+wrong_text = "DOG_BREEDS_DO_NOTHING_TEXT"
+
+[node name="Label" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer" index="0"]
+text = "NPC_DOG_MESSAGE_4"
+
+[node name="Button" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
+text = "DOG_BREED_RESET"
+
+[node name="Button2" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
+text = "DOG_BREED_DO_NOTHING"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/NPCDialogue/Model/Armature/Skeleton3D" index="3"]
+mesh = ExtResource("9_iqyt4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Entities/NPCDialogue/Model/Armature/Skeleton3D" index="4"]
+mesh = ExtResource("10_2sipj")
+
+[node name="Behaviour" type="Node" parent="Entities/NPCDialogue" index="6"]
+script = ExtResource("12_2sipj")
+
+[node name="Fade" parent="Entities/NPCDialogue/Behaviour" index="0" instance=ExtResource("13_1ij4e")]
+
+[node name="RefereeWhistle" type="AudioStreamPlayer" parent="Entities/NPCDialogue/Behaviour" index="1"]
+stream = ExtResource("9_8ebu2")
+volume_db = -10.0
+
+[node name="DirectionalLight3D" parent="." index="5"]
 transform = Transform3D(0.7775893, -0.5938583, -0.20660909, 0.06433579, -0.2517219, 0.965659, -0.6254727, -0.7641784, -0.15752985, -0.32009506, 2.06607, 2.43376)
 light_bake_mode = 1
 shadow_opacity = 0.6
 
-[node name="WorldEnvironment" parent="." index="7"]
+[node name="WorldEnvironment" parent="." index="6"]
 environment = SubResource("Environment_8vxcw")
 
-[node name="PlayerSpawn" parent="." index="9"]
+[node name="PlayerSpawn" parent="." index="8"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
-[node name="FallArea" parent="." index="10" instance=ExtResource("4_8vxcw")]
+[node name="FallArea" parent="." index="9" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
 
 [node name="CollisionShape3D" parent="FallArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4995, 0, 0)
 shape = SubResource("BoxShape3D_8g85a")
 
-[node name="SavesHandler" parent="." index="11"]
+[node name="SavesHandler" parent="." index="10"]
 script = ExtResource("6_yev1y")
 breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
@@ -250,7 +228,7 @@ breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, 
 script = ExtResource("7_1c2ks")
 save_path = "./decision_tree_save.ini"
 
-[node name="LevelTube3" parent="." index="12" instance=ExtResource("5_8g85a")]
+[node name="LevelTube3" parent="." index="11" instance=ExtResource("5_8g85a")]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 4.54911, 0, -4.10791)
 load_level_path = "res://levels/hub_level.tscn"
 
@@ -266,11 +244,10 @@ disabled = true
 [node name="level_tube_down" parent="LevelTube3/LevelTube" index="1" instance=ExtResource("24_s4wd4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 0.145576, -15.783285)
 
-[node name="Label" parent="LevelTube3/Control/VBoxContainer" index="0"]
-text = "E: BACK_TO_HUB"
-horizontal_alignment = 1
+[node name="Control" parent="LevelTube3" index="2"]
+label_text = "BACK_TO_HUB"
 
-[node name="DogLine" parent="." index="13" instance=ExtResource("9_yev1y")]
+[node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
 
 [node name="GoldenRetriever" parent="DogLine" index="0"]
@@ -310,14 +287,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0516586, 0, -3.072795)
 [connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign/Reward/CheckUnlocked" method="_on_decision_tree_new_breed_unlocked"]
 [connection signal="send_data" from="DecisionTree" to="DogBreedSign" method="_on_data_received"]
 [connection signal="hide_grid" from="DogBreedSign" to="DogBreedSign/Reward/CheckUnlocked" method="_on_dog_breed_sign_hide_grid"]
-[connection signal="dialogue_ended_correct" from="NPCDialogue/Dialogue" to="NPCDialogue/Behaviour" method="_on_dialogue_ended_correct"]
-[connection signal="reset_dogs" from="NPCDialogue/Behaviour" to="DogLine" method="_on_reset_dogs"]
+[connection signal="dialogue_ended_correct" from="Entities/NPCDialogue/Dialogue" to="Entities/NPCDialogue/Behaviour" method="_on_dialogue_ended_correct"]
+[connection signal="reset_dogs" from="Entities/NPCDialogue/Behaviour" to="DogLine" method="_on_reset_dogs"]
 
-[editable path="NPCDialogue"]
-[editable path="NPCDialogue/Control"]
-[editable path="NPCDialogue/Dialogue"]
-[editable path="NPCDialogue/Dialogue/TextOptions"]
-[editable path="NPCDialogue/Model"]
+[editable path="DogBreedSign"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton3"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton4"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton5"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton2"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton6"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton7"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton8"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton9"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton10"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton11"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton12"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton13"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton14"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer/DogBreedButton15"]
+[editable path="DogBreedSign/SignUI/VBoxContainer/Control"]
+[editable path="Entities/NPCDialogue"]
+[editable path="Entities/NPCDialogue/Control"]
+[editable path="Entities/NPCDialogue/Dialogue"]
+[editable path="Entities/NPCDialogue/Dialogue/TextOptions"]
+[editable path="Entities/NPCDialogue/Model"]
 [editable path="FallArea"]
 [editable path="LevelTube3"]
 [editable path="LevelTube3/LevelTube"]

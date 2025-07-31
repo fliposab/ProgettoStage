@@ -1,11 +1,5 @@
-extends Control
+extends InputButtonUI
 class_name ProjectText
-
-@export var label_text : String 
-
-func _ready()->void:
-	$Label.text = tr(label_text)
-	hide()
 	
 func on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
@@ -18,4 +12,4 @@ func on_area_3d_body_exited(body: Node3D) -> void:
 		hide()
 
 func _on_draw() -> void:
-	$Label.text = tr(label_text)
+	set_label_text()

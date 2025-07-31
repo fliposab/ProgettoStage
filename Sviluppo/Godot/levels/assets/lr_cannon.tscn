@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bur1k14aqy6v1" path="res://code/level/assets/lr_cannon.gd" id="1_kywae"]
 [ext_resource type="PackedScene" uid="uid://xrba7x0hpxe" path="res://models/cannon_lr.glb" id="2_syu20"]
 [ext_resource type="Script" uid="uid://bbpi7ecf7ovl4" path="res://code/level/assets/cannon_camera.gd" id="3_afgnj"]
-[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="4_yov1f"]
+[ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="4_xnyua"]
 [ext_resource type="PackedScene" uid="uid://d0j4e88o3bouh" path="res://ui/lr_scope.tscn" id="5_syu20"]
 [ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="6_afgnj"]
 [ext_resource type="AudioStream" uid="uid://bbdugi5s6yhhe" path="res://sounds/reset_graph_sound.wav" id="7_yov1f"]
@@ -55,34 +55,8 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.289713)
 shape = SubResource("BoxShape3D_un71f")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -90.0
-offset_right = 145.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Control/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = ExtResource("4_yov1f")
-text = "E: USE_CANNON"
+[node name="Control" parent="." instance=ExtResource("4_xnyua")]
+label_text = "USE_CANNON"
 
 [node name="LRScope" parent="." instance=ExtResource("5_syu20")]
 

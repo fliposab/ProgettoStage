@@ -22,6 +22,9 @@ sky = SubResource("Sky_x25rp")
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_p5284")
 
+[node name="SavesHandler" type="Node" parent="."]
+script = ExtResource("4_satuh")
+
 [node name="Models" type="Node3D" parent="."]
 
 [node name="Entities" type="Node3D" parent="."]
@@ -36,8 +39,5 @@ environment = SubResource("Environment_gmgay")
 [node name="PauseMenu" parent="." instance=ExtResource("5_6w4ab")]
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_63c5o")]
-
-[node name="SavesHandler" type="Node" parent="."]
-script = ExtResource("4_satuh")
 
 [connection signal="player_spawned" from="PlayerSpawn" to="." method="_on_player_spawn_player_spawned"]

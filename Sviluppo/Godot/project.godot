@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 OptionsSaves="*res://code/saves/options_saves.gd"
 LevelsTransition="*res://levels/assets/level_transition.tscn"
+InputUIHandler="*res://ui/input_buttons/input_prompt_handler.tscn"
 
 [display]
 
