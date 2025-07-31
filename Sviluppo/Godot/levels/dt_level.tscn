@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=36 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b48g5a7t4of1e" path="res://models/tree_nature.glb" id="17_a0hj5"]
 [ext_resource type="PackedScene" uid="uid://csielvqc7kkcr" path="res://models/dt_surface.glb" id="21_6ud3g"]
 [ext_resource type="PackedScene" uid="uid://dgoa6uu7tksom" path="res://models/level_tube_down.glb" id="24_s4wd4"]
+[ext_resource type="Texture2D" uid="uid://c6rbc0iv1r1os" path="res://ui/input_buttons/generic_controller/controller_right_button.png" id="27_lmij7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a0hj5"]
 material = ExtResource("14_pnudu")
@@ -147,6 +148,14 @@ gi_mode = 0
 mesh = SubResource("PlaneMesh_a0hj5")
 skeleton = NodePath("../DirectionalLight3D")
 
+[node name="SavesHandler" parent="." index="3"]
+script = ExtResource("6_yev1y")
+breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("7_1c2ks")
+save_path = "./decision_tree_save.ini"
+
 [node name="Node3D" parent="Models" index="0" instance=ExtResource("14_a0hj5")]
 
 [node name="dt_surface" parent="Models" index="1" instance=ExtResource("21_6ud3g")]
@@ -173,19 +182,23 @@ text = "NPC_DOG_MESSAGE_2"
 layout_mode = 1
 text = "NPC_DOG_MESSAGE_3"
 
-[node name="TextOptions" parent="Entities/NPCDialogue/Dialogue" index="3" instance=ExtResource("13_du0v4")]
+[node name="Text4" parent="Entities/NPCDialogue/Dialogue" index="3" instance=ExtResource("13_8ebu2")]
+layout_mode = 1
+text = "NPC_DOG_MESSAGE_4"
+
+[node name="TextOptions" parent="Entities/NPCDialogue/Dialogue" index="4" instance=ExtResource("13_du0v4")]
 layout_mode = 1
 correct_text = "DOG_BREEDS_RESET_TEXT"
 wrong_text = "DOG_BREEDS_DO_NOTHING_TEXT"
 
 [node name="Label" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer" index="0"]
-text = "NPC_DOG_MESSAGE_4"
+text = "NPC_DOG_MESSAGE_5"
 
 [node name="Button" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="0"]
-text = "DOG_BREED_RESET"
+text = "DOGS_BREED_RESET"
 
 [node name="Button2" parent="Entities/NPCDialogue/Dialogue/TextOptions/VBoxContainer/PanelContainer/VBoxContainer" index="1"]
-text = "DOG_BREED_DO_NOTHING"
+text = "DOGS_BREED_DO_NOTHING"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/NPCDialogue/Model/Armature/Skeleton3D" index="3"]
 mesh = ExtResource("9_iqyt4")
@@ -202,16 +215,13 @@ script = ExtResource("12_2sipj")
 stream = ExtResource("9_8ebu2")
 volume_db = -10.0
 
-[node name="DirectionalLight3D" parent="." index="5"]
+[node name="DirectionalLight3D" parent="." index="6"]
 transform = Transform3D(0.7775893, -0.5938583, -0.20660909, 0.06433579, -0.2517219, 0.965659, -0.6254727, -0.7641784, -0.15752985, -0.32009506, 2.06607, 2.43376)
 light_bake_mode = 1
 shadow_opacity = 0.6
 
-[node name="WorldEnvironment" parent="." index="6"]
+[node name="WorldEnvironment" parent="." index="7"]
 environment = SubResource("Environment_8vxcw")
-
-[node name="PlayerSpawn" parent="." index="8"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
 [node name="FallArea" parent="." index="9" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
@@ -220,13 +230,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4995, 0, 0)
 shape = SubResource("BoxShape3D_8g85a")
 
-[node name="SavesHandler" parent="." index="10"]
-script = ExtResource("6_yev1y")
-breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
-
-[node name="Saves" type="Node" parent="SavesHandler" index="0"]
-script = ExtResource("7_1c2ks")
-save_path = "./decision_tree_save.ini"
+[node name="PlayerSpawn" parent="." index="10"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
 [node name="LevelTube3" parent="." index="11" instance=ExtResource("5_8g85a")]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 4.54911, 0, -4.10791)
@@ -246,6 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 0.145576, -15.7
 
 [node name="Control" parent="LevelTube3" index="2"]
 label_text = "BACK_TO_HUB"
+controller_input = ExtResource("27_lmij7")
 
 [node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)

@@ -51,7 +51,7 @@ DOG_SIZE_LARGE,Grande,Big
 DOG_SIZE_MEDIUM,Media,Medium
 DOG_SIZE_SMALL,Piccola,Small
 PRICK,A punta,Prick
-DROP,Cadenti,Drop
+EARS_DROP,Cadenti,Drop
 BLACK / BROWN,Nero / Marrone,Black / Brown
 BLACK / WHITE,Nero / Bianco,Black / White
 GRAY / WHITE,Grigio / Bianco,Gray / White
@@ -67,7 +67,7 @@ CURLY_FUR,Mosso,Curly
 SMOOTH_FUR,Liscio,Smooth
 DOG_BREED_DISCOVERED,Razze di cane scoperte,Dog Breeds Discovered
 GRAB,Prendi,Grab
-CLOSE,Q: Chiudi,Q: Close
+CLOSE,Chiudi,Close
 READ_SIGN,Leggi,Read
 DROP,Lascia,Drop
 AUSTRALIAN_SHEPHERD,Pastore australiano,Australian Shepherd
@@ -88,8 +88,8 @@ SHIN_TZU,Shin tzu,Shin Tzu
 TALK,Parla,Talk
 USE_CANNON,Usa cannone,Use cannon
 SHOOT,Spara,Shoot
-LEAVE,Q: Smetti,Q: Leave
-RESET,R: Resetta,R: Reset
+LEAVE,Smetti,Leave
+RESET,Resetta,Reset
 SELECT,Seleziona,Select
 TURN_ON,Accendi,Turn on
 HOT_TEXT_1,Che caldo...,It's so hot...
@@ -119,21 +119,22 @@ SCIENTIST_END_TEXT,"Quasi quasi vado anch'io a prendere un gelato...","Maybe I s
 GRAPH_NOT_YET_AVAILABLE,Grafico non ancora disponibile,"Graph not yet available"
 ICE_CREAM_CRASH_TEXT_1,"Wow, hai visto tutte queste persone. Tutto grazie a te!","Wow, look at all these people. ALl thanks to you!"
 ICE_CREAM_CRASH_TEXT_2,"Ora però devo sbrigarmi perché per qualche motivo è appena saltata la corrente e il gelato si sta sciogliendo!","Now I have to hurry, I don't know why but the power just ran out and the ice-crea is melting!"
-LR_MESSAGE_1,"Ciao e benvenuto nel livello della Regressione lineare!",
-LR_MESSAGE_2,"Ciò che dovrai fare qui è molto semplice.",
-LR_MESSAGE_3,"Vedi quel cannone vicino? Puoi usarlo per aggiungere nuovi punti per modificare la direzione di quella linea.",
-LR_MESSAGE_4,"Fai pure una prova, nel caso tu ti veda bloccato puoi sempre resettare la linea!",
-LR_QUICK_MESSAGE_1,"Congratulazioni! Ora prova questo!",
+LR_MESSAGE_1,"Ciao e benvenuto nel livello della Regressione lineare!","Hello and welcome to the Linear Regression level!"
+LR_MESSAGE_2,"Ciò che dovrai fare qui è molto semplice.","What you have to do here is very simple"
+LR_MESSAGE_3,"Vedi quel cannone vicino? Puoi usarlo per aggiungere nuovi punti per modificare la direzione di quella linea.","You see that cannon nearby? You can use it to add new points to change the line direction"
+LR_MESSAGE_4,"Fai pure una prova, nel caso tu ti veda bloccato puoi sempre resettare la linea!","Give it a try, in case you see yourself stuck, you can always reset the line"
+LR_QUICK_MESSAGE_1,"Congratulazioni! Ora prova questo!","Congratulations! Now check this out"
 LR_QUICK_MESSAGE_2,"Sei proprio bravo!","You're pretty good!"
 NPC_DOG_MESSAGE_1,"Ciao! Benvenuto nel livello dell'Albero di decisione!","Hi! Welcome to the Decision Tree level!"
-NPC_DOG_MESSAGE_2,"Come funziona questo livello? Semplicemente avvicinati ad un cane, prendilo e salta sopra una piattaforma dell'albero",
+NPC_DOG_MESSAGE_2,"Come funziona questo livello? Semplicemente avvicinati ad un cane, prendilo e salta sopra una piattaforma dell'albero","How does this level work? Simple, you get near a dog, pick it up and jump on a platform of the tree"
 NPC_DOG_MESSAGE_3,"Successivamente segui le indicazioni che ti vengono mostrate e posizionalo nella giusta piattaforma finale","Did you see the cannon?"
-NPC_DOG_MESSAGE_4,"Se hai bisogno, posso anche richiamare qui i cani nel caso li perdi",
-DOGS_BREED_RESET,"Si, per favore",
-DOGS_BREED_DO_NOTHING,"No grazie",
-DOG_BREEDS_RESET_TEXT,"Capito, adesso li chiamo.",
-DOG_BREEDS_DO_NOTHING_TEXT,"Ok, fammi sapere se avrai bisogno",""
+NPC_DOG_MESSAGE_4,"Per prendere i tuoi premi, controlla il cartello vicino all'albero di decisione","To claim your prize, check the sign near the decision tree"
+NPC_DOG_MESSAGE_5,"Se hai bisogno, posso anche richiamare qui i cani nel caso li perdi","If you need it, I can call here all dogs in case you can no longer find them"
+DOGS_BREED_RESET,"Si, per favore","Yes please"
+DOGS_BREED_DO_NOTHING,"No grazie","No thanks"
+DOG_BREEDS_RESET_TEXT,"Capito, adesso li chiamo.","Got it, I'm calling them now"
+DOG_BREEDS_DO_NOTHING_TEXT,"Ok, fammi sapere se avrai bisogno","Ok, let me know when you'll need me"
 CAUSALITY_NPC_MESSAGE_1,"Ciao! Benvenuto nel livello della Causalità!","Hi! Welcome to the Causality level!"
-CAUSALITY_NPC_MESSAGE_2,"Certo che qui fa proprio caldo!",""
-CAUSALITY_NPC_MESSAGE_3,"Lo sai? Pare ci sia una certa connessione tra l'uso dei condizionatori ed il consumo di gelati",""
-CAUSALITY_NPC_MESSAGE_4,"Perché non vai a controllare quella gelateria più avanti?",""
+CAUSALITY_NPC_MESSAGE_2,"Certo che qui fa proprio caldo!","Man, it's sure hot here"
+CAUSALITY_NPC_MESSAGE_3,"Lo sai? Pare ci sia una certa connessione tra l'uso dei condizionatori ed il consumo di gelati","Did you know? Seems there's a certain connection between the use of Air Conditioning and ice-cream consumption"
+CAUSALITY_NPC_MESSAGE_4,"Perché non vai a controllare quella gelateria più avanti?","Why don't you check that ice-cream shop ahead?"

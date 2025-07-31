@@ -21,7 +21,8 @@ func switch_level(new_level_path: String):
 	get_tree().paused = false
 	await get_tree().create_timer(1.0).timeout
 	get_tree().get_root().remove_child(current_level)
-	current_level.call_deferred("free")
+	if current_level:
+		current_level.call_deferred("free")
 	var new_level = load(new_level_path).instantiate()
 	get_tree().get_root().add_child(new_level)
 	current_level = new_level

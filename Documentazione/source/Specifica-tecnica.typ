@@ -221,7 +221,7 @@ L'architettura del giocatore presenta diverse funzionalità:
 #figure(caption: [Diagramma sul funzionamento di un dialogo],image("imgs/class-dialogue.png"))
 === Salvataggi
 #figure(caption: [Diagramma sul funzionamento dei salvataggi],image("imgs/class-saves.png"))
-=== LevelTransition
+=== Singletons / Autoloads
 #figure(caption: [Classe _LevelTransition_],image("imgs/class-level_transition.png", width: 50%))
 /*
 == Menu

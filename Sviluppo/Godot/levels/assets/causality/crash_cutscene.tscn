@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d3ppn5bikqm6q"]
+[gd_scene load_steps=38 format=3 uid="uid://d3ppn5bikqm6q"]
 
 [ext_resource type="Script" uid="uid://btnjxruux1cni" path="res://code/level/causality/crash_cutscene.gd" id="1_l1q60"]
 [ext_resource type="Script" uid="uid://bcashhvydk1ll" path="res://code/level/assets/area_stop_follow.gd" id="2_bpixg"]
@@ -119,6 +119,9 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjsnk"]
+size = Vector3(5.2268066, 3.494629, 5.9867554)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2hlpw"]
 height = 1.5246
 
@@ -218,6 +221,10 @@ transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.5795
 [node name="NPCDialogue" parent="ice_cream_shop" instance=ExtResource("6_bpixg")]
 transform = Transform3D(0.0930356, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930356, 1.65248, 1.81199, -0.061039)
 
+[node name="CollisionShape3D" parent="ice_cream_shop/NPCDialogue/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24602509, 1.2473145, 2.4933834)
+shape = SubResource("BoxShape3D_jjsnk")
+
 [node name="Control" parent="ice_cream_shop/NPCDialogue" index="2"]
 hide_on_start = true
 
@@ -295,6 +302,7 @@ text = "ICE_CREAM_CRASH_TEXT_2"
 
 [node name="NPCsIceCreamSave" type="Node3D" parent="ice_cream_shop"]
 transform = Transform3D(-1.6098759, 0, -0.4313633, 0, 1.6666666, 0, 0.4313633, 0, -1.6098759, 11.540894, 1.0752816, 1.931778)
+visible = false
 script = ExtResource("11_1dgn7")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="ice_cream_shop/NPCsIceCreamSave"]
@@ -1208,8 +1216,8 @@ volume_db = -10.0
 [connection signal="body_entered" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_exited"]
 [connection signal="dialogue_ended" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist" method="_on_dialogue_dialogue_ended"]
-[connection signal="dialogue_ended" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/CollectibleSpawner" method="generate_collectible"]
 [connection signal="dialogue_ended_correct" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/ChangeNPCBehaviour" method="_on_new_dialogue_dialogue_ended_correct"]
+[connection signal="dialogue_ended_correct" from="NPCScientist/ChangeNPCBehaviour/NewDialogue" to="NPCScientist/CollectibleSpawner" method="generate_collectible"]
 
 [editable path="PathNPC"]
 [editable path="PathNPC2"]

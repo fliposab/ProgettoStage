@@ -2,7 +2,6 @@ extends Node
 class_name ReplaceUI
 
 @onready var new_grid : Control = $NewSignUI
-signal change_model()
 
 var ui_changed : bool = false
 
@@ -13,5 +12,8 @@ func replace_ui()->void:
 	get_parent().grid = new_grid
 	new_grid.name = "SignUI"
 	new_grid.owner = get_parent()
-	change_model.emit()
+	change_model()
 	ui_changed = true
+
+func change_model()->void:
+	get_parent().get_node("sign/sign_001").show()

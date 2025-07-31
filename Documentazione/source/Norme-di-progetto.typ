@@ -266,9 +266,11 @@ Il processo di verifica ha lo scopo di garantire che il software sviluppato sodd
 Viene eseguito durante tutto il processo di sviluppo, in modo da individuare eventuali problemi e risolverli tempestivamente.\
 === Strumenti
 - *GUT - Godot Unit Test*: addon di Godot che permette di svolgere test di unità e di integrazione all'interno dell'editor;
-- *Godot*:
+- *Godot*: sono stati utilizzati gli strumenti per l'analisi delle prestazioni e risorse in uso forniti da Godot.
 === Tipi di verifica
-Vi sono due tipologie di verifica, ognuna è focalizzata sulla verifica di vari aspetti dell'applicazione.
+Vi sono due tipologie di verifica, ognuna è focalizzata sulla verifica di vari aspetti dell'applicazione:
+- *analisi statica*;
+- *analisi dinamica*.
 ==== Analisi statica
 L'analisi statica comporta il controllo del codice prima della sua esecuzione.\
 Questo tipo di verifica non viene applicata solo al codice, ma anche ai documenti del progetto.
@@ -276,9 +278,39 @@ Questo tipo di verifica non viene applicata solo al codice, ma anche ai document
 Questo metodo viene applicato nei seguenti casi:
 - individuazione di bug nel codice;
 - individuazione di errori di battitura nei documenti;
+- verifica della coerenza e completezza della documentazione prodotta;
+
 ==== Analisi dinamica
 L'analisi dinamica viene eseguita all'esecuzione del software. Viene usata per controllare se ci sono errori durante l'esecuzione dell'applicazione e dei suoi componenti.\
+Questo tipo di verifica permette di individuare malfunzionamenti, errori logici o comportamenti inattesi che possono emergere solo durante l'esecuzione reale del software.
+
+Le principali attività di analisi dinamica includono:
+- esecuzione di test di unità e di integrazione per verificare il corretto funzionamento delle singole componenti e della loro interazione;
+- monitoraggio delle prestazioni e dell'utilizzo delle risorse durante l'esecuzione;
+- individuazione e correzione di bug che si manifestano solo in fase di runtime.
+
+L'analisi dinamica è fondamentale per garantire che il software sia affidabile, efficiente e conforme ai requisiti stabiliti.
+
 === Denominazione dei test
+Tutti i test svolti sono documentati nel documento _Piano di Qualifica_, suddivisi in base alla tipologia e ciò che svolgono.
+
+I test sono identificati secondo la seguente nomenclatura:
+#align(center, [*T[Tipo]-[Identificativo]*])\
+dove:
+- *Tipologia*: indica il tipo del test eseguito:
+-   U: test di Unità;
+-   I: test di Integrazione;
+-   S: test di Sistema;
+-   A: test di Accettazione;
+- *Identificativo*: numero del test.
+=== Verifica della documentazione
+La verifica della documentazione è suddivisa nelle seguenti fasi:
+
+- controllo ortografia e sintassi;
+- controllo del rispetto delle norma tipografiche imposte;
+- verifica della pertinenza dei contenuti scritti.
+
+Per facilitare il controllo di errori ortografici è stato utilizzato un plugin su VS code che esegue uno spell check automatico su tutto il file.
 
 == Validazione
 === Scopo e descrizione

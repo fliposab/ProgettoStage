@@ -76,9 +76,8 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:Cube": {
+"PATH:shop": {
 "generate/physics": true,
-"physics/layer": 33,
 "physics/shape_type": 0
 }
 }
