@@ -152,13 +152,13 @@ image_locked = ExtResource("8_k3c1k")
 
 [node name="DogBreedButton4" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
-breed_name = "GERMAN_SHEPERD"
+breed_name = "BORDER_COLLIE"
 image_unlocked = ExtResource("6_htc0k")
 image_locked = ExtResource("10_iauig")
 
 [node name="DogBreedButton5" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
-breed_name = "GERMAN_SHEPERD"
+breed_name = "BOSTON_TERRIER"
 image_unlocked = ExtResource("7_epwsr")
 image_locked = ExtResource("12_2wcn7")
 
@@ -182,7 +182,7 @@ image_locked = ExtResource("18_sewnb")
 
 [node name="DogBreedButton8" parent="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("3_o2xmj")]
 layout_mode = 2
-breed_name = "GERMAN_SHEPERD"
+breed_name = "GERMAN_SHEPHERD"
 image_unlocked = ExtResource("5_l8gk8")
 image_locked = ExtResource("20_aogq3")
 

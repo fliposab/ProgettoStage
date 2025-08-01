@@ -63,7 +63,7 @@ right_text = "BLACK / WHITE"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0165496, 1.97989, 3.99272)
 _question_text = "EARS"
 left_text = "PRICK"
-right_text = "ERAS_DROP"
+right_text = "EARS_DROP"
 
 [node name="DecisionNodeFinal5" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08317, 4, 7)
@@ -79,7 +79,7 @@ id = "cocker_spaniel"
 
 [node name="DecisionNodeFinal10" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -10.4068, 8, 9.99896)
-id = "puddle"
+id = "poodle"
 
 [node name="DecisionNodeFinal11" parent="Nodes" instance=ExtResource("2_dbu5l")]
 transform = Transform3D(0.994991, 0, 0.0999623, 0, 1, 0, -0.0999623, 0, 0.994991, -13.3495, 8, 6.9446)
