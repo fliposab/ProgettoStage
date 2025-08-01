@@ -103,9 +103,12 @@
   }
   outline(title: [Indice], indent: auto)
 
-
   pagebreak()
 
+  show outline.entry.where(level: 1): it => {
+    v(1.5em, weak: true)
+    strong(text(it, weight: "thin"))
+  }
   // CONTENUTO
   set page(numbering: "1")
   set align(left)
@@ -118,7 +121,7 @@
   }
   show heading : it => [
     #it
-    #v(1em)
+    #v(0.3em)
   ] 
 
   show heading.where(level: 2): set text(size: 18pt)

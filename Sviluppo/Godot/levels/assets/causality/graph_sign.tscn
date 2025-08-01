@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpbveoquej7pl"]
+[gd_scene load_steps=12 format=3 uid="uid://cpbveoquej7pl"]
 
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_kxxn3"]
 [ext_resource type="Script" uid="uid://dm5ukeijtjicv" path="res://code/ui/carousel_ui.gd" id="3_2ngro"]
 [ext_resource type="Script" uid="uid://3wmyuixtlxy3" path="res://code/ui/arrows_ui.gd" id="3_ekt7a"]
 [ext_resource type="PackedScene" uid="uid://hg4s5rntuda4" path="res://ui/graphs/graph_sign_ui.tscn" id="3_kxxn3"]
 [ext_resource type="PackedScene" uid="uid://dhuv5joel51jw" path="res://models/shop_sign.glb" id="4_qpgnk"]
+[ext_resource type="Texture2D" uid="uid://c6rbc0iv1r1os" path="res://ui/input_buttons/generic_controller/controller_right_button.png" id="5_pk0ox"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="6_ekt7a"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="8_vhw4d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ngro"]
 size = Vector3(4.83423, 3.91901, 4.24918)
@@ -109,6 +111,9 @@ data = [{
 "y": 37
 }]
 
+[node name="Control" parent="SignUI/Chart/VBoxContainer" index="2"]
+controller_input = ExtResource("5_pk0ox")
+
 [node name="Chart2" parent="SignUI" instance=ExtResource("3_kxxn3")]
 layout_mode = 1
 
@@ -140,6 +145,9 @@ data = [{
 "y": 13
 }]
 
+[node name="Control" parent="SignUI/Chart2/VBoxContainer" index="2"]
+controller_input = ExtResource("5_pk0ox")
+
 [node name="YLabel" parent="SignUI/Chart2" index="1"]
 text = "USE_OF_AIR_CONDITIONERS"
 
@@ -149,6 +157,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 [node name="Control" parent="." instance=ExtResource("6_ekt7a")]
 visible = false
 label_text = "READ_SIGN"
+controller_input = ExtResource("8_vhw4d")
 
 [connection signal="focus_grid" from="." to="Arrows" method="_on_graph_sign_focus_grid"]
 [connection signal="hide_grid" from="." to="Arrows" method="_on_graph_sign_hide_grid"]

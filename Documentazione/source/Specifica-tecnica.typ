@@ -161,8 +161,6 @@ Nei diagrammi presentati in questo documento, le variabili segnate come private 
 GDScript non presenta la possibilità di dichiarare esplicitamente una funzione come virtual, ad esempio tramite la parola chiave _virtual_ come in C\u{0023}.
 Tuttavia queste funzioni possono comunque essere sovrascritte dalle funzioni presenti nelle classi derivate.\
 \
-\
-\
 - *Assenza di interfacce*\
 Tra queste limitazioni vi è l'assenza di interfacce, che sono un costrutto di\
 programmazione che permette di definire un contratto che le classi devono rispettare,\
@@ -190,39 +188,61 @@ Questa funzione viene chiamata ad ogni frame del gioco e permette di aggiornare 
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame, ed è utile per gestire le animazioni e le interazioni in modo fluido e coerente.
 
 _+physics_process(delta: float): void_\
+#v(0.1em)
 Questa funzione viene chiamata ad ogni frame di fisica del gioco, che di default è fisso 60 volte al secondo, anche se il numero di frame al secondo del gioco sia inferiore.\
 Questa funzione è utile per gestire le interazioni fisiche tra gli oggetti, come ad esempio la gestione delle collisioni e la gestione della gravità.\
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame di fisica. 
 
+_+input(event: InputEvent): void_\
+#v(0.1em)
+Funzione chiamata ogni volta che il gioco rileva un qualsiasi input, sia da tastiera che da joystick. Il parametro _event_ rappresenta l'input che chiama la funzione.
 == Asset comuni
 Di seguito viene mostrata l'architettura degli #gloss[asset] presenti in più parti del gioco che non sono unici ad un livello specifico.
 === Giocatore
 #figure(caption: [Diagramma delle classi del giocatore],image("imgs/class-player.png"))
 Il giocatore può essere considerata la classe principale di tutta l'applicazione, attraverso il quale l'utente può interagire con la maggior parte dell'applicazione.\ Nonostante ci sia solo un giocatore presente del gioco, questo non è un #gloss[singleton], poiché per implementare un singleton in Godot è richiesto che questo sia caricato come #gloss[autoload] in ogni scena, e non c'è motivo di caricare il giocatore nel menu principale, all'avvio del gioco.
 
-Molte variabili presenti nel giocatore sono references ai suoi nodi figli presenti nella scena, queste variabili sono precedute dalla parola chiave _\u{0040}onready_ nel codice.
-Similmente, molte funzioni della classe servono solo per accedere alle variabili dei suoi nodi figli, in modo da evitare che classi esterne possano accedervi.
+Molte variabili presenti nel giocatore sono riferimenti ai suoi nodi figli presenti nella scena, queste variabili sono precedute dalla parola chiave _\u{0040}onready_ nel codice.
+Similmente, molte funzioni della classe servono solo per accedere alle variabili dei suoi nodi figli.
 
-L'architettura del giocatore presenta diverse funzionalità:
-- *telecamera*;
-- *macchina di stati*;
-- *raccolta di collezionabili*;
-- *gestione dei salvataggi*;
-- *raccolta di oggetti*;
-- *emissione di particelle 3D*;
-- *UI*.
-==== Telecamera
+La classe del giocatore ha associate le seguenti classi divise per funzionalità:
+- *CameraRaycast*
+- *StateMachine*
+- *PlayerSavesHandler*
+- *Movement*
+- *GrabItem*
+- *ParticleEmitter*
+- *PlayerUI*
+==== CameraRayCast
 #figure(caption: [Diagramma delle classi della telecamera del giocatore],image("imgs/class-camera.png"))
-==== State Machine
+==== StateMachine
 #figure(caption: [Diagramma sulla struttura della macchina di stati],image("imgs/class-state_machine.png"))
+==== PlayerSavesHandler
+
+==== Movement
+
+==== GrabItem
+
+==== ParticleEmitter
+
+==== PlayerUI
+
 === Interazione
 #figure(caption: [Diagramma degli oggetti con cui il giocatore può interagire],image("imgs/class-interactable.png"))
-==== Dialoghi
+==== InteractableArea
+==== NPC
+==== InteractableSign
+==== NPCDialogue
+=== Dialoghi
 #figure(caption: [Diagramma sul funzionamento di un dialogo],image("imgs/class-dialogue.png"))
+==== Dialogue
+==== DialogueBoxSimple
+==== DialogueBoxOptions
+==== DialogueOptionsButtons
 === Salvataggi
 #figure(caption: [Diagramma sul funzionamento dei salvataggi],image("imgs/class-saves.png"))
 === Singletons / Autoloads
-#figure(caption: [Classe _LevelTransition_],image("imgs/class-level_transition.png", width: 50%))
+#figure(caption: [Classi _Autoloads_],image("imgs/class-autoloads.png", width: auto))
 /*
 == Menu
 === Menu di pausa

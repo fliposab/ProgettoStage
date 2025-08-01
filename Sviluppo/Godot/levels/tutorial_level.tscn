@@ -1,0 +1,268 @@
+[gd_scene load_steps=31 format=3 uid="uid://bxv37ekwq516g"]
+
+[ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_va8ia"]
+[ext_resource type="Material" uid="uid://d3hwaeuokoxpr" path="res://models/materials/clouds.tres" id="2_16x8o"]
+[ext_resource type="Script" uid="uid://dtkqww4mw404k" path="res://code/saves/tutorial_saves_handler.gd" id="2_k6dx1"]
+[ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="2_kd133"]
+[ext_resource type="Script" uid="uid://cddcr78s3wktd" path="res://code/saves/tutorial_saves.gd" id="2_ylsy7"]
+[ext_resource type="Script" uid="uid://bjran541l5rdk" path="res://code/level/assets/interactable_area.gd" id="3_7dfxr"]
+[ext_resource type="PackedScene" uid="uid://b3sq6mpadqve" path="res://models/tutorial_mesh.glb" id="4_k6dx1"]
+[ext_resource type="Script" uid="uid://by7ocq68vc1ee" path="res://code/ui/input_button_ui_tutorial.gd" id="4_xct8i"]
+[ext_resource type="StyleBox" uid="uid://dgpm7ei5xh82y" path="res://ui/styles/label_styles.tres" id="5_w1mpc"]
+[ext_resource type="Texture2D" uid="uid://urc6hrgw4i12" path="res://ui/input_buttons/keyboard/w_button.png" id="6_xct8i"]
+[ext_resource type="Texture2D" uid="uid://cxmvx4he0inya" path="res://ui/input_buttons/keyboard/a_button.png" id="7_3gl33"]
+[ext_resource type="Texture2D" uid="uid://cvca7pc00ndr7" path="res://ui/input_buttons/keyboard/s_button.png" id="8_bvi2h"]
+[ext_resource type="Texture2D" uid="uid://vucvs5ct1pyi" path="res://ui/input_buttons/keyboard/d_button.png" id="9_2dtan"]
+[ext_resource type="Texture2D" uid="uid://dolx4n55korlm" path="res://ui/input_buttons/keyboard/left_arrow_button.png" id="10_0uau3"]
+[ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="10_xct8i"]
+[ext_resource type="Texture2D" uid="uid://d2tjn12wnbbxc" path="res://ui/input_buttons/keyboard/spacebar_button.png" id="11_3gl33"]
+[ext_resource type="Texture2D" uid="uid://d2s4pijyo6wcx" path="res://ui/input_buttons/keyboard/up_arrow_button.png" id="11_rfm7h"]
+[ext_resource type="Texture2D" uid="uid://g4bgt8k14es" path="res://ui/input_buttons/keyboard/down_arrow_button.png" id="12_16x8o"]
+[ext_resource type="Texture2D" uid="uid://b5stcpljvsvpi" path="res://ui/input_buttons/generic_controller/controller_down_button.png" id="12_bvi2h"]
+[ext_resource type="Texture2D" uid="uid://lu55uchbhrx2" path="res://ui/input_buttons/keyboard/right_arrow_button.png" id="13_ylsy7"]
+[ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="14_rfm7h"]
+[ext_resource type="Texture2D" uid="uid://ckuyml680dyu5" path="res://ui/input_buttons/generic_controller/l_stick_ui.png" id="15_xgrlo"]
+[ext_resource type="Texture2D" uid="uid://b1dbloupcpsid" path="res://ui/input_buttons/generic_controller/r_stick_ui.png" id="20_f55a4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k6dx1"]
+material = ExtResource("2_16x8o")
+flip_faces = true
+size = Vector2(300, 300)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f36fp"]
+sky_top_color = Color(0.71248466, 0.9037968, 0.94534236, 1)
+sky_horizon_color = Color(0.40991762, 0.70018417, 0.81230146, 1)
+ground_bottom_color = Color(0.12112529, 0.12704778, 0.26126, 1)
+ground_horizon_color = Color(0.4117647, 0.7019608, 0.8117647, 1)
+ground_curve = 0.11712682
+
+[sub_resource type="Sky" id="Sky_k6dx1"]
+sky_material = SubResource("ProceduralSkyMaterial_f36fp")
+
+[sub_resource type="Environment" id="Environment_40nky"]
+background_mode = 2
+sky = SubResource("Sky_k6dx1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_va8ia"]
+size = Vector3(130.56226, 24.61908, 299.1787)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kd133"]
+size = Vector3(19.645508, 10.4151, 12.482544)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ape0"]
+size = Vector3(7.6728516, 10.4151, 16.902405)
+
+[node name="TestLevel" instance=ExtResource("1_va8ia")]
+
+[node name="SavesHandler" parent="." index="0"]
+script = ExtResource("2_k6dx1")
+
+[node name="Saves" type="Node" parent="SavesHandler" index="0"]
+script = ExtResource("2_ylsy7")
+save_path = "./tutorial_save.ini"
+
+[node name="tutorial_mesh" parent="Models" index="0" instance=ExtResource("4_k6dx1")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Models" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.99218, 0)
+mesh = SubResource("PlaneMesh_k6dx1")
+
+[node name="LevelTube" parent="Entities" index="0" instance=ExtResource("14_rfm7h")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 16.207144, -3.1682239, -45.554237)
+load_level_path = "res://levels/hub_level.tscn"
+
+[node name="Control" parent="Entities/LevelTube" index="2"]
+label_text = "GO_TO_THE_HUB_LEVEL"
+
+[node name="WorldEnvironment" parent="." index="4"]
+environment = SubResource("Environment_40nky")
+
+[node name="PlayerSpawn" parent="." index="6"]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 19.891237, 0)
+
+[node name="FallArea" parent="." index="7" instance=ExtResource("2_kd133")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0779033, 0)
+
+[node name="CollisionShape3D" parent="FallArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9386268, -22.532185, 0)
+shape = SubResource("BoxShape3D_va8ia")
+
+[node name="MoveArea" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0779033, 0)
+script = ExtResource("3_7dfxr")
+
+[node name="Area3D" type="Area3D" parent="MoveArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0779033, 0)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MoveArea/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24556065, -1.3695374, 1.6465454)
+shape = SubResource("BoxShape3D_kd133")
+
+[node name="Control" type="Control" parent="MoveArea" index="1"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xct8i")
+
+[node name="PanelContainer" type="PanelContainer" parent="MoveArea/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -98.0
+offset_right = 97.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_w1mpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MoveArea/Control/PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="KeyBoard" type="HBoxContainer" parent="MoveArea/Control/PanelContainer/HBoxContainer" index="0"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="TextureRect" type="TextureRect" parent="MoveArea/Control/PanelContainer/HBoxContainer/KeyBoard" index="0"]
+layout_mode = 2
+texture = ExtResource("6_xct8i")
+
+[node name="TextureRect2" type="TextureRect" parent="MoveArea/Control/PanelContainer/HBoxContainer/KeyBoard" index="1"]
+layout_mode = 2
+texture = ExtResource("7_3gl33")
+
+[node name="TextureRect3" type="TextureRect" parent="MoveArea/Control/PanelContainer/HBoxContainer/KeyBoard" index="2"]
+layout_mode = 2
+texture = ExtResource("8_bvi2h")
+
+[node name="TextureRect4" type="TextureRect" parent="MoveArea/Control/PanelContainer/HBoxContainer/KeyBoard" index="3"]
+layout_mode = 2
+texture = ExtResource("9_2dtan")
+
+[node name="JoyPad" type="TextureRect" parent="MoveArea/Control/PanelContainer/HBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+texture = ExtResource("15_xgrlo")
+
+[node name="Label" type="Label" parent="MoveArea/Control/PanelContainer/HBoxContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "MOVE"
+vertical_alignment = 1
+
+[node name="CameraArea" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0779033, 0)
+
+[node name="Area3D" type="Area3D" parent="CameraArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0779033, -24.32)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraArea/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24556065, -1.3695374, 1.6465454)
+shape = SubResource("BoxShape3D_kd133")
+
+[node name="Control" type="Control" parent="CameraArea/Area3D" index="1"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_xct8i")
+label_text = "MOVE_CAMERA"
+
+[node name="PanelContainer" type="PanelContainer" parent="CameraArea/Area3D/Control" index="0"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -98.0
+offset_right = 97.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("5_w1mpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CameraArea/Area3D/Control/PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="KeyBoard" type="HBoxContainer" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer" index="0"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="TextureRect" type="TextureRect" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer/KeyBoard" index="0"]
+layout_mode = 2
+texture = ExtResource("10_0uau3")
+
+[node name="TextureRect2" type="TextureRect" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer/KeyBoard" index="1"]
+layout_mode = 2
+texture = ExtResource("11_rfm7h")
+
+[node name="TextureRect3" type="TextureRect" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer/KeyBoard" index="2"]
+layout_mode = 2
+texture = ExtResource("12_16x8o")
+
+[node name="TextureRect4" type="TextureRect" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer/KeyBoard" index="3"]
+layout_mode = 2
+texture = ExtResource("13_ylsy7")
+
+[node name="JoyPad" type="TextureRect" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+texture = ExtResource("20_f55a4")
+
+[node name="Label" type="Label" parent="CameraArea/Area3D/Control/PanelContainer/HBoxContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "MOVE"
+vertical_alignment = 1
+
+[node name="JumpArea" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0779033, 0)
+script = ExtResource("3_7dfxr")
+
+[node name="Area3D" type="Area3D" parent="JumpArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0779033, -44.09801)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="JumpArea/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.231889, -1.3695374, -0.563385)
+shape = SubResource("BoxShape3D_6ape0")
+
+[node name="Control" parent="JumpArea" index="1" instance=ExtResource("10_xct8i")]
+label_text = "JUMP"
+keyboard_input = ExtResource("11_3gl33")
+controller_input = ExtResource("12_bvi2h")
+
+[node name="PanelContainer" parent="JumpArea/Control" index="0"]
+offset_top = -108.0
+offset_bottom = -22.294983
+
+[node name="HBoxContainer" parent="JumpArea/Control/PanelContainer" index="0"]
+theme_override_constants/separation = 15
+
+[connection signal="transition_started" from="Entities/LevelTube" to="SavesHandler" method="_on_level_tube_transition_started"]
+[connection signal="body_entered" from="MoveArea/Area3D" to="MoveArea/Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="MoveArea/Area3D" to="MoveArea/Control" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="CameraArea/Area3D" to="CameraArea/Area3D/Control" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="CameraArea/Area3D" to="CameraArea/Area3D/Control" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="JumpArea/Area3D" to="JumpArea" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="JumpArea/Area3D" to="JumpArea" method="_on_area_3d_body_exited"]
+
+[editable path="Entities/LevelTube"]
+[editable path="FallArea"]
+[editable path="JumpArea/Control"]

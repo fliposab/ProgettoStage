@@ -13,6 +13,8 @@ func before_all():
 	_dog = _level.get_node("GoldenRetriever")
 
 func after_all():
+	var coverage: Coverage = Coverage.instance
+	coverage.save_coverage_file("test_dog.json")
 	_level.queue_free()
 
 func before_each():

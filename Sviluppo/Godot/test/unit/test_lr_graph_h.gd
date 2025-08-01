@@ -11,6 +11,8 @@ func before_all():
 	add_child(_graph)
 
 func after_all():
+	var coverage: Coverage = Coverage.instance
+	coverage.save_coverage_file("test_dog.json")
 	_graph.queue_free()
 
 func before_each():

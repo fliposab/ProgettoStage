@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dddi4bepfh0lv"]
+[gd_scene load_steps=6 format=3 uid="uid://dddi4bepfh0lv"]
 
 [ext_resource type="Script" uid="uid://7x0r80t0axyj" path="res://code/level/assets/ac_unit.gd" id="1_c2dsr"]
 [ext_resource type="PackedScene" uid="uid://bbr70o34agnm8" path="res://models/ac_unit.glb" id="1_s6rjw"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="3_fkq6g"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="4_2mnt3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s6rjw"]
 size = Vector3(4.39905, 3.66168, 5.62402)
@@ -21,6 +22,7 @@ shape = SubResource("BoxShape3D_s6rjw")
 
 [node name="Control" parent="." instance=ExtResource("3_fkq6g")]
 label_text = "TURN_ON"
+controller_input = ExtResource("4_2mnt3")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

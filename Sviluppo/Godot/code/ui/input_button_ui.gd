@@ -27,7 +27,7 @@ func connect_signal():
 
 func _on_device_changed(device: String)->void:
 	match device:
-		"":
+		"Keyboard":
 			ui_button = keyboard_input
 		_:
 			change_controller_ui()

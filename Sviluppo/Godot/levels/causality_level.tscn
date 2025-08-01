@@ -486,9 +486,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44.
 [node name="NPCDialogue" parent="." index="16" instance=ExtResource("33_dc672")]
 transform = Transform3D(0.2752011, 0, -0.9613867, 0, 1, 0, 0.9613867, 0, 0.2752011, -54.64501, -0.40862823, 8.06044)
 
-[node name="Control" parent="NPCDialogue" index="2"]
-hide_on_start = true
-
 [node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
 text = "CAUSALITY_NPC_MESSAGE_1"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qkp7n7aj708b"]
+[gd_scene load_steps=14 format=3 uid="uid://qkp7n7aj708b"]
 
 [ext_resource type="Script" uid="uid://4q6s4pn0s81" path="res://code/level/assets/npc_dialogue.gd" id="2_adou1"]
 [ext_resource type="PackedScene" uid="uid://co5tiyor38f11" path="res://ui/dialogue/simple_label.tscn" id="2_j6fel"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pnkx7d2cib5p" path="res://ui/dialogue/dialogue.tscn" id="3_iroik"]
 [ext_resource type="Script" uid="uid://dh2u0gt2kp10n" path="res://ui/dialogue/ui_button_project_label.gd" id="3_s1rrp"]
 [ext_resource type="PackedScene" uid="uid://mrvomwc7vlsi" path="res://ui/dialogue/dialogue_box_simple.tscn" id="5_0fjbc"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="5_j6fel"]
 [ext_resource type="Script" uid="uid://8e8bv2r4vmf7" path="res://code/ui/ui_button_icon.gd" id="6_bqvyi"]
 [ext_resource type="PackedScene" uid="uid://cqfewgk4fcl5h" path="res://models/npc_cube.glb" id="10_1p5eo"]
 [ext_resource type="Script" uid="uid://b82baq35oa1s0" path="res://code/level/assets/npc_model.gd" id="11_bh7d5"]
@@ -34,7 +35,8 @@ shape = SubResource("SphereShape3D_b5svi")
 [node name="Control" parent="." instance=ExtResource("2_j6fel")]
 script = ExtResource("3_s1rrp")
 keyboard_input = ExtResource("3_0fjbc")
-controller_input = null
+controller_input = ExtResource("5_j6fel")
+hide_on_start = true
 
 [node name="Label" parent="Control" index="0"]
 visible = false

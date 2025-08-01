@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0j4e88o3bouh"]
+[gd_scene load_steps=8 format=3 uid="uid://d0j4e88o3bouh"]
 
 [ext_resource type="Texture2D" uid="uid://ccdncvq46pv4g" path="res://ui/scope.png" id="1_m0pyc"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="2_yvvw5"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="3_1rybo"]
 [ext_resource type="Texture2D" uid="uid://dl0xha7wq2kn" path="res://ui/input_buttons/keyboard/r_button.png" id="3_yvvw5"]
 [ext_resource type="Texture2D" uid="uid://bhtw4rms5axmk" path="res://ui/input_buttons/keyboard/q_button.png" id="4_epu6a"]
+[ext_resource type="Texture2D" uid="uid://c38w4v1rte3bt" path="res://ui/input_buttons/generic_controller/controller_up_button.png" id="5_33eyu"]
+[ext_resource type="Texture2D" uid="uid://c6rbc0iv1r1os" path="res://ui/input_buttons/generic_controller/controller_right_button.png" id="7_ie33j"]
 
 [node name="LRScope" type="Control"]
 layout_mode = 3
@@ -43,6 +46,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 label_text = "SHOOT"
+controller_input = ExtResource("3_1rybo")
 hide_on_start = false
 
 [node name="Control2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_yvvw5")]
@@ -51,6 +55,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 label_text = "RESET"
 keyboard_input = ExtResource("3_yvvw5")
+controller_input = ExtResource("5_33eyu")
 hide_on_start = false
 
 [node name="Control3" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_yvvw5")]
@@ -59,4 +64,5 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 label_text = "LEAVE"
 keyboard_input = ExtResource("4_epu6a")
+controller_input = ExtResource("7_ie33j")
 hide_on_start = false

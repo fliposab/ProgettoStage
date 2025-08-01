@@ -138,3 +138,7 @@ CAUSALITY_NPC_MESSAGE_1,"Ciao! Benvenuto nel livello della Causalità!","Hi! Wel
 CAUSALITY_NPC_MESSAGE_2,"Certo che qui fa proprio caldo!","Man, it's sure hot here"
 CAUSALITY_NPC_MESSAGE_3,"Lo sai? Pare ci sia una certa connessione tra l'uso dei condizionatori ed il consumo di gelati","Did you know? Seems there's a certain connection between the use of Air Conditioning and ice-cream consumption"
 CAUSALITY_NPC_MESSAGE_4,"Perché non vai a controllare quella gelateria più avanti?","Why don't you check that ice-cream shop ahead?"
+MOVE,Muoviti,Move
+JUMP,Salta,Jump
+MOVE_CAMERA,Muovi la telecamera,Move camera
+GO_TO_THE_HUB_LEVEL,Vai al livello Hub,Go to the Hub level

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmt038lejs3fo"]
+[gd_scene load_steps=13 format=3 uid="uid://cmt038lejs3fo"]
 
 [ext_resource type="Script" uid="uid://bur1k14aqy6v1" path="res://code/level/assets/lr_cannon.gd" id="1_kywae"]
 [ext_resource type="PackedScene" uid="uid://xrba7x0hpxe" path="res://models/cannon_lr.glb" id="2_syu20"]
 [ext_resource type="Script" uid="uid://bbpi7ecf7ovl4" path="res://code/level/assets/cannon_camera.gd" id="3_afgnj"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="4_xnyua"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="5_qn0ks"]
 [ext_resource type="PackedScene" uid="uid://d0j4e88o3bouh" path="res://ui/lr_scope.tscn" id="5_syu20"]
 [ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="6_afgnj"]
 [ext_resource type="AudioStream" uid="uid://bbdugi5s6yhhe" path="res://sounds/reset_graph_sound.wav" id="7_yov1f"]
@@ -57,6 +58,7 @@ shape = SubResource("BoxShape3D_un71f")
 
 [node name="Control" parent="." instance=ExtResource("4_xnyua")]
 label_text = "USE_CANNON"
+controller_input = ExtResource("5_qn0ks")
 
 [node name="LRScope" parent="." instance=ExtResource("5_syu20")]
 

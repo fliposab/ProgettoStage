@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bddgyinrqknqk" path="res://code/player/grab_item_node.gd" id="1_sc41p"]
 [ext_resource type="Script" uid="uid://cxrb6p1gbss1h" path="res://code/ui/grab_ui.gd" id="2_p6urq"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="3_jh0n8"]
-[ext_resource type="Texture2D" uid="uid://c6rbc0iv1r1os" path="res://ui/input_buttons/generic_controller/controller_right_button.png" id="4_p6urq"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="5_1jl2q"]
 
 [node name="GrabItem" type="Node"]
 script = ExtResource("1_sc41p")
@@ -21,13 +21,13 @@ script = ExtResource("2_p6urq")
 visible = false
 layout_mode = 1
 label_text = "GRAB"
-controller_input = ExtResource("4_p6urq")
+controller_input = ExtResource("5_1jl2q")
 
 [node name="Drop" parent="Control" instance=ExtResource("3_jh0n8")]
 visible = false
 layout_mode = 1
 label_text = "DROP"
-controller_input = ExtResource("4_p6urq")
+controller_input = ExtResource("5_1jl2q")
 
 [connection signal="show_grab_ui" from="." to="Control" method="_on_grab_item_show_grab_ui"]
 [connection signal="show_hold_ui" from="." to="Control" method="_on_grab_item_show_hold_ui"]

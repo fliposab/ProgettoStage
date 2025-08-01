@@ -327,6 +327,8 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TU-41],[Si verifica che un cane possa ritornare alla sua posizione iniziale],[\u{2713}],
   //Causality
   [TU-42],[Si verifica che l'NPC che esce dall'appartamento corra verso l'obiettivo],[\u{2713}],
+  [TU-43],[Si verifica che l'applicazione rilevi un cambio di dispositivo di Input],[\u{2713}],
+  [TU-44],[Si verifica che l'applicazione mostri i rispettivi input del dispositivo che si sta usando nella UI],[\u{2713}],
 ))
 
 == Test di integrazione
@@ -378,6 +380,7 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   [TI-35],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore rosso, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
   [TI-36],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore verde, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
   [TI-37],[Si verifica che quando il giocatore si avvicina ad un "Training data" di colore blu, questo viene preso ed aumenta il rispettivo contatore],[\u{2713}],
+  [TI-38],[Si verifica che quando il giocatore cade dal livello, torna in una zona dove si trovava precedentemente],[\u{2713}],
   //Salvataggi
   /*
   [TI-],[Si verifica che il valore di training data rossi collezionati dal giocatore venga salvato ogni volta che il valore si aggiorna],[],

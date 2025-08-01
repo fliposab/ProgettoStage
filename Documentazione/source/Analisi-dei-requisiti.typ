@@ -1274,14 +1274,14 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-03-V-O", "Progetto","\u{2713}",
     "R-04-V-O", "Progetto","\u{2713}", 
     "R-05-V-O", "Progetto","\u{2713}", 
-    // Requisiti di qualità
+    // Requisiti di accessibilità
     "R-01-A-O", "Decisione interna","\u{2713}",
-    "R-02-A-D", "Decisione interna","",
-    "R-03-A-O", "Decisione interna","",
+    "R-02-A-D", "Decisione interna","\u{2713}",
+    "R-03-A-D", "Decisione interna","",
     "R-04-A-D", "Decisione interna","",
-    "R-05-A-D", "Decisione interna","\u{2713}",
-    "R-06-A-D", "Decisione interna","",
-    "R-07-A-O", "Discussione con il tutor aziendale","",
+    "R-05-A-O", "Decisione interna","\u{2713}",
+    "R-06-A-D", "Decisione interna","\u{2713}",
+    "R-07-A-O", "Discussione con il tutor aziendale","\u{2713}",
   ),
 )
 = Riepilogo 

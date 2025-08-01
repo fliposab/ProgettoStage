@@ -3,7 +3,7 @@ class_name CheckSaves
 
 func _ready()->void:
 	var config := ConfigFile.new()
-	var err = config.load("./player_save.ini")
+	var err = config.load("./tutorial_save.ini")
 	if err == OK:
 		get_parent().show()
 	else:

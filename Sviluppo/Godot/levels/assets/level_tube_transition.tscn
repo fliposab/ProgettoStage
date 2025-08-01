@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://defqrxrye37cr"]
+[gd_scene load_steps=7 format=3 uid="uid://defqrxrye37cr"]
 
 [ext_resource type="PackedScene" uid="uid://c11n7aiqbnp6m" path="res://levels/assets/level_tube.tscn" id="1_18hex"]
 [ext_resource type="Script" uid="uid://cg1uve0raquw3" path="res://code/level/assets/level_tube_transition.gd" id="1_tawta"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="3_kfkwb"]
 [ext_resource type="PackedScene" uid="uid://v3o67ynj7g3j" path="res://ui/fade.tscn" id="3_ky2u7"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="4_oyj72"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tawta"]
 size = Vector3(3.63647, 3.63477, 4.2041)
@@ -22,6 +23,7 @@ shape = SubResource("BoxShape3D_tawta")
 
 [node name="Control" parent="." instance=ExtResource("3_kfkwb")]
 label_text = "GO_TO_LINEAR_REGRESSION"
+controller_input = ExtResource("4_oyj72")
 
 [node name="Fade" parent="." instance=ExtResource("3_ky2u7")]
 visible = false

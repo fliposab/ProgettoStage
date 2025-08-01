@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bbtt36s8tq4n7"]
+[gd_scene load_steps=44 format=3 uid="uid://bbtt36s8tq4n7"]
 
 [ext_resource type="Script" uid="uid://dp8qyteygvet3" path="res://code/level/decision_tree/interactable_sign.gd" id="1_wiyaj"]
 [ext_resource type="Script" uid="uid://b4sncsxcr8pu0" path="res://code/ui/scroll_container.gd" id="3_iauig"]
@@ -37,6 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://ofh7lyfmt8cf" path="res://models/sign.glb" id="36_2wcn7"]
 [ext_resource type="PackedScene" uid="uid://br6ctspqdnudu" path="res://ui/input_buttons/input_button_ui.tscn" id="36_pwqwt"]
 [ext_resource type="Texture2D" uid="uid://bhtw4rms5axmk" path="res://ui/input_buttons/keyboard/q_button.png" id="36_xv2mq"]
+[ext_resource type="Texture2D" uid="uid://c6rbc0iv1r1os" path="res://ui/input_buttons/generic_controller/controller_right_button.png" id="37_sewnb"]
+[ext_resource type="Texture2D" uid="uid://xhdc45pdcjx2" path="res://ui/input_buttons/generic_controller/controller_left_button.png" id="39_aogq3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8i1xr"]
 size = Vector3(3.62109, 2.99829, 2.49079)
@@ -233,6 +235,7 @@ layout_mode = 2
 size_flags_vertical = 0
 label_text = "CLOSE"
 keyboard_input = ExtResource("36_xv2mq")
+controller_input = ExtResource("37_sewnb")
 
 [node name="PanelContainer" parent="SignUI/VBoxContainer/Control" index="0"]
 anchors_preset = 5
@@ -257,6 +260,7 @@ transform = Transform3D(5.284853e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, 5.284853e-08, 
 [node name="Control" parent="." instance=ExtResource("36_pwqwt")]
 visible = false
 label_text = "READ_SIGN"
+controller_input = ExtResource("39_aogq3")
 
 [connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/ScrollContainer" method="_on_dog_breed_sign_focus_grid"]
 [connection signal="focus_grid" from="." to="SignUI/VBoxContainer/PanelContainer/ScrollContainer/MarginContainer/GridContainer" method="_on_dog_breed_sign_focus_grid"]

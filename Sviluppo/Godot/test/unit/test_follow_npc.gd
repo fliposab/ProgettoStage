@@ -13,6 +13,8 @@ func before_all():
 	_target = _cutscene.get_node("PathNPC/PathFollow3D")
 
 func after_all():
+	var coverage: Coverage = Coverage.instance
+	coverage.save_coverage_file("test_dog.json")
 	_cutscene.queue_free()
 
 func before_each():
