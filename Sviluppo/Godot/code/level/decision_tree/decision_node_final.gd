@@ -19,7 +19,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func check_if_correct(body: Node3D):
 	if body.id == id:
 		_is_correct = true
-		owner.send_correct_data(body.id_number)
+		owner.new_breed_unlocked.emit(body.id_number)
 		if player:
 			_ui_answer.show_correct(player.get_camera())
 	else:

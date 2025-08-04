@@ -1,12 +1,12 @@
 extends Saves
 class_name  CausalitySaves
 
-func save_data()->void:
+func save_data(stats: SavesHandler)->void:
 	var config := ConfigFile.new()
 	config.set_value("level", "data", stats.data)
 	config.save(save_path)
 
-func load_data() -> void:
+func load_data(stats: SavesHandler) -> void:
 	var config := ConfigFile.new()
 	var err = config.load(save_path)
 	# If the file didn't load, ignore it.

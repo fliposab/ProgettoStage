@@ -182,9 +182,6 @@ load_level_path = "res://levels/hub_level.tscn"
 [node name="NPCDialogue" parent="." instance=ExtResource("9_qe0ju")]
 transform = Transform3D(-0.8605109, 0, -0.509432, 0, 1, 0, 0.509432, 0, -0.8605109, 10.373996, 0.44399023, 1.679033)
 
-[node name="Control" parent="NPCDialogue" index="2"]
-hide_on_start = true
-
 [node name="Text1" parent="NPCDialogue/Dialogue" index="0"]
 text = "LR_MESSAGE_1"
 

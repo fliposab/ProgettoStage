@@ -29,11 +29,6 @@ func _on_interact_button_pressed():
 	grid.show()
 	ui.hide()
 
-##Emits a signal containg the index received
-##id: the index for the array
-func _on_data_received(id: int):
-	unlock_dog.emit(id)
-
 ##Checks the already unlocked breeds
 func check_save_unlocked()->void:
 	for i in owner.saves_handler.breeds_unlocked.size():
@@ -49,3 +44,8 @@ func _on_go_back_button_pressed():
 	grid.hide()
 	hide_grid.emit()
 	ui.show()
+
+##Emits a signal containg the index received
+##id: the index for the array
+func _on_decision_tree_new_breed_unlocked(id: int) -> void:
+	unlock_dog.emit(id)

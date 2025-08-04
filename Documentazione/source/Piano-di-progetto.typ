@@ -285,12 +285,10 @@ Inoltre è stato completato lo sviluppo del terzo livello del gioco, a tema "Cau
   - aggiunta dei personaggi non giocabili con i loro rispettivi dialoghi;
   - aggiunte classi per controllare e cambiare il comportamento dei personaggi non giocabili prima e dopo la scena di intermezzo.
 #figure( caption: "Livello Causalità dopo la scena di intermezzo (settimana 5)", image("imgs/settimana-5.png", width: 100%))
+#pagebreak()
 == Settimana 6 | 21/07 - 25/07
 #pseudoheading[*Retropsettiva*]
-La maggior parte dell'applicazione durante questo periodo è stata ù
-completata. Si è posta più concentrazione verso gli elementi di 
-presentazione come i suoni e gli effetti grafici, per migliorare 
-l'esperienza di gioco.\
+La maggior parte dell'applicazione durante questo periodo è stata completata. Si è posta più concentrazione verso gli elementi di  presentazione come i suoni e gli effetti grafici, per migliorare l'esperienza di gioco.\
 Inoltre, è stata migliorata la presentazione dei vecchi livelli, aggiungendo materiali e suoni.\
 Infine sono stati inoltre corretti alcuni bug presenti nell'applicazione ed è stata aggiornata la documentazione.
 #pseudoheading[*Attività svolte*]
@@ -300,9 +298,20 @@ Infine sono stati inoltre corretti alcuni bug presenti nell'applicazione ed è s
 - Correzione di bug presenti nell'applicazione.
 - Inizio sviluppo dei test.
 #figure( caption: [Livello "Albero di decisione" (settimana 6)], image("imgs/settimana-6.png", width: 100%))
+#pagebreak()
 == Settimana 7 | 28/07 - 01/08
 #pseudoheading[*Retropsettiva*]
+Durante la settima settimana di tirocinio, è stata ultimata l'applicazione, con il completamento di tutti i requisiti obbligatori. Inoltre sono stati soddisfatti alcuni requisiti desiderabili, migliorando ulteriormente la qualità del prodotto finale. Sono stati eseguiti test approfonditi per verificare il corretto funzionamento dell'applicazione e sono state apportate le ultime ottimizzazioni al codice e all'interfaccia utente.
+Infine è stata presentata l'applicazione al tutor aziendale.
 #pseudoheading[*Attività svolte*]
+- Sviluppo di test di unità, integrazione e sistema.
+- Controllo delle prestazioni e risorse usate dal gioco.
+- Aggiunto un livello "Tutorial" che viene caricato quando il giocatore preme "Nuova partita".
+- Aggiunto supporto generale per i joypad.
+- Migliorata la UI del gioco.
+- Presentazione applicazione al tutor aziendale.
+#figure( caption: [Livello "Tutorial" (settimana 7)], image("imgs/settimana-7.png", width: 100%))
+#pagebreak()
 == Settimana 8 | 04/08 - 08/08
 #pseudoheading[*Retropsettiva*]
 #pseudoheading[*Attività svolte*]

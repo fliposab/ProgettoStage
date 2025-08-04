@@ -4,7 +4,7 @@ class_name OptionsSave
 func _ready()->void:
 	save_path ="./options_save.ini"
 
-func save_data()->void:
+func save_data(stats: SavesHandler)->void:
 	var config := ConfigFile.new()
 	
 	config.set_value("common", "window_mode", stats.window_mode)
@@ -18,7 +18,7 @@ func save_data()->void:
 	
 	config.save(save_path)
 
-func load_data() -> void:
+func load_data(stats: SavesHandler) -> void:
 	var config := ConfigFile.new()
 	var err = config.load(save_path)
 	# If the file didn't load, ignore it.

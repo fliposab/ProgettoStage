@@ -4,8 +4,9 @@ class_name LRCannon
 @export var graph : LinearRegressionGraph
 
 @onready var camera : Camera3D = $cannon_lr/cannon/Camera3D
-@onready var cannon_mesh : MeshInstance3D = $cannon_lr/cannon
+@onready var cannon_mesh : CannonMesh = $cannon_lr/cannon
 @onready var _lr_scope_ui : Control = $LRScope
+@onready var _input_handler : LRCannonInputHandler = $InputHandler
 @onready var animation_player : AnimationPlayer = $Control/VBoxContainer/AnimationPlayer
 
 func _ready()->void:
@@ -15,6 +16,7 @@ func _ready()->void:
 func _on_interact_button_pressed()->void:
 	cannon_mesh.process_mode = Node.PROCESS_MODE_INHERIT
 	graph.process_mode = Node.PROCESS_MODE_INHERIT
+	_input_handler.process_mode = Node.PROCESS_MODE_INHERIT
 	$ConfirmSound.play()
 	graph.resize_line(0.05)
 	camera.current = true
@@ -27,7 +29,7 @@ func _on_cannon_add_point(point_position: Vector3) -> void:
 	graph.add_point(point_position)
 	cannon_mesh.rand_rotation()
 
-func _on_cannon_exit() -> void:
+func exit() -> void:
 	camera.current = false
 	player.set_camera_current(true)
 	ui.show()
@@ -39,7 +41,9 @@ func _on_cannon_exit() -> void:
 	$ConfirmSound.play()
 	graph.process_mode = Node.PROCESS_MODE_DISABLED
 	cannon_mesh.process_mode = Node.PROCESS_MODE_DISABLED
+	_input_handler.process_mode = Node.PROCESS_MODE_DISABLED
 
-func _on_cannon_reset_graph() -> void:
+func reset_graph() -> void:
+	cannon_mesh.reset_rotation()
 	graph.reset_points()
 	$ResetGraphSound.play()

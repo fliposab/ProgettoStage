@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=4 uid="uid://dsub0ok6urt1p"]
+[gd_scene load_steps=35 format=4 uid="uid://dsub0ok6urt1p"]
 
 [ext_resource type="PackedScene" uid="uid://cyumfgemisawb" path="res://levels/base_level.tscn" id="1_l1nkn"]
 [ext_resource type="PackedScene" uid="uid://bbtt36s8tq4n7" path="res://levels/assets/dog_breed_sign.tscn" id="2_0hd3l"]
 [ext_resource type="PackedScene" uid="uid://cona58iu8eeah" path="res://levels/assets/decision_tree.tscn" id="3_ciugy"]
 [ext_resource type="PackedScene" uid="uid://dtnoyauwy2ndr" path="res://levels/assets/fall_area.tscn" id="4_8vxcw"]
 [ext_resource type="PackedScene" uid="uid://defqrxrye37cr" path="res://levels/assets/level_tube_transition.tscn" id="5_8g85a"]
-[ext_resource type="Script" uid="uid://bmkqesgw78r0r" path="res://code/level/assets/collectibles_reward.gd" id="5_8u3fi"]
 [ext_resource type="Material" uid="uid://bblnhbvfyqhwo" path="res://models/materials/green.tres" id="6_2cdcn"]
 [ext_resource type="Script" uid="uid://bqoiwb6pq1qwm" path="res://code/saves/dt_saves_handler.gd" id="6_yev1y"]
 [ext_resource type="Material" uid="uid://dk7kjkhvyjb1y" path="res://models/materials/black_unshaded.tres" id="7_0hd3l"]
@@ -122,7 +121,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59917, 2.45972, 6.9589)
 [node name="tree" parent="DecisionTree" index="2" instance=ExtResource("10_kqcum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.59917, -2.45972, -6.9589)
 
-[node name="DogBreedSign" parent="." index="1" instance=ExtResource("2_0hd3l")]
+[node name="CheckUnlocked" type="Node" parent="." index="1"]
+script = ExtResource("7_w5hcv")
+
+[node name="CollectibleSpawner" parent="CheckUnlocked" index="0" instance=ExtResource("12_pniec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.125, 2.902289, -3.53421)
+load_red = false
+load_green = true
+
+[node name="DogBreedSign" parent="." index="2" instance=ExtResource("2_0hd3l")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 1.77638, -1.79465)
 
 [node name="SignUI" parent="DogBreedSign" index="1"]
@@ -131,24 +138,13 @@ visible = false
 [node name="Control" parent="DogBreedSign/SignUI/VBoxContainer" index="2"]
 hide_on_start = false
 
-[node name="Reward" type="Node" parent="DogBreedSign" index="4"]
-script = ExtResource("5_8u3fi")
-
-[node name="CollectibleSpawner" parent="DogBreedSign/Reward" index="0" instance=ExtResource("12_pniec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.125, 2.902289, -3.53421)
-load_red = false
-load_green = true
-
-[node name="CheckUnlocked" type="Node" parent="DogBreedSign/Reward" index="1"]
-script = ExtResource("7_w5hcv")
-
-[node name="Clouds" type="MeshInstance3D" parent="." index="2"]
+[node name="Clouds" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.878212, 0)
 gi_mode = 0
 mesh = SubResource("PlaneMesh_a0hj5")
 skeleton = NodePath("../DirectionalLight3D")
 
-[node name="SavesHandler" parent="." index="3"]
+[node name="SavesHandler" parent="." index="4"]
 script = ExtResource("6_yev1y")
 breeds_unlocked = Array[bool]([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
 
@@ -168,9 +164,6 @@ transform = Transform3D(0.4780698, 0, -0.39477748, 0, 0.62, 0, 0.39477748, 0, 0.
 
 [node name="NPCDialogue" parent="Entities" index="0" instance=ExtResource("8_ydd6s")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12.531397, -0.045978546, 0.76083374)
-
-[node name="Control" parent="Entities/NPCDialogue" index="2"]
-hide_on_start = true
 
 [node name="Text1" parent="Entities/NPCDialogue/Dialogue" index="0"]
 text = "NPC_DOG_MESSAGE_1"
@@ -215,25 +208,25 @@ script = ExtResource("12_2sipj")
 stream = ExtResource("9_8ebu2")
 volume_db = -10.0
 
-[node name="DirectionalLight3D" parent="." index="6"]
+[node name="DirectionalLight3D" parent="." index="7"]
 transform = Transform3D(0.7775893, -0.5938583, -0.20660909, 0.06433579, -0.2517219, 0.965659, -0.6254727, -0.7641784, -0.15752985, -0.32009506, 2.06607, 2.43376)
 light_bake_mode = 1
 shadow_opacity = 0.6
 
-[node name="WorldEnvironment" parent="." index="7"]
+[node name="WorldEnvironment" parent="." index="8"]
 environment = SubResource("Environment_8vxcw")
 
-[node name="FallArea" parent="." index="9" instance=ExtResource("4_8vxcw")]
+[node name="FallArea" parent="." index="10" instance=ExtResource("4_8vxcw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.50139, 0)
 
 [node name="CollisionShape3D" parent="FallArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4995, 0, 0)
 shape = SubResource("BoxShape3D_8g85a")
 
-[node name="PlayerSpawn" parent="." index="10"]
+[node name="PlayerSpawn" parent="." index="11"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.916046, 9.537676, -4.451524)
 
-[node name="LevelTube3" parent="." index="11" instance=ExtResource("5_8g85a")]
+[node name="LevelTube3" parent="." index="12" instance=ExtResource("5_8g85a")]
 transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 4.54911, 0, -4.10791)
 load_level_path = "res://levels/hub_level.tscn"
 
@@ -253,7 +246,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.861023e-06, 0.145576, -15.7
 label_text = "BACK_TO_HUB"
 controller_input = ExtResource("27_lmij7")
 
-[node name="DogLine" parent="." index="12" instance=ExtResource("9_yev1y")]
+[node name="DogLine" parent="." index="13" instance=ExtResource("9_yev1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17149, 0.0722151, -13.9558)
 
 [node name="GoldenRetriever" parent="DogLine" index="0"]
@@ -290,9 +283,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5753884, 0, -1.8375874)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0516586, 0, -3.072795)
 
 [connection signal="ready" from="." to="DogBreedSign" method="check_save_unlocked"]
-[connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign/Reward/CheckUnlocked" method="_on_decision_tree_new_breed_unlocked"]
-[connection signal="send_data" from="DecisionTree" to="DogBreedSign" method="_on_data_received"]
-[connection signal="hide_grid" from="DogBreedSign" to="DogBreedSign/Reward/CheckUnlocked" method="_on_dog_breed_sign_hide_grid"]
+[connection signal="new_breed_unlocked" from="DecisionTree" to="SavesHandler" method="_on_decision_tree_new_breed_unlocked"]
+[connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign" method="_on_decision_tree_new_breed_unlocked"]
+[connection signal="new_breed_unlocked" from="DecisionTree" to="CheckUnlocked" method="_on_decision_tree_new_breed_unlocked"]
+[connection signal="hide_grid" from="DogBreedSign" to="CheckUnlocked" method="_on_dog_breed_sign_hide_grid"]
+[connection signal="data_loaded" from="SavesHandler" to="DecisionTree" method="_on_saves_handler_data_loaded"]
 [connection signal="dialogue_ended_correct" from="Entities/NPCDialogue/Dialogue" to="Entities/NPCDialogue/Behaviour" method="_on_dialogue_ended_correct"]
 [connection signal="reset_dogs" from="Entities/NPCDialogue/Behaviour" to="DogLine" method="_on_reset_dogs"]
 

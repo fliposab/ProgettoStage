@@ -65,13 +65,13 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*:\ 
 - Giocatore
 *Descrizione*:\ 
-- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del controller.
+- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del joypad.
 *Precondizioni*:\ 
 - Il giocatore deve essere in un livello del gioco.
 *Postcondizioni*:\
 - Il personaggio si muove nella direzione desiderata e interagisce con l'ambiente circostante.
 *Scenario principale*:\
-- Il giocatore preme il tasto o muove la levetta nel #gloss[controller].
+- Il giocatore preme il tasto o muove la levetta nel #gloss[joypad].
 - Il personaggio si muove nella direzione desiderata.
 *Inclusioni*:\
 - Rotazione telecamera automatica.
@@ -84,7 +84,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*:\ 
 - Giocatore
 *Descrizione*:\ 
-- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del controller.
+- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del joypad.
 *Precondizioni*:\ 
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore ha un oggetto con sé.
@@ -92,7 +92,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il personaggio si muove nella direzione desiderata
 - Il personaggio sposta con sé lì'oggetto.
 *Scenario principale*:\
-- Il giocatore preme il tasto o muove la levetta nel #gloss[controller].
+- Il giocatore preme il tasto o muove la levetta nel #gloss[joypad].
 - Il personaggio si muove nella direzione desiderata insieme all'oggetto.
 
 // UC2 - Salto
@@ -101,7 +101,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
-- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del controller.
+- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del joypad.
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore deve essere libero di muoversi.
@@ -117,7 +117,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*:
 - Giocatore
 *Descrizione*:\
-- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del controller mentre sta trasportando un oggetto.
+- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del joypad mentre sta trasportando un oggetto.
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore deve essere libero di muoversi.
@@ -134,7 +134,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
-- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del controller.\
+- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del joypad.\
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.\
 *Postcondizioni*:
@@ -149,20 +149,20 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
-- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del controller.\
+- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del joypad.\
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.\
 *Postcondizioni*:
 - La telecamera si muove attorno al personaggio, cambiando l'angolo di visualizzazione.
 *Scenario principale*:
-- Il giocatore preme le frecce direzionali o lo #gloss[stick analogico] destro del controller.
+- Il giocatore preme le frecce direzionali o lo #gloss[stick analogico] destro del joypad.
 - La telecamera si muove attorno al personaggio.
 
 === UC3.2 - Rotazione telecamera automatica
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
-- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del controller.\
+- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del joypad.\
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.\
 *Postcondizioni*:
@@ -654,7 +654,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Postcondizioni*: 
 - Il gioco si interrompe e viene visualizzato il menu di pausa.
 *Scenario principale*:
-- Il giocatore preme il tasto di pausa o il comando del controller.
+- Il giocatore preme il tasto di pausa o il comando del joypad.
 - Il gioco si interrompe e viene visualizzato il menu di pausa.
 
 // UC20 - Riprendi
@@ -761,7 +761,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore seleziona l'opzione "Nuova partita" dal menu principale.
 - I salvataggi vengono cancellati.
-- Il gioco inizia e il giocatore viene portato al livello base.
+- Il gioco inizia e il giocatore viene portato al livello tutorial.
 
 // UC27 - Modifica modalità finestra
 == UC27 - Modifica modalità finestra
@@ -919,6 +919,34 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore si ferma.
 - Il giocatore visualizza la scena di intermezzo.
 - Il giocatore può tornare a muoversi.
+
+== UC37 - Visualizzazione input tastiera
+#figure(image("imgs/uc-input_prompt.png", width: auto), caption: "Visualizzazione input nella UI")
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore deve vedere che input deve premere dal dispositivo che sta utilizzando.
+*Precondizioni*:
+- Il giocatore deve avere la tastiera collegata alla macchina.
+*Postcondizioni*
+- Il giocatore visualizza nella UI il tasto della tastiera da premere
+*Scenario principale*:
+- Il giocatore preme un tasto della tastiera.
+- Il gioco aggiorna la UI mostrando gli input della tastiera.
+
+== UC38 - Visualizzazione input joypad
+*Attori principali*:
+- Giocatore
+*Descrizione*:
+- Il giocatore deve vedere che input deve premere dal dispositivo che sta utilizzando.
+*Precondizioni*:
+- Il giocatore deve avere un joypad collegato alla macchina.
+*Postcondizioni*
+- Il giocatore visualizza nella UI il tasto del joypad da premere
+*Scenario principale*:
+- Il giocatore preme un tasto del joypad.
+- Il gioco aggiorna la UI mostrando gli input del joypad.
+
 
 #set heading(numbering: "1.")
 = Requisiti
@@ -1122,7 +1150,7 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     [UC34\ Decisione interna],
     [R-50-F-O],[Il giocatore deve poter accendere delle unità esterne di un condizionatore premendo un tasto],
     [UC35\ Discussione con il tutor aziendale],
-    [R-51-F-O],[Il giocatore deve poter vedere scene di intermezzo],[UC36\ Decisione interna]
+    [R-51-F-O],[Il giocatore deve poter vedere scene di intermezzo],[UC36\ Decisione interna],
   )
 )
 
@@ -1174,7 +1202,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-02-V-O",[Un livello deve avere come tema "Regressione lineare"],
     "R-03-V-O",[Un livello deve avere come tema "Alberi di decisione"],
     "R-04-V-O",[Un livello deve avere come tema "Causalità"],
-    "R-05-V-O",[Il movimento del gioco deve essere tridimensionale]
+    "R-05-V-O",[Deve essere presente un livello "Tutorial" che insegni al giocatore i comandi base],
+    "R-06-V-O",[Il movimento del gioco deve essere tridimensionale]
   ),
 )
 == Requisiti di accessibilità
@@ -1195,9 +1224,9 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-04-A-D",
     "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
     "Decisione interna",
-    "R-05-A-O","Il gioco deve supportare input da tastiera","Decisione interna",
-    "R-06-A-D","Il gioco deve supportare input da un controller generico","Decisione interna",
-    "R-07-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando","Discussione con il tutor aziendale"
+    "R-05-A-O","Il gioco deve supportare input da tastiera",[UC37\ Decisione interna],
+    "R-06-A-D","Il gioco deve supportare input da un joypad generico",[UC38\ Decisione interna],
+    "R-07-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando",[UC37, UC38\ Discussione con il tutor aziendale]
   ),
 )
 == Tracciamento dei requisiti
@@ -1273,7 +1302,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-02-V-O", "Progetto","\u{2713}",
     "R-03-V-O", "Progetto","\u{2713}",
     "R-04-V-O", "Progetto","\u{2713}", 
-    "R-05-V-O", "Progetto","\u{2713}", 
+    "R-05-V-O", "Progetto","\u{2713}",
+    "R-06-V-O", "Progetto","\u{2713}", 
     // Requisiti di accessibilità
     "R-01-A-O", "Decisione interna","\u{2713}",
     "R-02-A-D", "Decisione interna","\u{2713}",
@@ -1294,8 +1324,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     align: center + horizon,
     fill: (x, y) => if (y == 0 or y == 5) { luma(230) },
     table.header([*Tipologia*], [*Obbligatori*], [*Desiderabili*],[*Totale*]),
-    [Funzionali],[43],[8],[51],
+    [Funzionali],[43],[8],[52],
     [Qualità],[6],[-],[6],
     [Vincolo],[5],[-],[5],
     [Accessibilità],[3],[4],[7],
-    table.cell(colspan: 3, [*Totale*]),[*69*]))
+    table.cell(colspan: 3, [*Totale*]),[*71*]))

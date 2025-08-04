@@ -109,6 +109,7 @@
     v(1.5em, weak: true)
     strong(text(it, weight: "thin"))
   }
+
   // CONTENUTO
   set page(numbering: "1")
   set align(left)
@@ -121,7 +122,7 @@
   }
   show heading : it => [
     #it
-    #v(0.3em)
+    #v(0.2em)
   ] 
 
   show heading.where(level: 2): set text(size: 18pt)

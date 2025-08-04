@@ -2,10 +2,9 @@
 extends Node
 
 @export var save_path : String = "./"
-var stats : SavesHandler
 
-func save_data()->void:
+func save_data(_stats : SavesHandler)->void:
 	return
 
-func load_data() -> void:
+func load_data(_stats : SavesHandler) -> void:
 	return

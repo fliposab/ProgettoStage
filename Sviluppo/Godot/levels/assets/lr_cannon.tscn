@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmt038lejs3fo"]
+[gd_scene load_steps=14 format=3 uid="uid://cmt038lejs3fo"]
 
 [ext_resource type="Script" uid="uid://bur1k14aqy6v1" path="res://code/level/assets/lr_cannon.gd" id="1_kywae"]
 [ext_resource type="PackedScene" uid="uid://xrba7x0hpxe" path="res://models/cannon_lr.glb" id="2_syu20"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dt0pbuk6hpdsq" path="res://sounds/confirm_sound.tscn" id="6_afgnj"]
 [ext_resource type="AudioStream" uid="uid://bbdugi5s6yhhe" path="res://sounds/reset_graph_sound.wav" id="7_yov1f"]
 [ext_resource type="AudioStream" uid="uid://ce4imwv8iaqup" path="res://sounds/place_point_graph_sound.wav" id="8_xnyua"]
+[ext_resource type="Script" uid="uid://wd3mqfnjimxy" path="res://code/level/linear_regression/cannon_input_handler.gd" id="10_0sfbc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ptx6a"]
 size = Vector3(4.29004, 1.21973, 3.47241)
@@ -62,6 +63,10 @@ controller_input = ExtResource("5_qn0ks")
 
 [node name="LRScope" parent="." instance=ExtResource("5_syu20")]
 
+[node name="InputHandler" type="Node" parent="."]
+process_mode = 4
+script = ExtResource("10_0sfbc")
+
 [node name="ConfirmSound" parent="." instance=ExtResource("6_afgnj")]
 
 [node name="ResetGraphSound" type="AudioStreamPlayer" parent="."]
@@ -72,9 +77,9 @@ volume_db = -20.0
 stream = ExtResource("8_xnyua")
 
 [connection signal="add_point" from="cannon_lr/cannon" to="." method="_on_cannon_add_point"]
-[connection signal="exit" from="cannon_lr/cannon" to="." method="_on_cannon_exit"]
-[connection signal="reset_graph" from="cannon_lr/cannon" to="." method="_on_cannon_reset_graph"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="exit" from="InputHandler" to="." method="exit"]
+[connection signal="reset_graph" from="InputHandler" to="." method="reset_graph"]
 
 [editable path="cannon_lr"]
