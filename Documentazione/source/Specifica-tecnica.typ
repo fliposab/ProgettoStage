@@ -344,52 +344,95 @@ La classe "InteractableSign" rappresenta un cartello che il giocatore può legge
 ==== NPCDialogue
 La classe "NPCDialogue" rappresenta un personaggio non giocabile che, a differenza della classe "NPC", presenta un dialogo. Il giocatore può interagire con il personaggio e visualizzare il dialogo premendo il rispettivo tasto.
 === Dialoghi
+Di seguito viene mostrato il funzionamento di un dialogo, insieme alle classi utilizzate per questo scopo.
 #figure(caption: [Diagramma sul funzionamento di un dialogo],image("imgs/class-dialogue.png"))
-text
+
 ==== Dialogue
-text
+La classe "Dialogue" gestisce l'andamento del dialogo, caricando i messaggi successivi in base all'ordine con cui sono stati inseriti nella scena. Vi sono due tipi di messaggi:
+- *DialogueBoxSimple*
+- *DialogueBoxOptions*
 ==== DialogueBoxSimple
-text
+La classe "DialogueBoxSimple" rappresenta un semplice messaggio all'interno del dialogo. Questa classe è anche responsabile di gestire gli input del giocatore. La funzione _on_interact_button_pressed()_ viene chiamata quando viene premuto il tasto dell'interazione e si occupa di gestire le azioni da svolgere.
 ==== DialogueBoxOptions
-text
+La classe "DialogueBoxOptions" eredita dalla classe "DialogueBoxSimple" e rappresenta un messaggio di dialogo con delle opzioni da scegliere.
+Queste opzioni sono contenute dentro la classe "DialogueOptionsButtons"
+Contiene due metodi che vengono chiamati in base al segnale mandato da "DialogueOptionsButtons":
+- _on_correct_option_pressed()_
+- _on_wrong_option_pressed()_
 ==== DialogueOptionsButtons
-text
+Questa classe contiene le opzioni da scegliere, ogni opzione è una classe "DialogueOptionButton", e viene inserita come nodo figlio nella scena.
+Quando un'opzione viene selezionata, la classe invia il segnale _correct_option_pressed_ se la scelta è considerata giusta, _wrong_option_pressed_ nel caso sia considerata sbagliata.
+
 === Salvataggi
 #figure(caption: [Diagramma sul funzionamento dei salvataggi],image("imgs/class-saves.png"))
 ==== Saves
+Classe base astratta per tutte le classi che si occupano di salvare o caricare i dati dal file _.ini_.
+Fornisce l'attributo _save_path_ che indica il percorso dove salvare il file _.ini_.
+Inoltre fornisce i metodi virtuali _save_data_ e _load_data_ per salvare o caricare i dati. Questi due metodi sono sovrascritti nelle classi figlie.
 ==== SavesHandler
+Classe base astratta per tutte le classi che gestiscono il cambio dei dati da salvare, fornisce i metodi virtuali per caricare o salvare i dati modificati e passarli alla classe che li salva nel file _.ini_.
+Inoltre fornisce un attributo _debug_mode_, attivabile dall'editor. Se attivato, impedisce che vengano caricati i dati di salvataggio.  
 === Singletons / Autoloads
+Per alcune classi vi era la necessità che fossero sempre disponibili per tutte le classi nel gioco. Godot permette di creare delle classi _Autoloads_, cioè classi che vengono caricate sempre nella scena, garantendo anche un'unica istanza della classe.
 #figure(caption: [Classi _Autoloads_],image("imgs/class-autoloads.png", width: auto))
 ==== LevelsTransition
-text
+La classe "LevelsTransition" si occupa della transizione tra due classi. Il metodo _switch_level_ carica il livello il cui percorso è fornito come argomento della funzione. Il motivo per cui è stato usato il percorso come String anziché il livello stesso come "PackedScene" è stato per evitare riferimenti ciclici, in quanto se due livelli contenevano un riferimento a tra di loro nella scena, il gioco non caricava correttamente il livello successivo.
 ==== OptionsSave
-text
+"OptionsSave" è la classe che carica le impostazioni del gioco. Queste opzioni devono essere sempre disponibili, in quanto servono per applicare le modifiche fatte dal giocatore in qualsiasi momento, come la risoluzione alla finestra, il volume dell'applicazione, etc...
 ==== InputUIHandler
-text
-/*
-== Menu
-=== Menu di pausa
-=== Menu principale*/
+La classe "InputUIHandler" si occupa di controllare i dispositivi di input collegati, e mandare il segnale _device_changed_ nel caso il nome del dispositivo dell'ultimo input non corrisponda all'attributo _current_joy_.
+Il metodo _check_minimum_input_left_strength_threshold()_ stabilisce la potenza minima che l'input deve superare per mandare il segnale. Questo perché alcuni controller presentano il problema del #gloss[drifting] e la classe potrebbe leggere input che non sono premuti dal giocatore.
+
 == Struttura base livello
+Ogni livello viene creato con le seguenti classi:
 #figure(caption: [Diagramma di un livello base],image("imgs/class-base_level.png", width: auto))
-text
+=== Level
+Classe del livello, non svolge molte funzioni visto che i componenti possono comunicare tra di loro attraverso segnali.
+Gli attributi booleani _red_collectibles_, _blue_collectibles_ e _green_collectibles_ stabiliscono quali tipi di _training_data_ sono presenti nel livello, e quindi quali far visualizzare nella UI del giocatore.
 === PlayerSpawn
-text
+Classe che si occupa di generare il giocatore nella posizione in cui si trova.
+Appena generato il giocatore viene assegnato alla classe "Level"
 === PauseMenu
-text
+La classe "PauseMenu", come dice il nome, è il menù di pausa, questo viene caricato quando il giocatore preme il rispettivo tasto, mettendo in pausa tutta la scena.
+
 == Livello "Regressione lineare"
+Il livello della regressione lineare comprende una serie di grafici di regressione lineare. Il giocatore può camminare sulla retta di questi grafici, ma deve cambiare la sua direzione per procede nel livello.
+Per farlo ci sono a disposizione dei cannoni che inseriscono dei punti all'interno del grafico che modificano la direzioe della retta.
 === Cannone e grafico LR
+Di seguito viene descritto il funzionamento della meccanica principale del livello "Regressione lineare".
 #figure(caption: [Diagramma sul funzionamento di un grafico "Linear Regression" nel gioco],image("imgs/class-linear_regression.png"))
 ==== LRCannon
+La classe "LRCannon" rappresenta il cannone nel livello. Eredita da "InteractableArea" e infatti il giocatore può interagirci quando entra dentro l'area apposita.
+Quando il giocatore preme l'imput per interagire, la telecamera viene cambiata ed il giocatore entra nello stato "Interact".
+La classe è composta da "CannonMesh" che si occupa della rotazione del cannone quando questo è attivo e quando viene inserito un nuovo punto nel grafico.
 ==== LinearRegressionGraph
+Classe base astratta usata per i due tipi di grafico presenti nel livello: orizzontale e verticale.
+Si occupa di svolgere le operazioni di regressione lineare per ottenere la formula della retta. Tuttavia, non si può applicare la formula ad un oggetto 3D.
+La funzione _calculate_pos_rot_ si occupa di prendere due punti dalla formula della retta, per poi posizionare il rispettivo modello 3D in mezzo ai due punti e ruotarlo in modo che vada verso uno dei due punti.
+La posizione globale viene poi modificata in base al tipo della classe.
 == Livello "Albero di decisione"
-=== Albero
-#figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree.png"))
-text
-==== DecisionNode
-==== DecisionTree
-==== CheckUnlocked
-==== CollectibleSpawner
+Nell livello "Albero di decisione" il giocatore deve classificare i cani in base alla loro razza. Ogni volta che il giocatore sale sopra una piattaforma dell'albero, visualizza le indicazioni da seguire.
+Alla fine del percorso, deve posizionare il cane nello spazio e verrà notificato se tutto è stato eseguito correttamente oppure no.\
+Di seguito viene descritto il funzionamento della meccanica principale del livello "Albero di decisione".
+#figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree.png", width: 94%))
+=== DecisionTree
+La classe "DecisionTree" è composta da più istanze di "DecisionNodeFinal" e "DecisionNodeIntermediate", inserite tutte come nodi figli nella scena.
+Si occupa di inviare i segnali agli altri nodi presenti nel livello.
+=== DecisionNode
+Classe base astratta per i due tipi di "DecisionNode" presenti nell'albero: _intermediate_ e _final_.
+Fornisce i metodi virtuali _on_area_3d_body_entered_ e _on_area_3d_body_exited_ che vengono chiamati quando entra un oggetto di tipo "CharacterBody3D" nell'area sopra la piattaforma.
+Il comportamento poi viene modificato dalle classi figlie.
+- *DecisionNodeIntermediate*: quando entra il giocatore nell'area, viene visualizzata la UI con le indicazioni da seguire;
+- *DecisionNodeFinal*: quando entra un cane nell'area, controlla se l'id di questo corrisponde all'id associato all'istanza.
+=== DogBreedsSign
+Oltre all'albero di decisione nel livello è presente anche un cartello con cui il giocatore può interagire e visualizzare le razze die cani che ha indovinato.\
+La classe "DogBreedsSign" rappresenta questo cartello. Questa, è composta da una classe "DogSignUI" che è il contenuto del catello, contenente tutte le razze dei cani che il giocatore ha indovinato.\
+Quando il cartello viene chiuso, emette il segnale _hide_grid_ che chiama il metodo _on_dog_breed_sign_hide_grid_ nella classe "CheckUnlocked"
+=== CheckUnlocked
+La classe "CheckUnlocked" si occupa di controllare le razze di cani sbloccate e tenere il conto di quelle nuove che il giocatore non ha ancora controllato, nell'attributo _td_to_give_.\
+=== CollectibleSpawner
+=== DTSavesHandler
+
 == Livello "Causalità"
 #figure(caption: [Diagramma del livello della causalità],image("imgs/class-causality_level.png"))
 === CausalitySavesHandler
