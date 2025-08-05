@@ -356,24 +356,31 @@ transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -2
 
 [node name="ACUnit3" parent="ACUnits" index="1" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -36.47842, 15.19, -38.164673)
+on = true
 
 [node name="ACUnit4" parent="ACUnits" index="2" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.1505184, 15.19, -30.000578)
+on = true
 
 [node name="ACUnit2" parent="ACUnits" index="3" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.26197, 0, 0.965076, 0, 1, 0, -0.965076, 0, 0.26197, -7.06446, 6.9745836, -29.9283)
+on = true
 
 [node name="ACUnit6" parent="ACUnits" index="4" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 14.583944, -9.789007)
+on = true
 
 [node name="ACUnit7" parent="ACUnits" index="5" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 14.583944, 18.379019)
+on = true
 
 [node name="ACUnit8" parent="ACUnits" index="6" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 25.95746, 6.3616524, -9.789007)
+on = true
 
 [node name="ACUnit9" parent="ACUnits" index="7" instance=ExtResource("5_svhef")]
 transform = Transform3D(0.93902814, 0, 0.34384012, 0, 1, 0, -0.34384012, 0, 0.93902814, 36.985283, 6.3616524, 18.379019)
+on = true
 
 [node name="LevelTube" parent="." index="9" instance=ExtResource("9_rn6iv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50.4529, -0.22402, 11.4385)
@@ -536,9 +543,10 @@ bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
 
 [connection signal="data_loaded" from="SavesHandler" to="Entities/GraphSign/ChangeGraphSignUI" method="_on_saves_handler_data_loaded"]
 [connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler" method="_on_saves_handler_data_loaded"]
-[connection signal="data_loaded" from="SavesHandler" to="CutsceneHandler/CrashCutscene" method="emit_change_specific_values"]
 [connection signal="data_loaded" from="SavesHandler" to="ACUnits" method="_on_saves_handler_data_loaded"]
 [connection signal="change_data" from="Entities/GraphSign/ChangeGraphSignUI" to="Entities/GraphSign/SignUI/Chart2/VBoxContainer/PanelContainer/LineChart" method="update_data"]
+[connection signal="pass_saves" from="CutsceneHandler" to="CutsceneHandler/CrashCutscene" method="emit_change_specific_values"]
+[connection signal="cutscene_finished" from="CutsceneHandler/CrashCutscene" to="CutsceneHandler" method="_on_cutscene_finished"]
 [connection signal="all_units_turned_on" from="ACUnits" to="CutsceneHandler" method="_on_ac_units_all_units_turned_on"]
 [connection signal="unit_turned_on" from="ACUnits" to="SavesHandler" method="_on_ac_units_unit_turned_on"]
 [connection signal="unit_turned_on" from="ACUnits" to="Entities/GraphSign/ChangeGraphSignUI" method="increase_number"]

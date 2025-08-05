@@ -202,52 +202,147 @@ Molte variabili presenti nel giocatore sono riferimenti ai suoi nodi figli prese
 Similmente, molte funzioni della classe servono solo per accedere alle variabili dei suoi nodi figli.
 
 La classe del giocatore ha associate le seguenti classi divise per funzionalità:
+- *Movement*
 - *CameraRaycast*
 - *StateMachine*
 - *PlayerSavesHandler*
-- *Movement*
 - *GrabItem*
 - *ParticleEmitter*
 - *PlayerUI*
+==== Movement
+La classe "Movement" si occupa di gestire gli input per il movimento del giocatore, la funzione _get_move_input_ si occupa di prendere l'input del movimento e ruotarlo in base alla rotazione della telecamera.
 ==== CameraRayCast
 #figure(caption: [Diagramma delle classi della telecamera del giocatore],image("imgs/class-camera.png"))
+La telecamera del giocatore viene gestita da più classi per garantire diverse funzionalità tra quali la rotazione intorno al giocatore, proiezione di elementi della UI sullo schermo ed evitare che la telecamera passi attraverso i muri, generando il fenomeno chiamato #gloss[clipping].\
+
+- *CameraRayCast*\
+Oltre che a gestire il lavoro di tutte le altre classi per il corretto funzionamento della telecamera, questa classe lancia un raggio dalla posizione del giocatore verso il basso per controllare velocemente la distanza dal terreno del giocatore.
+Nel caso il raggio tocca ancora il terreno, la telecamera rimane per terra e non si sposta in alto con il giocatore.
+
+- *PlayerCamera*\
+La telecamera effettiva, eredita dalla classe di Godot "Camera3D". Offre il metodo _look at target_ che si occupa di girare la telecamera verso un obiettivo. Questo metodo viene usato da "CameraRayCast" per girare la telecamera verso un punto calcolata da quest'ultima.\
+
+- *CameraProjectUI*\
+La classe "CameraProjectUI" gestisce gli elementi della UI la cui posizione viene "proiettata" dallo spazio 3D del gioco, allo spazio 2D dello schermo.
+Contiene un array, composto da questi elementi. Nel caso l'array sia vuoto, la modalità di processo viene disabilitata, cioè le operazioni della classe non vengono più effettuate ad ogni fotogramma del gioco.\
+
+- *SpringArm3D*\
+Classe fornita da Godot. La sua posizione globale corrisponde sempre a quella del giocatore, e si occupa di avvicinare la telecamera quando è vicino ad un muro per evitare il clipping.\
+
+- *CameraTarget*\
+La classe "CameraTarget" eredita dalla classe di Godot "Marker3D". La sua posizione viene calcolata da "CameraRaycast" e si occupa di gestire gli input per ruotare e muovere la telecamera intorno al giocatore.\
+
+- *CameraFocusTarget*\
+La classe "CameraFocusTarget" si occupa di gestire lo spostamento della telecamera in casi speciali, ad esempio durante un dialogo con un personaggio non giocabile, dove la telecamera deve girarsi verso il personaggio che sta parlando.\
+
 ==== StateMachine
 #figure(caption: [Diagramma sulla struttura della macchina di stati],image("imgs/class-state_machine.png"))\
+La macchina di stati è stata utilizzata per controllare meglio i diversi stati in cui il personaggio del giocatore può eseguire, esempio: il movimento, salto...
+L'uso della macchina di stati, inoltre, ha garantito una gestione più semplice del personaggio del giocatore e ha reso più facile aggiungere funzionalità a questo.
+La figura sotto mostra il possibile flusso degli stati del giocatore.
 #figure(caption: [Diagramma degli stati], image("imgs/sm-player_states.png", width: 60%))
-*StateMachine*:\
-*State*:\
-*GroundMovementState*:\
-*AirState*:\
-*InteractState*:\
-*ReleaseState*:\
-*IdleState*:\
-==== PlayerSavesHandler
 
-==== Movement
+- *StateMachine*\
+La classe "StateMachine" si occupa di gestire la transizione degli stati.
+L'attributo _state_ indica lo stato corrente del personaggio del giocatore. Quando riceve il segnale "finished" dallo stato in cui si trova, si occupa di passare allo stato indicato dal segnale, passando gli eventuali dati contenuto nel Dictionary allo stato successivo.\
 
-==== GrabItem
+- *State*\
+Classe base astratta per tutti gli stati. Include un riferimento al giocatore ed alla macchina di stati. Fornisce i seguenti metodi virtuali per le classi figlie:
+- _+enter(previous_state_path: String, data: Dictionary)_
+#v(-0.5em)
+Chiamato non appena lo stato diventa attivo. L'attributo _data_ contiene dei possibili dati mandati dallo stato precedente.
 
-==== ParticleEmitter
+- _+exit()_
+#v(-0.5em)
+Chiamato quando si esce dallo stato
+
+- _+physics_update(delta: float)_
+#v(-0.5em)
+Chiamato ad ogni frame fisico dello stato quando questo è *attivo*.
+
+- _+update(delta: float)_
+#v(-0.5em)
+Chiamato ad ogni frame dello stato quando questo è *attivo*.
+
+- _+handle_input(event: InputEvent)_
+#v(-0.5em)
+Chiamato quando viene premuto un input quando lo stato è attivo. L'attributo _event_ rappresenta l'input premuto.\ 
+
+- *IdleState*
+Lo stato "Idle" è lo stato iniziale del giocatore. Questo stato viene chiamato quando il giocatore è fermo per terra.
+Può passare a tutti gli altri stati in base agli input premuti in diverse condizioni.
+Ad esempio se il giocatore sta portando qualcosa e preme il tasto di interazione, il personaggio passa allo stato "Release", ma se non sta portando niente, allora non succede niente. Invece se preme lo stesso tasto dentro un area specifica, il personaggio passa allo stato "Interact"
+
+- *GroundMovementState*
+Il personaggio del giocatore passa allo stato "GroundMovement" quando viene premuto un input per spostarsi rimanendo per terra.
+Come lo stato "Idle", si può passare a tutti gli altri stati anche da questo, seguendo le stesse condizioni dello stato "Idle".
+
+- *AirState*\
+Si può passare a questo stato in due condizioni: il giocatore cade da una piattaforma, o preme il tasto per saltare. Nell'ultimo caso, lo stato precedente manda un valore "jump = true" all'interno del Dictionary, in questo modo lo stato controlla se è presente il medesimo valore ed in caso positivo, esegue il salto, caricando la rispettiva animazione e modificando la velocità verticale.
+
+- *InteractState*\
+Lo stato "Interact" indica che il personaggio del giocatore è impegnato ad interagire con un'altra entità, ad esempio mentre parla con un personaggio non giocabile o legge un cartello. A differenza degli altri stati, non è un input a far cambiare stato, ma i segnali dalle entità esterne.
+
+- *GrabState*
+Il personaggio del giocatore passa allo stato "Grab" quando il giocatore preme il tasto per prendere un oggetto vicino a uno di questi. Importante notare che questo stato rappresenta solo quando il personaggio prende un oggetto, dopo aver svolto l'azione, il personaggio torna allo stato "Idle", cambiando le animazioni in modo che rispecchino la situazione.
+
+- *ReleaseState*
+Quando il giocatore preme di nuovo il tasto per prendere un oggetto mentre il personaggio sta portando un oggetto, questo passa allo stato "Release" e lascia l'oggetto.
+Come il suo stato opposto, una volta lasciato l'oggetto, il giocatore torna allo stato "Idle".
 
 ==== PlayerUI
 #figure(caption: [Diagramma delle classi della UI del giocatore], image("imgs/class-player_ui.png", width: 90%))
-*Collectibles*:\
-*PlayerUI*:\
-*PanelContainer*:\
+Il giocatore presenta la sua UI personale che viene caricata insieme a il giocatore.
+Nella UI viene visualizzato il numero di _training_data_ raccolti, divisi per tipo.
+
+- *Collectibles*:
+La classe "Collectibles" contiene i dati effettivi sul numero dei _training_data_ raccolti. Ogni volta che il valore viene aggiornato, manda il rispettivo segnale in modo da aggiornare il conteggio anche nella UI.
+
+- *PlayerUI*:
+La classe "PlayerUI" gestisce, appunto, la UI del giocatore. Riceve i segnali di "Collectibles" e aggiorna i valori. La classe è composta da 3 "PanelContainer", ognuno che contiene il numero del suo rispettivo tipo di _training_data_.
+
+==== PlayerSavesHandler
+La classe "PlayerSavesHandler" gestisce i salvataggi del giocatore. Vengono salvati tre attributi, il numero di ognuno dei _training data_ raccolti per i livelli.
+Ogni volta che il giocatore raccoglie un _training data_, il valore viene aggiornato nella classe, e viene chiamato il metodo fornito dalla classe base _save_data()_ per salvare i dati nel file "./player_save.ini".
+
+==== GrabItem
+La classe "GrabItem" si occupa di controllare quando il giocatore si avvicina ad un oggetto che può prendere.
+Il controllo viene fatto da un'"Area3D", quando un oggetto che può essere preso entra in quest'area, viene avvisato il giocatore che può afferrare l'oggetto.
+
+==== ParticleEmitter
+La classe "ParticleEmitter" si occupa di caricare le "GPUParticles3D", cioè le particelle o effetti, in specifiche condizioni. Ad esempio quando il giocatore salta, carica le particelle del salto, quando corre, carica il "fumo" della corsa.
+
 === Interazione
 #figure(caption: [Diagramma degli oggetti con cui il giocatore può interagire],image("imgs/class-interactable.png"))
-text
-==== Control
-#figure(caption: [Diagramma dei vari tipi di UI],image("imgs/class-input_prompts.png", width: auto))
-text
+Nei livelli sono presenti diverse entità con cui il giocatore può interagire. Di seguito vengono descritte i diversi tipi di entità, e le classi che le compongono.
 ==== InteractableArea
-text
+Classe base astratta che fornisce i metodi alle classi figlie.
+//da descrivere le funzioni, anche se sono abbastanza self explanatory
+La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza quando entra La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza appena entra nell'area. 
+==== Control
+Di seguito vengono mostrati i vari tipi di UI che il giocatore può visualizzare quando entra nell'area.
+#figure(caption: [Diagramma dei vari tipi di UI],image("imgs/class-input_prompts.png", width: auto))
+- *SimpleProjectLabel*
+Viene usata dalla classe "NPC" come messaggio semplice e rappresenta un elemento UI che viene proiettato nello spazio 2D della telecamera.
+Appena il giocatore entra nell'area, la classe manda sé stessa come riferimento alla classe "CameraProjectUI". Questa la aggiunge all'array, attivando la classe.
+Quando il giocatore esce, l'elemento viene tolto dall'array. 
+
+- *InputButtonUI*
+La classe "InputButtonUI" rappresenta un messaggio che contiene l'input da premere. L'immagine dell'input da premere cambia in base al dispositivo connesso: viene mostrato il tasto della tastiera se il giocatore sta utilizzando la tastiera, il tasto del joypad se sta utilizzando un joypad.
+Il cambio dell'immagine dell'input viene chiamato dal segnale _device_changed_, mandato dal singleton "InputHandlerUI", con attributo il nome del controller collegato.
+Questa classe viene usata da oggetti inanimati come un cartello.
+
+- *InputButtonUIProject*
+La classe "InputButtonUIProject" contiene sempre l'immagine dell'input da premere, l'unica differenza è che questo elemento viene proiettato nello spazio 2D della telecamera.
+Viene usata dalla classe "NPCDialogue".
+
 ==== NPC
-text
+La classe "NPC" rappresenta un personaggio non giocabile che ha assegnato una semplice frase come messaggio. Questa frase viene visualizzata in una classe "SimpleProjectLabel" il cui funzionamento è stato spiegato nella sezione precedente.
+Presenta anche una classe "Marker3D" che segna la posizione della UI, e una classe "NPCModel" che gestisce le animazioni del modello 3D del personaggio.
 ==== InteractableSign
-text
+La classe "InteractableSign" rappresenta un cartello che il giocatore può leggere. Il cartello può contenere diverse informazioni, come una lista o un grafico. Il contenuto del cartello è inserito in un'altra classe "Control".
 ==== NPCDialogue
-text
+La classe "NPCDialogue" rappresenta un personaggio non giocabile che, a differenza della classe "NPC", presenta un dialogo. Il giocatore può interagire con il personaggio e visualizzare il dialogo premendo il rispettivo tasto.
 === Dialoghi
 #figure(caption: [Diagramma sul funzionamento di un dialogo],image("imgs/class-dialogue.png"))
 text
@@ -288,12 +383,19 @@ text
 ==== LRCannon
 ==== LinearRegressionGraph
 == Livello "Albero di decisione"
-text
 === Albero
 #figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree.png"))
 text
+==== DecisionNode
+==== DecisionTree
+==== CheckUnlocked
+==== CollectibleSpawner
 == Livello "Causalità"
 #figure(caption: [Diagramma del livello della causalità],image("imgs/class-causality_level.png"))
+=== CausalitySavesHandler
+=== ACUnit
+=== ACUnits
+=== CutscenesHandler
 === Scena di intermezzo
 
 = Requisiti soddisfatti

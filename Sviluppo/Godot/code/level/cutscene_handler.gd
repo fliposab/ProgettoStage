@@ -3,6 +3,7 @@ class_name CutscenesHandler
 
 signal cutscene_started()
 signal cutscene_finished()
+signal pass_saves(saves_handler: SavesHandler)
 
 @onready var crash_cutscene : CrashCutscene = $CrashCutscene
 
@@ -23,6 +24,7 @@ func _on_ac_units_all_units_turned_on() -> void:
 
 func _on_saves_handler_data_loaded(save_handler: SavesHandler) -> void:
 	await get_tree().process_frame
+	pass_saves.emit(save_handler)
 	if save_handler.data.has("ac_on") and check_ac_on(save_handler.data["ac_on"]):
 		crash_cutscene.start(false)
 
@@ -33,5 +35,9 @@ func check_ac_on(array: Array[bool])->bool:
 	return true
 
 func init_cutscenes():
-	for i in get_child_count():
-		get_child(i).cutscene_handler = self
+	pass
+#	for i in get_child_count():
+		#get_child(i).cutscene_handler = self
+
+func _on_cutscene_finished() -> void:
+	cutscene_finish()

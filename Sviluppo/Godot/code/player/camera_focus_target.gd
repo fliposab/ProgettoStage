@@ -1,3 +1,5 @@
+##Handles the change of the target and moves the camera accordingly
+##Example: the camera movement in a Dialogue
 extends Node
 class_name CameraFocusTarget
 

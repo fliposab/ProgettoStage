@@ -7,13 +7,14 @@ class_name CrashCutscene
 @onready var fade : FadeTransition = $Fade
 @onready var ice_cream_shop : Node3D = $ice_cream_shop
 
-var cutscene_handler : CutscenesHandler
+#var cutscene_handler : CutscenesHandler
 var started : bool = false
 var done : bool = false
 
 signal start_cutscene()
 signal change_values()
 signal change_specific_values()
+signal cutscene_finished()
 
 func start(play_cutscene: bool)->void:
 	if !play_cutscene:
@@ -33,7 +34,8 @@ func start(play_cutscene: bool)->void:
 func _on_timer_timeout() -> void:
 	camera.current = false
 	started = false
-	cutscene_handler.cutscene_finish()
+	cutscene_finished.emit()
+	#cutscene_handler.cutscene_finish()
 
 func emit_change_values() -> void:
 	change_values.emit()
