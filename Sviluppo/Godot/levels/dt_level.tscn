@@ -282,12 +282,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5753884, 0, -1.8375874)
 [node name="GoldenRetriever15" parent="DogLine" index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0516586, 0, -3.072795)
 
-[connection signal="ready" from="." to="DogBreedSign" method="check_save_unlocked"]
 [connection signal="new_breed_unlocked" from="DecisionTree" to="SavesHandler" method="_on_decision_tree_new_breed_unlocked"]
-[connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign" method="_on_decision_tree_new_breed_unlocked"]
 [connection signal="new_breed_unlocked" from="DecisionTree" to="CheckUnlocked" method="_on_decision_tree_new_breed_unlocked"]
+[connection signal="new_breed_unlocked" from="DecisionTree" to="DogBreedSign" method="_on_decision_tree_new_breed_unlocked"]
 [connection signal="hide_grid" from="DogBreedSign" to="CheckUnlocked" method="_on_dog_breed_sign_hide_grid"]
 [connection signal="data_loaded" from="SavesHandler" to="DecisionTree" method="_on_saves_handler_data_loaded"]
+[connection signal="data_loaded" from="SavesHandler" to="CheckUnlocked" method="_on_saves_handler_data_loaded"]
 [connection signal="dialogue_ended_correct" from="Entities/NPCDialogue/Dialogue" to="Entities/NPCDialogue/Behaviour" method="_on_dialogue_ended_correct"]
 [connection signal="reset_dogs" from="Entities/NPCDialogue/Behaviour" to="DogLine" method="_on_reset_dogs"]
 

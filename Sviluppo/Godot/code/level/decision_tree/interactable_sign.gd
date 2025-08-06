@@ -30,10 +30,10 @@ func _on_interact_button_pressed():
 	ui.hide()
 
 ##Checks the already unlocked breeds
-func check_save_unlocked()->void:
-	for i in owner.saves_handler.breeds_unlocked.size():
-		if owner.saves_handler.breeds_unlocked[i]:
-			unlock_dog.emit(i)
+#func check_save_unlocked()->void:
+#	for i in owner.saves_handler.breeds_unlocked.size():
+	#	if owner.saves_handler.breeds_unlocked[i]:
+#			unlock_dog.emit(i)
 
 func _on_go_back_button_pressed():
 	is_grid_open = !is_grid_open

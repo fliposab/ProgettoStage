@@ -396,10 +396,8 @@ Appena generato il giocatore viene assegnato alla classe "Level"
 La classe "PauseMenu", come dice il nome, è il menù di pausa, questo viene caricato quando il giocatore preme il rispettivo tasto, mettendo in pausa tutta la scena.
 
 == Livello "Regressione lineare"
-Il livello della regressione lineare comprende una serie di grafici di regressione lineare. Il giocatore può camminare sulla retta di questi grafici, ma deve cambiare la sua direzione per procede nel livello.
-Per farlo ci sono a disposizione dei cannoni che inseriscono dei punti all'interno del grafico che modificano la direzioe della retta.
+Di seguito viene descritto il funzionamento delle meccaniche principali del livello "Regressione lineare".
 === Cannone e grafico LR
-Di seguito viene descritto il funzionamento della meccanica principale del livello "Regressione lineare".
 #figure(caption: [Diagramma sul funzionamento di un grafico "Linear Regression" nel gioco],image("imgs/class-linear_regression.png"))
 ==== LRCannon
 La classe "LRCannon" rappresenta il cannone nel livello. Eredita da "InteractableArea" e infatti il giocatore può interagirci quando entra dentro l'area apposita.
@@ -411,10 +409,8 @@ Si occupa di svolgere le operazioni di regressione lineare per ottenere la formu
 La funzione _calculate_pos_rot_ si occupa di prendere due punti dalla formula della retta, per poi posizionare il rispettivo modello 3D in mezzo ai due punti e ruotarlo in modo che vada verso uno dei due punti.
 La posizione globale viene poi modificata in base al tipo della classe.
 == Livello "Albero di decisione"
-Nell livello "Albero di decisione" il giocatore deve classificare i cani in base alla loro razza. Ogni volta che il giocatore sale sopra una piattaforma dell'albero, visualizza le indicazioni da seguire.
-Alla fine del percorso, deve posizionare il cane nello spazio e verrà notificato se tutto è stato eseguito correttamente oppure no.\
 Di seguito viene descritto il funzionamento della meccanica principale del livello "Albero di decisione".
-#figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree.png", width: 94%))
+#figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree_level.png", width: 90%))
 === DecisionTree
 La classe "DecisionTree" è composta da più istanze di "DecisionNodeFinal" e "DecisionNodeIntermediate", inserite tutte come nodi figli nella scena.
 Si occupa di inviare i segnali agli altri nodi presenti nel livello.
@@ -430,15 +426,33 @@ La classe "DogBreedsSign" rappresenta questo cartello. Questa, è composta da un
 Quando il cartello viene chiuso, emette il segnale _hide_grid_ che chiama il metodo _on_dog_breed_sign_hide_grid_ nella classe "CheckUnlocked"
 === CheckUnlocked
 La classe "CheckUnlocked" si occupa di controllare le razze di cani sbloccate e tenere il conto di quelle nuove che il giocatore non ha ancora controllato, nell'attributo _td_to_give_.\
+Il valore di questo attributo viene modificato all'inizio del caricamento del livello e quando il giocatore indovina una nuova razza nell'albero di decisione, ed è la differenza tra l'attributo _value_ e il valore _td_given_.
+Al caricamento del livello, riceve il segnale _data_loaded_ dal nodo che gestisce i salvataggi "DTSavesHandler", assegna il valore dell'attributo _td_given_.
+Quando riceve il segnale _new_breed_unlocked_ dall'albero di decisione, _value_ aumenta di 1, ed aggiorna il valore di _td_to_give_.
+Quando riceve il segnale _hide_grid_ dal cartello, chiama la funzione per generare i _training_data_ tanti quanti il valore di _td_to_give_.
 === CollectibleSpawner
+La classe "CollectibleSpawner" si occupa di generare dei _training_data_ all'interno del livello.
+Il tipo di _training_data_ generato viene deciso da quale tra i tre attributi presenti, _load_red_, _load_blue_ e _load_green_ hanno valore uguale a "true".
+Il metodo _generate_collectibles_ prende il percorso del _training_data_ giusto e poi chiama _load_collectible_ per generarli.
 === DTSavesHandler
-
+La classe "DTSavesHandler" gestisce i salvataggi ed il cambio di valore delle variabili del livello.
+Quando vengono caricati i dati dal salvataggio, la classe manda il segnale _data_loaded_ alla classe "CheckUnlocked", per assegnare il valore dei _training_data_ già generati in una sessione precedente.
+Il segnale viene anche mandato al DecisionTree per modificare il valore iniziale dell'array della classe.
 == Livello "Causalità"
+Di seguito viene descritto il funzionamento delle meccaniche principali del livello "Causalità".
 #figure(caption: [Diagramma del livello della causalità],image("imgs/class-causality_level.png"))
-=== CausalitySavesHandler
+
 === ACUnit
+"ACUnit" è la classe che rappresenta un condizionatore. Eredita da "InteractableArea", il giocatore, quando entra nell'area, può premere il tasto di interazione per accenderlo.
+Quando viene acceso, il valore dell'array nodo padre, in questo caso "ACUnits", viene aggiornato con il giusto indice.
 === ACUnits
+La classe "ACUnits" si occupa di gestire tutte le istanze di "ACUnit", inserite come nodi figli nella scena.
+Quando viene acceso un condizionatore, emette il segnale _unit_turned_on_, passando direttamente l'array aggiornato come argomento nel segnale.
+Quando tutti i condizionatori sono stati accesi, manda il segnale _all_units_on_, usato in questo caso per far iniziare la scene di intermezzo.
 === CutscenesHandler
+La classe "CutsceneHandler" si occupa di gestire le scene di intermezzo nel livello, inserite come nodi figli nella scena. Nonstante la classe è stata pianificata per gestire più scene, alla fine ne è presente solo una. Questa classe svolge anche il ruolo da mediatore, ricevendo i segnali dal livello e mandandoli ai nodi figli, gestendo il traffico dei segnali.
+=== CausalitySavesHandler
+"CausalitySavesHandler" gestisce i salvataggi e cambio di variabili all'interno del livello "Causality". In questa classe, le variabili sono salvate in un Dictionary. Quando i salvataggi vengono caricati, la classe emette il segnale _data_loaded_.
 === Scena di intermezzo
 
 = Requisiti soddisfatti

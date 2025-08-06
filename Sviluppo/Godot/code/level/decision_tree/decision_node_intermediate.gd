@@ -1,4 +1,3 @@
-@tool
 extends DecisionNode
 class_name DecisionNodeIntermediate
 

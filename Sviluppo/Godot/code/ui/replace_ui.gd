@@ -1,5 +1,5 @@
 extends Node
-class_name ReplaceUI
+class_name ChangeSignUI
 
 @onready var new_grid : Control = $NewSignUI
 
