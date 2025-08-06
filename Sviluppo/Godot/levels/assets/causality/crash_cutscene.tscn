@@ -218,24 +218,6 @@ visible = false
 [node name="ice_cream_shop" parent="." instance=ExtResource("5_uxx2u")]
 transform = Transform3D(-0.579556, 0, 0.155291, 0, 0.6, 0, -0.155291, 0, -0.579556, -26.2368, -0.645169, 15.8037)
 
-[node name="ChangeNPCBehaviour" type="Node" parent="ice_cream_shop"]
-script = ExtResource("8_vsukt")
-
-[node name="NewDialogue" parent="ice_cream_shop/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
-anchors_preset = 15
-anchor_bottom = 1.0
-offset_left = 45.0
-offset_top = 23.0
-offset_right = -45.0
-grow_vertical = 2
-
-[node name="Text1" parent="ice_cream_shop/ChangeNPCBehaviour/NewDialogue" index="0"]
-text = "ICE_CREAM_CRASH_TEXT_1"
-
-[node name="Text2" parent="ice_cream_shop/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
-layout_mode = 1
-text = "ICE_CREAM_CRASH_TEXT_2"
-
 [node name="NPCDialogue" parent="ice_cream_shop" instance=ExtResource("6_bpixg")]
 transform = Transform3D(0.0930356, 0, 1.66407, 0, 1.66667, 0, -1.66407, 0, 0.0930356, 1.65248, 1.81199, -0.061039)
 
@@ -296,6 +278,24 @@ bones/33/position = Vector3(2.9106388, 6.578843, -3.186679)
 bones/34/position = Vector3(-3.9340587, 6.578843, -2.7658018e-08)
 bones/34/rotation = Quaternion(0, 2.3841858e-07, 0, 1)
 bones/36/position = Vector3(-2.9106388, 6.578843, -3.186679)
+
+[node name="ChangeNPCBehaviour" type="Node" parent="ice_cream_shop/NPCDialogue"]
+script = ExtResource("8_vsukt")
+
+[node name="NewDialogue" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" instance=ExtResource("16_mv20d")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 23.0
+offset_right = -45.0
+grow_vertical = 2
+
+[node name="Text1" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" index="0"]
+text = "ICE_CREAM_CRASH_TEXT_1"
+
+[node name="Text2" parent="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" instance=ExtResource("7_bpixg")]
+layout_mode = 1
+text = "ICE_CREAM_CRASH_TEXT_2"
 
 [node name="NPCsIceCreamSave" type="Node3D" parent="ice_cream_shop"]
 transform = Transform3D(-1.6098759, 0, -0.4313633, 0, 1.6666666, 0, 0.4313633, 0, -1.6098759, 11.540894, 1.0752816, 1.931778)
@@ -1191,7 +1191,7 @@ volume_db = -10.0
 [connection signal="change_specific_values" from="." to="ice_cream_shop/NPCsIceCreamSave" method="_on_crash_cutscene_change_specific_values"]
 [connection signal="change_specific_values" from="." to="Apartment" method="already_open"]
 [connection signal="change_specific_values" from="." to="Apartment2" method="already_open"]
-[connection signal="change_values" from="." to="ice_cream_shop/ChangeNPCBehaviour" method="change_dialogue"]
+[connection signal="change_values" from="." to="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour" method="change_dialogue"]
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCScientistBehaviour" method="change_text_and_behaviour"]
 [connection signal="change_values" from="." to="power_plant" method="emit_smoke"]
@@ -1202,9 +1202,9 @@ volume_db = -10.0
 [connection signal="start_following" from="Camera3D" to="PathNPC2/PathFollow3D" method="start"]
 [connection signal="body_entered" from="AreaStopFollow" to="AreaStopFollow" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="dialogue_ended" from="ice_cream_shop/ChangeNPCBehaviour/NewDialogue" to="ice_cream_shop/NPCDialogue" method="_on_dialogue_dialogue_ended"]
 [connection signal="body_entered" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="ice_cream_shop/NPCDialogue/Area3D" to="ice_cream_shop/NPCDialogue/Control" method="_on_area_3d_body_exited"]
+[connection signal="dialogue_ended" from="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue" to="ice_cream_shop/NPCDialogue" method="_on_dialogue_dialogue_ended"]
 [connection signal="visibility_changed" from="GraphSign/ReplaceUI/NewSignUI" to="GraphSign/ReplaceUI/NewSignUI" method="_on_visibility_changed"]
 [connection signal="body_entered" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="NPCScientist/Area3D" to="NPCScientist/Control" method="_on_area_3d_body_exited"]
@@ -1214,11 +1214,11 @@ volume_db = -10.0
 
 [editable path="PathNPC"]
 [editable path="PathNPC2"]
-[editable path="ice_cream_shop/ChangeNPCBehaviour/NewDialogue"]
 [editable path="ice_cream_shop/NPCDialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Control"]
 [editable path="ice_cream_shop/NPCDialogue/Dialogue"]
 [editable path="ice_cream_shop/NPCDialogue/Model"]
+[editable path="ice_cream_shop/NPCDialogue/ChangeNPCBehaviour/NewDialogue"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D/Model"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D7/Model"]
 [editable path="ice_cream_shop/NPCsIceCreamSave/CharacterBody3D8/Model"]

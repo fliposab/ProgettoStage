@@ -30,6 +30,24 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 - Glossario:\
 #link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Glossario.pdf")\
 
+- Analisi dei requisiti:\
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Analisi-dei-requisiti.pdf")\
+
+- Piano di progetto:\
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Piano-di-progetto.pdf")\
+
+- Piano di qualifica:\
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Piano-di-qualifica.pdf")\
+
+- Manuale utente:\
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Manuale-utente.pdf")\
+
+- Specifica tecnica:\
+#link("https://github.com/fliposab/ProgettoStage/blob/main/Documentazione/Specifica-tecnica.pdf")\
+
+- Standard ISO/IEC 12207:1995:
+#link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")\
+
 //TODO ISO standards
 
 = Processi primari
@@ -314,7 +332,12 @@ Per facilitare il controllo di errori ortografici è stato utilizzato un plugin 
 
 == Validazione
 === Scopo e descrizione
-
+La convalida del software è un processo di valutazione del prodotto, in modo da garantire che il software soddisfi i requisiti del tutor o cliente.\
+L’esito finale positivo della validazione garantisce che il prodotto finale è in linea rispetto alle aspettative.\
+Le aspettative per questo processo sono:
+- rilevare possibili errori ignorati o trascurati durante la fase di verifica;
+- soddisfare i requisiti specificati nell’Analisi dei requisiti per il prodotto finale;
+- aiutare a migliorare la qualità e il valore del prodotto software finale.
 
 = Processi organizzativi
 == Gestione dei processi

@@ -501,11 +501,14 @@ Il metodo _stop_following_, invece, fa sistemare il personaggio in una poszione 
 
 *AreaStopFollow*\
 Classe che si occupa a far fermare i personaggi nel seguire il punto nel percorso.
-Quando un personaggio entra nell'area, fa emttere alla classe il segnale _body_entered_ che chiama il metodo _on_body_entered_ mandando il personaggio come argomento. Qui la classe chiama il metodo del personaggio _stop_following_.
+Quando un personaggio entra nell'area, fa emettere alla classe il segnale _body_entered_ che chiama il metodo _on_body_entered_ mandando il personaggio come argomento. Qui la classe chiama il metodo del personaggio _stop_following_.
 
 *CutsceneEmitParticles*\
+Lo scopo di questa classe è semplicemente emettere le "GPUParticles3D" delle scintille quando viene emesso il segnale della telecamera _sparks_particles_.
+Il segnale _change_values_ emesso dalla classe "CrashCutscene", invece, fa caricare gli effetti del fumo.
 
 *Apartment*\
+La classe "Apartment", come dice il nome, rappresenta un appartamento del livello. Quando riceve il segnale _open_doors_ apre le porte di ingresso del palazzo, con l'animazione giusta, da cui escono i personaggi che vanno verso la gelateria. Quando invece riceve il segnale _change_specific_values_, carica le porte già aperte, in quanto i personaggi sono già usciti e sono già stati caricati davanti alla gelateria.
 
 = Requisiti soddisfatti
 Nella seguente sezione vengono presentati tutti i requisiti presenti nel documento _Analisi dei requisiti_, presentando il loro stato di soddisfazione.

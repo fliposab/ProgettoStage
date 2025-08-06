@@ -50,7 +50,7 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
   [*GPU*],[Richiede supporto per Vulkan 1.0: \ Intel HD Graphics 5500 (Broadwell)\ AMD Radeon R5 Graphics (Kaveri)],
   [*CPU*],[Intel Core 2 Duo E8200\ AMD Athlon XE BE-2300, Snapdragon X Elite],
   [*RAM*],[4GB],
-  [*Spazio su disco*],[150MB]))
+  [*Spazio su disco*],[100MB liberi]))
 == Sistema operativo
 #figure(caption: [Tabella sistemi operativi supportati], table(
   columns: (0.4fr, 1fr, 0.4fr),
@@ -68,7 +68,7 @@ Si applicano gli stessi requisiti minimi forniti dalla documentazione per esegui
 Il gioco può essere scaricato dalla seguente pagina:\
 #link("https://github.com/fliposab/ProgettoStage/releases")\
 
-Nella pagina si troveranno due versioni:
+Nella pagina si troveranno due versioni principali:
 - v0.1-PoC: versione #gloss[PoC]
 - v1.0: versione #gloss[MVP]
 
@@ -80,7 +80,7 @@ Di seguito viene riportata la mappatura degli input del gioco. Per aiutare comun
 == Tastiera
 La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gioco. Nonostante non sia stata sviluppata per attività di gioco, una corretta disposizione dei tasti può comunque garantire una posizione rilassata del giocatore.
 #figure(caption: [Tastiera], image("imgs/keyboard.jpg",width:90%))
-- *WASD*: movimento personaggio
+- *WASD*: movimento del personaggio
 - *Frecce direzionali*: movimento telecamera
 - *Barra spaziatrice*: salto
 - *E*: interazione
@@ -93,21 +93,22 @@ La tastiera è la periferica utilizzata maggiormente durante lo sviluppo del gio
 - Il gioco non prevede l'utilizzo di un mouse.
 - La lingua della tastiera non è importante, ma è comunque consigliato che abbia caratteri alfanumerici.
 
-== Joystick
-In generale i joysticks sono sviluppati per essere usati con una #gloss[console], e differiscono nei simboli mostrati sui tasti.
-Per risolvere questo problema, durante la sessione di gioco, viene mostrata un'interfaccia universale dei tasti del joystick.\
-Ad esempio, le coppie A/B e X/Y sono invertite tra i joysticks Xbox e Nintendo, mentre i joysticks DualShock/DualSense utilizzano i simboli Triangolo/Croce/Cerchio/Quadrato.\
+== Joypad
+In generale i joypad sono sviluppati per essere usati con una #gloss[console], e differiscono nei simboli mostrati sui tasti.
+Per risolvere questo problema, durante la sessione di gioco, viene mostrata un'interfaccia universale dei tasti del joypad, indicandone la posizione piuttosto che la lettera o il simbolo.\
+Ad esempio, le coppie A/B e X/Y sono invertite tra i joypad Xbox e Nintendo, mentre i joypad DualShock/DualSense utilizzano i simboli Triangolo/Croce/Cerchio/Quadrato.\
 #figure(caption: [Tasti  Xbox],image("imgs/controller-diagram.png"))
-In questo esempio verranno riportati i tasti di un joystick Xbox, visto che sono i più compatibili con giochi eseguiti su PC.\
+In questo esempio verranno riportati i tasti di un joypad Xbox, visto che sono i più compatibili con giochi eseguiti su PC.\
 La mappatura dei comandi è la seguente:
 
 - *Levetta analogica sinstra*: movimento del personaggio
 - *Levetta analogica destra*: movimento telecamera
-- *A*: salto
-- *B*: interagisci
-- *X*: 
-- *Y*: Cambia oggetto / arma
+- *A*: salto / conferma nella UI
+- *B*: stop interazione
+- *X*: interazione
+- *Y*: reset (durante l'uso del cannone LR)
 - *D-Pad*: Navigazione nei menu
+- *Menu button*: apertura / chiusura del menù di pausa.
 
 // Metter il trademark di xbox nel footer
 = Navigazione
@@ -147,7 +148,9 @@ Il giocatore può scegliere le seguenti azioni:
 - *Salva ed esci dal gioco*: salva la parita e chiude il gioco. Attenzione a non chiudere il gioco attraverso la toolbar della finestra o scorciatoie del sistema operativo (ad esempio "Alt+F4"), visto che questi metodi NON salvano la partita.
 = Livelli
 Il gioco comprende 3 livelli da completare + 1 livello dove il giocatore può scegliere che livelli da giocare.
-
+Inoltre è presente un ulteriore livello che viene caricato solo all'inzio di una nuova partita per insegnare al giocatore i comandi principali.
+== Livello "Tutorial"
+#figure(image("imgs/settimana-7.png", width: 90%), caption: [Livello "Tutorial"])
 == Livello hub / principale
 
 Il giocatore viene sempre portato in questo livello dopo la schermata principale. Da qui può scegliere uno dei tre livelli avvicinandosi a uno dei "tubi" presenti:
@@ -156,31 +159,55 @@ Il giocatore viene sempre portato in questo livello dopo la schermata principale
 - *Causalità*: indicato dal tubo blu.
 
 == Livello "Linear Regression"
+#figure(image("imgs/screenshot-linear_regression_level.png", width: 90%), caption: [Livello "Linear Regression"])
 In questo livello il giocatore deve utilizzare un "cannone" che può sparare un "dato" nel grafico. Appena posizionato il punto nel grafico, la retta viene aggiornata.
 L'obiettivo del giocatore in tutte e tre le sezioni è di posizionare la retta in modo tale che lui possa proseguire alla sezione successiva.
-=== Prima sezione
-=== Seconda sezione
-=== Terza sezione
+- *Prima sezione*: appena caricato il giocatore può parlare con un personaggio che gli spiegherà il funzionamento del livello. Vicino è presente un grafico che il giocatore dovrà modificare attraverso un cannone vicino. I tasti per interagire con il cannone e quello che il giocatore può fare vengono visualizzato sullo schermo. Una volta sistemato il giocatore può usare la "linea" del grafico come ponte e passare alla sezione successiva.
+- *Seconda sezione*: nella seconda sezione il giocatore si trova di fronte ad un muro, con la retta che è l'unica apertura. Anche qui il giocatore deve modificare la retta per passare attraverso il muro.
+- *Terza sezione*: anche nella terza sezione il grafico è in posizione verticale, il giocatore dovrà modificare la retta in modo che la rotazione non sia troppo ripida.
 
 == Livello "Decision Tree"
+#figure(image("imgs/settimana-6.png", width: 90%), caption: [Livello "Decision Tree"])
 L'obiettivo di questo livello è posizionare ogni cane nella sua sezione giusta nel Decision Tree, classificandolo correttamente in base alle domande fornite ad ogni nodo.
 Tutte le razze di cane classificate correttamente saranno visibili interagendo con il cartello vicino all'albero.
 Inoltre nel livello è presente un aiutante che darà la possibilità di riposizionare tutti i cani alla loro posizione iniziale.\
 Di seguito vengono elencate le risposte giuste per ogni razza di cane:\
 *Pastore australiano*:\
+Grande #sym.arrow Cadenti #sym.arrow\
 *Beagle*:\
+Media #sym.arrow \
 *Border Collie*:\
+Grande #sym.arrow \
 *Boston Terrier*:\
+Piccola #sym.arrow\
 *Cocker Spaniel*:\
+Media #sym.arrow\
 *Corgi*:\
+Piccola #sym.arrow\
 *Bassotto*:\
+Piccola #sym.arrow\
 *Pastore tedesco*:\
+Grande #sym.arrow A punta #sym.arrow\
 *Golden Retriever*:\
+Grande #sym.arrow Cadenti #sym.arrow\
 *Husky*:\
+Grande #sym.arrow A punta #sym.arrow\
 *Volpino*:\
+Piccola #sym.arrow\
 *Barboncino*:\
+Piccola #sym.arrow\
 *Rottweiler*:\
+Grande #sym.arrow Cadenti\
 *Shiba Inu*:\
+Media #sym.arrow\
 *Shin Tzu*:\
+Piccola #sym.arrow
 
 == Livello "Causality"
+#figure(image("imgs/screenshot-causality_level.png", width: 90%), caption: [Livello "Causality"])
+Nel livello "Causality" lo scopo è scoprire il vero motivo dell'aumento della vendita di gelati.
+Nel livello sono presenti dei personaggi con cui il giocatore può interagire.
+Seguendo le indicazioni fornite dal gelataio ed il percorso indicato dai _training_data_, il giocatore deve accendere tutti i condizionatori presenti nel livello.
+Quando il giocatore li accende tutti, inizia la scena di intermezzo dove alcuni personaggi si dirigono verso la gelateria.
+Dopo di questo, se il giocatore parla con il personaggio che sta prendendo misurazioni dietro la gelateria, prima impegnato, gli chiederà la vera causa dell'aumento delle vendite.
+Se il giocatore sceglierà la risposta giusta, verrà premiato, altrimenti dovrà riprovare.
