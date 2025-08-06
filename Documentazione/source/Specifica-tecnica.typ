@@ -454,6 +454,58 @@ La classe "CutsceneHandler" si occupa di gestire le scene di intermezzo nel live
 === CausalitySavesHandler
 "CausalitySavesHandler" gestisce i salvataggi e cambio di variabili all'interno del livello "Causality". In questa classe, le variabili sono salvate in un Dictionary. Quando i salvataggi vengono caricati, la classe emette il segnale _data_loaded_.
 === Scena di intermezzo
+Di seguito viene descritto il funzionamento della scena di intermezzo.
+==== CrashCutscene
+La classe che gestisce la scena di intermezzo principale del livello.
+Si occupa principalmente di inviare i segnali per iniziare correttamente la scena.
+Quando il giocatore accende l'ultimo condizionatore, viene emsso il segnale _change_values_. Se invece il livello viene caricato con già tutti i condizionatori accessi, viene emesso il segnale _change_specific_values_.
+==== Gestione dei personaggi non giocabili
+Dopo la scena di intermezzo, alcuni personaggi possono cambiare il dialogo a loro assegnato, oppure il comportamento con il giocatore.
+#figure(caption: [Diagramma sul funzionamento dei personaggi non giocabili nella scena di intermezzo],image("imgs/class-cutscene_npc.png"))
+
+*ChangeNPCScientistBehaviour*\
+Questa classe si occupa di cambiare il comportamento del rispettivo personaggio non giocabile.
+Viene assegnata ad un nodo figlio del nodo del personaggio.
+All'inizio del livello, il personaggio presenta un dialogo predefinito e non si gira quando parla con il giocatore.
+Dopo aver ricevuto il segnale _change_values_ dalla classe "CrashCutscene", sostituisce il dialogo del personaggio con il dialogo assegnato alla classe, e cambia il comportamento, in modo che si giri e cambi animazione quando parla con il giocatore.
+Inoltre, dopo che il giocatore risponde correttamente alla domanda del nuovo dialogo, il comportamento cambia di nuovo, e viene tolto il dialogo, rimpiazzando il messaggio automatico che appare quando il giocatore entra nell'area di interazione.\
+
+*ChangeNPCIceCreamBehaviour*\
+Questa classe si occupa di cambiare il comportamento del rispettivo personaggio non giocabile.
+Viene assegnata ad un nodo figlio del nodo del personaggio.\
+Funziona nello stesso modo della classe descritta prima, però avviene solo un cambio del dialogo e non c'è la modifica del comportamento.
+
+*NPCIceCreamSave*\
+Lo scopo della classe "NPCIceCreamSave" è quello di caricare il gruppo di persone davanti alla gelateria nel caso il livello venga caricato quando già tutti i condizionatori sono stati accesi.\
+Le persone vengono caricate quando la classe riceve il segnale _change_specific_values_, in quanto vengono caricate solo ed esclusivamente al caricamento del livello.\
+
+*ChangeSignUI*\
+Questa classe si occupa di cambiare il contenuto del rispettivo cartello.
+Viene assegnata ad un nodo figlio del nodo del cartello.\
+Funziona nello stesso modo delle classi che cambiano il dialogo o comportamento dei personaggi. Quando riceve il segnale _change_values_, cambia il contenuto del cartello, rimpiazzandolo con l'istanza assegnata alla classe.
+
+==== Gestione degli elementi da animare
+#figure(caption: [Diagramma sul funzionamento degli elementi da animare nella scena di intermezzo],image("imgs/class-cutscene_animate.png"))
+*CrashCutsceneCamera*\
+La classe "CrashCutsceneCamera" rappresenta la telecamera che inquadra gli oggetti nella scena di intermezzo. Eredita da "Camera3D".\
+La telecamera viene impostata come corrente quando la scena inizia, e si occupa di mandare i segnali nel giusto momento tramite un "AnimationPlayer", presente come nodo figlio. Il lavoro di questo è semplicemente chiamare i metodi presenti nella classe della telecamera, che a loro volta inviano i segnali.\
+
+*PathCutscene*\
+Questa classe rappresenta un punto che percorre una linea in un determinato percorso. Viene utilizzato dai "FollowNPC" per capire la direzione da seguire per arrivare alla giusta destinazione.
+Non appena riceve il segnale _start_following_ dalla telecamera, il punto inizia a percorrere il percorso, chiamando tutti i nodi figli, in questo caso "FollowNPC" a seguire il punto.\
+
+*FollowNPC*\
+Classe che eredita da un semplice "CharacterBody3D". Rappresenta un personaggio che segue il punto "PathCutscene" per arrivare a destinazione.
+Il metodo _start_following_ viene chiamato dal nodo genitore, per far iniziare a seguire il punto. Ogni personaggio ha una sua velocità variabile, il cui valore è contenuto nell'attributo _speed_.
+Il metodo _stop_following_, invece, fa sistemare il personaggio in una poszione vicina, prima di fermarlo chiamando il metodo _stop_.\
+
+*AreaStopFollow*\
+Classe che si occupa a far fermare i personaggi nel seguire il punto nel percorso.
+Quando un personaggio entra nell'area, fa emttere alla classe il segnale _body_entered_ che chiama il metodo _on_body_entered_ mandando il personaggio come argomento. Qui la classe chiama il metodo del personaggio _stop_following_.
+
+*CutsceneEmitParticles*\
+
+*Apartment*\
 
 = Requisiti soddisfatti
 Nella seguente sezione vengono presentati tutti i requisiti presenti nel documento _Analisi dei requisiti_, presentando il loro stato di soddisfazione.

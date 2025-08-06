@@ -11,7 +11,6 @@ class_name CrashCutscene
 var started : bool = false
 var done : bool = false
 
-signal start_cutscene()
 signal change_values()
 signal change_specific_values()
 signal cutscene_finished()
@@ -25,7 +24,7 @@ func start(play_cutscene: bool)->void:
 	fade.play_fade()
 	emit_change_values()
 	await get_tree().create_timer(1.0).timeout
-	start_cutscene.emit()
+	camera.play_anim()
 	camera.current = true
 	fade.play_fade(true)
 	await get_tree().create_timer(1.0).timeout

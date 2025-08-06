@@ -1195,7 +1195,6 @@ volume_db = -10.0
 [connection signal="change_values" from="." to="GraphSign/ReplaceUI" method="replace_ui"]
 [connection signal="change_values" from="." to="NPCScientist/ChangeNPCScientistBehaviour" method="change_text_and_behaviour"]
 [connection signal="change_values" from="." to="power_plant" method="emit_smoke"]
-[connection signal="start_cutscene" from="." to="Camera3D" method="play_anim"]
 [connection signal="open_doors" from="Camera3D" to="Apartment" method="play_open"]
 [connection signal="open_doors" from="Camera3D" to="Apartment2" method="play_open"]
 [connection signal="sparks_particles" from="Camera3D" to="power_plant" method="emit_sparks"]
