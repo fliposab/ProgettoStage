@@ -116,7 +116,7 @@ La mappatura dei comandi è la seguente:
 #figure(caption: [Menu principale], image("imgs/menu_principale.png",width:90%))
 Appena avviato, il gioco mostrerà la schermata principale con le seguenti opzioni:
 - *Carica partita*: disponibile solo se sono presenti dati di salvataggio, porta il giocatore al livello principale tenendo i progressi salvati nelle sessioni precedenti.
-- *Nuova partita*: elimina tutti i dati di salvataggio, se presenti, e porta il giocatore al livello principale.
+- *Nuova partita*: elimina tutti i dati di salvataggio, se presenti, ad eccezione dei dati delle opzioni, e porta il giocatore al livello principale.
 - *Opzioni*: apre il menù delle opzioni dove il giocatore può modificare alcuni valori del gioco come la risoluzione della finestra, la qualità delle ombre e la lingua del gioco.
 - *Esci dal gioco*: chiude il gioco.
 == Opzioni
@@ -141,14 +141,14 @@ Quando il giocatore passa sopra una delle opzioni, viene fornita una sua breve d
 Il menu di pausa è accessibile in qualsiasi momento durante il livello quando il giocatore è libero di muoversi.
 Premendo il tasto apposito, il gioco viene fermato e viene visualizzato il menu.
 Il giocatore può scegliere le seguenti azioni:
-- *Riprendi*: riprende il gioco. SI può anche premere lo stesso tasto di pausa per eseguire questa azione.
+- *Riprendi*: riprende il gioco. Si può anche premere lo stesso tasto di pausa per eseguire questa azione.
 - *Torna al livello hub*: disponibile solo se il giocatore non è già nel livello hub. Salva la partita e riporta il giocatore al livello principale.
 - *Opzioni*: apre il menu delle opzioni.
 - *Torna al menu principale*: salva la partita e porta il giocatore al menu principale-
 - *Salva ed esci dal gioco*: salva la parita e chiude il gioco. Attenzione a non chiudere il gioco attraverso la toolbar della finestra o scorciatoie del sistema operativo (ad esempio "Alt+F4"), visto che questi metodi NON salvano la partita.
 = Livelli
-Il gioco comprende 3 livelli da completare + 1 livello dove il giocatore può scegliere che livelli da giocare.
-Inoltre è presente un ulteriore livello che viene caricato solo all'inzio di una nuova partita per insegnare al giocatore i comandi principali.
+Il gioco comprende 3 livelli da completare + 1 livello dove il giocatore può scegliere quale dei livelli giocare.
+Inoltre è presente un ulteriore livello che viene caricato solo all'inizio di una nuova partita per insegnare al giocatore i comandi principali.
 == Livello "Tutorial"
 #figure(image("imgs/settimana-7.png", width: 90%), caption: [Livello "Tutorial"])
 == Livello hub / principale
@@ -172,36 +172,37 @@ L'obiettivo di questo livello è posizionare ogni cane nella sua sezione giusta 
 Tutte le razze di cane classificate correttamente saranno visibili interagendo con il cartello vicino all'albero.
 Inoltre nel livello è presente un aiutante che darà la possibilità di riposizionare tutti i cani alla loro posizione iniziale.\
 Di seguito vengono elencate le risposte giuste per ogni razza di cane:\
+//Meglio fare un albero effettivo
 *Pastore australiano*:\
-Grande #sym.arrow Cadenti #sym.arrow\
+Grande #sym.arrow Cadenti #sym.arrow Bianco / Arancione / Blu\ 
 *Beagle*:\
-Media #sym.arrow \
+Media #sym.arrow Cadenti #sym.arrow Bianco / Marrone\
 *Border Collie*:\
-Grande #sym.arrow \
+Grande #sym.arrow A punta #sym.arrow Nero / Bianco\
 *Boston Terrier*:\
-Piccola #sym.arrow\
+Piccola #sym.arrow Corto #sym.arrow Liscio #sym.arrow A punta #sym.arrow Nero / Bianco\
 *Cocker Spaniel*:\
-Media #sym.arrow\
+Media #sym.arrow A punta #sym.arrow Arancione\
 *Corgi*:\
-Piccola #sym.arrow\
+Piccola #sym.arrow Corto #sym.arrow Liscio #sym.arrow A punta #sym.arrow Arancione / Bianco\
 *Bassotto*:\
-Piccola #sym.arrow\
+Piccola #sym.arrow Corto #sym.arrow Liscio #sym.arrow Cadenti\
 *Pastore tedesco*:\
-Grande #sym.arrow A punta #sym.arrow\
+Grande #sym.arrow A punta #sym.arrow Nero / Marrone #sym.arrow Nero / Bianco\
 *Golden Retriever*:\
-Grande #sym.arrow Cadenti #sym.arrow\
+Grande #sym.arrow Cadenti #sym.arrow Arancione\
 *Husky*:\
-Grande #sym.arrow A punta #sym.arrow\
+Grande #sym.arrow A punta #sym.arrow Grigio / Bianco\
 *Volpino*:\
-Piccola #sym.arrow\
+Piccola #sym.arrow Lungo\
 *Barboncino*:\
-Piccola #sym.arrow\
+Piccola #sym.arrow Corto #sym.arrow Mosso #sym.arrow Arancione / Marrone\
 *Rottweiler*:\
-Grande #sym.arrow Cadenti\
+Grande #sym.arrow Cadenti #sym.arrow Nero / Arancione\ 
 *Shiba Inu*:\
-Media #sym.arrow\
+Media #sym.arrow A punta\
 *Shin Tzu*:\
-Piccola #sym.arrow
+Piccola #sym.arrow Corto #sym.arrow Mosso #sym.arrow Bianco\
 
 == Livello "Causality"
 #figure(image("imgs/screenshot-causality_level.png", width: 90%), caption: [Livello "Causality"])

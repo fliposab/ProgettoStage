@@ -8,6 +8,7 @@ signal correct_option_selected
 signal wrong_option_selected
 
 func _ready()->void:
+	toggle_buttons(false)
 	connect_signals()
 
 ##connects all the child buttons pressed signal and numerates 
@@ -20,6 +21,7 @@ func connect_signals()->void:
 ##Received when a button is pressed
 func on_option_pressed(index: int)->void:
 	check_if_correct(index+1)
+	toggle_buttons(false)
 
 ##Checks if the answer is correct or not
 func check_if_correct(index: int)->void:
@@ -29,3 +31,14 @@ func check_if_correct(index: int)->void:
 	else:
 		owner.on_wrong_option_pressed()
 		wrong_option_selected.emit()
+
+func toggle_buttons(value: bool)->void:
+	if value:
+		for i in get_child_count():
+			if get_child(i) is DialogueOptionsButton:
+				get_child(i).enable_button()
+	else:
+		for i in get_child_count():
+			if get_child(i) is DialogueOptionsButton:
+				get_child(i).disable_button()
+				

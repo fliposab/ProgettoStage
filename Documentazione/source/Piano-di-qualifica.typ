@@ -16,7 +16,7 @@ doc)
 
 = Introduzione
 == Scopo del documento
-Il presente documento ha lo scopo di definire le metriche di qualità che verranno utilizzate per valutare il prodotto software, e le modalità di verifica e validazione del prodotto.\
+Il presente documento ha lo scopo di definire le metriche di qualità che verranno utilizzate per valutare la qualità del prodotto software, e le modalità di verifica e validazione del prodotto.\
 
 == Glossario
 Per facilitare la comprensione del documento, è stato creato un glossario che contiene i termini utilizzati nel documento e le loro definizioni. I termini presenti nel glossario sono colorati di blu e seguiti da un'asterisco: #gloss[esempio].\
@@ -64,12 +64,12 @@ Le metriche di qualità di processo sono utilizzate per valutare l'efficacia e l
 === Fornitura
 Per il processo di fornitura, vengono indicate tutte le scelte operative fatte in fase di sviluppo. Viene usato l'acronimo MPC (Minimum Predictive Capability).\
 In questo caso, il MPC è il valore minimo da raggiungere per essere considerato accettabile.
-- *MPC-TC (Time at Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
-  - Il totale di ore previste ammonta a 304 ore.
-- *MPC-EC - Estimated at Completion*: numero di ore effettive da svolgere per completare i compiti ancora da realizzare
+- *MPC-TC (Time at Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro;
+  - Il totale di ore previste ammonta a 304 ore;
+- *MPC-EC - Estimated at Completion*: numero di ore effettive da svolgere per completare i compiti ancora da realizzare;
 - *MPC-AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
 - *MPC-PT - Planned Time*: ore settimanali pianificate da svolgere per completare il progetto;
-- *MPC-TV - Time Variance*: differenza in percentuale tra il tempo utilizzabile e quello usato effettivamente
+- *MPC-TV - Time Variance*: differenza in percentuale tra il tempo utilizzabile e quello usato effettivamente;
   - Il calcolo viene dato da PT - AT.
 
 #figure(caption: [Valori per misurare la qualità della fornitura], table(
@@ -153,7 +153,8 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
 === Verifica
 /*- *MPC-CCO - Code coverage*: quantità di codice eseguito durante i test.\ Viene utilizzato per valutare la qualità dei test e garantire che il codice sia stato adeguatamente testato. Un alto livello indica che il codice è stato eseguito in molti contesti e scenari diversi con diverse parti di codice. In altre parole, indica quanto codice è stato sottoposto ai test.
 */
-- *MPC-TSP - Test superati in percentuale*: indica la proporzione di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti. Viene espressa come una percentuale e serve a misurare quanto dell'applicazione in fase di sviluppo è stato verificato con successo tramite i test. Una percentuale alta di test superati indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.\ In altre parole, indica quanti test sono stati superati.
+- *MPC-TSP - Test superati in percentuale*: indica la proporzione di test automatizzati o manuali che sono stati eseguiti con successo rispetto al totale dei test previsti. Viene espressa come una percentuale e serve a misurare quanto dell'applicazione in fase di sviluppo è stato verificato con successo tramite i test. Una percentuale alta di test superati indica che il sistema è stabile e che la maggior parte delle funzionalità funzionano come previsto.\
+\
 #figure(caption: [Valori per misurare la qualità del processo di verifica], table(
   columns: (auto, auto, auto, auto),
   inset: 8pt,
@@ -170,71 +171,27 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "100%",
 ))
 
-
-== Qualità del prodotto
-=== Funzionalità
-- *MPD-RO - Copertura requisiti obbligatori*: indica la percentuale di requisiti obbligatori coperti dal prodotto. Un valore del 100% indica che tutti i requisiti obbligatori sono stati implementati.
-
-- *MPD-RD - Copertura requisiti desiderabili*: indica la percentuale di requisiti desiderabili coperti dal prodotto. Un valore del 100% indica che tutti i requisiti desiderabili sono stati implementati.
-
-#figure(caption: [Valori per misurare la qualità del prodotto in termini di funzionalità], table(
-  columns: (auto, auto, auto, auto),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPD-RO",
-  "Copertura requisiti obbligatori",
-  "100%",
-  "100%",
-  "MPD-RD",
-  "Copertura requisiti desiderabili",
-  "\u{2265}50%",
-  "100%",
-))
-/*
-=== Affidabilità
-- *MPD-CC - Code coverage*: indica la percentuale di codice coperto dai test. Un valore alto indica che il codice è stato testato in modo approfondito e che è meno probabile che contenga errori.
-
-#figure(caption: [Valori per misurare la qualità del prodotto in termini di affidabilità], table(
-  columns: (auto, auto, auto, auto),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPD-CC",
-  "Code coverage",
-  "\u{2265}80%",
-  "100%",
-))*/
-
-//=== Usabilità
-
 === Efficienza
-- *MPD-TF - Target FPS*: indica gli #gloss[fps] obiettivo da mantenere durante l'esecuzione del gioco. 
-- *MPD-LS - Lag Spikes*: indica il numero di #gloss[lag spikes] che occorrono durante l'esecuzione del gioco. Non vengono contati durante un caricamento tra un livello e un altro.
+- *MPC-TF - Target FPS*: indica gli #gloss[fps] obiettivo da mantenere durante l'esecuzione del gioco. 
+- *MPC-LS - Lag Spikes*: indica il numero di #gloss[lag spikes] che occorrono durante l'esecuzione del gioco. Non vengono contati durante un caricamento tra un livello e un altro.
 #figure(caption: [Valori per misurare la qualità del prodotto in termini di efficienza], table(
   columns: (auto, auto, auto, auto),
   inset: 8pt,
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPD-TF",
+  "MPC-TF",
   "Target FPS",
   "\u{2265}30",
   "60",
-  "MPD-LS",
+  "MPC-LS",
   "Lag Spikes",
   "\u{2264}2 per minute",
   "0",
 ))
 
-//=== Manutenibilità
-// 
-//=== Sicurezza
-// 
 === Compatibilità
-- *MPD-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11 e Linux.
+- *MPC-SOS - Supported Operative Systems*: numero di sistemi operativi supportati, si punta a supportare almeno Windows 11 e Linux.
 
 #figure(caption: [Valori per misurare la qualità del prodotto in termini di compatibilità], table(
   columns: (auto, auto, auto, auto),
@@ -242,11 +199,40 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPD-SOS",
+  "MPC-SOS",
   "Supported Operative Systems",
   "\u{2265}2",
   "\u{2265}3",
 ))
+
+== Qualità del prodotto
+Le seguenti metriche vengono usate per misurare la qualità del ciclo di vita del prodotto.\
+=== Funzionalità
+- *MPC-RO - Copertura requisiti obbligatori*: indica la percentuale di requisiti obbligatori coperti dal prodotto. Un valore del 100% indica che tutti i requisiti obbligatori sono stati implementati.
+
+- *MPC-RD - Copertura requisiti desiderabili*: indica la percentuale di requisiti desiderabili coperti dal prodotto. Un valore del 100% indica che tutti i requisiti desiderabili sono stati implementati.
+
+#figure(caption: [Valori per misurare la qualità del prodotto in termini di funzionalità], table(
+  columns: (auto, auto, auto, auto),
+  inset: 8pt,
+  align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
+  fill: (x, y) => if (y == 0) { luma(230) },
+  table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
+  "MPC-RO",
+  "Copertura requisiti obbligatori",
+  "100%",
+  "100%",
+  "MPC-RD",
+  "Copertura requisiti desiderabili",
+  "\u{2265}50%",
+  "100%",
+))
+
+//=== Manutenibilità
+// 
+//=== Sicurezza
+// 
+
 
 = Metodologie di testing
 Di seguito sono elencate le metodologie di testing che verranno utilizzate per verificare e validare il prodotto software. Le metodologie di testing sono suddivise in quattro categorie:
@@ -460,24 +446,27 @@ Il grafico mostra gli errori ortografici non corretti nel periodo in cui sono st
 === MPC-TSP
 #figure(caption: [Grafico rappresentante l'andamento di TSP], image("imgs/chart-tsp.png", width: auto))
 Dal grafico si può vedere il numero di test eseguiti e superati per ogni periodo. La maggior parte di test è stata eseguita verso il periodo 6 e 7 e infatti si può vedere un salita rapida in quella zona.
-== Qualità del prodotto
-=== MPD-TF
+== Efficienza
+=== MPC-TF
 #figure(caption: [Grafico rappresentante l'andamento dei fotogrammi al secondo], image("imgs/chart-fps.png", width: auto))
 La misurazione dei fotogrammi al secondo è stat eseguita all'interno di Godot. Il grafico mostra il valore per ogni secondo di gioco.
 Si possono notare 2 cose:
 - il valore non supera 60, in quanto non può superare il valore della frequenza di aggiornamento dello schermo;
 - sono presenti alcune depressioni, durante questo periodo il gioco stava caricando un altro livello ed è l'unico momento accettabile che si possono avere delle perdite.
-=== MPD-LS
+=== MPC-LS
 #figure(caption: [Grafico rappresentante l'andamento del tempo necessario per processare un frame], image("imgs/chart-lag_spikes.png", width: auto))
 Il grafico dell'immagine è stato preso all'interno dell'editor Godot.
 Nel grafico vengono mostrati i tempi per processare un fotogramma dalla CPU (a sinistra) e dalla GPU (a destra).\
 Si può vedere che le informazioni date sono simili al grafico mostrato sopra, l'andamento è diverso visto che i dati sono stati presi in due sessioni separate.\
 Si possono notare dei picchi dovuti al caricamento dei livelli, tuttavia come detto precedentemente, questo è l'unico periodo dove questi picchi sono concessi.
-=== MPD-RO / MPD-RD
-#figure(caption: [Grafico rappresentante l'andamento di RO e RD], image("imgs/chart-ro_rd.png", width: auto))
-Il grafico mostra i requisiti soddisfatti totali per ogni periodo, divisi tra obbligatori e desiderabili.\
-Si nota che l'andamento è piuttosto costante, con i requisiti obbligatori soddisfatti prima in quanto avevano priorità più alta.
-=== MPD-SOS
+== Compatibilità
+=== MPC-SOS
 Il numero finale di sistemi operativi supportati dal gioco è 2:
 - Windows 11;
 - Linux.
+== Qualità del prodotto
+
+=== MPC-RO / MPC-RD
+#figure(caption: [Grafico rappresentante l'andamento di RO e RD], image("imgs/chart-ro_rd.png", width: auto))
+Il grafico mostra i requisiti soddisfatti totali per ogni periodo, divisi tra obbligatori e desiderabili.\
+Si nota che l'andamento è piuttosto costante, con i requisiti obbligatori soddisfatti prima in quanto avevano priorità più alta.

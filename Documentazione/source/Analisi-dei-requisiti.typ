@@ -45,7 +45,7 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")\
 \
 - Diagrammi UML - Use case:\
-da cambiare\
+#link("https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf")\
 \
 - Documentazione "Godot Engine":\ 
 #link("https://docs.godotengine.org/en/stable/")\
@@ -53,7 +53,7 @@ da cambiare\
 
 = Casi d'uso
 == Introduzione
-Nelle seguenti sezioni sono riportati i casi d'uso del #gloss[videogioco], che descrivono le funzionalità principali e le interazioni tra il giocatore e il gioco.\
+Nelle seguenti sezioni sono riportati i casi d'uso del videogioco, che descrivono le funzionalità principali e le interazioni tra il giocatore e il gioco.\
 I casi d'uso sono organizzati in modo da rappresentare le azioni che il giocatore può compiere, le condizioni necessarie per eseguire tali azioni e le conseguenze di queste azioni.\
 == Attori
 Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce con il videogioco, controllando il personaggio e prendendo decisioni durante il gioco.
@@ -77,20 +77,18 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Rotazione telecamera automatica.
 *Generalizzazioni*:\
 - Movimento con oggetto.
-*Inclusioni*:\
-- Rotazione telecamera automatica.
 
 === UC1.1 - Movimento con oggetto
 *Attori principali*:\ 
 - Giocatore
 *Descrizione*:\ 
-- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra utilizzando i tasti direzionali o i comandi di movimento del joypad.
+- Il giocatore può muovere il personaggio in avanti, indietro, a sinistra e a destra, mentre sta portando un oggetto, utilizzando lo stick analogico sinistro del joypad.
 *Precondizioni*:\ 
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore ha un oggetto con sé.
 *Postcondizioni*:\
 - Il personaggio si muove nella direzione desiderata
-- Il personaggio sposta con sé lì'oggetto.
+- Il personaggio sposta con sé l'oggetto.
 *Scenario principale*:\
 - Il giocatore preme il tasto o muove la levetta nel #gloss[joypad].
 - Il personaggio si muove nella direzione desiderata insieme all'oggetto.
@@ -101,7 +99,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*:
 - Giocatore
 *Descrizione*:\ 
-- Il giocatore può far saltare il personaggio utilizzando un tasto specifico o un comando del joypad.
+- Il giocatore può far saltare il personaggio utilizzando un tasto specifico.
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore deve essere libero di muoversi.
@@ -162,7 +160,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*: 
 - Giocatore\
 *Descrizione*:
-- Il giocatore può ruotare la telecamera attorno al personaggio utilizzando i comandi del mouse o del joypad.\
+- La telecamera può modificare la sua posizione e rotazione per inquandrare ciò che c'è davanti al personaggio.\
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco.\
 *Postcondizioni*:
@@ -181,10 +179,10 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore deve essere in un livello del gioco.
 - Il giocatore deve entrare in un'area di caduta.
 *Postcondizioni*:
-- Il giocatore torna dove era prima di cadere
+- Il giocatore torna dove era prima di cadere.
 *Scenario principale*:
 - Il giocatore cade dal livello.
-- Il giocatore entra in un'area di caduta
+- Il giocatore entra in un'area di caduta.
 - Il giocatore torna dove si trovava prima di cadere.
 *Inclusioni*:
 - Riposizionamento.
@@ -209,7 +207,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Attori principali*: 
 - Giocatore
 *Descrizione*:
-- Il giocatore può raccogliere oggetti #gloss[collezionabili] presenti nel livello.
+- Il giocatore può raccogliere oggetti #gloss[collezionabili] presenti nel livell.
 *Precondizioni*:
 - Il giocatore deve essere in un livello del gioco e deve esserci un oggetto collezionabile nelle vicinanze.
 *Postcondizioni*:
@@ -320,7 +318,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - L'entità mostra il dialogo.
 - Il giocatore non può muoversi.
 *Scenario principale*:
-- Il giocatore visualizza il il dialogo
+- Il giocatore visualizza il il dialogo.
 
 === UC8.2 - Scelta opzione dialogo
 *Attori principali*: 
@@ -363,7 +361,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Precondizioni*:
 - Il giocatore sta interagendo con un'entità.
 *Postcondizioni*:
-- Il giocatore preme l'input
+- Il giocatore preme l'input.
 - Il giocatore di interagire con l'entità.
 - Il giocatore può muoversi di nuovo.
 *Scenario principale*:
@@ -374,11 +372,11 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC9 - Prendere un oggetto
 #figure(image("imgs/uc-prendere_oggetto.png", width: auto), caption: "Prendere un oggetto")
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può prendere un oggetto e poi muoversi con esso.
 *Precondizioni*:
-- Il giocatore deve essere in un livello del gioco
+- Il giocatore deve essere in un livello del gioco.
 - Deve esserci un oggetto che il giocatore può raccogliere davanti a esso.
 *Postcondizioni*:
 - Il giocatore interagisce con l'oggetto.
@@ -400,7 +398,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore lascia l'oggetto.
 - L'oggetto rimane nella posizione lasciato.
 *Scenario principale*:
-- Il giocatore preme lo stesso tasto con cui ha raccolto l'oggetto
+- Il giocatore preme lo stesso tasto con cui ha raccolto l'oggetto.
 - Il giocatore lascia l'oggetto.
 *Estensioni*:
 - Inserimento oggetto nello spazio dedicato.
@@ -444,14 +442,14 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Descrizione*:
 - Il giocatore vuole visualizzare tutte le classificazioni degli oggetti che è riuscito ad indovinare nel livello.
 *Precondizioni*:
-- Il giocatore è dentro il livello del Decision Tree
+- Il giocatore è dentro il livello del Decision Tree.
 - Il livello deve contenere un Decision Tree.
 *Postcondizioni*:
-- Il giocatore visualizza le classificazioni degli oggetti scoperti..
+- Il giocatore visualizza le classificazioni degli oggetti scoperti.
 *Scenario principale*:
 - Il giocatore visualizza le classificazioni degli oggetti scoperti.
 *Estensioni*:
-- Fine interazione
+- Fine interazione.
 
 === UC11.3 - Visualizzazione grafico
 *Attori principali*: 
@@ -465,7 +463,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Scenario principale*:
 - Il giocatore visualizza il grafico.
 *Estensioni*:
-- Fine interazione
+- Fine interazione.
 
 === UC11.4 - Aggiornamento dato di un cartello
 *Attori principali*: 
@@ -535,7 +533,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 *Precondizioni*:
 - Il giocatore deve essere in utilizzo di una macchina LR.
 *Postcondizioni*:
-- Il punto viene posizionaro sul grafico.
+- Il punto viene posizionato sul grafico.
 *Scenario principale*:
 - Il giocatore mire dove vuole posizionare il punto.
 - Il giocatore preme il tasto "Interagisci".
@@ -558,7 +556,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC16 - Posizionamento sopra un nodo dell'albero di decisione
 #figure(image("imgs/uc-nodo_albero.png", width: auto), caption: "Scelte albero di decisione")
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore vuole posizionarsi sopra un nodo dell'albero di decisione.
 *Precondizioni*:
@@ -568,13 +566,13 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 - Il giocatore è posizionato sopra un nodo dell'albero di decisione.
 *Scenario principale*:
 - Il giocatore si muove verso il nodo scelto.
-- Il giocatore si posiziona sopra il nodo
+- Il giocatore si posiziona sopra il nodo.
 *Estensioni*:
 - Visualizzazione delle scelte sul nodo.
 
 === UC16.1 - Visualizzazione scelte sul nodo
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore vuole proseguire nell'albero di decisione.
 *Precondizioni*:
@@ -590,7 +588,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC17 - Inserimento dell’oggetto nello spazio dedicato
 #figure(image("imgs/uc-inserimento_spazio.png", width: auto), caption: "Inserimento dell’oggetto nello spazio dedicato")
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore posiziona l'oggetto che sta portando in uno spazio apposito.
 *Precondizioni*:
@@ -605,7 +603,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 === UC17.1 - Inserimento nello spazio corretto
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore posiziona l'oggetto nello spazio corretto.
 *Precondizioni*:
@@ -619,7 +617,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 === UC17.2 - Inserimento nello spazio sbagliato
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore posiziona l'oggetto nello spazio sbagliato.
 *Precondizioni*:
@@ -631,7 +629,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 == UC18 - Salvataggio
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*: 
 - Il gioco salva in automatico in momenti specifici.
 *Precondizioni*: 
@@ -646,7 +644,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC19 - Pausa
 #figure(image("imgs/uc-pausa.png", width: auto), caption: "Apertura menu di pausa")
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*: 
 - Il giocatore può mettere in pausa il gioco in qualsiasi momento per accedere al menu di pausa.
 *Precondizioni*: 
@@ -661,7 +659,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC20 -  Riprendi
 #figure(image("imgs/uc-menu_pausa.png", width: auto), caption: "Menu di pausa")
 *Attori principali*: 
-- Giocatore
+- Giocatore.
 *Descrizione*: 
 - Il giocatore può riprendere il gioco dal menu di pausa.
 *Precondizioni*: 
@@ -675,7 +673,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC21 - Opzioni
 == UC21 - Opzioni
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può accedere alle opzioni del gioco dal menu di pausa per modificare le impostazioni come volume, risoluzione, modalità finestra/schermo intero e lingua.
 *Precondizioni*:
@@ -689,7 +687,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC22 - Torna alla hub
 == UC22 - Torna alla hub
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può ritornare al livello "hub" da qualsiasi altro livello.
 *Precondizioni*:
@@ -705,7 +703,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC23 - Torna al menu principale
 == UC23 - Torna al menu principale
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può tornare al menu principale dal menu di pausa.
 *Precondizioni*:
@@ -734,7 +732,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC25 - Carica partita
 #figure(image("imgs/uc-menu_principale.png", width: auto), caption: "Menu principale")
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può caricare una partita salvata dal menu principale.
 *Precondizioni*:
@@ -749,12 +747,12 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC26 - Nuova partita
 == UC26 - Nuova partita
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può avviare il gioco dal menu principale.
 *Precondizioni*:
 - Il gioco deve essere avviato e il menu principale deve essere visualizzato.
-- Il gioco non ha dati di salvataggio esistenti
+- Il gioco non ha dati di salvataggio esistenti.
 *Postcondizioni*:
 - Il gioco viene resettato.
 - Il gioco inizia e il giocatore viene portato al livello base.
@@ -767,7 +765,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC27 - Modifica modalità finestra
 #figure(image("imgs/uc-menu_opzioni.png", width: auto), caption: "Menu opzioni")
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la modalità di visualizzazione del gioco (finestra o schermo intero) dal menu delle opzioni.
 *Precondizioni*:
@@ -781,7 +779,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC28 - Modifica risoluzione finestra
 == UC28 - Modifica risoluzione finestra
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la risoluzione del gioco dal menu delle opzioni.
 *Precondizioni*:
@@ -795,7 +793,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC29 - Modifica scala di risoluzione
 == UC29 - Modifica scala di risoluzione
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la scala di risoluzione dal menu delle opzioni.
 *Precondizioni*:
@@ -810,7 +808,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC30 - Modifica anti-aliasing
 == UC30 - Modifica anti-aliasing
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la qualità delle ombre dal menu delle opzioni.
 *Precondizioni*:
@@ -825,7 +823,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC31 - Modifica qualità ombre
 == UC31 - Modifica qualità ombre
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la qualità delle ombre dal menu delle opzioni.
 *Precondizioni*:
@@ -840,7 +838,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC32 - Cambia lingua
 == UC32 - Cambia lingua
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare la lingua del gioco dal menu delle opzioni.
 *Precondizioni*:
@@ -855,7 +853,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC33 - Modifica volume
 == UC33 - Modifica volume
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può modificare il volume del gioco dal menu delle opzioni.
 *Precondizioni*:
@@ -869,7 +867,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC34 - Salva ed esci dalle opzioni
 == UC34 - Salva ed esci dalle opzioni
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore può salvare le opzioni scelte.
 *Precondizioni*:
@@ -887,13 +885,13 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC35 - Accensione unità esterna condizionatore
 #figure(image("imgs/uc-ac.png", width: auto), caption: "Accensione unità esterna condizionatore")
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore accende un'unità esterna di un condizionatore.
 *Precondizioni*:
-- Il giocatore deve essere in un livello
+- Il giocatore deve essere in un livello.
 *Postcondizioni*
-- L'unità esterna del condizionatore viene accesa
+- L'unità esterna del condizionatore viene accesa.
 - Il giocatore non può più interagire con l'entità.
 *Scenario principale*:
 - Il giocatore si avvicina all'entità.
@@ -907,7 +905,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 // UC36 - Visualizzazione scena di intermezzo
 == UC36 - Visualizzazione scena di intermezzo
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore visualizza una #gloss[scena di intermezzo].
 *Precondizioni*:
@@ -923,7 +921,7 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 == UC37 - Visualizzazione input tastiera
 #figure(image("imgs/uc-input_prompt.png", width: auto), caption: "Visualizzazione input nella UI")
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore deve vedere che input deve premere dal dispositivo che sta utilizzando.
 *Precondizioni*:
@@ -936,13 +934,13 @@ Il gioco prevede un solo attore, il *giocatore*, cioè l'utente che interagisce 
 
 == UC38 - Visualizzazione input joypad
 *Attori principali*:
-- Giocatore
+- Giocatore.
 *Descrizione*:
 - Il giocatore deve vedere che input deve premere dal dispositivo che sta utilizzando.
 *Precondizioni*:
 - Il giocatore deve avere un joypad collegato alla macchina.
 *Postcondizioni*
-- Il giocatore visualizza nella UI il tasto del joypad da premere
+- Il giocatore visualizza nella UI il tasto del joypad da premere.
 *Scenario principale*:
 - Il giocatore preme un tasto del joypad.
 - Il gioco aggiorna la UI mostrando gli input del joypad.
@@ -1009,7 +1007,7 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     [UC7\ Discussione con il tutor aziendale],
     //UC7.1
     [R-10-F-O],
-    [Il giocatore deve essere in grado di visualizzare subito il messagio di un'entità automatica],
+    [Il giocatore deve essere in grado di visualizzare subito il messaggio di un'entità automatica],
     [UC7.1, UC7.1.1\ Discussione con il tutor aziendale],
     //UC7.2
     [R-11-F-O],
@@ -1151,6 +1149,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     [R-50-F-O],[Il giocatore deve poter accendere delle unità esterne di un condizionatore premendo un tasto],
     [UC35\ Discussione con il tutor aziendale],
     [R-51-F-O],[Il giocatore deve poter vedere scene di intermezzo],[UC36\ Decisione interna],
+    "R-52-F-O","Il gioco deve supportare input da tastiera",[UC37\ Decisione interna],
+    "R-53-F-D","Il gioco deve supportare input da un joypad generico",[UC38\ Decisione interna],
   )
 )
 
@@ -1224,9 +1224,7 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-04-A-D",
     "La piattaforma deve essere responsive e funzionare correttamente su dispositivi desktop con risoluzione minima di 640x360px",
     "Decisione interna",
-    "R-05-A-O","Il gioco deve supportare input da tastiera",[UC37\ Decisione interna],
-    "R-06-A-D","Il gioco deve supportare input da un joypad generico",[UC38\ Decisione interna],
-    "R-07-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando",[UC37, UC38\ Discussione con il tutor aziendale]
+    "R-05-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando",[Discussione con il tutor aziendale]
   ),
 )
 == Tracciamento dei requisiti
@@ -1290,6 +1288,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-49-F-O", "UC34","\u{2713}",
     "R-50-F-O", "UC35","\u{2713}",
     "R-51-F-O", "UC36","\u{2713}",
+    "R-52-F-O", "UC36","\u{2713}",
+    "R-53-F-O", "UC36","\u{2713}",
     // Requisiti di qualità
     "R-01-Q-O", "Decisione interna","\u{2713}",
     "R-02-Q-O", "Decisione interna","\u{2713}",
@@ -1309,9 +1309,7 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     "R-02-A-D", "Decisione interna","\u{2713}",
     "R-03-A-D", "Decisione interna","",
     "R-04-A-D", "Decisione interna","",
-    "R-05-A-O", "Decisione interna","\u{2713}",
-    "R-06-A-D", "Decisione interna","\u{2713}",
-    "R-07-A-O", "Discussione con il tutor aziendale","\u{2713}",
+    "R-05-A-O", "Discussione con il tutor aziendale","\u{2713}",
   ),
 )
 = Riepilogo 
@@ -1324,8 +1322,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     align: center + horizon,
     fill: (x, y) => if (y == 0 or y == 5) { luma(230) },
     table.header([*Tipologia*], [*Obbligatori*], [*Desiderabili*],[*Totale*]),
-    [Funzionali],[42],[9],[51],
+    [Funzionali],[43],[10],[53],
     [Qualità],[6],[-],[6],
     [Vincolo],[6],[-],[6],
-    [Accessibilità],[3],[4],[7],
+    [Accessibilità],[2],[3],[5],
     table.cell(colspan: 3, [*Totale*]),[*70*]))

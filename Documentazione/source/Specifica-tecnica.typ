@@ -25,7 +25,7 @@ Comprende 3 livelli, ognuno con un tema diverso, un menu principale che viene vi
 Ogni livello presenta meccaniche diverse e uniche.\
 \
 - *Regressione lineare*\
-Il livello presenta una serie di grafici con una linea e dei dati, accedendo ad un "cannone" il giocatore può posizionare dei nuovi dati nel grafico e la retta si modifica in base alla poszione del nuovo punto. Nel caso i punti siano stati piazzati male e non sia possibile modificare ulteriormente la linea, il giocatore può resettare il grafico premendo il tasto apposito.\
+Il livello presenta una serie di grafici con una linea e dei dati, accedendo ad un "cannone" il giocatore può posizionare dei nuovi dati nel grafico e la retta si modifica in base alla posizione del nuovo punto. Nel caso i punti siano stati piazzati male e non sia possibile modificare ulteriormente la linea, il giocatore può resettare il grafico premendo il tasto apposito.\
 Se soddisfatto della rotazione e posizione della linea il giocatore può uscire dal cannone e camminare sopra la linea per proseguire nel livello.\
 \
 - *Albero di decisione*\
@@ -35,7 +35,7 @@ L'obiettivo del giocatore è rispondere correttamente a ognuna di queste domande
 Infine è presente un NPC che permette al giocatore di riportare tutti i cani nella posizione iniziale nel caso siano troppo sparsi.\
 \
 - *Causalità*\
-Appena caricato nel livello, il giocatore avrà la possibilità di parlare con un NPC gelataio che lo guiderà all'obiettivo di questo livello, cioè accendere tutte le unità di codizionatori esterne presenti, poiché crede che le vendite di gelati e l'uso dei condizionatori siano correlate.
+Appena caricato nel livello, il giocatore avrà la possibilità di parlare con un NPC gelataio che lo guiderà all'obiettivo di questo livello, cioè accendere tutte le unità di condizionatori esterne presenti, poiché crede che le vendite di gelati e l'uso dei condizionatori siano correlate.
 Nel livello sono presenti anche dei grafici che cambiano durante il livello in base alle azioni del giocatore.\
 Una volta accese tutte le unità, verrà avviata una #gloss[scena di intermezzo] e alla fine di essa il giocatore dovrà indicare la vera causa della vendita di gelati.
 
@@ -317,7 +317,6 @@ La classe "ParticleEmitter" si occupa di caricare le "GPUParticles3D", cioè le 
 Nei livelli sono presenti diverse entità con cui il giocatore può interagire. Di seguito vengono descritte i diversi tipi di entità, e le classi che le compongono.
 ==== InteractableArea
 Classe base astratta che fornisce i metodi alle classi figlie.
-//da descrivere le funzioni, anche se sono abbastanza self explanatory
 La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza quando entra La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza appena entra nell'area. 
 ==== Control
 Di seguito vengono mostrati i vari tipi di UI che il giocatore può visualizzare quando entra nell'area.
@@ -401,7 +400,7 @@ Di seguito viene descritto il funzionamento delle meccaniche principali del live
 #figure(caption: [Diagramma sul funzionamento di un grafico "Linear Regression" nel gioco],image("imgs/class-linear_regression.png"))
 ==== LRCannon
 La classe "LRCannon" rappresenta il cannone nel livello. Eredita da "InteractableArea" e infatti il giocatore può interagirci quando entra dentro l'area apposita.
-Quando il giocatore preme l'imput per interagire, la telecamera viene cambiata ed il giocatore entra nello stato "Interact".
+Quando il giocatore preme l'input per interagire, la telecamera viene cambiata ed il giocatore entra nello stato "Interact".
 La classe è composta da "CannonMesh" che si occupa della rotazione del cannone quando questo è attivo e quando viene inserito un nuovo punto nel grafico.
 ==== LinearRegressionGraph
 Classe base astratta usata per i due tipi di grafico presenti nel livello: orizzontale e verticale.
@@ -450,7 +449,7 @@ La classe "ACUnits" si occupa di gestire tutte le istanze di "ACUnit", inserite 
 Quando viene acceso un condizionatore, emette il segnale _unit_turned_on_, passando direttamente l'array aggiornato come argomento nel segnale.
 Quando tutti i condizionatori sono stati accesi, manda il segnale _all_units_on_, usato in questo caso per far iniziare la scene di intermezzo.
 === CutscenesHandler
-La classe "CutsceneHandler" si occupa di gestire le scene di intermezzo nel livello, inserite come nodi figli nella scena. Nonstante la classe è stata pianificata per gestire più scene, alla fine ne è presente solo una. Questa classe svolge anche il ruolo da mediatore, ricevendo i segnali dal livello e mandandoli ai nodi figli, gestendo il traffico dei segnali.
+La classe "CutsceneHandler" si occupa di gestire le scene di intermezzo nel livello, inserite come nodi figli nella scena. Nonostante la classe è stata pianificata per gestire più scene, alla fine ne è presente solo una. Questa classe svolge anche il ruolo da mediatore, ricevendo i segnali dal livello e mandandoli ai nodi figli, gestendo il traffico dei segnali.
 === CausalitySavesHandler
 "CausalitySavesHandler" gestisce i salvataggi e cambio di variabili all'interno del livello "Causality". In questa classe, le variabili sono salvate in un Dictionary. Quando i salvataggi vengono caricati, la classe emette il segnale _data_loaded_.
 === Scena di intermezzo
@@ -458,7 +457,7 @@ Di seguito viene descritto il funzionamento della scena di intermezzo.
 ==== CrashCutscene
 La classe che gestisce la scena di intermezzo principale del livello.
 Si occupa principalmente di inviare i segnali per iniziare correttamente la scena.
-Quando il giocatore accende l'ultimo condizionatore, viene emsso il segnale _change_values_. Se invece il livello viene caricato con già tutti i condizionatori accessi, viene emesso il segnale _change_specific_values_.
+Quando il giocatore accende l'ultimo condizionatore, viene emesso il segnale _change_values_. Se invece il livello viene caricato con già tutti i condizionatori accessi, viene emesso il segnale _change_specific_values_.
 ==== Gestione dei personaggi non giocabili
 Dopo la scena di intermezzo, alcuni personaggi possono cambiare il dialogo a loro assegnato, oppure il comportamento con il giocatore.
 #figure(caption: [Diagramma sul funzionamento dei personaggi non giocabili nella scena di intermezzo],image("imgs/class-cutscene_npc.png"))
@@ -497,7 +496,7 @@ Non appena riceve il segnale _start_following_ dalla telecamera, il punto inizia
 *FollowNPC*\
 Classe che eredita da un semplice "CharacterBody3D". Rappresenta un personaggio che segue il punto "PathCutscene" per arrivare a destinazione.
 Il metodo _start_following_ viene chiamato dal nodo genitore, per far iniziare a seguire il punto. Ogni personaggio ha una sua velocità variabile, il cui valore è contenuto nell'attributo _speed_.
-Il metodo _stop_following_, invece, fa sistemare il personaggio in una poszione vicina, prima di fermarlo chiamando il metodo _stop_.\
+Il metodo _stop_following_, invece, fa sistemare il personaggio in una posizione vicina, prima di fermarlo chiamando il metodo _stop_.\
 
 *AreaStopFollow*\
 Classe che si occupa a far fermare i personaggi nel seguire il punto nel percorso.
@@ -556,7 +555,7 @@ Nella seguente sezione vengono presentati tutti i requisiti presenti nel documen
     [\u{2713}],
     //UC7.1
     [R-10-F-O],
-    [Il giocatore deve essere in grado di visualizzare subito il messagio di un'entità automatica],
+    [Il giocatore deve essere in grado di visualizzare subito il messaggio di un'entità automatica],
     [\u{2713}],
     //UC7.2
     [R-11-F-O],

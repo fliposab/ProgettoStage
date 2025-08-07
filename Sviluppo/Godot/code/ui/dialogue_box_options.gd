@@ -12,6 +12,7 @@ class_name DialogueBoxOptions
 func show_text_box()->void:
 	show()
 	button_container.get_child(0).grab_focus()
+	button_container.toggle_buttons(true)
 
 ##Hides the text box
 func hide_text_box()->void:

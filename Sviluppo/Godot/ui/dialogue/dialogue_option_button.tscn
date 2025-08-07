@@ -6,5 +6,5 @@
 text = "Option 1"
 script = ExtResource("1_v460p")
 
-[connection signal="draw" from="." to="." method="enable_button"]
 [connection signal="hidden" from="." to="." method="disable_button"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

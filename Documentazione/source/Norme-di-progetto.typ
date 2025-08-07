@@ -48,8 +48,6 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 - Standard ISO/IEC 12207:1995:
 #link("https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf")\
 
-//TODO ISO standards
-
 = Processi primari
 
 == Processo di fornitura
@@ -344,21 +342,18 @@ Le aspettative per questo processo sono:
 === Scopo e descrizione 
 Il processo di gestione ha lo scopo di identificare le attività e i compiti da svolgere per proseguire nel progetto. 
 === Attività
-Tutti i processi organizzativi sono composti dalle seguenti attvità
+Tutti i processi organizzativi sono composti dalle seguenti attività
 - *individuazione di un compito da svolgere*:
 - *esecuzione*:
 - *verifica*:
 === Strumenti usati
 - *Github*: per gestire tutta la documentazione e il codice per il progetto in un repository;
 - *Notion*: per la gestione delle attività e la pianificazione del progetto.
-== Miglioramento
-=== Scopo e descrizione
-Le attività di miglioramento hanno lo scopo di garantire che il processo di sviluppo del software sia continuamente migliorato e ottimizzato.
 
 
 = Metriche e standard per la qualità
 Per  migliorare e avere uno standard di qualità da cui attingere se è deciso di utilizzare degli standard riconosciuti a livello internazionale. 
-Tra quelli disponibili è stato scelto lo standard  ISO/IEC 12207:1995 per quanto riguarda la qualità dei processi principali, organizzativi e di supporto.
+Tra quelli disponibili è sApprendibilitàtato scelto lo standard  ISO/IEC 12207:1995 per quanto riguarda la qualità dei processi principali, organizzativi e di supporto.
 Mentre per gli standard di qualità del software, lo standard ISO/IEC 25010:2023.
 Le principali caratteristiche prese in considerazione sono:
 - *Funzionalità*;
@@ -373,8 +368,8 @@ La funzionalità riguarda e misura il grado di soddisfacibilità dei requisiti r
 In particolare vengono misurate:
 - *Completezza*: il software prodotto deve soddisfare tutti i requisiti obbligatori e le funzionalità previste;
 - *Correttezza*: il funzionamento del software deve rispettare le specifiche dichiarate;
-- *Adeguatezza*: il software prodotto deve essere idoneo allo scopo per cui è stato pensato e al contesto in cui viene usato;
-- *Conformità*: il software prodotto deve rispettare le norme predefinite e il grado di qualità previsto;
+- *Adeguatezza*: il software prodotto deve essere idoneo allo scopo per cui è stato pensato ed al contesto in cui viene usato;
+- *Conformità*: il software prodotto deve rispettare le norme predefinite ed il grado di qualità previsto;
 
 == Performance
 La performance misura l'efficienza di un prodotto e la capacità del prodotto stesso di gestire le risorse in modo direttamente proporzionale alle prestazioni che vengono fornite.
@@ -389,16 +384,10 @@ L'affidabilità è il parametro per misurare se un prodotto reagisce ai problemi
 In particolare vengono misurate:
 - *Tolleranza ai guasti e agli errori*: il prodotto deve saper gestire gli errori e rispondere a malfunzionamenti o guasti senza che si causino interruzioni gravi nel prodotto e allo stesso tempo mantenere un certo grado di prestazioni;
 - *Maturità*: il prodotto deve garantire affidabilità e stabilità cercando di evitare che si vengano a generare errori o malfunzionamenti;
-- *Recuperabilità*: a seguito di un qualsiasi tipo di errore, guasto o malfunzionamento il prodotto deve essere in grado di tornare alle sue prestazioni standard ripristinando le sue funzionalità;
+- *Ricuperabilità*: a seguito di un qualsiasi tipo di errore, guasto o malfunzionamento il prodotto deve essere in grado di tornare alle sue prestazioni standard ripristinando le sue funzionalità;
 - *Disponibilità*: il prodotto deve essere accessibile e correttamente funzionante, quindi operativo ogni qual volta sia necessario;
 - *Aderenza*: il prodotto deve rispettare gli standard di qualità prefissati;
 
-== Sicurezza
-La sicurezza di un prodotto misura il suo grado di protezione da minacce e vulnerabilità, garantendo che i dati e le funzionalità rimangano integri, disponibili e riservati.
-- *Riservatezza*: il software deve garantire la protezione dei dati sensibili;
-- *Integrità*: il software deve garantire che i dati siano completi, accurati e sicuri;
-- *Autenticazione*: il software deve controllare e verificare le credenziali degli utenti e limitare l'accesso ai soli utenti autorizzati;
-- *Autenticità*: il prodotto deve permettere di verificare la provenienza dei dati;
 == Usabilità
 L'usabilità ci permette di calcolare e comprendere quando e in quanto tempo l'utente finale riesca ad apprendere le modalità di utilizzo di un prodotto.
 In particolare vengono misurate:
