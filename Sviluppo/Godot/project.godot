@@ -25,6 +25,7 @@ InputUIHandler="*res://ui/input_buttons/input_prompt_handler.tscn"
 
 [display]
 
+window/vsync/vsync_mode=2
 window/max_fps=0
 
 [dotnet]

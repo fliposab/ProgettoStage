@@ -314,4 +314,8 @@ Infine è stata presentata l'applicazione al tutor aziendale.
 #pagebreak()
 == Settimana 8 | 04/08 - 08/08
 #pseudoheading[*Retropsettiva*]
+Durante l'ultimo periodo di tirocinio sono state svolte prevalentemente attività di verifica, controllando la stesura dei documenti ed eseguendo gli ultimi testi al gioco.
 #pseudoheading[*Attività svolte*]
+- Stesura finale dei documenti.
+- Controllo dei documenti.
+- Test finali sul gioco.

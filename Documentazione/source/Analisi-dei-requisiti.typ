@@ -1324,8 +1324,8 @@ Infine, nella sezione fonte, viene scritto se il requisito è stato deciso dallo
     align: center + horizon,
     fill: (x, y) => if (y == 0 or y == 5) { luma(230) },
     table.header([*Tipologia*], [*Obbligatori*], [*Desiderabili*],[*Totale*]),
-    [Funzionali],[43],[8],[52],
+    [Funzionali],[42],[9],[51],
     [Qualità],[6],[-],[6],
-    [Vincolo],[5],[-],[5],
+    [Vincolo],[6],[-],[6],
     [Accessibilità],[3],[4],[7],
-    table.cell(colspan: 3, [*Totale*]),[*71*]))
+    table.cell(colspan: 3, [*Totale*]),[*70*]))

@@ -67,11 +67,10 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
 - *MPC-TC (Time at Completion)*: tempo totale per la realizzazione del progetto in base a quanto deciso dal Piano di lavoro.
   - Il totale di ore previste ammonta a 304 ore.
 - *MPC-EC - Estimated at Completion*: numero di ore effettive da svolgere per completare i compiti ancora da realizzare
-- *MPC-PV - Planned Value*: attività lavorativa fino al momento calcolato
-  - Il calcolo viene dato dal lavoro pianificato in percentuale moltiplicato per BAC.
 - *MPC-AT - Actual Time*: tempo impiegato in ore fino al momento calcolato;
-- *MPC-TV - Time Variance*: DIfferenza tra budget utilizzabile e quello usato effettivamente
-  - Il calcolo viene dato da EV - AT.
+- *MPC-PT - Planned Time*: ore settimanali pianificate da svolgere per completare il progetto;
+- *MPC-TV - Time Variance*: differenza in percentuale tra il tempo utilizzabile e quello usato effettivamente
+  - Il calcolo viene dato da PT - AT.
 
 #figure(caption: [Valori per misurare la qualità della fornitura], table(
   columns: (auto,auto,auto,auto),
@@ -80,8 +79,8 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
   fill: (x, y) => if (y == 0) { luma(230) },
   table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
   "MPC-EC","Estimated at Completion","\u{2265}95% TC","TC",
-  "MPC-PV","Planned Value","\u{2265}0","TC",
   "MPC-AT","Actual Time","\u{2265}0","TC",
+  "MPC-PT","Planned Time","24","40",
   "MPC-TV","Time Variance","\u{00B1}5%","0%",
 ))\
 === Sviluppo
@@ -111,7 +110,7 @@ Le seguenti metriche vengono applicate principalmente al #gloss[modello 3D] prin
 - *MPC-MBC - Model Bones Count*: il movimento del modello tramite ossa è un processo che consuma risorse della CPU. Visto che la CPU rappresenta un potenziale #gloss[bottleneck] visto che è molto più lenta rispetto alla GPU, è necessario minimizzare il numero di ossa nell'armatura del modello. Il numero minimo dovrebbe essere: 12 per gli arti, mani e piedi + 4 per la spina dorsale + 16 per le ossa #gloss[IK].
 - *MPC-UIC - UV Islands Count*: avere un numero minore di #gloss[UV Islands] permette una gestione della #gloss[texture] più semplice e prestazioni leggermente migliori, visto che i vertici ai bordi dell'isola UV vengono renderizzati due o più volte.\
 - *MPC-UIS - UV Islands Space (in percentuale)*: percentuale della texture occupata e utilizzata dalle UV Islands. Uno spazio maggiore utilizza più pixel dell'immagine e garantisce una maggiore qualità.
-Queste misurazioni verranno effettuate per i modelli del giocatore e dell'NPC, visto che sono i modelli più comuni e complessi.
+Queste misurazioni verranno effettuate per il modello del giocatore visto che è il modello che viene caricato più spesso.
 #figure(caption: [Valori per misurare la qualità dello sviluppo], table(
   columns: (auto, auto, auto, auto),
   inset: 8pt,
@@ -148,7 +147,7 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "\u{2265}60",
   "MPC-CO",
   "Correttezza ortografica",
-  "3",
+  "2",
   "0",
 ))
 === Verifica
@@ -171,26 +170,12 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "100%",
 ))
 
-=== Gestione della qualità
-- *MPC-SQM - Satisfaction of Quality Metrics*: misura la quantità di metriche soddisfatte. Questo valore viene calcolato come la somma delle metriche di qualità soddisfatte diviso il numero totale di metriche di qualità.
-#figure(caption: [Valori per misurare la gestione della qualità], table(
-  columns: (auto, auto, auto, auto),
-  inset: 8pt,
-  align: (x, y) => if (x == 0 and y > 0 and y < 7) { left } else { center + horizon },
-  fill: (x, y) => if (y == 0) { luma(230) },
-  table.header([*Metrica*], [*Nome*], [*Valore accettabile*], [*Valore ottimo*]),
-  "MPC-SQM",
-  "Satisfaction of Quality Metrics",
-  "\u{2265}85%",
-  "100%",
-))
-
 
 == Qualità del prodotto
 === Funzionalità
 - *MPD-RO - Copertura requisiti obbligatori*: indica la percentuale di requisiti obbligatori coperti dal prodotto. Un valore del 100% indica che tutti i requisiti obbligatori sono stati implementati.
 
-- *MPD-OP - Copertura requisiti opzionali*: indica la percentuale di requisiti opzionali coperti dal prodotto. Un valore del 100% indica che tutti i requisiti opzionali sono stati implementati.
+- *MPD-RD - Copertura requisiti desiderabili*: indica la percentuale di requisiti desiderabili coperti dal prodotto. Un valore del 100% indica che tutti i requisiti desiderabili sono stati implementati.
 
 #figure(caption: [Valori per misurare la qualità del prodotto in termini di funzionalità], table(
   columns: (auto, auto, auto, auto),
@@ -202,8 +187,8 @@ $ 89+((300*"numero di frasi") - (10*"numero di lettere")) / "numero di parole" $
   "Copertura requisiti obbligatori",
   "100%",
   "100%",
-  "MPD-OP",
-  "Copertura requisiti opzionali",
+  "MPD-RD",
+  "Copertura requisiti desiderabili",
   "\u{2265}50%",
   "100%",
 ))
@@ -417,34 +402,82 @@ Di seguito sono elencate le metodologie di testing che verranno utilizzate per v
   table.header([*Identificativo*], [*Descrizione*], [*Superato*]),
     [TA-01],[Si verifica che il gioco funzioni nel sistema operativo Linux],[\u{2713}],
     [TA-02],[Si verifica che il gioco funzioni nel sistema operativo Windows 11],[\u{2713}],
-    [TA-03],[Si verifica che il gioco rilevi input da tastiera],[\u{2713}],))
-
+    [TA-03],[Si verifica che il gioco rilevi input da tastiera],[\u{2713}],[TA-04],[Si verifica che il giocatore possa muoversi in uno spazio tridimensionale],[\u{2713}],
+))
+    
 = Tracciamento delle attività
 == Fornitura
-=== MPC-EC - Estimated at Completion
-=== MPC-PV - Planned Value
-=== MPC-AT - Actual Time
-=== MPC-TV - Time Variance
-== Codice
+=== MPC-AT / MPC-EC
+#figure(caption: [Grafico rappresentante l'andamento di AT e EC], image("imgs/chart-at_ec.png", width: auto))
+Dal grafico si può notare che l'andamento delle ore impiegate è costante ed è intorno a 40 ore per periodo. L'unica eccezione sono stati i periodi 2 e 4 dove sono state perse rispettivamente 4 ore a causa di impegni universitari.\
+EC è stato ottenuto calcolando la differenza tra il TC e AT.
+=== MPC-PT
+#figure(caption: [Grafico rappresentante l'andamento di PT], image("imgs/chart-pt.png", width: auto))
+Il grafico raffigura l'andamento pianificato delle ore, messo a confronto con le ore effettivamente impiegate.
+Qui è più facile notare la differenza tra le due metriche.
+=== MPC-TV
+#figure(caption: [Grafico rappresentante l'andamento di TV], image("imgs/chart-tv.png", width: auto))
+Il grafico rappresenta l'andamenti di TV in percentuale.\
+Si può notare che il valore sale nel secondo e quarto periodo a causa di impegni universitari.
+== Sviluppo
+=== MPC-RSI
+#figure(caption: [Grafico rappresentante l'andamento di RSI], image("imgs/chart-rsi.png", width: auto))
+Il grafico mostra l'andamento dell'indice di stabilità dei requisiti.Ovviamente, il valore è molto basso durante l'inizio dello stage. Il valore tende a stabilizzarsi dopo il quarto periodo, in quanto è stato sviluppato un PoC, ed era necessario avere dei requisiti stabili da soddisfare.
+=== MPC-TD
+#figure(caption: [Grafico rappresentante l'andamento di TD], image("imgs/chart-td.png", width: auto))
+Il grafico mostra l'andamento del "Technical Debt". Il valore si presenta basso durante l'inizio e fine progetto, in quanto a inizio progetto, non vi erano ancora funzionalità da modificare, mentre verso la fine, le modifiche erano già state effettuate precedentemente.
+Si può vedere un picco a metà, dato che subito dopo aver sviluppato il PoC, è stato necessario modificare molte funzionalità per migliorare l'architettura o renderle compatibili con le nuove funzionalità che venivano aggiunte.
 == Grafica 3D
-=== MPC-MTC - Model Tris Count
+=== MPC-MTC
 #align(figure(caption: [Modello 3D del giocatore con statistiche sul numero di vertici, facce e triangoli], image("imgs/numero-triangoli.png", width: 90%)))
-#align(figure(caption: [Modello 3D dell'NPC con statistiche sul numero di vertici, facce e triangoli], image("imgs/npc-triangles.png", width: 80%)))
 Dall'immagine si può vedere che il numero totale di triangoli del modello ammonta a 2.074. Ogni volta che il modello presentava forme simili a un cilindro, si è cercato di mantenere otto facce laterali.
-Il modello dell'NPC invece presenta un numero di triangoli leggermente superiore: 2.160, dovuto al fatto che che sono stati aggiunti accessori come il cappello ed il fischietto.\
 
-=== MPC-MBC - Model Bones Count
+=== MPC-MBC
 #align(figure(caption: [Modello 3D del giocatore con statistiche sul numero di ossa], image("imgs/numero-ossa.png", width: 85%)))
 Dall'immagine si può vedere che il numero totale di ossa (ossa IK incluse) ammonta a 36. Sono state richieste più ossa per dare un effetto "curva" agli arti del modello.
 Inoltre sono state aggiunte tre ossa per animare l'antenna sulla testa.\
 Sia giocatore che NPC hanno lo stesso numero di ossa, visto che sono stati creati con la stessa armatura e le stesse animazioni.
-=== MPC-UIC - UV Islands Count
+=== MPC-UIC
 #figure(caption: [UV del modello del giocatore], image("imgs/uv-mapping.png", width: 80%))
-#figure(caption: [UV del modello dell'NPC], image("imgs/uv-npc.png", width: 90%))
-Dall'immagine è possibile vedere anche il numero di isole UV del giocatore (22) e dell'NPC (18 + 5 posizionate sopra altre isole UV). Inoltre, è possibile notare l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
+Dall'immagine è possibile vedere anche il numero di isole UV del giocatore (22). Inoltre, è possibile notare l'allungamento delle facce: in blu le facce con un basso allungamento, mentre in azzurro-verde quelle che via via sono allungate.
 
-=== MPC-UIS - UV Islands Space
-Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%, mentre quello occupato dalle isole UV dell'NPC è pari al --%.\
+=== MPC-UIS
+Sempre dall'immagine sopra si può vedere la disposizione delle isole UV in una possibile immagine quadrata. Lo spazio occupato dalle isole UV del giocatore è pari al 68%.\
 Non offrendo la disponibilità di misurare lo spazio UV occupato nativamente in Blender, è stato utilizzato uno script di Python esterno.
-
+== Documentazione
+=== MPC-IG
+Di seguito vengono elencati i documenti con i loro rispettivi indici di Gulpease:
+- *Analisi dei requisiti*:
+- *Norme di progetto*:
+- *Manuale utente*:
+- *Piano di qualifica*:
+- *Piano di progetto*:
+- *Specifica tecnica*:
+=== MPC-CO
+#figure(caption: [Grafico rappresentante l'andamento di CO], image("imgs/chart-co.png", width: auto))
+Il grafico mostra gli errori ortografici non corretti nel periodo in cui sono stati stesi. Molti errori ortografici sono stati fatti durante la fase iniziale e finale, dove l'attività di stesura dei documenti era prevalente.
 == Test e verifica
+=== MPC-TSP
+#figure(caption: [Grafico rappresentante l'andamento di TSP], image("imgs/chart-tsp.png", width: auto))
+Dal grafico si può vedere il numero di test eseguiti e superati per ogni periodo. La maggior parte di test è stata eseguita verso il periodo 6 e 7 e infatti si può vedere un salita rapida in quella zona.
+== Qualità del prodotto
+=== MPD-TF
+#figure(caption: [Grafico rappresentante l'andamento dei fotogrammi al secondo], image("imgs/chart-fps.png", width: auto))
+La misurazione dei fotogrammi al secondo è stat eseguita all'interno di Godot. Il grafico mostra il valore per ogni secondo di gioco.
+Si possono notare 2 cose:
+- il valore non supera 60, in quanto non può superare il valore della frequenza di aggiornamento dello schermo;
+- sono presenti alcune depressioni, durante questo periodo il gioco stava caricando un altro livello ed è l'unico momento accettabile che si possono avere delle perdite.
+=== MPD-LS
+#figure(caption: [Grafico rappresentante l'andamento del tempo necessario per processare un frame], image("imgs/chart-lag_spikes.png", width: auto))
+Il grafico dell'immagine è stato preso all'interno dell'editor Godot.
+Nel grafico vengono mostrati i tempi per processare un fotogramma dalla CPU (a sinistra) e dalla GPU (a destra).\
+Si può vedere che le informazioni date sono simili al grafico mostrato sopra, l'andamento è diverso visto che i dati sono stati presi in due sessioni separate.\
+Si possono notare dei picchi dovuti al caricamento dei livelli, tuttavia come detto precedentemente, questo è l'unico periodo dove questi picchi sono concessi.
+=== MPD-RO / MPD-RD
+#figure(caption: [Grafico rappresentante l'andamento di RO e RD], image("imgs/chart-ro_rd.png", width: auto))
+Il grafico mostra i requisiti soddisfatti totali per ogni periodo, divisi tra obbligatori e desiderabili.\
+Si nota che l'andamento è piuttosto costante, con i requisiti obbligatori soddisfatti prima in quanto avevano priorità più alta.
+=== MPD-SOS
+Il numero finale di sistemi operativi supportati dal gioco è 2:
+- Windows 11;
+- Linux.
