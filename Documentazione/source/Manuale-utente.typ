@@ -182,7 +182,7 @@ Grande #sym.arrow A punta #sym.arrow Nero / Bianco\
 *Boston Terrier*:\
 Piccola #sym.arrow Corto #sym.arrow Liscio #sym.arrow A punta #sym.arrow Nero / Bianco\
 *Cocker Spaniel*:\
-Media #sym.arrow A punta #sym.arrow Arancione\
+Media #sym.arrow Cadenti #sym.arrow Arancione\
 *Corgi*:\
 Piccola #sym.arrow Corto #sym.arrow Liscio #sym.arrow A punta #sym.arrow Arancione / Bianco\
 *Bassotto*:\
