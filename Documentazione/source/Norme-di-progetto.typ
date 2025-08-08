@@ -85,8 +85,8 @@ Il tutor aziendale viene contattato in due modalità:
 === Documentazione
 Il processo di fornitura deve essere documentato in modo dettagliato, in modo da garantire la tracciabilità delle attività svolte e delle decisioni prese.
 I documenti che il progetto presenta sono:
-- *Analisi dei requisiti*: nel documento _Analisi dei requisiti_ sono stati definiti tutti gli #gloss[use case] e i requisiti funzionali del progetto. Questi sono stati raccolti in collaborazione con il tutor aziendale e sono stati utilizzati come base per la progettazione e lo sviluppo del software;
-- *Piano di progetto*: il _Piano di progetto_ è un documento che definisce le attività da svolgere e i tempi previsti per lo sviluppo del software, viene descritto in dettaglio ogni periodo di sviluppo, con una retropsettiva delle attività svolte e una pianificazione delle attività future;\
+- *Analisi dei requisiti*: nel documento _Analisi dei requisiti_ sono stati definiti tutti gli i casi d'uso e i requisiti funzionali del progetto. Questi sono stati raccolti in collaborazione con il tutor aziendale e sono stati utilizzati come base per la progettazione e lo sviluppo del software;
+- *Piano di progetto*: il _Piano di progetto_ è un documento che definisce le attività da svolgere e i tempi previsti per lo sviluppo del software, viene descritto in dettaglio ogni periodo di sviluppo, con una retrospettiva delle attività svolte e una pianificazione delle attività future;\
 - *Piano di qualifica*: nel documento _Piano di qualifica_ sono definite le metriche che vengono usate per garantire la qualità del prodotto software. Vengono inoltre scritte le modalità di test e verifica del software, in modo da garantire che il prodotto soddisfi i requisiti stabiliti;
 - *Specifica tecnica*: la _Specifica tecnica_ è un documento che descrive in dettaglio l'architettura del sistema, i componenti software e le loro interazioni;
 - *Manuale utente*: il _Manuale utente_ è un documento che fornisce istruzioni dettagliate su come utilizzare il software e garantirne il corretto funzionamento.\
@@ -169,7 +169,7 @@ Eventuali problemi riscontrati vengono risolti tempestivamente, aggiornando la d
 Durante lo sviluppo, sono state imposte le seguenti regole per garantire omogeneità  e correttezza. Le regole sono suddivise in base all'argomento:\
 
 - *Codifica*:\
-Tutti i file script del gioco sono salvati come file _#gloss[.gd]_, e sono scritti con il linguaggio di programmazione #gloss[GDScript]. I nomi delle classi sono salvate con una nomenclatura #gloss[PascalCase], mentre i nomi dei files e delle variabili usano #gloss[snake_case].\
+Tutti i file script del gioco sono salvati come file _.gd_, e sono scritti con il linguaggio di programmazione #gloss[GDScript]. I nomi delle classi sono salvate con una nomenclatura #gloss[PascalCase], mentre i nomi dei files e delle variabili usano #gloss[snake_case].\
 Per maggiori dettagli sulla nomenclatura, si seguono le convenzioni della documentazione ufficiale:\
 #link("https://docs.godotengine.org/it/4.x/tutorials/scripting/gdscript/gdscript_styleguide.html")\
 

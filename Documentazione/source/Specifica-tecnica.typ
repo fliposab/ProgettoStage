@@ -16,13 +16,13 @@ doc)
 
 = Introduzione
 == Scopo del documento
-Lo scopo di questo documento è descrivere l'architettura e le scelte relative a essa che sono state fatte durante la fase di progettazione e codifica del progetto.\
-Vengono riportati i grafici UML delle classi per rappresentare l'architettura finale dell'applicazione.
+Lo scopo di questo documento è descrivere l'architettura e le scelte relative ad essa che sono state fatte durante la fase di progettazione e codifica del progetto.\
+Vengono riportati i diagrammi UML delle classi per rappresentare l'architettura finale dell'applicazione.
 
 == Scopo del prodotto
-l progetto consiste nello sviluppo di un videogioco con il motore di gioco #gloss[Godot] di tipo #gloss[platformer], in cui il giocatore controlla un personaggio che si muove in un ambiente tridimensionale. Il gioco si basa su temi di #gloss[Intelligenza Artificiale] e #gloss[Machine Learning], sviluppando meccaniche ed elementi del livello basati su questi argomenti.\ 
+Il progetto consiste nello sviluppo di un videogioco con il motore di gioco #gloss[Godot] sul genere #gloss[platformer], in cui il giocatore controlla un personaggio che si muove in un ambiente tridimensionale. Il gioco si basa su temi di #gloss[Intelligenza Artificiale] e #gloss[Machine Learning], sviluppando meccaniche ed elementi del livello basati su questi argomenti.\ 
 Comprende 3 livelli, ognuno con un tema diverso, un menu principale che viene visualizzato non appena il gioco viene avviato, e un menu di pausa che può essere visualizzato in qualsiasi momento durante il gioco.\
-Ogni livello presenta meccaniche diverse e uniche.\
+Ogni livello presenta meccaniche diverse ed uniche.\
 \
 - *Regressione lineare*\
 Il livello presenta una serie di grafici con una linea e dei dati, accedendo ad un "cannone" il giocatore può posizionare dei nuovi dati nel grafico e la retta si modifica in base alla posizione del nuovo punto. Nel caso i punti siano stati piazzati male e non sia possibile modificare ulteriormente la linea, il giocatore può resettare il grafico premendo il tasto apposito.\
@@ -30,8 +30,8 @@ Se soddisfatto della rotazione e posizione della linea il giocatore può uscire 
 \
 - *Albero di decisione*\
 In questo livello sono presenti diversi cani, ognuno di una razza diversa, ed un albero di decisione tridimensionale.
-Ad ogni nodo dell'albero viene mostrata una domanda e le direzione da seguire per ogni risposta.\
-L'obiettivo del giocatore è rispondere correttamente a ognuna di queste domande e posizionare il cane nel nodo finale giusto. In caso corretto, il giocatore potrà visualizzare la razze indovinate in un tabellone, e questo darà un Training Data al giocatore per ogni razza indovinata.\
+Ad ogni nodo dell'albero viene mostrata una domanda e le direzioni da seguire per ogni risposta.\
+L'obiettivo del giocatore è rispondere correttamente a ognuna di queste domande e posizionare il cane nel nodo finale giusto. In caso corretto, il giocatore potrà visualizzare la razze indovinate in un tabellone, e questo darà un _Training Data_ al giocatore per ogni razza indovinata.\
 Infine è presente un NPC che permette al giocatore di riportare tutti i cani nella posizione iniziale nel caso siano troppo sparsi.\
 \
 - *Causalità*\
@@ -57,7 +57,8 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
 - Slide T05 del corso di Ingegneria del Software:\
 #link("https://www.math.unipd.it/~tullio/IS-1/2024/Dispense/T05.pdf")\
 \
-- Diagrammi UML:\\
+- Slide del corso di Ingegneria del Software sui diagrammi UML delle classi:\
+#link("https://www.math.unipd.it/~rcardin/swea/2023/Diagrammi%20delle%20Classi.pdf")\
 \
 - Documentazione "Godot Engine":\ 
 #link("https://docs.godotengine.org/en/stable/")\
@@ -86,13 +87,14 @@ oppure consultando il rispettivo documento all'interno della stessa cartella.
   table.header([*Nome*], [*Descrizione*], [*Versione*]),
   table.cell([*Codice*], colspan: 3),
   [GDScript],[Linguaggio di programmazione di alto livello, con sintassi simile a Python, viene integrato con il motore di gioco Godot],[(Legata a Godot)],
-  [GDShader],[Linguaggio simile a GLSL ES 3.0 usato per la creazione di materiali più complessi],[(Legata a Godot)],
+  [GDShader],[Linguaggio simile a #gloss[GLSL ES 3.0], usato per la creazione di materiali più complessi],[(Legata a Godot)],
   [Typst],[Linguaggio utilizzato per la stesura dei documenti],[0.13.1],
   table.cell([*Softwares*], colspan: 3),
-  [Godot],[Il motore di gioco open source per lo sviluppo del videogioco.],[4.5-beta3-mono],
-  [Blender],[Software di modellazione ed animazione 3D usato per creare i modelli 3D del gioco],[4.4.3],
+  [Godot],[Il motore di gioco open source per lo sviluppo del videogioco],[4.5-beta3-mono],
+  [Blender],[Software di modellazione ed animazione 3D usato per creare i modelli 3D ed animazioni nel gioco],[4.4.3],
   table.cell([*Strumenti e servizi*], colspan: 3),
-  [Git],[],[2.50.1],
+  [Git],[Servizio per il controllo della versione],[2.50.1],
+  [GitHub],[Servizio di #gloss[hosting] per i progetti software, è un'implementazione del servizio Git],[-],
   [GitHub Actions],[Servizio di integrazione continua e distribuzione continua (CI/CD), utilizzato per compilare i documenti ad ogni push],[-],
   table.cell([*Tipi di files non generati dagli strumenti elencati sopra*], colspan: 3),
   [\u{002A}.csv],["Comma separated values", file utilizzato per memorizzare le frasi nelle lingue diverse supportate dal gioco],[-],
@@ -122,12 +124,12 @@ tipo di quel nodo e aggiunge nuove funzionalità.\
 I principali tipi di nodi che vengono utilizzati in questo progetto sono:
 - *Node*: nodo base da cui vengono estesi tutti gli altri nodi, in questo progetto viene usato per assegnare classi e inserirli come figli in altri nodi.
 - *Node3D*: rappresenta un oggetto nello spazio tridimensionale.
-  - *CharacterBody3D*: rappresenta un personaggio nel gioco, gestendo la sua posizione, animazione e interazioni.
+  - *CharacterBody3D*: rappresenta un personaggio che si può muovere nel gioco, gestendo la sua posizione e interazioni.
   - *Camera3D*: rappresenta una telecamera nello spazio tridimensionale, che può essere utilizzata per visualizzare la scena.
-  - *MeshInstance3D*: rappresenta un oggetto tridimensionale con una mesh, che può essere utilizzato per visualizzare modelli 3D.
+  - *MeshInstance3D*: rappresenta un oggetto tridimensionale con un #gloss[mesh], che può essere utilizzato per visualizzare modelli 3D.
   - *CollisionShape3D*: rappresenta una forma di collisione nello spazio tridimensionale, utilizzata per gestire le interazioni fisiche tra gli oggetti.
   - *Area3D*: rappresenta un'area nello spazio tridimensionale, utilizzata per gestire le interazioni tra gli oggetti all'interno di essa.
-- *AnimationPlayer*: gestisce le animazioni degli oggetti nella scena, permettendo di riprodurre animazioni su mesh, telecamere e altri nodi.
+- *AnimationPlayer*: gestisce le animazioni degli oggetti nella scena, permettendo di riprodurre animazioni sul mesh, telecamere e altri nodi.
 - *Control*: rappresenta un nodo di interfaccia utente, utilizzato per gestire gli elementi dell'interfaccia grafica del gioco.
 == Scene
 Dalla documentazione di Godot:\
@@ -136,7 +138,7 @@ Le scene di consentono di strutturare il codice del gioco in qualunque modo tu v
 #figure(caption: [Scena del giocatore], 
 image("imgs/godot-scene_example.png"))
 Oltre che a comportarsi come nodi, le scene hanno anche le seguenti caratteristiche:
-- Hanno sempre un nodo _owner_ come il "Player" nel nostro esempio.
+- Hanno sempre un nodo _owner_, come il "Player" nel nostro esempio.
 - Si possono salvare sul disco locale e caricarle in seguito.
 - Si possono creare quante più istanze di una scena si desideri. Ad esempio, si possono avere cinque o dieci personaggi nel gioco, creati da una determinata scena.
 
@@ -169,7 +171,7 @@ Un altro modo per fornire i metodi che una classe deve implementare è utilizzar
 = Architettura
 == Introduzione
 Di seguito viene presentata l'architettura del progetto tramite diagrammi UML delle classi, che mostrano le relazioni tra le classi utilizzate nel progetto.\
-L'applicazione è strutturata come un monolite, decisione presa per i seguenti motivi:
+L'applicazione è strutturata come un #gloss[monolite], decisione presa per i seguenti motivi:
 - *semplicità*: l'applicazione è relativamente piccola e non richiede una struttura complessa per essere gestita;
 - *facilità di manutenzione*: la struttura monolitica permette di gestire più facilmente le dipendenze tra le classi, poiché tutte le classi sono contenute in un unico file e non è necessario gestire le dipendenze tra moduli diversi;
 - *migliori prestazioni*: in un videogioco le prestazioni sono fondamentali e una struttura monolitica può contribuire a ottimizzare le performance, riducendo i tempi di caricamento e migliorando la fluidità del gioco.
@@ -177,16 +179,16 @@ L'applicazione è strutturata come un monolite, decisione presa per i seguenti m
 Molte classi del progetto presentano delle funzioni virtuali comuni, che vengono fornite dalle classi base del motore di gioco:\
 
 _+ready(): void_\
-Questa funzione viene chiamata quando il nodo è pronto per essere utilizzato, ovvero quando tutti i nodi figli sono stati caricati e il nodo è pronto per essere utilizzato.\
+Questa funzione viene chiamata quando il nodo entra nella scena, ovvero quando tutti i nodi figli sono stati caricati e il nodo è pronto per essere utilizzato.\
 In questa funzione è possibile inizializzare le variabili, collegare i segnali e impostare le proprietà del nodo.\
-È importante notare che questa funzione viene chiamata solo una volta, quando il nodo viene caricato per la prima volta nella scena, e non ad ogni frame del gioco.
+È importante notare che questa funzione viene chiamata solo una volta, quando il nodo viene caricato per la prima volta nella scena, e non ad ogni #gloss[frame] del gioco.
 
 _+process(delta: float): void_\
-Questa funzione viene chiamata ad ogni frame del gioco e permette di aggiornare lo stato della classe ad ogni frame. 
+Questa funzione viene chiamata ad ogni frame del gioco e permette di aggiornare lo stato della classe, ad ogni frame. 
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame, ed è utile per gestire le animazioni e le interazioni in modo fluido e coerente.
 
 _+physics_process(delta: float): void_\
-Questa funzione viene chiamata ad ogni frame di fisica del gioco, che di default è fisso 60 volte al secondo, anche se il numero di frame al secondo del gioco sia inferiore.\
+Questa funzione viene chiamata ad ogni frame di fisica del gioco, che di default è fisso 60 volte al secondo, anche nel caso il numero di frame al secondo del gioco sia inferiore.\
 Questa funzione è utile per gestire le interazioni fisiche tra gli oggetti, come ad esempio la gestione delle collisioni e la gestione della gravità.\
 Il parametro _delta_ rappresenta il tempo trascorso dall'ultimo frame di fisica. 
 
@@ -210,8 +212,8 @@ La classe del giocatore ha associate le seguenti classi divise per funzionalità
 - *ParticleEmitter*
 - *PlayerUI*
 ==== Movement
-La classe "Movement" si occupa di gestire gli input per il movimento del giocatore, la funzione _get_move_input_ si occupa di prendere l'input del movimento e ruotarlo in base alla rotazione della telecamera.
-==== CameraRayCast
+La classe "Movement" si occupa di gestire gli input per il movimento del giocatore.\ La funzione _get_move_input_ si occupa di prendere l'input del movimento e ruotarlo in base alla rotazione della telecamera.
+==== Gestione della telecamera
 #figure(caption: [Diagramma delle classi della telecamera del giocatore],image("imgs/class-camera.png"))
 La telecamera del giocatore viene gestita da più classi per garantire diverse funzionalità tra quali la rotazione intorno al giocatore, proiezione di elementi della UI sullo schermo ed evitare che la telecamera passi attraverso i muri, generando il fenomeno chiamato #gloss[clipping].\
 
@@ -220,11 +222,11 @@ Oltre che a gestire il lavoro di tutte le altre classi per il corretto funzionam
 Nel caso il raggio tocca ancora il terreno, la telecamera rimane per terra e non si sposta in alto con il giocatore.
 
 - *PlayerCamera*\
-La telecamera effettiva, eredita dalla classe di Godot "Camera3D". Offre il metodo _look at target_ che si occupa di girare la telecamera verso un obiettivo. Questo metodo viene usato da "CameraRayCast" per girare la telecamera verso un punto calcolata da quest'ultima.\
+La telecamera effettiva, eredita dalla classe di Godot "Camera3D". Offre il metodo _look_at_target_ che si occupa di girare la telecamera verso un obiettivo, specificato dalla variabile _custom_target_ nella classe. Questo metodo viene usato da "CameraRayCast" per girare la telecamera verso un punto calcolata da quest'ultima.\
 
 - *CameraProjectUI*\
 La classe "CameraProjectUI" gestisce gli elementi della UI la cui posizione viene "proiettata" dallo spazio 3D del gioco, allo spazio 2D dello schermo.
-Contiene un array, composto da questi elementi. Nel caso l'array sia vuoto, la modalità di processo viene disabilitata, cioè le operazioni della classe non vengono più effettuate ad ogni fotogramma del gioco.\
+Contiene un array, composto da questi elementi. Nel caso l'array sia vuoto, la modalità di processo viene disabilitata, cioè le operazioni della classe non vengono più effettuate ad ogni fotogramma del gioco, risparmiando risorse.\
 
 - *SpringArm3D*\
 Classe fornita da Godot. La sua posizione globale corrisponde sempre a quella del giocatore, e si occupa di avvicinare la telecamera quando è vicino ad un muro per evitare il clipping.\
@@ -237,20 +239,20 @@ La classe "CameraFocusTarget" si occupa di gestire lo spostamento della telecame
 
 ==== StateMachine
 #figure(caption: [Diagramma sulla struttura della macchina di stati],image("imgs/class-state_machine.png"))\
-La macchina di stati è stata utilizzata per controllare meglio i diversi stati in cui il personaggio del giocatore può eseguire, esempio: il movimento, salto...
-L'uso della macchina di stati, inoltre, ha garantito una gestione più semplice del personaggio del giocatore e ha reso più facile aggiungere funzionalità a questo.
-La figura sotto mostra il possibile flusso degli stati del giocatore.
+La macchina di stati è stata utilizzata per controllare meglio i diversi stati in cui il personaggio del giocatore può eseguire, esempio: il movimento, salto...\
+L'uso della macchina di stati, inoltre, ha garantito una gestione più semplice del personaggio del giocatore e ha reso più facile aggiungere o modificare funzionalità a questo.\
+La figura sotto mostra il flusso degli stati del giocatore.
 #figure(caption: [Diagramma degli stati], image("imgs/sm-player_states.png", width: 60%))
 
 - *StateMachine*\
-La classe "StateMachine" si occupa di gestire la transizione degli stati.
+La classe "StateMachine" si occupa di gestire la transizione degli stati.\
 L'attributo _state_ indica lo stato corrente del personaggio del giocatore. Quando riceve il segnale "finished" dallo stato in cui si trova, si occupa di passare allo stato indicato dal segnale, passando gli eventuali dati contenuto nel Dictionary allo stato successivo.\
 
 - *State*\
 Classe base astratta per tutti gli stati. Include un riferimento al giocatore ed alla macchina di stati. Fornisce i seguenti metodi virtuali per le classi figlie:
 - _+enter(previous_state_path: String, data: Dictionary)_
 #v(-0.5em)
-Chiamato non appena lo stato diventa attivo. L'attributo _data_ contiene dei possibili dati mandati dallo stato precedente.
+Chiamato non appena lo stato diventa attivo.\ L'attributo _data_ contiene dei possibili dati, mandati dallo stato precedente.
 
 - _+exit()_
 #v(-0.5em)
@@ -266,7 +268,7 @@ Chiamato ad ogni frame dello stato quando questo è *attivo*.
 
 - _+handle_input(event: InputEvent)_
 #v(-0.5em)
-Chiamato quando viene premuto un input quando lo stato è attivo. L'attributo _event_ rappresenta l'input premuto.\ 
+Chiamato quando viene premuto un input quando lo stato è *attivo*. L'attributo _event_ rappresenta l'input premuto.\ 
 
 - *IdleState*
 Lo stato "Idle" è lo stato iniziale del giocatore. Questo stato viene chiamato quando il giocatore è fermo per terra.
@@ -302,11 +304,11 @@ La classe "Collectibles" contiene i dati effettivi sul numero dei _training_data
 La classe "PlayerUI" gestisce, appunto, la UI del giocatore. Riceve i segnali di "Collectibles" e aggiorna i valori. La classe è composta da 3 "PanelContainer", ognuno che contiene il numero del suo rispettivo tipo di _training_data_.
 
 ==== PlayerSavesHandler
-La classe "PlayerSavesHandler" gestisce i salvataggi del giocatore. Vengono salvati tre attributi, il numero di ognuno dei _training data_ raccolti per i livelli.
+La classe "PlayerSavesHandler" gestisce i salvataggi del giocatore. Vengono salvati tre attributi: il numero di ognuno dei _training data_ raccolti per i livelli.
 Ogni volta che il giocatore raccoglie un _training data_, il valore viene aggiornato nella classe, e viene chiamato il metodo fornito dalla classe base _save_data()_ per salvare i dati nel file "./player_save.ini".
 
 ==== GrabItem
-La classe "GrabItem" si occupa di controllare quando il giocatore si avvicina ad un oggetto che può prendere.
+La classe "GrabItem" si occupa di controllare quando il giocatore si avvicina ad un oggetto che può prendere.\
 Il controllo viene fatto da un'"Area3D", quando un oggetto che può essere preso entra in quest'area, viene avvisato il giocatore che può afferrare l'oggetto.
 
 ==== ParticleEmitter
@@ -317,7 +319,7 @@ La classe "ParticleEmitter" si occupa di caricare le "GPUParticles3D", cioè le 
 Nei livelli sono presenti diverse entità con cui il giocatore può interagire. Di seguito vengono descritte i diversi tipi di entità, e le classi che le compongono.
 ==== InteractableArea
 Classe base astratta che fornisce i metodi alle classi figlie.
-La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza quando entra La classe è composta da una classe Area3D, che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza appena entra nell'area. 
+La classe è composta da una classe "Area3D", che invia i segnali quando il giocatore entra ed esce, e da una classe "Control" che rappresenta la UI che il giocatore visualizza quando entra.
 ==== Control
 Di seguito vengono mostrati i vari tipi di UI che il giocatore può visualizzare quando entra nell'area.
 #figure(caption: [Diagramma dei vari tipi di UI],image("imgs/class-input_prompts.png", width: auto))
@@ -404,9 +406,9 @@ Quando il giocatore preme l'input per interagire, la telecamera viene cambiata e
 La classe è composta da "CannonMesh" che si occupa della rotazione del cannone quando questo è attivo e quando viene inserito un nuovo punto nel grafico.
 ==== LinearRegressionGraph
 Classe base astratta usata per i due tipi di grafico presenti nel livello: orizzontale e verticale.
-Si occupa di svolgere le operazioni di regressione lineare per ottenere la formula della retta. Tuttavia, non si può applicare la formula ad un oggetto 3D.
-La funzione _calculate_pos_rot_ si occupa di prendere due punti dalla formula della retta, per poi posizionare il rispettivo modello 3D in mezzo ai due punti e ruotarlo in modo che vada verso uno dei due punti.
-La posizione globale viene poi modificata in base al tipo della classe.
+Si occupa di svolgere le operazioni di regressione lineare per ottenere la formula della retta. Tuttavia, non si può applicare la formula ad un oggetto 3D.\
+La funzione _calculate_pos_rot_ si occupa di prendere due punti dalla formula della retta, generata da _calculate_a_b_, per poi posizionare il rispettivo modello 3D in mezzo ai due punti e ruotarlo in modo che vada verso uno dei due punti.\
+Le trasformazioni globali vengono poi modificate in base al tipo della classe.
 == Livello "Albero di decisione"
 Di seguito viene descritto il funzionamento della meccanica principale del livello "Albero di decisione".
 #figure(caption: [Diagramma sul funzionamento dell'Albero di decisione],image("imgs/class-decision_tree_level.png", width: 90%))
@@ -462,51 +464,51 @@ Quando il giocatore accende l'ultimo condizionatore, viene emesso il segnale _ch
 Dopo la scena di intermezzo, alcuni personaggi possono cambiare il dialogo a loro assegnato, oppure il comportamento con il giocatore.
 #figure(caption: [Diagramma sul funzionamento dei personaggi non giocabili nella scena di intermezzo],image("imgs/class-cutscene_npc.png"))
 
-*ChangeNPCScientistBehaviour*\
+- *ChangeNPCScientistBehaviour*\
 Questa classe si occupa di cambiare il comportamento del rispettivo personaggio non giocabile.
 Viene assegnata ad un nodo figlio del nodo del personaggio.
 All'inizio del livello, il personaggio presenta un dialogo predefinito e non si gira quando parla con il giocatore.
 Dopo aver ricevuto il segnale _change_values_ dalla classe "CrashCutscene", sostituisce il dialogo del personaggio con il dialogo assegnato alla classe, e cambia il comportamento, in modo che si giri e cambi animazione quando parla con il giocatore.
 Inoltre, dopo che il giocatore risponde correttamente alla domanda del nuovo dialogo, il comportamento cambia di nuovo, e viene tolto il dialogo, rimpiazzando il messaggio automatico che appare quando il giocatore entra nell'area di interazione.\
 
-*ChangeNPCIceCreamBehaviour*\
+- *ChangeNPCIceCreamBehaviour*\
 Questa classe si occupa di cambiare il comportamento del rispettivo personaggio non giocabile.
 Viene assegnata ad un nodo figlio del nodo del personaggio.\
 Funziona nello stesso modo della classe descritta prima, però avviene solo un cambio del dialogo e non c'è la modifica del comportamento.
 
-*NPCIceCreamSave*\
+- *NPCIceCreamSave*\
 Lo scopo della classe "NPCIceCreamSave" è quello di caricare il gruppo di persone davanti alla gelateria nel caso il livello venga caricato quando già tutti i condizionatori sono stati accesi.\
 Le persone vengono caricate quando la classe riceve il segnale _change_specific_values_, in quanto vengono caricate solo ed esclusivamente al caricamento del livello.\
 
-*ChangeSignUI*\
+- *ChangeSignUI*\
 Questa classe si occupa di cambiare il contenuto del rispettivo cartello.
 Viene assegnata ad un nodo figlio del nodo del cartello.\
 Funziona nello stesso modo delle classi che cambiano il dialogo o comportamento dei personaggi. Quando riceve il segnale _change_values_, cambia il contenuto del cartello, rimpiazzandolo con l'istanza assegnata alla classe.
 
 ==== Gestione degli elementi da animare
 #figure(caption: [Diagramma sul funzionamento degli elementi da animare nella scena di intermezzo],image("imgs/class-cutscene_animate.png"))
-*CrashCutsceneCamera*\
+- *CrashCutsceneCamera*\
 La classe "CrashCutsceneCamera" rappresenta la telecamera che inquadra gli oggetti nella scena di intermezzo. Eredita da "Camera3D".\
 La telecamera viene impostata come corrente quando la scena inizia, e si occupa di mandare i segnali nel giusto momento tramite un "AnimationPlayer", presente come nodo figlio. Il lavoro di questo è semplicemente chiamare i metodi presenti nella classe della telecamera, che a loro volta inviano i segnali.\
 
-*PathCutscene*\
+- *PathCutscene*\
 Questa classe rappresenta un punto che percorre una linea in un determinato percorso. Viene utilizzato dai "FollowNPC" per capire la direzione da seguire per arrivare alla giusta destinazione.
 Non appena riceve il segnale _start_following_ dalla telecamera, il punto inizia a percorrere il percorso, chiamando tutti i nodi figli, in questo caso "FollowNPC" a seguire il punto.\
 
-*FollowNPC*\
+- *FollowNPC*\
 Classe che eredita da un semplice "CharacterBody3D". Rappresenta un personaggio che segue il punto "PathCutscene" per arrivare a destinazione.
 Il metodo _start_following_ viene chiamato dal nodo genitore, per far iniziare a seguire il punto. Ogni personaggio ha una sua velocità variabile, il cui valore è contenuto nell'attributo _speed_.
 Il metodo _stop_following_, invece, fa sistemare il personaggio in una posizione vicina, prima di fermarlo chiamando il metodo _stop_.\
 
-*AreaStopFollow*\
+- *AreaStopFollow*\
 Classe che si occupa a far fermare i personaggi nel seguire il punto nel percorso.
 Quando un personaggio entra nell'area, fa emettere alla classe il segnale _body_entered_ che chiama il metodo _on_body_entered_ mandando il personaggio come argomento. Qui la classe chiama il metodo del personaggio _stop_following_.
 
-*CutsceneEmitParticles*\
+- *CutsceneEmitParticles*\
 Lo scopo di questa classe è semplicemente emettere le "GPUParticles3D" delle scintille quando viene emesso il segnale della telecamera _sparks_particles_.
 Il segnale _change_values_ emesso dalla classe "CrashCutscene", invece, fa caricare gli effetti del fumo.
 
-*Apartment*\
+- *Apartment*\
 La classe "Apartment", come dice il nome, rappresenta un appartamento del livello. Quando riceve il segnale _open_doors_ apre le porte di ingresso del palazzo, con l'animazione giusta, da cui escono i personaggi che vanno verso la gelateria. Quando invece riceve il segnale _change_specific_values_, carica le porte già aperte, in quanto i personaggi sono già usciti e sono già stati caricati davanti alla gelateria.
 
 = Requisiti soddisfatti
@@ -739,5 +741,3 @@ Nella seguente sezione vengono presentati tutti i requisiti presenti nel documen
     "R-07-A-O"," Il gioco deve mostrare gli input del dispositivo che si sta usando",[\u{2713}]
   )
 )
-
-== Grafico requisiti soddisfatti

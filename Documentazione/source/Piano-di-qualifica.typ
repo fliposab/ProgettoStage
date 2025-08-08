@@ -105,7 +105,7 @@ In questo caso, il MPC è il valore minimo da raggiungere per essere considerato
 ))
 
 ==== Grafica 3D
-Le seguenti metriche vengono applicate principalmente al #gloss[modello 3D] principale del giocatore, visto che gli altri modelli utilizzati sono semplicemente cubi o sfere:
+Le seguenti metriche vengono applicate principalmente al modello 3D principale del giocatore, visto che gli altri modelli utilizzati sono semplicemente cubi o sfere:
 - *MPC-MTC - Model Tris Count*: un modello 3D è costituito da un certo numero di triangoli e vertici. Ovviamente, maggiore è il numero di triangoli, più risorse sono richieste per il #gloss[rendering] di esso, rendendo inoltre più complicato successive modifiche. Un numero giusto (né troppo alto né troppo basso) è consigliato per garantire una buona qualità del modello ed evitare possibili complicazioni.\
 - *MPC-MBC - Model Bones Count*: il movimento del modello tramite ossa è un processo che consuma risorse della CPU. Visto che la CPU rappresenta un potenziale #gloss[bottleneck] visto che è molto più lenta rispetto alla GPU, è necessario minimizzare il numero di ossa nell'armatura del modello. Il numero minimo dovrebbe essere: 12 per gli arti, mani e piedi + 4 per la spina dorsale + 16 per le ossa #gloss[IK].
 - *MPC-UIC - UV Islands Count*: avere un numero minore di #gloss[UV Islands] permette una gestione della #gloss[texture] più semplice e prestazioni leggermente migliori, visto che i vertici ai bordi dell'isola UV vengono renderizzati due o più volte.\
