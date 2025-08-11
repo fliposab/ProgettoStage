@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="ProgettoStage"
+config/version="1.0"
 run/main_scene="uid://dda7iu4sk2hnf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 run/low_processor_mode=true
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.06053035, 0.06053035, 0.060530342, 1)
+boot_splash/image="uid://dxupdtcd5j1xv"
+config/icon="uid://c2ugatqw1bawl"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
@@ -178,7 +182,6 @@ interact_reset={
 
 locale/translation_remaps={}
 locale/translations=PackedStringArray("res://localization/localization.en.translation", "res://localization/localization.it.translation")
-locale/test="it"
 
 [layer_names]
 
